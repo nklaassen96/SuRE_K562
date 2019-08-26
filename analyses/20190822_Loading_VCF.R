@@ -14,10 +14,8 @@ Count = c()
 for (i in 1:23) {
   if (i == 23) {i <- c("X")}
         Chr_i = paste("chr", i, sep="")
-        print(Chr_i)
         Chr_i_list <- K562_IndelSNV_NF[which(K562_IndelSNV_NF$CHROM == Chr_i),]
         MNV_Count <- nrow(Chr_i_list)
-        print(MNV_Count)
   if (i == "X") {i <- 23}
         Count[i] <- MNV_Count
 } #Counting MNV in chromosome 1 till 22 plus X
@@ -29,22 +27,28 @@ barplot(Count,space = 0.2,names.arg = c(1:23), col = 2, xlab = "Chromosome", yla
 Nt_REF <- nchar(as.character(K562_IndelSNV_NF[,4])) #Count nr. of characters of REF in a vector
 SNV_REF_Only <- K562_IndelSNV_NF[which(Nt_REF == 1),] #Filter in the database for REF==1
 Nt_ALT <- nchar(as.character(SNV_REF_Only[,5])) #Count in the new database nr of characters in ALT
-SNV_list <- SNV_REF_Only[which(Nt_ALT == 1),]
+K562_SNV <- SNV_REF_Only[which(Nt_ALT == 1),]
+K562_MUT_SNV <- K562_SNV[which(nchar(as.character(K562_SNV[,3])) == 1),] #filter for rs numbers in single-nucleotide variations
+K562_MUT_MNV <- K562_IndelSNV_NF[which(nchar(as.character(K562_IndelSNV_NF[,3])) == 1),] #filter for rs numbers in all variations
 
-SNP_list <- SNV_list[which(nchar(as.character(SNV_list[,3])) == 1),]
 
 #Get a dataframe of SNVs or indels that appear at the same location
 df <- K562_IndelSNV_NF
 df$CHROMPOS <- paste(df$CHROM, df$POS)
 n_occur <- data.frame(table(df$CHROMPOS))
 uni <- n_occur[n_occur$Freq > 1,]
-
+d
 #install data.table
 install.packages("data.table")
 library(data.table)
 #Get a dataframe of SNVs or indels that overlap eachother
 #in accordance with https://stackoverflow.com/questions/40129485/overlap-ranges-in-single-dataframe
-df2 <- K562_IndelSNV_NF_short
+df2 <- K562_MUT_MNV
 df2$MAX <- df2$POS+nchar(as.character(df2$REF))
-c <- outer(df2$MAX, df2$POS)
-
+c <- outer(df2$MAX, df2$POS, ">")
+d <- outer(df2$POS, df2$MAX, "<")
+overlap <- df2 %>%
+  mutate(Overlap = apply(c & d, 1, sum) > 1
+)
+table(overlap$Overlap)
+#works for 1000; works for 10,000; does not work for 3,800,000

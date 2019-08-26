@@ -5,7 +5,7 @@ date: "22-8-2019"
 output: html_document
 ---
 
-I Downloaded the VCF-files from the K562-paper (non-phased) and read them into an R table. Comment.char makes sure that the rows that start with an # will be removed 
+Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using ``wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20. Comment.char makes sure that the rows that start with an # will be removed 
 
 ```{r setup, eval = TRUE ,include=TRUE}
 K562_IndelSNV_NF <- read.table("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", comment.char = "#",)
@@ -41,11 +41,34 @@ In the next step I wanted to separate the SNVs from the Indels. To do that i nee
 Nt_REF <- nchar(as.character(K562_IndelSNV_NF[,4])) #Count nr. of characters of REF in a vector
 SNV_REF_Only <- K562_IndelSNV_NF[which(Nt_REF == 1),] #Filter in the database for REF==1
 Nt_ALT <- nchar(as.character(SNV_REF_Only[,5])) #Count in the new database nr of characters in ALT
-SNV_list <- SNV_REF_Only[which(Nt_ALT == 1),]
+K562_SNV <- SNV_REF_Only[which(Nt_ALT == 1),]
+
 ```
 
 This list of Single-nucleotide Variants can be easily filtered for variants that are already annotated (presumably by the dbSNP138 database). This is done by requiring the length of the ID to be equal to 1 (after converting the vector to a character).
 
 ```{r}
-SNP_list <- SNV_list[which(nchar(as.character(SNV_list[,3])) == 1),]
+K562_MUT_SNV <- K562_SNV[which(nchar(as.character(K562_SNV[,3])) == 1),] #filter for rs numbers in single-nucleotide variations
+K562_MUT_MNV <- K562_IndelSNV_NF[which(nchar(as.character(K562_IndelSNV_NF[,3])) == 1),] #filter for rs numbers in all variations
 ```
+
+Next I generated a `data.frame` to determine whether there are SNPs or indels that are at the same position. For this i merge the CHROM with the POS column to retrieve a unique identifier for every position in the genome. The resulting uni `data.frame` does not contain any rows, indicating no SNVs or indels that start at the same position. SNVs within an indel cannot yet be exclude with this. 
+```{r}
+df <- K562_IndelSNV_NF
+df$CHROMPOS <- paste(df$CHROM, df$POS)
+n_occur <- data.frame(table(df$CHROMPOS))
+uni <- n_occur[n_occur$Freq > 1,]
+```
+
+To exclude indels that overlap, i copied the following script from `https://stackoverflow.com/questions/40129485/overlap-ranges-in-single-dataframe`. It works well for 1,000 or 10,000 MNVs, but 200,000 does not (vector size 178 GB)
+```{r, eval=FALSE}
+df2 <- K562_MUT_MNV
+df2$MAX <- df2$POS+nchar(as.character(df2$REF))
+c <- outer(df2$MAX, df2$POS, ">")
+d <- outer(df2$POS, df2$MAX, "<")
+overlap <- df2 %>%
+  mutate(Overlap = apply(c & d, 1, sum) > 1
+)
+table(overlap$Overlap)
+```
+
