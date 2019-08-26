@@ -1,0 +1,51 @@
+---
+title: "20192208 Journal Week 1"
+author: "Noud Klaassen"
+date: "22-8-2019"
+output: html_document
+---
+
+I Downloaded the VCF-files from the K562-paper (non-phased) and read them into an R table. Comment.char makes sure that the rows that start with an # will be removed 
+
+```{r setup, eval = TRUE ,include=TRUE}
+K562_IndelSNV_NF <- read.table("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", comment.char = "#",)
+colnames(K562_IndelSNV_NF) <- c("CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FILTER", 'INFO', 'FORMAT', 'K562_PE')
+```
+
+Next, I generated a histogram displaying the distribution plot of the QUAL scores of the different variants that were called (including SNVs and Indels)
+
+```{r, eval=TRUE}
+hist(K562_IndelSNV_NF[,6], col = 3, xlab = "QUAL", xlim = c(0, 6000),breaks = 1000, main = "Variant Calling Quality")
+```
+Then, I wanted to count the number of variants (SNVs and Indels) per chromosome, by using a loop. In this loop, the number of rows will be counted for each specific chromosome. I use the paste-function to generate the required character to search for right chromosome (e.g. chr4). The X-chromosome requires a conversion from the number 23 to the character 'X'. The nrow-function wil count the number of rows that have been generated for a certain chromosome. Thes counts are stored in the Count-variable.
+
+```{r,eval=TRUE}
+Count = c()
+for (i in 1:23) {
+  if (i == 23) {i <- c("X")}
+        Chr_i = paste("chr", i, sep="")
+        Chr_i_list <- K562_IndelSNV_NF[which(K562_IndelSNV_NF$CHROM == Chr_i),]
+        MNV_Count <- nrow(Chr_i_list)
+  if (i == "X") {i <- 23}
+        Count[i] <- MNV_Count
+}
+```
+
+These values can then be plotted in a bar-graph
+```{r, eval=TRUE}
+barplot(Count,space = 0.2,names.arg = c(1:23), col = 2, xlab = "Chromosome", ylab = "# of Multi-nucleotide Variants (MNV)")
+```
+In the next step I wanted to separate the SNVs from the Indels. To do that i needed to transform the ALT and REF columns from factors to characters, so the length of the characters could be determined by nchar-function. In this way, only the variations that have 1 nt in their REF-sequence and 1-nt in the ALT sequence will be kept.
+
+```{r, eval=TRUE}
+Nt_REF <- nchar(as.character(K562_IndelSNV_NF[,4])) #Count nr. of characters of REF in a vector
+SNV_REF_Only <- K562_IndelSNV_NF[which(Nt_REF == 1),] #Filter in the database for REF==1
+Nt_ALT <- nchar(as.character(SNV_REF_Only[,5])) #Count in the new database nr of characters in ALT
+SNV_list <- SNV_REF_Only[which(Nt_ALT == 1),]
+```
+
+This list of Single-nucleotide Variants can be easily filtered for variants that are already annotated (presumably by the dbSNP138 database). This is done by requiring the length of the ID to be equal to 1 (after converting the vector to a character).
+
+```{r}
+SNP_list <- SNV_list[which(nchar(as.character(SNV_list[,3])) == 1),]
+```

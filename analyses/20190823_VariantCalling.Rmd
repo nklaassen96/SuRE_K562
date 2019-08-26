@@ -1,0 +1,25 @@
+---
+title: "20190823_VariantCalling"
+author: "Noud Klaassen"
+date: "23-8-2019"
+output: html_document
+---
+Bioconductor was installed
+```{r}
+#Install Bioconductor
+if (!requireNamespace("BiocManager", quietly = TRUE))
+  install.packages("BiocManager")
+BiocManager::install()
+```
+Other requered packages were installed
+```{r}
+BiocManager::install(c("TxDb.Hsapiens.UCSC.hg19.knownGene"))
+```
+
+
+
+## Rsession
+```{r session}
+sessionInfo()
+```
+============
