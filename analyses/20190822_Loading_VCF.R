@@ -37,7 +37,7 @@ df <- K562_IndelSNV_NF
 df$CHROMPOS <- paste(df$CHROM, df$POS)
 n_occur <- data.frame(table(df$CHROMPOS))
 uni <- n_occur[n_occur$Freq > 1,]
-d
+
 #install data.table
 install.packages("data.table")
 library(data.table)
