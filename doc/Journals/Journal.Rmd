@@ -9,4 +9,4 @@ output: html_document
 VCF-files of K562 have been loaded in RStudio and I have done some exploratory analyses on the nr. of SNPs per chromosome, average QUAL-scores
 
 #Week 2
-I linked the files to the GitHub repository which I will commit every day at the end of the day. Also I started exploring the uniqueness in the MNVs that I have found. It seems that 0 MNVs start at the same position, but 0.5% of MNVs have some overlap with other MNVs
+I generated a RProject for the K562_SuRE directory. I linked the files to the GitHub repository which I will commit every day at the end of the day. Also I started exploring the uniqueness in the MNVs that I have found. It seems that 0 MNVs start at the same position, but 0.5% of MNVs have some overlap with other MNVs
