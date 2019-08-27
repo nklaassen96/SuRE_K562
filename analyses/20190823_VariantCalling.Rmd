@@ -5,17 +5,57 @@ date: "23-8-2019"
 output: html_document
 ---
 Bioconductor was installed
-```{r}
+```{r, include = FALSE}
 #Install Bioconductor
 if (!requireNamespace("BiocManager", quietly = TRUE))
   install.packages("BiocManager")
 BiocManager::install()
 ```
-Other requered packages were installed
-```{r}
+Other required packages were installed
+```{r, include = FALSE}
 BiocManager::install(c("TxDb.Hsapiens.UCSC.hg19.knownGene"))
 ```
+Load libraries; Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using ``wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20
+```{r}
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(VariantTools)
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
+               genome = "hg19")
+```
 
+An exploratory analysis was performed to disect different headers from the vcf-file. 
+```{r, include=FALSE}
+fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
+vcf <- readVcf(fl, "hg19")
+header(vcf) #shows the header
+samples(header(vcf)) #shows subset 'samples' of the header
+geno(header(vcf)) #shows subset 'geno' of the header
+head(rowRanges(vcf),5) #retrieve GRanges object of 3 rows
+ref(vcf)[1:5] #retrieve REF sequence for the first 5 rows in a DNAStringSet object
+qual(vcf)[1:5] #retrieve QUAL scores of the first 5 rows
+alt(vcf)[1:5] #retrieve ALT sequences (could be more than 1)
+geno(vcf) #shows al genotypes as described in FORMAT fields
+sapply(geno(vcf), class)
+info(vcf) #shows some sort of summary of all the data. Rows are indicated by rs-numbers or chromosome positions
+rowRanges(vcf) #Gives the Granges of all rows (what is the difference with head(Rowranges)???)
+as.data.frame(rowRanges(vcf)) #generates dataframe of these rows
+vcf[1:100,] #subset few rows within a VCF
+seqlevels(vcf) <- "chr22" #set the seqlevels all to "chr22" instead of 22 (this is the required format)
+```
+
+Then we try to identify number of Variants, however it counts a lot of regions double. Due to multiple txdb ids?
+```{r}
+rd <- rowRanges(vcf)
+tst <- locateVariants(vcfK, txdb, AllVariants()) #locate the variants
+table(tst$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9M
+barplot(table(tst$LOCATION)/100000,xlab = "Variant", ylab="Frequency (*10^5)",)
+```
+Then I tried to identify the overlapping regions
+```{r}
+ts <- table(countOverlaps(vcfK))
+barplot(ts[2:8], xlab = "# of Overlaps", ylab = "Frequency")
+```
 
 
 ## Rsession

@@ -7,7 +7,7 @@ colnames(K562_IndelSNV_NF) <- c("CHROM", "POS", "ID", "REF", "ALT", "QUAL", "FIL
 #Make a short testing dataframe with only 1000 MNV
 K562_IndelSNV_NF_short <- K562_IndelSNV_NF[c(1:1000),c(1:10)]
 #Generate a histogram 
-hist(K562_IndelSNV_NF_short[,6], col = 2, xlab = "QUAL", breaks = 40)
+#hist(K562_IndelSNV_NF_short[,6], col = 2, xlab = "QUAL", breaks = 40)
 hist(K562_IndelSNV_NF[,6], col = 3, xlab = "QUAL", xlim = c(0, 6000),breaks = 1000, main = "Variant Calling Quality")
 
 Count = c()
@@ -41,14 +41,20 @@ uni <- n_occur[n_occur$Freq > 1,]
 #install data.table
 install.packages("data.table")
 library(data.table)
+library(dplyr)
 #Get a dataframe of SNVs or indels that overlap eachother
 #in accordance with https://stackoverflow.com/questions/40129485/overlap-ranges-in-single-dataframe
-df2 <- K562_MUT_MNV
+df2 <- K562_IndelSNV_NF[1:1000,]
 df2$MAX <- df2$POS+nchar(as.character(df2$REF))
 c <- outer(df2$MAX, df2$POS, ">")
 d <- outer(df2$POS, df2$MAX, "<")
-overlap <- df2 %>%
+df2o <- df2 %>%
   mutate(Overlap = apply(c & d, 1, sum) > 1
 )
-table(overlap$Overlap)
-#works for 1000; works for 10,000; does not work for 3,800,000
+table(df2o$Overlap)
+df2o <- df2o %>% filter(df2o$Overlap == TRUE) #returns overlapping mnvs
+#works for 1000; works for 10,000; works for 50,000 (5 min); does not work for 3,800,000
+
+#Check ALT sequences that contain a "," indicating multiple alternative sequences
+tst <- K562_IndelSNV_NF[grep(",", as.character(K562_IndelSNV_NF$ALT)),]
+tst2 <- tst[which(nchar(as.character(tst$ALT)) == 3),]
