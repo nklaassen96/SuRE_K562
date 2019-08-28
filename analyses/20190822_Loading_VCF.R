@@ -23,7 +23,7 @@ for (i in 1:23) {
 #plot the nmbr of MNVs per chromosome
 barplot(Count,space = 0.2,names.arg = c(1:23), col = 2, xlab = "Chromosome", ylab = "# of Multi-nucleotide Variants (MNV)")
 
-#Generate a dataframe of SNVs (removing indels)
+#Generate a dataframe of SNVs (removing indels) #does not work as it does not account for multiple ALT sequences
 Nt_REF <- nchar(as.character(K562_IndelSNV_NF[,4])) #Count nr. of characters of REF in a vector
 SNV_REF_Only <- K562_IndelSNV_NF[which(Nt_REF == 1),] #Filter in the database for REF==1
 Nt_ALT <- nchar(as.character(SNV_REF_Only[,5])) #Count in the new database nr of characters in ALT

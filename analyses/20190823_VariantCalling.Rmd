@@ -4,58 +4,78 @@ author: "Noud Klaassen"
 date: "23-8-2019"
 output: html_document
 ---
-Bioconductor was installed
-```{r, include = FALSE}
-#Install Bioconductor
-if (!requireNamespace("BiocManager", quietly = TRUE))
-  install.packages("BiocManager")
-BiocManager::install()
-```
-Other required packages were installed
-```{r, include = FALSE}
-BiocManager::install(c("TxDb.Hsapiens.UCSC.hg19.knownGene"))
-```
-Load libraries; Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using ``wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20
-```{r}
+
+Load libraries; Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using `wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20
+```{r, message = FALSE}
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(VariantTools)
+library(VariantAnnotation)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
                genome = "hg19")
+gr <- rowRanges(vcfK)
 ```
 
 An exploratory analysis was performed to disect different headers from the vcf-file. 
-```{r, include=FALSE}
-fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
-vcf <- readVcf(fl, "hg19")
-header(vcf) #shows the header
-samples(header(vcf)) #shows subset 'samples' of the header
-geno(header(vcf)) #shows subset 'geno' of the header
-head(rowRanges(vcf),5) #retrieve GRanges object of 3 rows
-ref(vcf)[1:5] #retrieve REF sequence for the first 5 rows in a DNAStringSet object
-qual(vcf)[1:5] #retrieve QUAL scores of the first 5 rows
-alt(vcf)[1:5] #retrieve ALT sequences (could be more than 1)
-geno(vcf) #shows al genotypes as described in FORMAT fields
-sapply(geno(vcf), class)
-info(vcf) #shows some sort of summary of all the data. Rows are indicated by rs-numbers or chromosome positions
-rowRanges(vcf) #Gives the Granges of all rows (what is the difference with head(Rowranges)???)
-as.data.frame(rowRanges(vcf)) #generates dataframe of these rows
-vcf[1:100,] #subset few rows within a VCF
-seqlevels(vcf) <- "chr22" #set the seqlevels all to "chr22" instead of 22 (this is the required format)
+```{r, eval = FALSE}
+  fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
+  vcf <- readVcf(fl, "hg19")
+  header(vcf) #shows the header
+  samples(header(vcf)) #shows subset 'samples' of the header
+  geno(header(vcf)) #shows subset 'geno' of the header
+  head(rowRanges(vcf),5) #retrieve GRanges object of 3 rows
+  ref(vcf)[1:5] #retrieve REF sequence for the first 5 rows in a DNAStringSet object
+  qual(vcf)[1:5] #retrieve QUAL scores of the first 5 rows
+  alt(vcf)[1:5] #retrieve ALT sequences (could be more than 1)
+  geno(vcf) #shows al genotypes as described in FORMAT fields
+  sapply(geno(vcf), class)
+  info(vcf) #shows some sort of summary of all the data. Rows are indicated by rs-numbers or chromosome positions 
+  rowRanges(vcf) #Gives the Granges of all rows (what is the difference with head(Rowranges)???)
+  as.data.frame(rowRanges(vcf)) #generates dataframe of these rows
+  vcf[1:100,] #subset few rows within a VCF
+  seqlevels(vcf) <- "chr22" #set the seqlevels all to "chr22" instead of 22 (this is the required format)
+  rd <- rowRanges(vcf)
+  lengths(gr$ALT) #determine the amount of ALT sequences
+  table(width(gr_snv)) #contingency table for the length of the DNA fragments (REF or ALT??), ik vermoed REF
+  expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
 ```
 
-Then we try to identify number of Variants, however it counts a lot of regions double. Due to multiple txdb ids?
+It is important to note that all analyses here where done on the same `GRanges` file. This means that all filters apply for all 3,800,959 variants within the VCF.
+
+SNVs (in contrast to indels and other structural variants) were identified with the `isSNV` function. This is the only function that only works on the CollapsedVCF-object and not on the GRanges-object. First table shows the amount of alternative sequences as a contingency table. The second table shows how many SNVs (TRUE) compared to other variations (FALSE) exist within the VCF-object.
 ```{r}
-rd <- rowRanges(vcf)
-tst <- locateVariants(vcfK, txdb, AllVariants()) #locate the variants
-table(tst$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9M
-barplot(table(tst$LOCATION)/100000,xlab = "Variant", ylab="Frequency (*10^5)",)
+gr_snv <- gr[isSNV(vcfK, singleAltOnly = FALSE)] #isSNV(vcfK) returns TRUE or FALSE for whether it is a SNV; only works for VCF-objects, not granges, so should be performed first?
+table(lengths(gr_snv$ALT)) #shows the number of alternative sequences
+table(isSNV(vcfK, singleAltOnly = FALSE)) #shows amount of SNVs compared to other variations
 ```
-Then I tried to identify the overlapping regions
+
+Overlap was determined with the `countOverlaps` function. Tables show the contingency of overlaps before and after filtering for overlapping variations.
 ```{r}
-ts <- table(countOverlaps(vcfK))
-barplot(ts[2:8], xlab = "# of Overlaps", ylab = "Frequency")
+gr_no_overlap <- gr[countOverlaps(gr) == 1] #filter the GRanges object for where the number of counts equals 1 or less
+table(countOverlaps(gr))
+table(countOverlaps(gr_no_overlap))  
+barplot(table(countOverlaps(gr))[2:8], xlab = "# of Overlaps", ylab = "Frequency")
 ```
+
+Known variations (as observed from their respective rs-number) where compared with the amount of novel variations. 
+```{r}
+gr_rs <- gr[grep("rs", names(gr))]
+gr_new <- gr[grep("chr", names(gr))]
+length(gr_rs)+length(gr_new) == length(gr)
+length(gr_rs)
+length(gr_new)
+```
+
+Variants were annotated with the `VariantAnnotation` tool.
+```{r, message = FALSE}
+gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
+gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
+```
+```{r}
+table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
+barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
+```
+
 
 
 ## Rsession
