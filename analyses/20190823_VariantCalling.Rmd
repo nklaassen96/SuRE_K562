@@ -6,18 +6,22 @@ output: html_document
 ---
 
 Load libraries; Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using `wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20
-```{r, message = FALSE}
+```{r Library loading, message = FALSE}
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(VariantTools)
 library(VariantAnnotation)
+library(karyoploteR)
+library(ggplot2)
+library(vcfR)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
                genome = "hg19")
 gr <- rowRanges(vcfK)
+gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype
 ```
 
 An exploratory analysis was performed to disect different headers from the vcf-file. 
-```{r, eval = FALSE}
+```{r Exploratory, eval = FALSE, echo=FALSE}
   fl <- system.file("extdata", "chr22.vcf.gz", package="VariantAnnotation")
   vcf <- readVcf(fl, "hg19")
   header(vcf) #shows the header
@@ -40,41 +44,107 @@ An exploratory analysis was performed to disect different headers from the vcf-f
   expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
 ```
 
-It is important to note that all analyses here where done on the same `GRanges` file. This means that all filters apply for all 3,800,959 variants within the VCF.
+It is important to note that all analyses here where done on the same `GRanges` file. This means that all filters apply for all 3,800,959 variants within the VCF. In this method, information on a certain variant (its genotype, SNV vs other variants or whether it is a new or existing variant) were annotated by adding metadata columns in the `GRanges`-file. Genotypes were obtained from the `CollapsedVCF`-object with the `geno()`-function. The `is_het()`-function from the `vcfR`-package is able to distinguish between heterozygotes and homozygotes on the basis of this genotype-matrix.SNVs (in contrast to indels and other structural variants) were identified with the `isSNV()`-function. This is the only function that only works on the CollapsedVCF-object and not on the GRanges-object. 'New' variants were defined as not having an rs-number. Overlapping variants (e.g. SNV within an Indel) were identified with the `countOverlaps()`-function.
 
-SNVs (in contrast to indels and other structural variants) were identified with the `isSNV` function. This is the only function that only works on the CollapsedVCF-object and not on the GRanges-object. First table shows the amount of alternative sequences as a contingency table. The second table shows how many SNVs (TRUE) compared to other variations (FALSE) exist within the VCF-object.
-```{r}
-gr_snv <- gr[isSNV(vcfK, singleAltOnly = FALSE)] #isSNV(vcfK) returns TRUE or FALSE for whether it is a SNV; only works for VCF-objects, not granges, so should be performed first?
-table(lengths(gr_snv$ALT)) #shows the number of alternative sequences
-table(isSNV(vcfK, singleAltOnly = FALSE)) #shows amount of SNVs compared to other variations
+This way, the desired `GRanges`-file can be created using boolean arguments like 
+```length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP2 == FALSE])```
+```{r Metadata generation}
+gr <- rowRanges(vcfK) #generetes a GRanges object from the vcf-file
+gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype (i.e. 0/0/1/1)
+gr$HET <- is_het(gr$GT, na_is_false=TRUE) #Add a metadatacolumn for heterogeneity (TRUE = heterozygote, FALSE = homozygote)
+gr$SNV <- isSNV(vcfK, singleAltOnly = FALSE) #Add a metadatacolumn for SNV (TRUE = SNV, FALSE = else)
+gr$NEW <- grepl("chr", names(gr)) #Add a metadatacolumn for whether the mutation is new (TRUE) or already has an rs-number (FALSE)
+gr$OVERLAP <- countOverlaps(gr) > 1
+gr[1667]
 ```
 
-Overlap was determined with the `countOverlaps` function. Tables show the contingency of overlaps before and after filtering for overlapping variations.
-```{r}
-gr_no_overlap <- gr[countOverlaps(gr) == 1] #filter the GRanges object for where the number of counts equals 1 or less
-table(countOverlaps(gr))
-table(countOverlaps(gr_no_overlap))  
-barplot(table(countOverlaps(gr))[2:8], xlab = "# of Overlaps", ylab = "Frequency")
+```{r Bargraphs, echo=FALSE}
+#Plot SNV vs other
+b <- barplot(table(gr$SNV), 
+             main = "SNVs",
+             ylab = "Frequency",
+             ylim = c(0,3500000),
+             names.arg = c("Other (e.g. Indel)", "SNV"))
+text(x=b, y=table(gr$SNV)+200000, labels = as.character(table(gr$SNV)))
+
+#Plot nr. of Overlaps
+b <- barplot(table(countOverlaps(gr)), 
+             main = "Overlapping variants",
+             xlab = "Number of overlaps +1",
+             ylab = "Frequency",
+             ylim = c(0,4200000),
+                          )
+text(x=b, y=table(countOverlaps(gr))+200000, labels = as.character(table(countOverlaps(gr))))
+
+#Plot NEW vs rs
+b <- barplot(table(gr$NEW), 
+             main = "Novel variants (no rs-number)",
+             ylab = "Frequency",
+             ylim = c(0,4200000),
+             names.arg = c("dbSNP138", "Novel"))
+text(x=b, y=table(gr$NEW)+200000, labels = as.character(table(gr$NEW)))
+
+#Plot Heterozygote vs Homozygote
+b <- barplot(table(gr$HET), 
+             main = "Variant heterozygosity",
+             ylab = "Frequency",
+             ylim = c(0,2500000),
+             names.arg = c("Homozygote", "Heterozygote")
+)
+text(x=b, y=table(gr$HET)+200000, labels = as.character(table(gr$HET)))
+
+
 ```
 
-Known variations (as observed from their respective rs-number) where compared with the amount of novel variations. 
-```{r}
-gr_rs <- gr[grep("rs", names(gr))]
-gr_new <- gr[grep("chr", names(gr))]
-length(gr_rs)+length(gr_new) == length(gr)
-length(gr_rs)
-length(gr_new)
-```
-
-Variants were annotated with the `VariantAnnotation` tool.
-```{r, message = FALSE}
+Variants were annotated with the `VariantAnnotation` tool. Usefull info on `https://www.bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Tutorial.pdf`. The `locateVariants`-function is able to distinguish between different kinds of transcripts which are `spliceSite`, `intron`, `fiveUTR`, `threeUTR`, `coding`, `intergenic`, and `promoter`. This function requires a `GRanges` object, a link to a transcript annotation database (in this case hg19 UCSC) and the desired transcript. Unfortunately, a single variant will receive multiple `intron`-annotations, artificially increasing the prevalence of this variant annotation. 
+```{r Variant annotation, message = FALSE, results="hide", warning=FALSE}
 gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
 gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
+gr_c <- locateVariants(gr, txdb, CodingVariants())
 ```
-```{r}
+```{r Variant annotation plotting}
 table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
 barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
 ```
+
+To further explore the variant dataset, the density of the variants was assessed with the `karyoploteR` package. A helpfull website for this package was found on `https://bernatgel.github.io/karyoploter_tutorial//Tutorial/PlotParams/PlotParams.html`. The `ggplot`-package is used for the `alpha`-function, allowing for transparant colors. The `karyoploteR`-package allows for visualization of `GRanges`-objects on a Karyoplot. The variable `pp` is used temporarily to display the title closer to the plot. The next arguments are used to generate the plot for chromosome 1 only. Gray displays the densityplot of the `GRanges`-object containing all (3,9 million) variations while red only displays the novel (unannotated; 219,003) variations. It seems that the gray and red distributions follow a similar patterns (i.e. there are no regions that are enriched for novel mutations). Note that the paterns between red and gray should compared, not the actual values.
+
+```{r Karyoplot}
+pp <- getDefaultPlotParams(plot.type=1)
+pp$topmargin <- 15
+pp$leftmargin <- 0.2
+kp <- plotKaryotype(plot.type = 1, 
+                    chromosomes = "chr1", 
+                    main = "Mutation density plot (including SNVs and other variants)",
+                    plot.params = pp
+                    )
+kp <- kpDataBackground(kp)
+kp <- kpAxis(kp, ymin = 0, ymax = 1, )
+kp <- kpAddLabels(kp, labels = "All", col = "gray", r0 = 0.75, label.margin = 0.01, srt = 45, cex = 2)
+kp <- kpAddLabels(kp, labels = "Novel", col = "red", r0 = 0.35, label.margin = 0.01, srt = 45, cex = 2)
+kpPlotDensity(kp, data=gr, col = alpha("gray", 1), window.size = 1000000, border = 1)
+kpPlotDensity(kp, data=gr[gr$NEW == TRUE], col = alpha("red", 0.6), window.size = 1000000, border = 1)
+```
+```{r, echo=FALSE}
+pp <- getDefaultPlotParams(plot.type=1)
+pp$topmargin <- 15
+pp$leftmargin <- 0.2
+kp <- plotKaryotype(plot.type = 1, 
+                    chromosomes = "chr1", 
+                    main = "Mutation density plot (including SNVs and other variants)",
+                    plot.params = pp
+)
+kp <- kpDataBackground(kp)
+kp <- kpAxis(kp, ymin = 0, ymax = 1, )
+kp <- kpAddLabels(kp, labels = "Intergenic", col = "gray", r0 = 0.75, label.margin = 0.01, srt = 45, cex = 2)
+kp <- kpAddLabels(kp, labels = "Genes", col = "red", r0 = 0.35, label.margin = 0.01, srt = 45, cex = 2)
+kpPlotDensity(kp, data=gr_ig, col = alpha("gray", 1), window.size = 1000000, border = 1)
+kpPlotDensity(kp, data=gr_c, col = alpha("red", 0.6), window.size = 1000000, border = 1)
+```
+
+
+
+
 
 
 
