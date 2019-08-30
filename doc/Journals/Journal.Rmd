@@ -4,9 +4,28 @@ author: "Noud Klaassen"
 output: html_document
 ---
 
+---
+title: "Test"
+---
+## Week 1
+#### 15-08-2019 (Th)
+VCF-files of K562 have been loaded in RStudio (non-phased) via the `wget` command in Linux. Exploratory analyses on the nr. of SNPs per chromosome, average QUAL-scores.
 
-#Week 1
-VCF-files of K562 have been loaded in RStudio and I have done some exploratory analyses on the nr. of SNPs per chromosome, average QUAL-scores
+#### 16-08-2019 (Fr)
+Received feedback from Ludo on the `RMarkdown`-file that was created. Some more exploratory analysese were performed
 
-#Week 2
+## Week 2
+#### 26-08-2019 (Mo)
 I generated a RProject for the K562_SuRE directory. I linked the files to the GitHub repository which I will commit every day at the end of the day. Also I started exploring the uniqueness in the MNVs that I have found. It seems that 0 MNVs start at the same position, but 0.5% of MNVs have some overlap with other MNVs
+
+#### 27-08-2019 (Tu)
+I to find a way to identify overlapping Indels and SNVs. I made a function that was able to do this up to 50.000 rows at a time (which is not enough). Variants were annotated with the `TxDb.Hsapiens.UCSC.hg19.knownGene`-package (supplying the transcript database) and the `VariantTools`-package (allowing for variant identification)
+
+#### 28-08-2019 (We)
+Exploratory analysis to identify SNVs, new vs known variants without the use of extra packages. Talked with Bas & Ludo about the project. Need to filter heterozygotes and generate a distributionplot of the location of mutations on a chromosome
+
+#### 29-08-2019 (Th)
+I rewrote the whole `20190823_VariantCalling.R`-script. Primarily all information (e.g. new vs known variant) was put into a new `GRanges` object. With the new script, all this information is stored within the metadata of the same `GRanges` object. The desired objects can therefore easily be filtered out by using boolean arguments. Also started on the visualization of data using a distribution plot. For this I used the `karyoploteR` function. 
+
+#### 30-08-2019 (Fr)
+Tried to annotate transcription factor binding domains. Didn't work because the `MotIV`-package required GSL which was hard to install and link properly. Installed conda on the server. Got the dotplot function of the `KaryoplotR` working.

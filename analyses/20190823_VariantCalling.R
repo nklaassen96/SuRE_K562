@@ -1,10 +1,11 @@
+## STARTUP
 {
 ## Library installation and data reading
 {
 ##Install Bioconductor
-#if (!requireNamespace("BiocManager", quietly = FALSE))
-#  install.packages("BiocManager")
-#BiocManager::install()
+    #if (!requireNamespace("BiocManager", quietly = FALSE))
+    #  install.packages("BiocManager")
+    #BiocManager::install()
 
 ##install TxDB database
 #BiocManager::install("TxDb.Hsapiens.UCSC.hg19.knownGene",INSTALL_opts = c('--no-lock'))
@@ -13,7 +14,7 @@ library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(VariantTools)
 library(karyoploteR)
 library(ggplot2)
-library(vcfK)
+library(vcfR)
 #library(VariantAnnotation) #is within VariantTools?
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 #read the vcf file that was downloaded
@@ -45,11 +46,12 @@ vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.
   seqlevels(vcf) <- "chr22" #set the seqlevels all to "chr22" instead of 22 (this is the required format)
   rd <- rowRanges(vcf)
   #lengths(gr$ALT) #determine the amount of ALT sequences
-  table(width(gr)) #contingency table for the length of the DNA fragments (REF or ALT??), ik vermoed REF
+  #table(width(gr)) #contingency table for the length of the DNA fragments (REF or ALT??), ik vermoed REF
   expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
-  gr_q <- gr[gr$QUAL>1500]
+  #gr_q <- gr[gr$QUAL>1500]
 }
 }
+
 ## Generating metadatacolumns in GRanges file
 {
 gr <- rowRanges(vcfK) #generetes a GRanges object from the vcf-file
@@ -61,15 +63,19 @@ gr$OVERLAP <- countOverlaps(gr) > 1
 }
 
 ## Annotate the variants
+{
 gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
 gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
 gr_c <- locateVariants(gr, txdb, CodingVariants())
 table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
 barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
+}
 
 #find variants 
-length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP2 == FALSE])
+length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP == FALSE])
 
+## Plot various relationships within the variations
+{
 #Plot SNV vs other
 b <- barplot(table(gr$SNV), 
              main = "SNVs",
@@ -103,7 +109,7 @@ b <- barplot(table(gr$HET),
              names.arg = c("Homozygote", "Heterozygote")
 )
 text(x=b, y=table(gr$HET)+200000, labels = as.character(table(gr$HET)))
-
+}
 
 ## Plot Karyotype
 {
@@ -136,4 +142,24 @@ kpPlotDensity(kp, data=gr_ig, col = alpha("gray", 1), window.size = 2000000, bor
 kpPlotDensity(kp, data=gr_c, col = alpha("red", 0.6), window.size = 2000000, border = 1)
 }
 
+gr_tst <- gr[gr$HET == TRUE & gr$SNV == TRUE & gr$OVERLAP == FALSE & seqnames(gr) == "chr1"]
 
+pp <- getDefaultPlotParams(plot.type=1)
+pp$topmargin <- 15
+kp <- plotKaryotype(plot.type = 1, 
+                    chromosomes = c("chr1"), 
+                    main = "QUAL scores Black is known, red is novel SNV",
+                    plot.params = pp
+)
+kp <- kpDataBackground(kp)
+kp <- kpAxis(kp, ymin = 0, ymax = max(gr_tst$QUAL))
+kp <- kpPoints(kp, chr = "chr1", 
+               x = start(gr_tst), 
+               y = gr_tst$QUAL/max(gr_tst$QUAL),
+               col = alpha(colour = 1, alpha = 0.01)) #All
+kp <- kpPoints(kp, chr = "chr1", 
+               x = start(gr_tst[gr_tst$NEW == T]), 
+               y = gr_tst$QUAL[gr_tst$NEW == T]/max(gr_tst$QUAL),
+               col = alpha(colour = 6, alpha = 0.05)) #Only NEW
+
+               

@@ -141,7 +141,26 @@ kp <- kpAddLabels(kp, labels = "Genes", col = "red", r0 = 0.35, label.margin = 0
 kpPlotDensity(kp, data=gr_ig, col = alpha("gray", 1), window.size = 1000000, border = 1)
 kpPlotDensity(kp, data=gr_c, col = alpha("red", 0.6), window.size = 1000000, border = 1)
 ```
+```{r, echo = FALSE}
+gr_tst <- gr[gr$HET == TRUE & gr$SNV == TRUE & gr$OVERLAP == FALSE & seqnames(gr) == "chr1"]
 
+pp <- getDefaultPlotParams(plot.type=1)
+pp$topmargin <- 15
+kp <- plotKaryotype(plot.type = 1, 
+                    chromosomes = c("chr1"), 
+                    main = "QUAL scores Black is known, red is novel SNV",
+                    plot.params = pp
+)
+kp <- kpDataBackground(kp)
+kp <- kpAxis(kp, ymin = 0, ymax = 1, )
+kp <- kpPoints(kp, chr = "chr1", 
+               x = start(gr_tst), 
+               y = gr_tst$QUAL/max(gr_tst$QUAL)) #All
+kp <- kpPoints(kp, chr = "chr1", 
+               x = start(gr_tst[gr_tst$NEW == T]), 
+               y = gr_tst$QUAL[gr_tst$NEW == T]/max(gr_tst$QUAL),
+               col = "red") #Only NEW
+```
 
 
 

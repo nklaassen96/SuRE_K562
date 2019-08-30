@@ -368,10 +368,39 @@ summary {
 </div>
 
 
-<p><code>een</code></p>
-<p><code>twee</code></p>
-<p><code>drie</code></p>
-<p>#een ##twee ###drie ####vier</p>
+<div id="week-1" class="section level2">
+<h2>Week 1</h2>
+<div id="th" class="section level4">
+<h4>15-08-2019 (Th)</h4>
+<p>VCF-files of K562 have been loaded in RStudio (non-phased) via the <code>wget</code> command in Linux. Exploratory analyses on the nr. of SNPs per chromosome, average QUAL-scores.</p>
+</div>
+<div id="fr" class="section level4">
+<h4>16-08-2019 (Fr)</h4>
+<p>Received feedback from Ludo on the <code>RMarkdown</code>-file that was created. Some more exploratory analysese were performed</p>
+</div>
+</div>
+<div id="week-2" class="section level2">
+<h2>Week 2</h2>
+<div id="mo" class="section level4">
+<h4>26-08-2019 (Mo)</h4>
+<p>I generated a RProject for the K562_SuRE directory. I linked the files to the GitHub repository which I will commit every day at the end of the day. Also I started exploring the uniqueness in the MNVs that I have found. It seems that 0 MNVs start at the same position, but 0.5% of MNVs have some overlap with other MNVs</p>
+</div>
+<div id="tu" class="section level4">
+<h4>27-08-2019 (Tu)</h4>
+<p>I to find a way to identify overlapping Indels and SNVs. I made a function that was able to do this up to 50.000 rows at a time (which is not enough). Variants were annotated with the <code>TxDb.Hsapiens.UCSC.hg19.knownGene</code>-package (supplying the transcript database) and the <code>VariantTools</code>-package (allowing for variant identification)</p>
+</div>
+<div id="we" class="section level4">
+<h4>28-08-2019 (We)</h4>
+<p>Exploratory analysis to identify SNVs, new vs known variants without the use of extra packages. Talked with Bas &amp; Ludo about the project. Need to filter heterozygotes and generate a distributionplot of the location of mutations on a chromosome</p>
+</div>
+<div id="th-1" class="section level4">
+<h4>29-08-2019 (Th)</h4>
+<p>I rewrote the whole <code>20190823_VariantCalling.R</code>-script. Primarily all information (e.g. new vs known variant) was put into a new <code>GRanges</code> object. With the new script, all this information is stored within the metadata of the same <code>GRanges</code> object. The desired objects can therefore easily be filtered out by using boolean arguments. Also started on the visualization of data using a distribution plot. For this I used the <code>karyoploteR</code> function.</p>
+</div>
+<div id="fr-1" class="section level4">
+<h4>30-08-2019 (Fr)</h4>
+</div>
+</div>
 
 
 
