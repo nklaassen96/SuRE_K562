@@ -29,3 +29,9 @@ I rewrote the whole `20190823_VariantCalling.R`-script. Primarily all informatio
 
 #### 30-08-2019 (Fr)
 Tried to annotate transcription factor binding domains. Didn't work because the `MotIV`-package required GSL which was hard to install and link properly. Installed conda on the server. Got the dotplot function of the `KaryoplotR` working.
+
+## Week 3
+#### 02-09-2019 (Mo)
+Tried some more `KaryoplotR` functions. I wanted to annotate the genomic positions with Transcription Factor Binding Sites (TFBS). Therefore i downloaded the `RegulomeDB.dbSNP138`. However, this database could not be loaded in R. Also, it only contains information on SNPs present in the dbSNP.
+
+#### 03-09-2019

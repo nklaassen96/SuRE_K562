@@ -49,6 +49,7 @@ vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.
   #table(width(gr)) #contingency table for the length of the DNA fragments (REF or ALT??), ik vermoed REF
   expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
   #gr_q <- gr[gr$QUAL>1500]
+  #tapply(gr$SNV, seqnames(gr), sum) #retrieve nr. of SNVs for all chromosomes
 }
 }
 
@@ -69,6 +70,10 @@ gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
 gr_c <- locateVariants(gr, txdb, CodingVariants())
 table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
 barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
+
+seqlevels(txdb) <- paste0("chr", c(1:22, "X"))
+select(txdb, keys = keys, columns = columns(txdb), keytype = "GENEID")
+
 }
 
 #find variants 
@@ -140,26 +145,106 @@ kp <- kpAddLabels(kp, labels = "Intergenic", col = "gray", r0 = 0.75, label.marg
 kp <- kpAddLabels(kp, labels = "Intragenic", col = "red", r0 = 0.35, label.margin = 0.01, srt = 45, cex = 2)
 kpPlotDensity(kp, data=gr_ig, col = alpha("gray", 1), window.size = 2000000, border = 1)
 kpPlotDensity(kp, data=gr_c, col = alpha("red", 0.6), window.size = 2000000, border = 1)
+
+
+gr_tst <- gr[gr$HET == TRUE & gr$SNV == TRUE & gr$OVERLAP == FALSE 
+             #& seqnames(gr) == "chr1"
+             ]
+
+pp <- getDefaultPlotParams(plot.type=4)
+pp$topmargin <- 15
+pp$ideogramheight <- 0
+pp$data1inmargin <- 2
+pp$data2inmargin <- 0
+pp$leftmargin <- 0.2
+kp <- plotKaryotype(plot.type = 4, 
+                    chromosomes = paste0("chr", c(1:22, "X")), 
+                    main = "Heterozygote/SNV/No_Overlap",
+                    plot.params = pp,
+                    labels.plotter = NULL,
+                    ideogram.plotter = NULL
+)
+kp <- kpAddLabels(kp, labels = "QUAL Score", srt = 90)
+kp <- kpDataBackground(kp)
+kp <- kpAxis(kp, ymin = 0, ymax = max(gr_tst$QUAL)/10)
+kp <- kpAddChromosomeNames(kp, srt = 90)
+kp <- kpAddLabels(kp, labels = paste0("All (n = ", length(gr_tst), ")"), col = "1", r0 = 0.75, label.margin = 0.01, srt = 45, cex = 2)
+kp <- kpAddLabels(kp, labels = paste0("New (n = ", length(gr_tst[gr_tst$NEW == T]),")"), col = "2", r0 = 0.25, label.margin = 0.01, srt = 45, cex = 2)
+kp <- kpAddCytobandsAsLine(kp)
+kp <- kpPoints(kp, 
+               data = gr_tst,
+               #chr = "chr1", 
+               #x = start(gr_tst), 
+               y = gr_tst$QUAL/max(gr_tst$QUAL)*10,
+               col = alpha(colour = 1, alpha = 0.01)) #All
+kp <- kpPoints(kp, 
+               data = gr_tst[gr_tst$NEW == T],
+               #chr = "chr1", 
+               #x = start(gr_tst[gr_tst$NEW == T]), 
+               y = gr_tst$QUAL[gr_tst$NEW == T]/max(gr_tst$QUAL)*10,
+               col = alpha(colour = 2, alpha = 0.03)) #Only NEW
 }
 
-gr_tst <- gr[gr$HET == TRUE & gr$SNV == TRUE & gr$OVERLAP == FALSE & seqnames(gr) == "chr1"]
+## Trimming of GRanges
+ggr <- as(seqinfo(TxDb.Hsapiens.UCSC.hg19.knownGene), "GRanges")
+fgr <- subsetByOverlaps(gr, ggr, type = "within")
+badGR <- GRanges(paste0("chr", c(1,2,3,4,5)), IRanges(c(249250600, 3,4,5,6), c(249250645, 6,7,8,9)))         
+regdb <- read.table("~/projects/SuRE_K562/data/external/RegulomeDB.dbSNP132.Category3.txt")
 
-pp <- getDefaultPlotParams(plot.type=1)
-pp$topmargin <- 15
-kp <- plotKaryotype(plot.type = 1, 
-                    chromosomes = c("chr1"), 
-                    main = "QUAL scores Black is known, red is novel SNV",
-                    plot.params = pp
+#Summarizing Table
+{
+grp <- gr[gr$OVERLAP == F]
+data <- matrix(c(
+               length(grp[grp$NEW == F]),
+               length(grp[grp$NEW == T]),
+               length(grp[grp$NEW == T & grp$SNV == F]),
+               length(grp[grp$NEW == T & grp$SNV == T]),
+               length(grp[grp$NEW == T & grp$SNV == T & grp$HET == T]),
+               length(grp[grp$NEW == T & grp$SNV == T & grp$HET == F]))
+               , nrow = 2) #First fills the columns, then the rows
+colnames(data) <- c("All", "Novel", "Novel SNV")
+data_percentage <- apply(data, 2, function(x){x*100/sum(x)})
+
+b <- barplot(data_percentage, 
+             main = "Variants (non-overlapping)",
+             xlab = NULL,
+             ylab = "Percentage",
+             ylim = c(0,130),
+             names.arg = colnames(data),
 )
-kp <- kpDataBackground(kp)
-kp <- kpAxis(kp, ymin = 0, ymax = max(gr_tst$QUAL))
-kp <- kpPoints(kp, chr = "chr1", 
-               x = start(gr_tst), 
-               y = gr_tst$QUAL/max(gr_tst$QUAL),
-               col = alpha(colour = 1, alpha = 0.01)) #All
-kp <- kpPoints(kp, chr = "chr1", 
-               x = start(gr_tst[gr_tst$NEW == T]), 
-               y = gr_tst$QUAL[gr_tst$NEW == T]/max(gr_tst$QUAL),
-               col = alpha(colour = 6, alpha = 0.05)) #Only NEW
+text(x=b, 
+     y=c(data_percentage[1,])+3, 
+     labels = data[2,], srt = 0,
+     #adj = c(0.5,2)
+     )
+text(x=b, 
+     y=c(data_percentage[1,])-3, 
+     labels = data[1,], srt = 0,
+     #adj = c(0.5,1.5),
+     col = 0
+     )
+text(x=b-0.35,
+     y=10,
+     labels = c("dbSNP138", "Other (e.g. Indel)", "Heterozygote"),
+     srt = 60,
+     adj = c(0,0.5),
+     col = 0)
+text(x=b-0.35,
+     y=10,
+     labels = c("dbSNP138", "Other (e.g. Indel)", "Heterozygote"),
+     srt = 60,
+     adj = c(0,0.5),
+     col = 0)
+text(x=b,
+     y=105,
+     labels = c("Novel","SNV", "Homozygote"),
+     srt = 60,
+     adj = c(0,0.5))
+}
+#apply(as.matrix(b), 1, function(x){lines(c(x,x),c(100,105))})
 
-               
+
+
+
+
+
