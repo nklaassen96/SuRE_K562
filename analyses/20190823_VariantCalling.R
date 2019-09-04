@@ -1,4 +1,7 @@
-## STARTUP
+########################################################
+#####   STARTUP   ######################################
+########################################################
+
 {
 ## Library installation and data reading
 {
@@ -53,7 +56,10 @@ vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.
 }
 }
 
-## Generating metadatacolumns in GRanges file
+########################################################
+#####   Generating metadatacolumns in GRanges file   ###
+########################################################
+
 {
 gr <- rowRanges(vcfK) #generetes a GRanges object from the vcf-file
 gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype (i.e. 0/0/1/1)
@@ -63,23 +69,72 @@ gr$NEW <- grepl("chr", names(gr)) #Add a metadatacolumn for whether the mutation
 gr$OVERLAP <- countOverlaps(gr) > 1
 }
 
-## Annotate the variants
+########################################################
+#####   Annotate the variants ##########################
+########################################################
+
 {
 gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
+
+gr_in <- locateVariants(gr, txdb,IntronVariants())  
+gr_inu <- gr_in[!duplicated(gr_in$QUERYID)]
+  
 gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
-gr_c <- locateVariants(gr, txdb, CodingVariants())
+gr_igu <- gr_ig[!duplicated(gr_ig$QUERYID)] ## Unique_Intergenic (no values discarded)
+
+gr_c <- locateVariants(gr, txdb, CodingVariants()) 
+gr_cu <- gr_c[!duplicated(gr_c$QUERYID)] ## Unique_Coding (28589 values discarded)
+
+gr_p <- locateVariants(gr, txdb, PromoterVariants())
+gr_pu <- gr_p[!duplicated(gr_p$QUERYID)]
+
+gr_3 <- locateVariants(gr, txdb, ThreeUTRVariants())
+gr_3u <- gr_3[!duplicated(gr_3$QUERYID)]
+
+gr_5 <- locateVariants(gr, txdb, FiveUTRVariants())
+gr_5u <- gr_5[!duplicated(gr_5$QUERYID)]
+
+gr_sp <- locateVariants(gr, txdb, SpliceSiteVariants())
+gr_spu <- gr_sp[!duplicated(gr_sp$QUERYID)]
+
+count <- c(length(gr),
+           length(gr_inu),
+           length(gr_igu), 
+           length(gr_pu), 
+           length(gr_cu),
+           length(gr_3u),
+           length(gr_5u),
+           length(gr_spu))
+percentage <-  c(count/count[1]*100)
+
+var <- matrix(data=c(count, percentage), 
+              ncol = 2, 
+              dimnames = list(c("All", "Intron", "Intergenic", "Promoter", "Coding", "3-UTR", "5-UTR", "SpliceSite"),
+                              c("Count", "Percentage")))
+var
 table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
 barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
 
-seqlevels(txdb) <- paste0("chr", c(1:22, "X"))
+keys <- c("100033416", "100033417", "100033420")
+chrom <- paste0("chr", c(1:22, "X"))
+
+total <- sum(seqlengths(gr)) #this includes still chromosome M and Y
+tst <- exons(txdb, filter=list(tx_chrom = chrom))
+tstr <- reduce(tst) #Merges overlapping regions
+exon <- sum(width(tstr))
 select(txdb, keys = keys, columns = columns(txdb), keytype = "GENEID")
+#seqlevels(txdb) <- paste0("chr", c(1:22, "X"))
+#select(txdb, keys = keys, columns = columns(txdb), keytype = "GENEID")
 
 }
 
 #find variants 
 length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP == FALSE])
 
-## Plot various relationships within the variations
+###############################################################
+#####   Plot various relationships within the variations   ####
+###############################################################
+
 {
 #Plot SNV vs other
 b <- barplot(table(gr$SNV), 
@@ -116,7 +171,10 @@ b <- barplot(table(gr$HET),
 text(x=b, y=table(gr$HET)+200000, labels = as.character(table(gr$HET)))
 }
 
-## Plot Karyotype
+###############################################################
+#####   Plot Karyotype   ######################################
+###############################################################
+
 {
 pp <- getDefaultPlotParams(plot.type=1)
 pp$topmargin <- 15
@@ -191,7 +249,10 @@ fgr <- subsetByOverlaps(gr, ggr, type = "within")
 badGR <- GRanges(paste0("chr", c(1,2,3,4,5)), IRanges(c(249250600, 3,4,5,6), c(249250645, 6,7,8,9)))         
 regdb <- read.table("~/projects/SuRE_K562/data/external/RegulomeDB.dbSNP132.Category3.txt")
 
-#Summarizing Table
+########################################################
+#####   Summarizing Table   ############################
+########################################################
+
 {
 grp <- gr[gr$OVERLAP == F]
 data <- matrix(c(
@@ -243,8 +304,29 @@ text(x=b,
 }
 #apply(as.matrix(b), 1, function(x){lines(c(x,x),c(100,105))})
 
+########################################################
+#####   QUAL SCORES  ###################################
+########################################################
+
+h1 = gr[gr$NEW== F]$QUAL
+hist(h1, xlim = c(0, 6000), col = 3, breaks = length(h1))
+h2 = gr[gr$NEW== T]$QUAL
+hist(h2, xlim = c(0, 6000), col = 1, breaks = length(h2), add = T)
+
+########################################################
+#####   HETEROZYGOTIC MUTATION SPREAD   ################
+########################################################
 
 
 
+length(gr[seqnames(gr)=="chr3" & gr$HET == T])
+allho <- tapply(gr$SNV[gr$HET == F], seqnames(gr[gr$HET == F]), sum) #retrieve nr. of SNVs for all chromosomes
+newho <- tapply(gr$SNV[gr$HET == F & gr$NEW == T], seqnames(gr[gr$HET == F & gr$NEW == T]), sum)
+allhet <- tapply(gr$SNV[gr$HET == T], seqnames(gr[gr$HET == T]), sum) #retrieve nr. of SNVs for all chromosomes
+newhet <- tapply(gr$SNV[gr$HET == T & gr$NEW == T], seqnames(gr[gr$HET == T & gr$NEW == T]), sum)
+
+barplot(allho, las = 2) + barplot(newho, add = T, col = 2, las = 2)
+barplot(newhet/allhet*100, las= 2, ylab = "New mutations (%)", main = "Heterozygote SNVs")
+barplot(newho/allho*100, las= 2, ylab = "New mutations (%)", main = "Homozygote SNVs")
 
 

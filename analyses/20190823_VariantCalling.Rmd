@@ -147,12 +147,48 @@ text(x=b,
 Variants were annotated with the `VariantAnnotation` tool. Usefull info on `https://www.bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Tutorial.pdf`. The `locateVariants`-function is able to distinguish between different kinds of transcripts which are `spliceSite`, `intron`, `fiveUTR`, `threeUTR`, `coding`, `intergenic`, and `promoter`. This function requires a `GRanges` object, a link to a transcript annotation database (in this case hg19 UCSC) and the desired transcript. Unfortunately, a single variant will receive multiple `intron`-annotations, artificially increasing the prevalence of this variant annotation. 
 ```{r Variant annotation, message = FALSE, results="hide", warning=FALSE}
 gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
+
+gr_in <- locateVariants(gr, txdb,IntronVariants())  
+gr_inu <- gr_in[!duplicated(gr_in$QUERYID)]
+  
 gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
-gr_c <- locateVariants(gr, txdb, CodingVariants())
+gr_igu <- gr_ig[!duplicated(gr_ig$QUERYID)] ## Unique_Intergenic (no values discarded)
+
+gr_c <- locateVariants(gr, txdb, CodingVariants()) 
+gr_cu <- gr_c[!duplicated(gr_c$QUERYID)] ## Unique_Coding (28589 values discarded)
+
+gr_p <- locateVariants(gr, txdb, PromoterVariants())
+gr_pu <- gr_p[!duplicated(gr_p$QUERYID)]
+
+gr_3 <- locateVariants(gr, txdb, ThreeUTRVariants())
+gr_3u <- gr_3[!duplicated(gr_3$QUERYID)]
+
+gr_5 <- locateVariants(gr, txdb, FiveUTRVariants())
+gr_5u <- gr_5[!duplicated(gr_5$QUERYID)]
+
+gr_sp <- locateVariants(gr, txdb, SpliceSiteVariants())
+gr_spu <- gr_sp[!duplicated(gr_sp$QUERYID)]
+
+count <- c(length(gr),
+           length(gr_inu),
+           length(gr_igu), 
+           length(gr_pu), 
+           length(gr_cu),
+           length(gr_3u),
+           length(gr_5u),
+           length(gr_spu))
+percentage <-  c(count/count[1]*100)
+
+var <- matrix(data=c(count, percentage), 
+              ncol = 2, 
+              dimnames = list(c("All", "Intron", "Intergenic", "Promoter", "Coding", "3-UTR", "5-UTR", "SpliceSite"),
+                              c("Count", "Percentage")))
+
 ```
 ```{r Variant annotation plotting}
 table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
 barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
+var
 ```
 
 To further explore the variant dataset, the density of the variants was assessed with the `karyoploteR` package. A helpfull website for this package was found on `https://bernatgel.github.io/karyoploter_tutorial//Tutorial/PlotParams/PlotParams.html`. The `ggplot`-package is used for the `alpha`-function, allowing for transparant colors. The `karyoploteR`-package allows for visualization of `GRanges`-objects on a Karyoplot. The variable `pp` is used temporarily to display the title closer to the plot. The next arguments are used to generate the plot for chromosome 1 only. Gray displays the densityplot of the `GRanges`-object containing all (3,9 million) variations while red only displays the novel (unannotated; 219,003) variations. It seems that the gray and red distributions follow a similar patterns (i.e. there are no regions that are enriched for novel mutations). Note that the paterns between red and gray should compared, not the actual values.

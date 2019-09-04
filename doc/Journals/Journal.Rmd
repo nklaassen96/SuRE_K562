@@ -34,4 +34,8 @@ Tried to annotate transcription factor binding domains. Didn't work because the 
 #### 02-09-2019 (Mo)
 Tried some more `KaryoplotR` functions. I wanted to annotate the genomic positions with Transcription Factor Binding Sites (TFBS). Therefore i downloaded the `RegulomeDB.dbSNP138`. However, this database could not be loaded in R. Also, it only contains information on SNPs present in the dbSNP.
 
-#### 03-09-2019
+#### 03-09-2019 (Tu)
+Tried to find a way to count the total number of exons in the genes etc.
+
+#### 04-09-2019 (We)
+I found a way to remove duplicates from the Variantannotation. In this way, 104% of variants is represented, indicating still some overlap between various variants. This could e.g. be a promoter within an intergenic region etc. Also started exploring heterozygotic mutations in regions with Loss of Heterozygosity (LOH). Strangely, there are still a lot of heterozygotic mutations in these regions. 
