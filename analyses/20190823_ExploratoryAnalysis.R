@@ -53,6 +53,9 @@ vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.
   expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
   #gr_q <- gr[gr$QUAL>1500]
   #tapply(gr$SNV, seqnames(gr), sum) #retrieve nr. of SNVs for all chromosomes
+  #tapply(gr$GT, seqnames(gr), summary) # Show genotypes per chromosome
+  #find variants 
+  #length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP == FALSE])
 }
 }
 
@@ -65,7 +68,7 @@ gr <- rowRanges(vcfK) #generetes a GRanges object from the vcf-file
 gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype (i.e. 0/0/1/1)
 gr$HET <- is_het(gr$GT, na_is_false=TRUE) #Add a metadatacolumn for heterogeneity (TRUE = heterozygote, FALSE = homozygote)
 gr$SNV <- isSNV(vcfK, singleAltOnly = FALSE) #Add a metadatacolumn for SNV (TRUE = SNV, FALSE = else)
-gr$NEW <- grepl("chr", names(gr)) #Add a metadatacolumn for whether the mutation is new (TRUE) or already has an rs-number (FALSE)
+gr$NEW <- !grepl("rs", names(gr)) #Add a metadatacolumn for whether the mutation is new (TRUE) or already has an rs-number (FALSE)
 gr$OVERLAP <- countOverlaps(gr) > 1
 }
 
@@ -74,30 +77,34 @@ gr$OVERLAP <- countOverlaps(gr) > 1
 ########################################################
 
 {
-gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
+for (i in 1:2) {
+  
+  if (i == 1) {variant = gr[1:1000]} else {variant = gr[1000000:10001000]}
+#variant <- gr
+#gr_all <- locateVariants(variant, txdb, AllVariants()) #locate the variants
 
-gr_in <- locateVariants(gr, txdb,IntronVariants())  
+gr_in <- locateVariants(variant, txdb,IntronVariants())  
 gr_inu <- gr_in[!duplicated(gr_in$QUERYID)]
   
-gr_ig <- locateVariants(gr, txdb,IntergenicVariants())
+gr_ig <- locateVariants(variant, txdb,IntergenicVariants())
 gr_igu <- gr_ig[!duplicated(gr_ig$QUERYID)] ## Unique_Intergenic (no values discarded)
 
-gr_c <- locateVariants(gr, txdb, CodingVariants()) 
+gr_c <- locateVariants(variant, txdb, CodingVariants()) 
 gr_cu <- gr_c[!duplicated(gr_c$QUERYID)] ## Unique_Coding (28589 values discarded)
 
-gr_p <- locateVariants(gr, txdb, PromoterVariants())
+gr_p <- locateVariants(variant, txdb, PromoterVariants())
 gr_pu <- gr_p[!duplicated(gr_p$QUERYID)]
 
-gr_3 <- locateVariants(gr, txdb, ThreeUTRVariants())
+gr_3 <- locateVariants(variant, txdb, ThreeUTRVariants())
 gr_3u <- gr_3[!duplicated(gr_3$QUERYID)]
 
-gr_5 <- locateVariants(gr, txdb, FiveUTRVariants())
+gr_5 <- locateVariants(variant, txdb, FiveUTRVariants())
 gr_5u <- gr_5[!duplicated(gr_5$QUERYID)]
 
-gr_sp <- locateVariants(gr, txdb, SpliceSiteVariants())
+gr_sp <- locateVariants(variant, txdb, SpliceSiteVariants())
 gr_spu <- gr_sp[!duplicated(gr_sp$QUERYID)]
 
-count <- c(length(gr),
+count <- c(length(variant),
            length(gr_inu),
            length(gr_igu), 
            length(gr_pu), 
@@ -112,9 +119,10 @@ var <- matrix(data=c(count, percentage),
               dimnames = list(c("All", "Intron", "Intergenic", "Promoter", "Coding", "3-UTR", "5-UTR", "SpliceSite"),
                               c("Count", "Percentage")))
 var
-table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
-barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
-
+if (i == 1){add = F} else {add = T}
+b <- barplot(var[,2], las = 2, ylab = "Percentage", ylim = c(0,130), main = "All variants", add = add , col = i+1)
+text(b, y = var[,2]+3 ,labels = round(var[,2], digits = 1), adj = c(0.5,0.5))
+}
 keys <- c("100033416", "100033417", "100033420")
 chrom <- paste0("chr", c(1:22, "X"))
 
@@ -127,9 +135,6 @@ select(txdb, keys = keys, columns = columns(txdb), keytype = "GENEID")
 #select(txdb, keys = keys, columns = columns(txdb), keytype = "GENEID")
 
 }
-
-#find variants 
-length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP == FALSE])
 
 ###############################################################
 #####   Plot various relationships within the variations   ####
@@ -301,32 +306,40 @@ text(x=b,
      labels = c("Novel","SNV", "Homozygote"),
      srt = 60,
      adj = c(0,0.5))
-}
 #apply(as.matrix(b), 1, function(x){lines(c(x,x),c(100,105))})
+}
 
 ########################################################
 #####   QUAL SCORES  ###################################
 ########################################################
 
-h1 = gr[gr$NEW== F]$QUAL
-hist(h1, xlim = c(0, 6000), col = 3, breaks = length(h1))
+h1 = gr$QUAL
+hist(h1, xlim = c(0, 6000), col = 3, breaks = 2000, xlab = "QUAL Score", main = "Variants")
 h2 = gr[gr$NEW== T]$QUAL
-hist(h2, xlim = c(0, 6000), col = 1, breaks = length(h2), add = T)
+hist(h2, xlim = c(0, 6000), col = 2, breaks = 2000, add = T)
+legend("topright", c("All", "New"), fill = c("green","red"))
 
 ########################################################
 #####   HETEROZYGOTIC MUTATION SPREAD   ################
 ########################################################
 
-
-
+{
 length(gr[seqnames(gr)=="chr3" & gr$HET == T])
 allho <- tapply(gr$SNV[gr$HET == F], seqnames(gr[gr$HET == F]), sum) #retrieve nr. of SNVs for all chromosomes
 newho <- tapply(gr$SNV[gr$HET == F & gr$NEW == T], seqnames(gr[gr$HET == F & gr$NEW == T]), sum)
 allhet <- tapply(gr$SNV[gr$HET == T], seqnames(gr[gr$HET == T]), sum) #retrieve nr. of SNVs for all chromosomes
 newhet <- tapply(gr$SNV[gr$HET == T & gr$NEW == T], seqnames(gr[gr$HET == T & gr$NEW == T]), sum)
 
-barplot(allho, las = 2) + barplot(newho, add = T, col = 2, las = 2)
+barplot(allhet, las = 2, ylab = "Frequency", main = "Heterozygotic mutaions") + barplot(newhet, add = T, col = 2, las = 2)
+legend("topright", legend = c("All", "New"), fill = c("gray", "red"))
+box()
 barplot(newhet/allhet*100, las= 2, ylab = "New mutations (%)", main = "Heterozygote SNVs")
 barplot(newho/allho*100, las= 2, ylab = "New mutations (%)", main = "Homozygote SNVs")
+}
+
+########################################################
+#####   FILTERING VCF   ################################
+########################################################
+
 
 

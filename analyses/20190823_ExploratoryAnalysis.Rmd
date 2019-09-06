@@ -5,7 +5,9 @@ date: "23-8-2019"
 output: html_document
 ---
 
-Load libraries; Data is a VCF file downloaded from `https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz` which was retrieved by using `wget https://www.encodeproject.org/files/ENCFF606RIC/@@download/ENCFF606RIC.vcf.gz'` on 2019-08-20
+### Data downloading
+
+Load libraries; Data is a Phased VCF file downloaded from `https://www.encodeproject.org/files/ENCFF241LKI/@@download/ENCFF241LKI.vcf.gz` which was retrieved by using `wget https://www.encodeproject.org/files/ENCFF241LKI/@@download/ENCFF241LKI.vcf.gz'` on 2019-08-20
 ```{r Library loading, message = FALSE}
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(VariantTools)
@@ -14,7 +16,7 @@ library(karyoploteR)
 library(ggplot2)
 library(vcfR)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
+vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF241LKI.vcf.gz", 
                genome = "hg19")
 gr <- rowRanges(vcfK)
 gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype
@@ -44,7 +46,9 @@ An exploratory analysis was performed to disect different headers from the vcf-f
   expand(vcf) #generates an "expanded-VCF" object that shows a row for every alternative sequence
 ```
 
-It is important to note that all analyses here where done on the same `GRanges` file. This means that all filters apply for all 3,800,959 variants within the VCF. In this method, information on a certain variant (its genotype, SNV vs other variants or whether it is a new or existing variant) were annotated by adding metadata columns in the `GRanges`-file. Genotypes were obtained from the `CollapsedVCF`-object with the `geno()`-function. The `is_het()`-function from the `vcfR`-package is able to distinguish between heterozygotes and homozygotes on the basis of this genotype-matrix.SNVs (in contrast to indels and other structural variants) were identified with the `isSNV()`-function. This is the only function that only works on the CollapsedVCF-object and not on the GRanges-object. 'New' variants were defined as not having an rs-number. Overlapping variants (e.g. SNV within an Indel) were identified with the `countOverlaps()`-function.
+### Metadata annotation
+
+It is important to note that all analyses here where done on the same `GRanges` file. This means that all filters apply for all 3,800,959 variants within the VCF. In this method, information on a certain variant (its genotype, SNV vs other variants or whether it is a new or existing variant) were annotated by adding metadata columns in the `GRanges`-file. Genotypes were obtained from the `CollapsedVCF`-object with the `geno()`-function. The `is_het()`-function from the `vcfR`-package is able to distinguish between heterozygotes and homozygotes on the basis of this genotype-matrix.SNVs (in contrast to indels and other structural variants) were identified with the `isSNV()`-function. This is the only function that only works on the CollapsedVCF-object and not on the GRanges-object. 'New' variants were defined as not having an rs-number. `grepl()` returns TRUE or FALSE values for whether the variantname contains 'rs'. Overlapping variants (e.g. SNV within an Indel) were identified with the `countOverlaps()`-function.
 
 This way, the desired `GRanges`-file can be created using boolean arguments like 
 ```length(gr[gr$HET == TRUE & gr$SNV == TRUE & gr$NEW == TRUE & gr$OVERLAP2 == FALSE])```
@@ -53,12 +57,15 @@ gr <- rowRanges(vcfK) #generetes a GRanges object from the vcf-file
 gr$GT <- geno(vcfK)$GT #Add a metadatacolumn for genotype (i.e. 0/0/1/1)
 gr$HET <- is_het(gr$GT, na_is_false=TRUE) #Add a metadatacolumn for heterogeneity (TRUE = heterozygote, FALSE = homozygote)
 gr$SNV <- isSNV(vcfK, singleAltOnly = FALSE) #Add a metadatacolumn for SNV (TRUE = SNV, FALSE = else)
-gr$NEW <- grepl("chr", names(gr)) #Add a metadatacolumn for whether the mutation is new (TRUE) or already has an rs-number (FALSE)
+gr$NEW <- !grepl("rs", names(gr)) #Add a metadatacolumn for whether the mutation is new (TRUE) or already has an rs-number (FALSE)
 gr$OVERLAP <- countOverlaps(gr) > 1
 gr[1667]
 ```
 
-```{r Bargraphs, echo=FALSE}
+### Exploratory barplots
+To get an idea of the data, various parameters were plotted. For example, the amount of SNVs vs the amount of other variations (insertions, deletions, structural variants etc.).  
+
+```{r Bargraphs, echo=FALSE, fig.width=5, warning=FALSE}
 #Plot SNV vs other
 b <- barplot(table(gr$SNV), 
              main = "SNVs",
@@ -92,7 +99,9 @@ b <- barplot(table(gr$HET),
              names.arg = c("Homozygote", "Heterozygote")
 )
 text(x=b, y=table(gr$HET)+200000, labels = as.character(table(gr$HET)))
+```
 
+```{r summarizing bargraph, echo = F, warning=F} 
 #Plot summarizingdata 
 grp <- gr[gr$OVERLAP == F]
 data <- matrix(c(
@@ -144,7 +153,9 @@ text(x=b,
 
 ```
 
-Variants were annotated with the `VariantAnnotation` tool. Usefull info on `https://www.bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Tutorial.pdf`. The `locateVariants`-function is able to distinguish between different kinds of transcripts which are `spliceSite`, `intron`, `fiveUTR`, `threeUTR`, `coding`, `intergenic`, and `promoter`. This function requires a `GRanges` object, a link to a transcript annotation database (in this case hg19 UCSC) and the desired transcript. Unfortunately, a single variant will receive multiple `intron`-annotations, artificially increasing the prevalence of this variant annotation. 
+### Variant annotation
+
+Variants were annotated with the `VariantAnnotation` tool. Usefull info on `https://www.bioconductor.org/help/course-materials/2014/BioC2014/Lawrence_Tutorial.pdf`. The `locateVariants`-function is able to distinguish between different kinds of transcripts which are `spliceSite`, `intron`, `fiveUTR`, `threeUTR`, `coding`, `intergenic`, and `promoter`. This function requires a `GRanges` object, a link to a transcript annotation database (in this case hg19 UCSC) and the desired transcript. Unfortunately, a single variant will receive multiple `intron`-annotations, artificially increasing the prevalence of this variant annotation. `!duplicated()` was used to remove multiple occuring variants from the `GRanges` object. Finally, a `matrix` will be generated containing the lengths (amounts) of certain variants. Barplot shows the percentage of variants that are present within all variants. 
 ```{r Variant annotation, message = FALSE, results="hide", warning=FALSE}
 gr_all <- locateVariants(gr, txdb, AllVariants()) #locate the variants
 
@@ -186,9 +197,8 @@ var <- matrix(data=c(count, percentage),
 
 ```
 ```{r Variant annotation plotting}
-table(gr_all$LOCATION) #To check where the variants are ##doesnt work; way to many variants -> 3.9Mc
-barplot(table(gr_all$LOCATION)/1000000,ylab="Frequency (*10^6)", las = 2)
-var
+b <- barplot(var[,2], las = 2, ylab = "Percentage", ylim = c(0,130), main = "All variants")
+text(b, y = var[,2]+3 ,labels = round(var[,2], digits = 1), adj = c(0.5,0.5))
 ```
 
 To further explore the variant dataset, the density of the variants was assessed with the `karyoploteR` package. A helpfull website for this package was found on `https://bernatgel.github.io/karyoploter_tutorial//Tutorial/PlotParams/PlotParams.html`. The `ggplot`-package is used for the `alpha`-function, allowing for transparant colors. The `karyoploteR`-package allows for visualization of `GRanges`-objects on a Karyoplot. The variable `pp` is used temporarily to display the title closer to the plot. The next arguments are used to generate the plot for chromosome 1 only. Gray displays the densityplot of the `GRanges`-object containing all (3,9 million) variations while red only displays the novel (unannotated; 219,003) variations. It seems that the gray and red distributions follow a similar patterns (i.e. there are no regions that are enriched for novel mutations). Note that the paterns between red and gray should compared, not the actual values.
@@ -283,7 +293,7 @@ kp <- kpPoints(kp,
 
 ```
 
-
+It can be seen that in the last karyoplot above there are certain regions that do not contain many black dots. This is because these regions have suffered from loss of heterozygosity (LOH). Which has also been reported for chromos
 
 
 

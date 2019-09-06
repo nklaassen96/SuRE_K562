@@ -39,3 +39,19 @@ Tried to find a way to count the total number of exons in the genes etc.
 
 #### 04-09-2019 (We)
 I found a way to remove duplicates from the Variantannotation. In this way, 104% of variants is represented, indicating still some overlap between various variants. This could e.g. be a promoter within an intergenic region etc. Also started exploring heterozygotic mutations in regions with Loss of Heterozygosity (LOH). Strangely, there are still a lot of heterozygotic mutations in these regions. 
+
+#### 05-09-2019 (Th)
+It turns out that the VCF-file from the K562-paper doesn't correctly annotate the genotype. In regions that have loss of heterozygosity (e.g. chromosome 13 and 14), the genotype is often described as 1/1 (homozygote for the alternative allele), while there would be only 1 allele. This is a problem as we are mostly interested in heterozygous mutations. Regions with CN = 1 should therefore be discarded. 
+
+#### 06-09-2019 (Fr)
+I compared phased and non-phased data from the K562-paper. There are minimal differences, we choose to continue with the phased data. Wrote a script to generate the right vcf-files and the right txt files. Successfully generated these files with the `20190906_PreparingVCF` script
+```{r, echo = F}
+library(knitr)
+Files = c("VCF files", "Txt files (All)", "Txt files (New)")
+Type = c(".vcf.gz", ".txt",".txt")
+Variants = c("All", "All", "New")
+Overlap = c("No", "No", "No")
+Directory = c("~/projects/SuRE_K562/data/interim/SNPs/vcf", "~/projects/SuRE_K562/data/interim/SNPs/txt", "~/projects/SuRE_K562/data/interim/SNPs/txt")
+df = data.frame(Files, Type, Variants, Overlap, Directory)
+kable(df)
+```
