@@ -422,7 +422,7 @@ summary {
 </div>
 <div id="fr-2" class="section level4">
 <h4>06-09-2019 (Fr)</h4>
-<p>I compared phased and non-phased data from the K562-paper. There are minimal differences, we choose to continue with the phased data. Wrote a script to generate the right vcf-files and the right txt files. Successfully generated these files.</p>
+<p>I compared phased and non-phased data from the K562-paper. There are minimal differences, we choose to continue with the phased data. Wrote a script to generate the right vcf-files and the right txt files. Successfully generated these files with the <code>20190906_PreparingVCF</code> script</p>
 <table>
 <thead>
 <tr class="header">
@@ -457,6 +457,17 @@ summary {
 </tr>
 </tbody>
 </table>
+</div>
+<div id="week-4" class="section level3">
+<h3>Week 4</h3>
+<div id="mo-2" class="section level4">
+<h4>09-09-2019 (Mo)</h4>
+<p>I downloaded <code>bed_files.tar.gz</code> from <code>http://jaspar.genereg.net/download/bed_files.tar.gz</code> to function as a database for transcription factor binding sites. I previously did the same with <code>RegulomeDB.dbSNP132.Category3.txt</code> from <code>http://www.regulomedb.org/downloads/RegulomeDB.dbSNP132.Category3.txt.gz</code>, but this file could not be loaded into R. <code>MA1198.1.bed</code> was removed by using the MobaXterm as it contains no data.</p>
+</div>
+<div id="tu-2" class="section level4">
+<h4>10-09-2019 (Tu)</h4>
+<p>I got the bedfiles annotation of the TFBS working for the <code>GRanges</code> file. Able to generate a <code>GRanges</code> file with all novel mutations and the corresonding number of the file of the TFBS they interfere with. Mind that mutations that alter multiple TFBS occur in multiple rows. For the SuRE-pipeline, I resolved a few errors regarding the SNPs database annotation. We use the non-phased files. Important to go to the conda environment of K562_SuRE, otherwise, python is not correctly installed (<code>{bash}conda activate K562_SuRE</code>)</p>
+</div>
 </div>
 </div>
 

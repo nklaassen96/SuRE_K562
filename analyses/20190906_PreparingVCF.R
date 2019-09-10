@@ -7,7 +7,7 @@
     library(VariantTools)
     library(vcfR)
     library(R.utils)
-    fl <- "~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF241LKI.vcf.gz"
+    fl <- "~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz"
     vcf <- readVcf(fl, genome = "hg19")
     compressVcf <- bgzip(fl, tempfile())
     idx <- indexTabix(compressVcf, "vcf")
@@ -21,20 +21,23 @@
   
   for (chrom in paste0("chr", c(1:22, "X"))){
     ranges <- as(seqinfo(vcf)[chrom], "GRanges")
-    param <- ScanVcfParam(which = ranges)
+    #param <- ScanVcfParam(which = ranges)
+    param <- ScanVcfParam(which = ranges, geno = "GT")
     vcf.chr <- readVcf(tab, genome = "hg19", param = param)
-    dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/All_K562_Phased_", chrom, ".vcf")
+    dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/All_K562_NonPhased_", chrom, ".vcf")
     writeVcf(vcf.chr, dir)
-    print(paste0("All_K562_Phased_", chrom, ".vcf", " was successfully generated"))
+    print(paste0("All_K562_NonPhased_", chrom, ".vcf", " was successfully generated"))
+    gzip(dir, remove = TRUE)
+    print(paste0("All_K562_NonPhased_", chrom, ".vcf", " was successfully gzipped to", " All_K562_NonPhased_", chrom, ".vcf.gz"))
     
   }
   
   # Generating .vcf.gz files from the .vcf files  
       
   for (chrom in paste0("chr", c(1:22, "X"))){
-    dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/All_K562_Phased_", chrom, ".vcf")
+    dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/All_K562_NonPhased_", chrom, ".vcf")
     gzip(dir, remove = FALSE)
-    print(paste0("All_K562_Phased_", chrom, ".vcf", " was successfully gzipped to", " All_K562_Phased_", chrom, ".vcf.gz"))
+    print(paste0("All_K562_NonPhased_", chrom, ".vcf", " was successfully gzipped to", " All_K562_NonPhased_", chrom, ".vcf.gz"))
   }
   
 #### WRITE .TXT ALL ####
@@ -55,9 +58,9 @@
       altlist <- CharacterList(gr_chrom$ALT)
       alt <- unstrsplit(altlist, sep=",")
       df <- data.frame(start, ref, alt, stringsAsFactors = FALSE)
-      dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/txt/All_NoOverlap_K562_Phased_", chrom, ".txt")
+      dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/SNPs/All_NoOverlap_K562_NonPhased_", chrom, ".txt")
       write.table(df, file = dir, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = "\t")
-      print(paste0("All_NoOverlap_K562_Phased_",chrom,".txt", " was successfully generated"))
+      print(paste0("All_NoOverlap_K562_NonPhased_",chrom,".txt", " was successfully generated"))
     }  
 #### WRITE .TXT NEW ####
     
@@ -73,9 +76,15 @@
       altlist <- CharacterList(gr_chrom$ALT)
       alt <- unstrsplit(altlist, sep=",")
       df <- data.frame(start, ref, alt, stringsAsFactors = FALSE)
-      dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/txt/New_NoOverlap_K562_Phased_", chrom, ".txt")
+      dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/SNPs/New_NoOverlap_K562_NonPhased_", chrom, ".txt")
       write.table(df, file = dir, row.names = FALSE, col.names = FALSE, quote = FALSE, sep = "\t")
-      print(paste0("New_NoOverlap_K562_Phased_",chrom,".txt", " was successfully generated"))
+      print(paste0("New_NoOverlap_K562_NonPhased_",chrom,".txt", " was successfully generated"))
     }
+
+#### TEST VCF WITHOUT EXTRA METADATA ####
     
+    param <- ScanVcfParam(geno = "GT")
+    vcf.tst <- readVcf(tab, genome = "hg19", param = param)
+    dir = paste0("~/projects/SuRE_K562/data/interim/SNPs/vcf/All_", "TEST", ".vcf")
+    writeVcf(vcf.tst, dir)
     

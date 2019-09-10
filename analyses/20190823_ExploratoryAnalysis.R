@@ -21,7 +21,7 @@ library(vcfR)
 #library(VariantAnnotation) #is within VariantTools?
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 #read the vcf file that was downloaded
-vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
+vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF241LKI.vcf.gz", 
                genome = "hg19")
 }
 
@@ -79,7 +79,7 @@ gr$OVERLAP <- countOverlaps(gr) > 1
 {
 for (i in 1:2) {
   
-  if (i == 1) {variant = gr[1:1000]} else {variant = gr[1000000:10001000]}
+  if (i == 1) {variant = gr} else {variant = gr[gr$NEW == T]}
 #variant <- gr
 #gr_all <- locateVariants(variant, txdb, AllVariants()) #locate the variants
 
@@ -119,6 +119,8 @@ var <- matrix(data=c(count, percentage),
               dimnames = list(c("All", "Intron", "Intergenic", "Promoter", "Coding", "3-UTR", "5-UTR", "SpliceSite"),
                               c("Count", "Percentage")))
 var
+varsum <- matrix(nrow = 8, ncol = 2)
+varsum[,i] <- var[,2]
 if (i == 1){add = F} else {add = T}
 b <- barplot(var[,2], las = 2, ylab = "Percentage", ylim = c(0,130), main = "All variants", add = add , col = i+1)
 text(b, y = var[,2]+3 ,labels = round(var[,2], digits = 1), adj = c(0.5,0.5))
@@ -330,7 +332,8 @@ newho <- tapply(gr$SNV[gr$HET == F & gr$NEW == T], seqnames(gr[gr$HET == F & gr$
 allhet <- tapply(gr$SNV[gr$HET == T], seqnames(gr[gr$HET == T]), sum) #retrieve nr. of SNVs for all chromosomes
 newhet <- tapply(gr$SNV[gr$HET == T & gr$NEW == T], seqnames(gr[gr$HET == T & gr$NEW == T]), sum)
 
-barplot(allhet, las = 2, ylab = "Frequency", main = "Heterozygotic mutaions") + barplot(newhet, add = T, col = 2, las = 2)
+barplot(allhet, las = 2, ylab = "Frequency", main = "Heterozygotic mutaions")
+barplot(newhet, add = T, col = 2, las = 2)
 legend("topright", legend = c("All", "New"), fill = c("gray", "red"))
 box()
 barplot(newhet/allhet*100, las= 2, ylab = "New mutations (%)", main = "Heterozygote SNVs")

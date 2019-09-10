@@ -55,3 +55,11 @@ Directory = c("~/projects/SuRE_K562/data/interim/SNPs/vcf", "~/projects/SuRE_K56
 df = data.frame(Files, Type, Variants, Overlap, Directory)
 kable(df)
 ```
+
+### Week 4
+
+#### 09-09-2019 (Mo)
+I downloaded `bed_files.tar.gz` from `http://jaspar.genereg.net/download/bed_files.tar.gz` to function as a database for transcription factor binding sites. I previously did the same with `RegulomeDB.dbSNP132.Category3.txt` from `http://www.regulomedb.org/downloads/RegulomeDB.dbSNP132.Category3.txt.gz`, but this file could not be loaded into R. `MA1198.1.bed` was removed by using the MobaXterm as it contains no data. 
+
+#### 10-09-2019 (Tu)
+I got the bedfiles annotation of the TFBS working for the `GRanges` file. Able to generate a `GRanges` file with all novel mutations and the corresonding number of the file of the TFBS they interfere with. Mind that mutations that alter multiple TFBS occur in multiple rows. For the SuRE-pipeline, I resolved a few errors regarding the SNPs database annotation. We use the non-phased files. Important to go to the conda environment of K562_SuRE, otherwise, python is not correctly installed (`conda activate K562_SuRE`)
