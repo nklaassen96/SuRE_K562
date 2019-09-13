@@ -5,7 +5,7 @@ date: "10-9-2019"
 output: html_document
 ---
 
-```{r setup, echo=F}
+```{r setup, echo=F, message = FALSE}
 library(vcfR)
 library(VariantTools)
 ```
@@ -17,7 +17,7 @@ gr <- rowRanges(vcfK)
 files <- list.files("~/projects/SuRE_K562/data/external/bed_files/bed")
 ```
 
-The next loop puts all data from the `.bed` files in the `out` dataframe. With the `if` loop, I select only the bedfiles that contain human TFBS. 
+The next loop puts all data from the `.bed` files in the `out` dataframe. With the `if` loop, I select only the bedfiles that contain human TFBS. This `out` dataframe contains (in rising column order): chromosome, start position of the TFBS (0-based), end position of the TFBS (0-based), index including corresponding chromosome, empty column, strand (plus or minus), corresponding file. 
 ```{r}
 out <- NULL
 for (file in files){
@@ -28,10 +28,10 @@ for (file in files){
   }
   out <- rbind(out,tab)
 }
-out
+out[1,]
 ```
 
-Then a `GRanges` files is created from the `dataframe`. 
+Then a `GRanges` files is created from the `dataframe`. Note that the start-position is increased with 1 with respect to the bed-file, to change from a 0-based to 1-based system. Ranges are sorted based on their chromosomal position. 
 ```{r}
 SEQ   <- out$V1
 START <- out$V2+1 #0-based to 1-based
@@ -43,11 +43,12 @@ gr_tfbs <- GRanges(seqnames = SEQ,
                    strand = out$V6)  
 gr_tfbs <- sortSeqlevels(gr_tfbs)
 gr_tfbs <- sort(gr_tfbs)
-table(countOverlaps(gr, gr_tfbs))
 OVERLAP <- gr[countOverlaps(gr, gr_tfbs) > 0]
+table(countOverlaps(gr, gr_tfbs))
+
 ```
 
-Then the orriginal file can be annotated with the corespondig files
+Then the original file can be annotated with the corespondig files
 ```{r}
 gr_new <- gr[gr$NEW == T]
 f <- findOverlaps(gr_new, gr_tfbs)

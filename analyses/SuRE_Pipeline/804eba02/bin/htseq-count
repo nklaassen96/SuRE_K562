@@ -1,0 +1,4 @@
+#!/home/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/804eba02/bin/python
+# EASY-INSTALL-SCRIPT: 'HTSeq==0.7.2','htseq-count'
+__requires__ = 'HTSeq==0.7.2'
+__import__('pkg_resources').run_script('HTSeq==0.7.2', 'htseq-count')

@@ -1,0 +1,562 @@
+{
+  "build": "py36h7b6447c_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "cffi >=1.4.1",
+    "libgcc-ng >=7.3.0",
+    "libsodium >=1.0.16,<1.0.17.0a0",
+    "python >=3.6,<3.7.0a0",
+    "six"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/pynacl-1.3.0-py36h7b6447c_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/not-zip-safe",
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/nacl/__init__.py",
+    "lib/python3.6/site-packages/nacl/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/encoding.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/exceptions.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/hash.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/hashlib.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/public.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/secret.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/signing.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/__pycache__/utils.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/_sodium.abi3.so",
+    "lib/python3.6/site-packages/nacl/bindings/__init__.py",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_aead.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_box.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_generichash.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_hash.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_kx.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_pwhash.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_scalarmult.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_secretbox.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_secretstream.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_shorthash.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_sign.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/randombytes.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/sodium_core.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/__pycache__/utils.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_aead.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_box.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_generichash.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_hash.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_kx.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_pwhash.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_scalarmult.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_secretbox.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_secretstream.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_shorthash.py",
+    "lib/python3.6/site-packages/nacl/bindings/crypto_sign.py",
+    "lib/python3.6/site-packages/nacl/bindings/randombytes.py",
+    "lib/python3.6/site-packages/nacl/bindings/sodium_core.py",
+    "lib/python3.6/site-packages/nacl/bindings/utils.py",
+    "lib/python3.6/site-packages/nacl/encoding.py",
+    "lib/python3.6/site-packages/nacl/exceptions.py",
+    "lib/python3.6/site-packages/nacl/hash.py",
+    "lib/python3.6/site-packages/nacl/hashlib.py",
+    "lib/python3.6/site-packages/nacl/public.py",
+    "lib/python3.6/site-packages/nacl/pwhash/__init__.py",
+    "lib/python3.6/site-packages/nacl/pwhash/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/pwhash/__pycache__/_argon2.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/pwhash/__pycache__/argon2i.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/pwhash/__pycache__/argon2id.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/pwhash/__pycache__/scrypt.cpython-36.pyc",
+    "lib/python3.6/site-packages/nacl/pwhash/_argon2.py",
+    "lib/python3.6/site-packages/nacl/pwhash/argon2i.py",
+    "lib/python3.6/site-packages/nacl/pwhash/argon2id.py",
+    "lib/python3.6/site-packages/nacl/pwhash/scrypt.py",
+    "lib/python3.6/site-packages/nacl/secret.py",
+    "lib/python3.6/site-packages/nacl/signing.py",
+    "lib/python3.6/site-packages/nacl/utils.py"
+  ],
+  "fn": "pynacl-1.3.0-py36h7b6447c_0.conda",
+  "legacy_bz2_md5": "3d7edea401f545f64f5bffaf1ff5f341",
+  "legacy_bz2_size": 1371492,
+  "license": "Apache-2.0",
+  "license_family": "Apache",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/pynacl-1.3.0-py36h7b6447c_0",
+    "type": 1
+  },
+  "md5": "4aea48d512d9150770292669015224f5",
+  "name": "pynacl",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/pynacl-1.3.0-py36h7b6447c_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "97590f7936c67459150371126e877dca5d0f2c5cb26d256bd9a87228e93c651d",
+        "sha256_in_prefix": "97590f7936c67459150371126e877dca5d0f2c5cb26d256bd9a87228e93c651d",
+        "size_in_bytes": 7660
+      },
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "fd702eb19eb0906c32e1192de47ecd4b1485f09994425f125da6ef0ab3009a0c",
+        "sha256_in_prefix": "fd702eb19eb0906c32e1192de47ecd4b1485f09994425f125da6ef0ab3009a0c",
+        "size_in_bytes": 37597
+      },
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/not-zip-safe",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink",
+        "sha256": "049d03f661a0eed53e136571ca3c67c1c91c4c64c06d2786be9f7c4aa4e93fcb",
+        "sha256_in_prefix": "049d03f661a0eed53e136571ca3c67c1c91c4c64c06d2786be9f7c4aa4e93fcb",
+        "size_in_bytes": 105
+      },
+      {
+        "_path": "lib/python3.6/site-packages/PyNaCl-1.3.0-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "c1f744388fc6d912339b3b0cca1a6a3f5ec7521e8972a8bdf6da3d6872c4b25a",
+        "sha256_in_prefix": "c1f744388fc6d912339b3b0cca1a6a3f5ec7521e8972a8bdf6da3d6872c4b25a",
+        "size_in_bytes": 13
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "3d2f41b976680b04afac3a41f075e57531e703a95be32d342118b7baa756e7f1",
+        "sha256_in_prefix": "3d2f41b976680b04afac3a41f075e57531e703a95be32d342118b7baa756e7f1",
+        "size_in_bytes": 1170
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "34737f259c5b633000c9939eed9b512aa79cec92c666cd73ec6d953c98b84ee9",
+        "sha256_in_prefix": "34737f259c5b633000c9939eed9b512aa79cec92c666cd73ec6d953c98b84ee9",
+        "size_in_bytes": 664
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/encoding.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "410ac585f64913ecec5db0c091426019d2fefeefded54c8405d98606e035c3de",
+        "sha256_in_prefix": "410ac585f64913ecec5db0c091426019d2fefeefded54c8405d98606e035c3de",
+        "size_in_bytes": 3033
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/exceptions.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e2bfe00413045a69b6f38160018aedb52978359b6022497f89cec85030c9822c",
+        "sha256_in_prefix": "e2bfe00413045a69b6f38160018aedb52978359b6022497f89cec85030c9822c",
+        "size_in_bytes": 2073
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/hash.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6b8027398c3447183779816a441c62edcb6bd6abb224ad370f900c1a6774e65d",
+        "sha256_in_prefix": "6b8027398c3447183779816a441c62edcb6bd6abb224ad370f900c1a6774e65d",
+        "size_in_bytes": 4667
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/hashlib.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "037768af151014ba98758eee15d9171a8f48778d28139d0aa81a9be78918db33",
+        "sha256_in_prefix": "037768af151014ba98758eee15d9171a8f48778d28139d0aa81a9be78918db33",
+        "size_in_bytes": 3921
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/public.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fe19ae48936c098ae1306c10b335662994f2b728752ce5086d134f9871ae8eb3",
+        "sha256_in_prefix": "fe19ae48936c098ae1306c10b335662994f2b728752ce5086d134f9871ae8eb3",
+        "size_in_bytes": 11981
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/secret.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f3f1e2d25152354ceb318059b08a2e0db1359cd8ab1b7b387434f35f343df3bf",
+        "sha256_in_prefix": "f3f1e2d25152354ceb318059b08a2e0db1359cd8ab1b7b387434f35f343df3bf",
+        "size_in_bytes": 4544
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/signing.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "926f202d21c05126b3bc8472f298fa71f2a8f1330f11171fb780573de5b99be6",
+        "sha256_in_prefix": "926f202d21c05126b3bc8472f298fa71f2a8f1330f11171fb780573de5b99be6",
+        "size_in_bytes": 7208
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/__pycache__/utils.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "53acbbb537c0e02da4cbeccd8132c91b61b693edde6ecf4f7132b7943dc92300",
+        "sha256_in_prefix": "53acbbb537c0e02da4cbeccd8132c91b61b693edde6ecf4f7132b7943dc92300",
+        "size_in_bytes": 1787
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/_sodium.abi3.so",
+        "path_type": "hardlink",
+        "sha256": "f478dcb784cc0455340ac766d8a21040cd7904174c49c39521decc978dcd41b1",
+        "sha256_in_prefix": "f478dcb784cc0455340ac766d8a21040cd7904174c49c39521decc978dcd41b1",
+        "size_in_bytes": 153744
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "74d1f5cc58d6f3baaccec95de68cbac4c7f64b5c36bffaac850c181e9ebaa73e",
+        "sha256_in_prefix": "74d1f5cc58d6f3baaccec95de68cbac4c7f64b5c36bffaac850c181e9ebaa73e",
+        "size_in_bytes": 14943
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fd9b7d4517c3fdb30b71d000bd7e8e9694d56374d24e7dd81ff983e3a1032cd2",
+        "sha256_in_prefix": "fd9b7d4517c3fdb30b71d000bd7e8e9694d56374d24e7dd81ff983e3a1032cd2",
+        "size_in_bytes": 10046
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_aead.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "596136a5241ef7ef21a693512bd309f3b23929a6017700292c6fc4bf034e2ef5",
+        "sha256_in_prefix": "596136a5241ef7ef21a693512bd309f3b23929a6017700292c6fc4bf034e2ef5",
+        "size_in_bytes": 9666
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_box.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e7d35a25763b5ad011c35286644d8376e154fa8be476b72ab9d366f073ab9307",
+        "sha256_in_prefix": "e7d35a25763b5ad011c35286644d8376e154fa8be476b72ab9d366f073ab9307",
+        "size_in_bytes": 7903
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_generichash.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fb9d27002980426f74d35a58cca8d3cd1ea5f570077f8864a84f67de8384f811",
+        "sha256_in_prefix": "fb9d27002980426f74d35a58cca8d3cd1ea5f570077f8864a84f67de8384f811",
+        "size_in_bytes": 6100
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_hash.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e9cb4ff337830d24053918bf5a8f52f7e58b0c1b200097fdea1e7a059d51ff58",
+        "sha256_in_prefix": "e9cb4ff337830d24053918bf5a8f52f7e58b0c1b200097fdea1e7a059d51ff58",
+        "size_in_bytes": 1742
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_kx.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "27d56a8c0ae12242d9056d56910d8c9db9f8a6dae45514a24d03388371e1a680",
+        "sha256_in_prefix": "27d56a8c0ae12242d9056d56910d8c9db9f8a6dae45514a24d03388371e1a680",
+        "size_in_bytes": 4205
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_pwhash.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "7427660fb049dcf7c7db4cc367acdab50b0f772a2adfd25cc247e5cad4738cfb",
+        "sha256_in_prefix": "7427660fb049dcf7c7db4cc367acdab50b0f772a2adfd25cc247e5cad4738cfb",
+        "size_in_bytes": 12402
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_scalarmult.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "44c1662af20cd5f706bba6d6daf241cd08d4d9ad1e98405429993c38e84e2993",
+        "sha256_in_prefix": "44c1662af20cd5f706bba6d6daf241cd08d4d9ad1e98405429993c38e84e2993",
+        "size_in_bytes": 1427
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_secretbox.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "819645becf505d7ff7ea3d492ca8305f2598b70ce87ad33d628e89061d203b4b",
+        "sha256_in_prefix": "819645becf505d7ff7ea3d492ca8305f2598b70ce87ad33d628e89061d203b4b",
+        "size_in_bytes": 2173
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_secretstream.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "8d21e34123b075482497fa4233340bf932aaff1b9af0f8fb9708106499575c10",
+        "sha256_in_prefix": "8d21e34123b075482497fa4233340bf932aaff1b9af0f8fb9708106499575c10",
+        "size_in_bytes": 8197
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_shorthash.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0d63339b36c8de0a80dfd6652d5f11e8bed6717f38ae3a0b6bfab1f5d146deef",
+        "sha256_in_prefix": "0d63339b36c8de0a80dfd6652d5f11e8bed6717f38ae3a0b6bfab1f5d146deef",
+        "size_in_bytes": 1794
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/crypto_sign.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "28e1b527a8341d5ac093edd2508ed900d1f75d5871c72bc3a0841975226a1dcb",
+        "sha256_in_prefix": "28e1b527a8341d5ac093edd2508ed900d1f75d5871c72bc3a0841975226a1dcb",
+        "size_in_bytes": 7634
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/randombytes.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "a792a413d831058c389532a75cf9e5d44f0e125a1b58936ce9aa12e197ca9200",
+        "sha256_in_prefix": "a792a413d831058c389532a75cf9e5d44f0e125a1b58936ce9aa12e197ca9200",
+        "size_in_bytes": 625
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/sodium_core.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "1d8259c20989e645744f60e3dab436c2822358ee704fd4c2b6f3004e9db9dc6a",
+        "sha256_in_prefix": "1d8259c20989e645744f60e3dab436c2822358ee704fd4c2b6f3004e9db9dc6a",
+        "size_in_bytes": 828
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/__pycache__/utils.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c783366976deac85e240253c934e1c3c091160c02b5e822b64b1119704ea102d",
+        "sha256_in_prefix": "c783366976deac85e240253c934e1c3c091160c02b5e822b64b1119704ea102d",
+        "size_in_bytes": 3785
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_aead.py",
+        "path_type": "hardlink",
+        "sha256": "0c4e73762d3d19e1d9c6f9ab847b7156e4ea17ad72d5cb3cb6b4c687feae3fc4",
+        "sha256_in_prefix": "0c4e73762d3d19e1d9c6f9ab847b7156e4ea17ad72d5cb3cb6b4c687feae3fc4",
+        "size_in_bytes": 17335
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_box.py",
+        "path_type": "hardlink",
+        "sha256": "85b1c97adafd89de4ebe46c9c09a1ea9140086a4881b0582d9a5d1005e683c4e",
+        "sha256_in_prefix": "85b1c97adafd89de4ebe46c9c09a1ea9140086a4881b0582d9a5d1005e683c4e",
+        "size_in_bytes": 9708
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_generichash.py",
+        "path_type": "hardlink",
+        "sha256": "f9ee1be036a8a4b0501e11232d28c4a2e9b2e5f3ace107536fe868bb54b7e02e",
+        "sha256_in_prefix": "f9ee1be036a8a4b0501e11232d28c4a2e9b2e5f3ace107536fe868bb54b7e02e",
+        "size_in_bytes": 8010
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_hash.py",
+        "path_type": "hardlink",
+        "sha256": "ed7a789a95ebe1ca67fa100e53ae8a9585540951cfe9d793d2ffde5b8519657a",
+        "sha256_in_prefix": "ed7a789a95ebe1ca67fa100e53ae8a9585540951cfe9d793d2ffde5b8519657a",
+        "size_in_bytes": 2243
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_kx.py",
+        "path_type": "hardlink",
+        "sha256": "d868f1bb973b20a0305b630e25af73127d44829215434b5b650b37dd11196f7f",
+        "sha256_in_prefix": "d868f1bb973b20a0305b630e25af73127d44829215434b5b650b37dd11196f7f",
+        "size_in_bytes": 6937
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_pwhash.py",
+        "path_type": "hardlink",
+        "sha256": "95684414a997cc584a9f3cf1b560f0a33b340ac7990e41a04c9688e18439ada9",
+        "sha256_in_prefix": "95684414a997cc584a9f3cf1b560f0a33b340ac7990e41a04c9688e18439ada9",
+        "size_in_bytes": 16898
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_scalarmult.py",
+        "path_type": "hardlink",
+        "sha256": "540da4866954ae7476e0a2b4080743c36750d23898924bbdfbf340f9fd69db57",
+        "sha256_in_prefix": "540da4866954ae7476e0a2b4080743c36750d23898924bbdfbf340f9fd69db57",
+        "size_in_bytes": 1803
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_secretbox.py",
+        "path_type": "hardlink",
+        "sha256": "96ebf30779700705f12a6eb77bd9c0da7786b4e5de786f11f52c9611c908a9d2",
+        "sha256_in_prefix": "96ebf30779700705f12a6eb77bd9c0da7786b4e5de786f11f52c9611c908a9d2",
+        "size_in_bytes": 2864
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_secretstream.py",
+        "path_type": "hardlink",
+        "sha256": "81d2a29d6d748cfdc2679d616a7138d2ce9edfdaf3f22b9a8dd5d348148a55c3",
+        "sha256_in_prefix": "81d2a29d6d748cfdc2679d616a7138d2ce9edfdaf3f22b9a8dd5d348148a55c3",
+        "size_in_bytes": 10474
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_shorthash.py",
+        "path_type": "hardlink",
+        "sha256": "795504f1bc81d518c8d00a0789be417594922ed4aab5d21c1e03c23d67f63993",
+        "sha256_in_prefix": "795504f1bc81d518c8d00a0789be417594922ed4aab5d21c1e03c23d67f63993",
+        "size_in_bytes": 2189
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/crypto_sign.py",
+        "path_type": "hardlink",
+        "sha256": "b80d11747338bec043361a61d9fedf72e23ff4af2fbd6fb884d1e36a34c8554d",
+        "sha256_in_prefix": "b80d11747338bec043361a61d9fedf72e23ff4af2fbd6fb884d1e36a34c8554d",
+        "size_in_bytes": 9641
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/randombytes.py",
+        "path_type": "hardlink",
+        "sha256": "79386db3ab3ef710573a5dc63734f9edf575759521ccf8e30260152141df72b7",
+        "sha256_in_prefix": "79386db3ab3ef710573a5dc63734f9edf575759521ccf8e30260152141df72b7",
+        "size_in_bytes": 988
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/sodium_core.py",
+        "path_type": "hardlink",
+        "sha256": "e76cf42bbcba19ee88957732b160d537b51d61c4ce8a3eafd026f438ba3cfd07",
+        "sha256_in_prefix": "e76cf42bbcba19ee88957732b160d537b51d61c4ce8a3eafd026f438ba3cfd07",
+        "size_in_bytes": 1079
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/bindings/utils.py",
+        "path_type": "hardlink",
+        "sha256": "8ce2ac0dbb23c4df6ffc723c0ce89bef6721c94ddbcaa6f29d7c5b895f74f7e8",
+        "sha256_in_prefix": "8ce2ac0dbb23c4df6ffc723c0ce89bef6721c94ddbcaa6f29d7c5b895f74f7e8",
+        "size_in_bytes": 4420
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/encoding.py",
+        "path_type": "hardlink",
+        "sha256": "b4e8b2210555a4653a0382f3af4b4cbaaa2685cfc08f457f735b79e9af99b4fc",
+        "sha256_in_prefix": "b4e8b2210555a4653a0382f3af4b4cbaaa2685cfc08f457f735b79e9af99b4fc",
+        "size_in_bytes": 1928
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/exceptions.py",
+        "path_type": "hardlink",
+        "sha256": "486d0136d5e7ce6a6923d8a7eb13134a2ce1d6bc9f81422f215310bff0346ecf",
+        "sha256_in_prefix": "486d0136d5e7ce6a6923d8a7eb13134a2ce1d6bc9f81422f215310bff0346ecf",
+        "size_in_bytes": 1858
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/hash.py",
+        "path_type": "hardlink",
+        "sha256": "e032a59aaa5639924b8734cf93bfc94865d0df694950bb12dc0cc9086b226eeb",
+        "sha256_in_prefix": "e032a59aaa5639924b8734cf93bfc94865d0df694950bb12dc0cc9086b226eeb",
+        "size_in_bytes": 5928
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/hashlib.py",
+        "path_type": "hardlink",
+        "sha256": "80cc4ebbe94894a62bdf2c120a3b0944192c620a54d9dbd781a0047d0cfb3c48",
+        "sha256_in_prefix": "80cc4ebbe94894a62bdf2c120a3b0944192c620a54d9dbd781a0047d0cfb3c48",
+        "size_in_bytes": 3909
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/public.py",
+        "path_type": "hardlink",
+        "sha256": "fa7c10a1fe68bfec1249dbefa1787e15abd3b637e946763291991ab4d2b22ddd",
+        "sha256_in_prefix": "fa7c10a1fe68bfec1249dbefa1787e15abd3b637e946763291991ab4d2b22ddd",
+        "size_in_bytes": 13442
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "08dd263facad792629dee8be0f2591d6f8d42cdad754dfe043bd829933e86a8d",
+        "sha256_in_prefix": "08dd263facad792629dee8be0f2591d6f8d42cdad754dfe043bd829933e86a8d",
+        "size_in_bytes": 2695
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "06a082eda8e728ad8f3af0d79386e5a47c14724f8c863b06ba3ceaa9b006c934",
+        "sha256_in_prefix": "06a082eda8e728ad8f3af0d79386e5a47c14724f8c863b06ba3ceaa9b006c934",
+        "size_in_bytes": 1649
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__pycache__/_argon2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2c9be752b67224c71a5f3f0e9145ba6e46726df720a1876605b4813f6ae16d36",
+        "sha256_in_prefix": "2c9be752b67224c71a5f3f0e9145ba6e46726df720a1876605b4813f6ae16d36",
+        "size_in_bytes": 1340
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__pycache__/argon2i.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "11d6950c90a064f29f2aee77d0e789779149817c462e47ca95cae7f8e4a9a7b4",
+        "sha256_in_prefix": "11d6950c90a064f29f2aee77d0e789779149817c462e47ca95cae7f8e4a9a7b4",
+        "size_in_bytes": 3742
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__pycache__/argon2id.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "ef4db1785d4b6ee8a76ac92cee5f120a45794c05677c894d6ef08e695817de74",
+        "sha256_in_prefix": "ef4db1785d4b6ee8a76ac92cee5f120a45794c05677c894d6ef08e695817de74",
+        "size_in_bytes": 3755
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/__pycache__/scrypt.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "8e0835c89207914322a9d4796bcb97d1257e43c51cc0f30017a65d44ab421125",
+        "sha256_in_prefix": "8e0835c89207914322a9d4796bcb97d1257e43c51cc0f30017a65d44ab421125",
+        "size_in_bytes": 5071
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/_argon2.py",
+        "path_type": "hardlink",
+        "sha256": "12edfe8ee2f0b37fefd60372e5a79254f130b915457463ab7de174c0f1fd5470",
+        "sha256_in_prefix": "12edfe8ee2f0b37fefd60372e5a79254f130b915457463ab7de174c0f1fd5470",
+        "size_in_bytes": 1878
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/argon2i.py",
+        "path_type": "hardlink",
+        "sha256": "12985e2b450726f65871afc432184e717e465da3abd310a31434c8826482483a",
+        "sha256_in_prefix": "12985e2b450726f65871afc432184e717e465da3abd310a31434c8826482483a",
+        "size_in_bytes": 4598
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/argon2id.py",
+        "path_type": "hardlink",
+        "sha256": "22a366e5140d11dd59f45f9b1164fefd8f67a14dba4284d1e5875638d835bae2",
+        "sha256_in_prefix": "22a366e5140d11dd59f45f9b1164fefd8f67a14dba4284d1e5875638d835bae2",
+        "size_in_bytes": 4610
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/pwhash/scrypt.py",
+        "path_type": "hardlink",
+        "sha256": "17d89429bcd950c1b6657bae93bd29e0a5c8fe722db9edd5037f739b0384484f",
+        "sha256_in_prefix": "17d89429bcd950c1b6657bae93bd29e0a5c8fe722db9edd5037f739b0384484f",
+        "size_in_bytes": 6025
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/secret.py",
+        "path_type": "hardlink",
+        "sha256": "8dfe16b948e79d74de919d9e946810a33665eb31b3c4663fd0dc347f07a15258",
+        "sha256_in_prefix": "8dfe16b948e79d74de919d9e946810a33665eb31b3c4663fd0dc347f07a15258",
+        "size_in_bytes": 5430
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/signing.py",
+        "path_type": "hardlink",
+        "sha256": "670035977d5980e230fec0238943e4cc4a34eee6188bc484ecd8b41bf47c92c4",
+        "sha256_in_prefix": "670035977d5980e230fec0238943e4cc4a34eee6188bc484ecd8b41bf47c92c4",
+        "size_in_bytes": 7302
+      },
+      {
+        "_path": "lib/python3.6/site-packages/nacl/utils.py",
+        "path_type": "hardlink",
+        "sha256": "861988ae204cec1c328776de4eba95a830ee71a8b981795296200c56bc481cf2",
+        "sha256_in_prefix": "861988ae204cec1c328776de4eba95a830ee71a8b981795296200c56bc481cf2",
+        "size_in_bytes": 1691
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "9668e484351af771473df6209ac7fecf6461d009037da61567b7285f7db785cf",
+  "size": 1103899,
+  "subdir": "linux-64",
+  "timestamp": 1539896395373,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/pynacl-1.3.0-py36h7b6447c_0.conda",
+  "version": "1.3.0"
+}

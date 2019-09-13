@@ -1,0 +1,21 @@
+#
+#  lzo2.pc -- LZO pkg-config configuration file
+#
+#  This file is part of the LZO data compression library.
+#    http://www.oberhumer.com/opensource/lzo/
+#
+#  Copyright (C) 1996-2017 Markus Franz Xaver Johannes Oberhumer
+#  All Rights Reserved.
+#
+
+prefix=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/e8102343
+exec_prefix=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/e8102343/bin
+includedir=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/e8102343/include
+libdir=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/e8102343/lib
+
+Name: lzo2
+Version: 2.10
+Description: LZO - a real-time data compression library
+URL: http://www.oberhumer.com/opensource/lzo/
+Cflags: -I${includedir}/lzo
+Libs: -L${libdir} -llzo2

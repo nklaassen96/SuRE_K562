@@ -1,0 +1,529 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.6,<3.7.0a0",
+    "requests >=2.16.2",
+    "setuptools",
+    "six >=1.3.0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/dropbox-9.4.0-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/INSTALLER",
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/LICENSE",
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/METADATA",
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/RECORD",
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/WHEEL",
+    "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/top_level.txt",
+    "lib/python3.6/site-packages/dropbox/__init__.py",
+    "lib/python3.6/site-packages/dropbox/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/async.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/async_.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/auth.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/base.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/base_team.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/common.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/contacts.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/dropbox.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/exceptions.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/file_properties.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/file_requests.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/files.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/oauth.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/paper.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/seen_state.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/session.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/sharing.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/stone_base.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/stone_serializers.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/stone_validators.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/team.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/team_common.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/team_log.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/team_policies.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/users.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/__pycache__/users_common.cpython-36.pyc",
+    "lib/python3.6/site-packages/dropbox/async.py",
+    "lib/python3.6/site-packages/dropbox/async_.py",
+    "lib/python3.6/site-packages/dropbox/auth.py",
+    "lib/python3.6/site-packages/dropbox/base.py",
+    "lib/python3.6/site-packages/dropbox/base_team.py",
+    "lib/python3.6/site-packages/dropbox/common.py",
+    "lib/python3.6/site-packages/dropbox/contacts.py",
+    "lib/python3.6/site-packages/dropbox/dropbox.py",
+    "lib/python3.6/site-packages/dropbox/exceptions.py",
+    "lib/python3.6/site-packages/dropbox/file_properties.py",
+    "lib/python3.6/site-packages/dropbox/file_requests.py",
+    "lib/python3.6/site-packages/dropbox/files.py",
+    "lib/python3.6/site-packages/dropbox/oauth.py",
+    "lib/python3.6/site-packages/dropbox/paper.py",
+    "lib/python3.6/site-packages/dropbox/seen_state.py",
+    "lib/python3.6/site-packages/dropbox/session.py",
+    "lib/python3.6/site-packages/dropbox/sharing.py",
+    "lib/python3.6/site-packages/dropbox/stone_base.py",
+    "lib/python3.6/site-packages/dropbox/stone_serializers.py",
+    "lib/python3.6/site-packages/dropbox/stone_validators.py",
+    "lib/python3.6/site-packages/dropbox/team.py",
+    "lib/python3.6/site-packages/dropbox/team_common.py",
+    "lib/python3.6/site-packages/dropbox/team_log.py",
+    "lib/python3.6/site-packages/dropbox/team_policies.py",
+    "lib/python3.6/site-packages/dropbox/trusted-certs.crt",
+    "lib/python3.6/site-packages/dropbox/users.py",
+    "lib/python3.6/site-packages/dropbox/users_common.py"
+  ],
+  "fn": "dropbox-9.4.0-py36_0.conda",
+  "legacy_bz2_md5": "c9cd656e855d106941cdc07955dd9886",
+  "legacy_bz2_size": 872575,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/dropbox-9.4.0-py36_0",
+    "type": 1
+  },
+  "md5": "d8471674aebb229e3fc19ebc0a3fdb59",
+  "name": "dropbox",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/dropbox-9.4.0-py36_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "f40c5c44c4ee46273dbf3b4f2b85926f62550bd43b40f409757594a9b86335a3",
+        "sha256_in_prefix": "f40c5c44c4ee46273dbf3b4f2b85926f62550bd43b40f409757594a9b86335a3",
+        "size_in_bytes": 1150
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "f17c26cb6379ce9fa65f1e0144265ad32c732ad5cd7ff0d63e471e6c4944e3ad",
+        "sha256_in_prefix": "f17c26cb6379ce9fa65f1e0144265ad32c732ad5cd7ff0d63e471e6c4944e3ad",
+        "size_in_bytes": 4828
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "9d84966b49ebf0ee59c48b55663ee841b59ea7fbe9cbb1009a83f6f0ce8429a1",
+        "sha256_in_prefix": "9d84966b49ebf0ee59c48b55663ee841b59ea7fbe9cbb1009a83f6f0ce8429a1",
+        "size_in_bytes": 3963
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "3e7894f9a067018e3e063db6e564dd66d734dd123a38815407fe24ed1ab8664c",
+        "sha256_in_prefix": "3e7894f9a067018e3e063db6e564dd66d734dd123a38815407fe24ed1ab8664c",
+        "size_in_bytes": 93
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox-9.4.0.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "ef986947a1808a55af13c1e7bdc61a662fdae019bb811ca77ac84b2bee81bbf7",
+        "sha256_in_prefix": "ef986947a1808a55af13c1e7bdc61a662fdae019bb811ca77ac84b2bee81bbf7",
+        "size_in_bytes": 8
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "f8d2c03dcc104871726ff070d6e25d4c304924d661fd1a92986e16b9144289b4",
+        "sha256_in_prefix": "f8d2c03dcc104871726ff070d6e25d4c304924d661fd1a92986e16b9144289b4",
+        "size_in_bytes": 205
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "9f5c0ccd812d81da849f00d58a4a6e21d6da23aaf6d9276c6d5d3d53d5e1cca5",
+        "sha256_in_prefix": "9f5c0ccd812d81da849f00d58a4a6e21d6da23aaf6d9276c6d5d3d53d5e1cca5",
+        "size_in_bytes": 378
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/async.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c1930036945b08cc20e41749d4403bee5fd5e4e2a23314ae34a6e1f17e6eb525",
+        "sha256_in_prefix": "c1930036945b08cc20e41749d4403bee5fd5e4e2a23314ae34a6e1f17e6eb525",
+        "size_in_bytes": 150
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/async_.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e6b1cf1e33e97f8e9947d0ab57aeb187cec4e37659198a8b6b7c7eff9e3f0ce0",
+        "sha256_in_prefix": "e6b1cf1e33e97f8e9947d0ab57aeb187cec4e37659198a8b6b7c7eff9e3f0ce0",
+        "size_in_bytes": 10830
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/auth.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "708b0e797058e4acf9dad5dac707f1e09392b040a779f664aa4ae9a9b0efab36",
+        "sha256_in_prefix": "708b0e797058e4acf9dad5dac707f1e09392b040a779f664aa4ae9a9b0efab36",
+        "size_in_bytes": 24746
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/base.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "ae77700d1d4bce42f283e9201f42b92b78cb89db5abb26fbdbff0809f5ef31ad",
+        "sha256_in_prefix": "ae77700d1d4bce42f283e9201f42b92b78cb89db5abb26fbdbff0809f5ef31ad",
+        "size_in_bytes": 154694
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/base_team.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "4ac121686d2059318dc97c159b9324dc3f5f6e5b67086d6e848bcd59778b31ac",
+        "sha256_in_prefix": "4ac121686d2059318dc97c159b9324dc3f5f6e5b67086d6e848bcd59778b31ac",
+        "size_in_bytes": 64206
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/common.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "cfe808dd67fa842803ba1ef729b1a30cb2d7a90c7cf9a2366212d36e9ec8c6f0",
+        "sha256_in_prefix": "cfe808dd67fa842803ba1ef729b1a30cb2d7a90c7cf9a2366212d36e9ec8c6f0",
+        "size_in_bytes": 13544
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/contacts.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6016294c1d0a9a9cbf4d995cd4221e31f4af2b160e46fb48c221f00adf61c619",
+        "sha256_in_prefix": "6016294c1d0a9a9cbf4d995cd4221e31f4af2b160e46fb48c221f00adf61c619",
+        "size_in_bytes": 5057
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/dropbox.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "4be6ef3d3debf62bed51732c1b6b2033fb37b53c191620adcc191316bb12416d",
+        "sha256_in_prefix": "4be6ef3d3debf62bed51732c1b6b2033fb37b53c191620adcc191316bb12416d",
+        "size_in_bytes": 17388
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/exceptions.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c97b2fb787b2fb1cdefab9ce0791ed160f0aa79d9878875f45a3285b79c01e3d",
+        "sha256_in_prefix": "c97b2fb787b2fb1cdefab9ce0791ed160f0aa79d9878875f45a3285b79c01e3d",
+        "size_in_bytes": 4971
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/file_properties.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "17ed8d357ecdcd3b327de4ab6b30cc14851f3a4f5bbcd7b0e11be3026ba54f23",
+        "sha256_in_prefix": "17ed8d357ecdcd3b327de4ab6b30cc14851f3a4f5bbcd7b0e11be3026ba54f23",
+        "size_in_bytes": 94526
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/file_requests.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e3ea163de052340a4840705616b1643d5b76406df8e8d45995ca2317bc0ce099",
+        "sha256_in_prefix": "e3ea163de052340a4840705616b1643d5b76406df8e8d45995ca2317bc0ce099",
+        "size_in_bytes": 58318
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/files.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "3dc6f847dfa6b6ff638ef3baeb81a880a6380d76354debd88a25b4890b9134ca",
+        "sha256_in_prefix": "3dc6f847dfa6b6ff638ef3baeb81a880a6380d76354debd88a25b4890b9134ca",
+        "size_in_bytes": 390054
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/oauth.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "24da4cafa2041279558b72a44527283984481e1f7fad6101e9e8d41af36d32ea",
+        "sha256_in_prefix": "24da4cafa2041279558b72a44527283984481e1f7fad6101e9e8d41af36d32ea",
+        "size_in_bytes": 17113
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/paper.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "ca17f31a1ee5544718be9fa7e8d4b6f8c371b759c867c3e08b01caa86fd5f7d4",
+        "sha256_in_prefix": "ca17f31a1ee5544718be9fa7e8d4b6f8c371b759c867c3e08b01caa86fd5f7d4",
+        "size_in_bytes": 124617
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/seen_state.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6acb392df70bad82602e4de811b96d4d48c91f1c75c1b226f55fc520ddb4e54c",
+        "sha256_in_prefix": "6acb392df70bad82602e4de811b96d4d48c91f1c75c1b226f55fc520ddb4e54c",
+        "size_in_bytes": 4349
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/session.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "601da7df2e49e69a6670c9ac64d8a901e462f4d0ec9b71523dfc54b1d3a25c74",
+        "sha256_in_prefix": "601da7df2e49e69a6670c9ac64d8a901e462f4d0ec9b71523dfc54b1d3a25c74",
+        "size_in_bytes": 1593
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/sharing.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f85aad04f04ff65841395d4b34291e1f846e80ed806574ade089c7eba52163dd",
+        "sha256_in_prefix": "f85aad04f04ff65841395d4b34291e1f846e80ed806574ade089c7eba52163dd",
+        "size_in_bytes": 538239
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/stone_base.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "45555fe9bb4ffc5a17a8ab684d088b4d6815e99a52cf68a836495b17e0ec8f05",
+        "sha256_in_prefix": "45555fe9bb4ffc5a17a8ab684d088b4d6815e99a52cf68a836495b17e0ec8f05",
+        "size_in_bytes": 5511
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/stone_serializers.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6d62375012822d6fb670525abc69fcad366eb59b44a129218def5d61f1bee708",
+        "sha256_in_prefix": "6d62375012822d6fb670525abc69fcad366eb59b44a129218def5d61f1bee708",
+        "size_in_bytes": 30581
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/stone_validators.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "1d72ac0b6785f6d8830d58eff4305b6e901d864d2b2c030a80ece816c8162d58",
+        "sha256_in_prefix": "1d72ac0b6785f6d8830d58eff4305b6e901d864d2b2c030a80ece816c8162d58",
+        "size_in_bytes": 23840
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/team.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "00b892d4cbfd922c0f0fad3bb508e78d1997eba8ed8c8bdb09abb8ceb81dcaf3",
+        "sha256_in_prefix": "00b892d4cbfd922c0f0fad3bb508e78d1997eba8ed8c8bdb09abb8ceb81dcaf3",
+        "size_in_bytes": 539592
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/team_common.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f4168caa47560483c6dfe1db6f7510f029067b2a64a33524eb676c9a830c1203",
+        "sha256_in_prefix": "f4168caa47560483c6dfe1db6f7510f029067b2a64a33524eb676c9a830c1203",
+        "size_in_bytes": 14738
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/team_log.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "17f43b084c8a4504b38b4bb2b100f69e0d231e1e3f2e1751036d1f0fe709a9c8",
+        "sha256_in_prefix": "17f43b084c8a4504b38b4bb2b100f69e0d231e1e3f2e1751036d1f0fe709a9c8",
+        "size_in_bytes": 2361196
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/team_policies.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e1cefc8a0342bdf315247c109fc385ecaf1df9bce93fd0cd33fd1636d5a6b6bc",
+        "sha256_in_prefix": "e1cefc8a0342bdf315247c109fc385ecaf1df9bce93fd0cd33fd1636d5a6b6bc",
+        "size_in_bytes": 48564
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/users.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b8f5ca86d4864db3d44f213713fde7faf2c9243ad48acfa8056e9f28bb0f9dad",
+        "sha256_in_prefix": "b8f5ca86d4864db3d44f213713fde7faf2c9243ad48acfa8056e9f28bb0f9dad",
+        "size_in_bytes": 47041
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/__pycache__/users_common.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "4e04a2dd4cda2d80c47b65df9ee8320fb6e311ea906e229d3049f06628612562",
+        "sha256_in_prefix": "4e04a2dd4cda2d80c47b65df9ee8320fb6e311ea906e229d3049f06628612562",
+        "size_in_bytes": 2493
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/async.py",
+        "path_type": "hardlink",
+        "sha256": "a03d414daaaf38ade063e2f36c7e7d00597543f7a0ef9dba38fab4df3c4c4e71",
+        "sha256_in_prefix": "a03d414daaaf38ade063e2f36c7e7d00597543f7a0ef9dba38fab4df3c4c4e71",
+        "size_in_bytes": 242
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/async_.py",
+        "path_type": "hardlink",
+        "sha256": "9b52c6595537c91c8f16a514434bb795a47bafb8bf23910428ed7a25bfb608b4",
+        "sha256_in_prefix": "9b52c6595537c91c8f16a514434bb795a47bafb8bf23910428ed7a25bfb608b4",
+        "size_in_bytes": 10895
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/auth.py",
+        "path_type": "hardlink",
+        "sha256": "a3398b2d68cf6f1c2f945250578823f552ec006a101968bbed388a7cb8eb8fea",
+        "sha256_in_prefix": "a3398b2d68cf6f1c2f945250578823f552ec006a101968bbed388a7cb8eb8fea",
+        "size_in_bytes": 27757
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/base.py",
+        "path_type": "hardlink",
+        "sha256": "cc35dd6d24516e60fdd44008a5026facb47feeafe26026e74a5b1bbe7387f162",
+        "sha256_in_prefix": "cc35dd6d24516e60fdd44008a5026facb47feeafe26026e74a5b1bbe7387f162",
+        "size_in_bytes": 179192
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/base_team.py",
+        "path_type": "hardlink",
+        "sha256": "0a82724c98fdafe86b23fcfd48eb6e70736b3adde55bd9818f722bc23573ef8b",
+        "sha256_in_prefix": "0a82724c98fdafe86b23fcfd48eb6e70736b3adde55bd9818f722bc23573ef8b",
+        "size_in_bytes": 72696
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/common.py",
+        "path_type": "hardlink",
+        "sha256": "53e569cb9c7438fe1417e4c7796c65007bf8c774a3cb5c0ec413895b8fe1abc0",
+        "sha256_in_prefix": "53e569cb9c7438fe1417e4c7796c65007bf8c774a3cb5c0ec413895b8fe1abc0",
+        "size_in_bytes": 14967
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/contacts.py",
+        "path_type": "hardlink",
+        "sha256": "92ae5ea703aa86d92588c281ad09f3e53c12458c169fea6df8f0219ace134d6d",
+        "sha256_in_prefix": "92ae5ea703aa86d92588c281ad09f3e53c12458c169fea6df8f0219ace134d6d",
+        "size_in_bytes": 5492
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/dropbox.py",
+        "path_type": "hardlink",
+        "sha256": "582eb7895245d9a8225f4d5f744d078b9bc98eeec4cfe70d1c28e90b8152b5bf",
+        "sha256_in_prefix": "582eb7895245d9a8225f4d5f744d078b9bc98eeec4cfe70d1c28e90b8152b5bf",
+        "size_in_bytes": 25197
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/exceptions.py",
+        "path_type": "hardlink",
+        "sha256": "5067bbb0cbe717c56827408731116996c3a471d7a6c62ca10e73d7a5a94da51e",
+        "sha256_in_prefix": "5067bbb0cbe717c56827408731116996c3a471d7a6c62ca10e73d7a5a94da51e",
+        "size_in_bytes": 3425
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/file_properties.py",
+        "path_type": "hardlink",
+        "sha256": "c9520ff456c9f9dd3aaeba6be14d8de8f224015e5e8d19f10c50a6854bd1b3be",
+        "sha256_in_prefix": "c9520ff456c9f9dd3aaeba6be14d8de8f224015e5e8d19f10c50a6854bd1b3be",
+        "size_in_bytes": 110346
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/file_requests.py",
+        "path_type": "hardlink",
+        "sha256": "f04f8c2d5b85c4a1c52844df63721f912211ed875102179879c9a62a22553d60",
+        "sha256_in_prefix": "f04f8c2d5b85c4a1c52844df63721f912211ed875102179879c9a62a22553d60",
+        "size_in_bytes": 68468
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/files.py",
+        "path_type": "hardlink",
+        "sha256": "5287d35a0c152a0b66f8638f5afe75dbcae2453e8a3214bf871d652944fa73d4",
+        "sha256_in_prefix": "5287d35a0c152a0b66f8638f5afe75dbcae2453e8a3214bf871d652944fa73d4",
+        "size_in_bytes": 452763
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/oauth.py",
+        "path_type": "hardlink",
+        "sha256": "36d380bd9046a0cd7483c2165be730eb9150fa88d193d124d6845785ae9559ae",
+        "sha256_in_prefix": "36d380bd9046a0cd7483c2165be730eb9150fa88d193d124d6845785ae9559ae",
+        "size_in_bytes": 18272
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/paper.py",
+        "path_type": "hardlink",
+        "sha256": "6189348a718af5efe579f8a5fec9cd847f3266cc07579a0d102aec2c87927519",
+        "sha256_in_prefix": "6189348a718af5efe579f8a5fec9cd847f3266cc07579a0d102aec2c87927519",
+        "size_in_bytes": 149314
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/seen_state.py",
+        "path_type": "hardlink",
+        "sha256": "304ef2678708a63020363e08719d5dd4aa6a63baf48eba2f7073dbd2ca870bb4",
+        "sha256_in_prefix": "304ef2678708a63020363e08719d5dd4aa6a63baf48eba2f7073dbd2ca870bb4",
+        "size_in_bytes": 4851
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/session.py",
+        "path_type": "hardlink",
+        "sha256": "3601b9561165cac9d82015481fa880a9ce1c2b30f588ea94e0b55ec2a028a907",
+        "sha256_in_prefix": "3601b9561165cac9d82015481fa880a9ce1c2b30f588ea94e0b55ec2a028a907",
+        "size_in_bytes": 1752
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/sharing.py",
+        "path_type": "hardlink",
+        "sha256": "194214b23cd60a0f8c47f564fb2dcdd330b5dc05aa57bbd7529869acbb085568",
+        "sha256_in_prefix": "194214b23cd60a0f8c47f564fb2dcdd330b5dc05aa57bbd7529869acbb085568",
+        "size_in_bytes": 653046
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/stone_base.py",
+        "path_type": "hardlink",
+        "sha256": "6ee1cfba06e3912996e5adab61ff4f3183ee1979fa7161695a8e3d70db6d2ba1",
+        "sha256_in_prefix": "6ee1cfba06e3912996e5adab61ff4f3183ee1979fa7161695a8e3d70db6d2ba1",
+        "size_in_bytes": 5463
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/stone_serializers.py",
+        "path_type": "hardlink",
+        "sha256": "f97fb3c2cdfad9ca7aa4dcbbb7dff164a9906f423873f5de64862acb22209ac6",
+        "sha256_in_prefix": "f97fb3c2cdfad9ca7aa4dcbbb7dff164a9906f423873f5de64862acb22209ac6",
+        "size_in_bytes": 43145
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/stone_validators.py",
+        "path_type": "hardlink",
+        "sha256": "25803657d7550d43b5c8e7aaa21f8d836f18528f4cbe2e0a4c7e9c8f798da1f8",
+        "sha256_in_prefix": "25803657d7550d43b5c8e7aaa21f8d836f18528f4cbe2e0a4c7e9c8f798da1f8",
+        "size_in_bytes": 24546
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/team.py",
+        "path_type": "hardlink",
+        "sha256": "c6cf5ce2c562c148071955f3ae1fd7a9d49bf139c2e977f385e3fd8e42cff5d4",
+        "sha256_in_prefix": "c6cf5ce2c562c148071955f3ae1fd7a9d49bf139c2e977f385e3fd8e42cff5d4",
+        "size_in_bytes": 649710
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/team_common.py",
+        "path_type": "hardlink",
+        "sha256": "c7ac6d9e3857ec00288bbea15907c78d21ecbfda6e68907cef77847b44cd9a81",
+        "sha256_in_prefix": "c7ac6d9e3857ec00288bbea15907c78d21ecbfda6e68907cef77847b44cd9a81",
+        "size_in_bytes": 17923
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/team_log.py",
+        "path_type": "hardlink",
+        "sha256": "8cf3d76dfce5abcf011756a23f8a6d7de442f8d36765b105203f72350f7d94cd",
+        "sha256_in_prefix": "8cf3d76dfce5abcf011756a23f8a6d7de442f8d36765b105203f72350f7d94cd",
+        "size_in_bytes": 2637527
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/team_policies.py",
+        "path_type": "hardlink",
+        "sha256": "9ab75650b086042ec9535ba7fe0abe4daf9b2378f0eac1aad6e582f9f5291a57",
+        "sha256_in_prefix": "9ab75650b086042ec9535ba7fe0abe4daf9b2378f0eac1aad6e582f9f5291a57",
+        "size_in_bytes": 56821
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/trusted-certs.crt",
+        "path_type": "hardlink",
+        "sha256": "17f42a19bf0e636bf55456dcdba1462b48ffef8d88eb3e7f0c244a6e5a7b5e5f",
+        "sha256_in_prefix": "17f42a19bf0e636bf55456dcdba1462b48ffef8d88eb3e7f0c244a6e5a7b5e5f",
+        "size_in_bytes": 79896
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/users.py",
+        "path_type": "hardlink",
+        "sha256": "0add12890774e14a989723412b38b06473ea38f9a4426d5677528345891c7dce",
+        "sha256_in_prefix": "0add12890774e14a989723412b38b06473ea38f9a4426d5677528345891c7dce",
+        "size_in_bytes": 59045
+      },
+      {
+        "_path": "lib/python3.6/site-packages/dropbox/users_common.py",
+        "path_type": "hardlink",
+        "sha256": "e97b9274cd088916513f58147ce4ccbc274757e4752a2ab6ad2dfa478c1b68ea",
+        "sha256_in_prefix": "e97b9274cd088916513f58147ce4ccbc274757e4752a2ab6ad2dfa478c1b68ea",
+        "size_in_bytes": 2555
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "618d43cb9313cc34e6649258f0103d9aa7f1ea8c7a1b25aafc04c68e1cb56399",
+  "size": 773884,
+  "subdir": "linux-64",
+  "timestamp": 1564674410772,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/dropbox-9.4.0-py36_0.conda",
+  "version": "9.4.0"
+}

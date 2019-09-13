@@ -1,0 +1,94 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.6,<3.7.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/configargparse-0.14.0-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/__pycache__/configargparse.cpython-36.pyc",
+    "lib/python3.6/site-packages/configargparse.py"
+  ],
+  "fn": "configargparse-0.14.0-py36_0.conda",
+  "legacy_bz2_md5": "2b86b87f372f2a7916da69c6fc8fb607",
+  "legacy_bz2_size": 28437,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/configargparse-0.14.0-py36_0",
+    "type": 1
+  },
+  "md5": "7d1610ed0dc83f8b7b6d67314373e4e9",
+  "name": "configargparse",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/configargparse-0.14.0-py36_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "7df38674f72fb98f90fb1a8d592efcd6b118801fbc9b9783796da9a8e43b3032",
+        "sha256_in_prefix": "7df38674f72fb98f90fb1a8d592efcd6b118801fbc9b9783796da9a8e43b3032",
+        "size_in_bytes": 18308
+      },
+      {
+        "_path": "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "851b4a7d698f9f00735d2e0fba2c0b2e9e69f7f357cac6bdc53d6f7b4ee48859",
+        "sha256_in_prefix": "851b4a7d698f9f00735d2e0fba2c0b2e9e69f7f357cac6bdc53d6f7b4ee48859",
+        "size_in_bytes": 303
+      },
+      {
+        "_path": "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink",
+        "sha256": "94a10f0811b24264e404fef644a031664b758bd8ef830edb5b692efc8e82596b",
+        "sha256_in_prefix": "94a10f0811b24264e404fef644a031664b758bd8ef830edb5b692efc8e82596b",
+        "size_in_bytes": 15
+      },
+      {
+        "_path": "lib/python3.6/site-packages/ConfigArgParse-0.14.0-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "f4897031f14e0780acb0346f98d4042f7098c18826b2dfc0e05dc57704d0f8d4",
+        "sha256_in_prefix": "f4897031f14e0780acb0346f98d4042f7098c18826b2dfc0e05dc57704d0f8d4",
+        "size_in_bytes": 15
+      },
+      {
+        "_path": "lib/python3.6/site-packages/__pycache__/configargparse.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "cff5e1668a27d0e404c6b4a38b3eff03eae679b3f4d29ebb8d725292a6a41bae",
+        "sha256_in_prefix": "cff5e1668a27d0e404c6b4a38b3eff03eae679b3f4d29ebb8d725292a6a41bae",
+        "size_in_bytes": 30390
+      },
+      {
+        "_path": "lib/python3.6/site-packages/configargparse.py",
+        "path_type": "hardlink",
+        "sha256": "6522e47768dc8c82d80443893079d30df981199ba6dab6ac7d529ee317801fd0",
+        "sha256_in_prefix": "6522e47768dc8c82d80443893079d30df981199ba6dab6ac7d529ee317801fd0",
+        "size_in_bytes": 41174
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "996f68c78f76e8bee5d0c001270a8e21909f0c73113ac2b673a1970f417d3aea",
+  "size": 29065,
+  "subdir": "linux-64",
+  "timestamp": 1547748596009,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/configargparse-0.14.0-py36_0.conda",
+  "version": "0.14.0"
+}

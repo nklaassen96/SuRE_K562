@@ -21,29 +21,29 @@ SuRE45_GID: &SURE45_GID
   "HG03464"
 GID: "K562_PE" 
 CHR_TARGET:
-  - chr1
-    #  - chr2
-    #  - chr3
-    #  - chr4
-    #  - chr5
-    #  - chr6
-    #  - chr7
-    #  - chr8
-    #  - chr9
-    #  - chr10
-    #  - chr11
-    #  - chr12
-    #  - chr13
-    #  - chr14
-    #  - chr15
-    #  - chr16
-    #  - chr17
-    #  - chr18
-    #  - chr19
-    #  - chr20
-    #  - chr21
-    #  - chr22
-    #  - chrX
+      - chr1
+      - chr2
+      - chr3
+      - chr4
+      - chr5
+      - chr6
+      - chr7
+      - chr8
+      - chr9
+      - chr10
+      - chr11
+      - chr12
+      - chr13
+      - chr14
+      - chr15
+      - chr16
+      - chr17
+      - chr18
+      - chr19
+      - chr20
+      - chr21
+      - chr22
+      - chrX
 
 BOWTIE2_REFSEQ: "/DATA/data/bowtie2/hg19_ch1-22_XYM"
 ASSEMBLY: "hg19"

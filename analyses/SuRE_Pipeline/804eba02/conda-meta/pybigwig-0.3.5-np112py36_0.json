@@ -1,0 +1,110 @@
+{
+  "build": "np112py36_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "curl",
+    "numpy 1.12*",
+    "python 3.6*"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/pybigwig-0.3.5-np112py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/pyBigWig-0.3.5-py3.6-linux-x86_64.egg-info/native_libs.txt",
+    "lib/python3.6/site-packages/pyBigWig-0.3.5-py3.6-linux-x86_64.egg-info/not-zip-safe",
+    "lib/python3.6/site-packages/pyBigWig.cpython-36m-x86_64-linux-gnu.so",
+    "lib/python3.6/site-packages/pyBigWig.py",
+    "lib/python3.6/site-packages/pyBigWigTest/__init__.py",
+    "lib/python3.6/site-packages/pyBigWigTest/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyBigWigTest/__pycache__/test.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyBigWigTest/test.bw",
+    "lib/python3.6/site-packages/pyBigWigTest/test.py"
+  ],
+  "fn": "pybigwig-0.3.5-np112py36_0.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/pybigwig-0.3.5-np112py36_0",
+    "type": 1
+  },
+  "md5": "1b3b225b7a9dd36493231a5641a6ada3",
+  "name": "pybigwig",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/pybigwig-0.3.5-np112py36_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWig-0.3.5-py3.6-linux-x86_64.egg-info/native_libs.txt",
+        "path_type": "hardlink",
+        "sha256": "ae8ac00c248f613e15d159bc9f8ba9b6b34f00aec47603df89ba3e3fdcc51e5f",
+        "sha256_in_prefix": "ae8ac00c248f613e15d159bc9f8ba9b6b34f00aec47603df89ba3e3fdcc51e5f",
+        "size_in_bytes": 41
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWig-0.3.5-py3.6-linux-x86_64.egg-info/not-zip-safe",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWig.cpython-36m-x86_64-linux-gnu.so",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/conda/conda-bld/pybigwig_1506182933315/_b_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_plac",
+        "sha256": "d03c87c7a952ec8916540007f355624ed6b290978d6a1e74841cd238e4bbdd23",
+        "sha256_in_prefix": "b6dce35395b344c1601b67e247b7c35790bd7109950f38d0a40b3823ba5ce274",
+        "size_in_bytes": 443836
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWig.py",
+        "path_type": "hardlink",
+        "sha256": "92eba383817e5d9fce8bcdecaf5c3ee9a9b520f3e7a257eb0f4945ff9e56d52d",
+        "sha256_in_prefix": "92eba383817e5d9fce8bcdecaf5c3ee9a9b520f3e7a257eb0f4945ff9e56d52d",
+        "size_in_bytes": 313
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWigTest/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWigTest/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "a4a6c713f8de7e7b48cb366e4cd8d45aff9eef52ea9f50174d6283ac77c03b96",
+        "sha256_in_prefix": "a4a6c713f8de7e7b48cb366e4cd8d45aff9eef52ea9f50174d6283ac77c03b96",
+        "size_in_bytes": 173
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWigTest/__pycache__/test.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "eb2c4c81f013f0bdae7b6892084aa2e35077dd4afaddfd681da50f0b2cb81d20",
+        "sha256_in_prefix": "eb2c4c81f013f0bdae7b6892084aa2e35077dd4afaddfd681da50f0b2cb81d20",
+        "size_in_bytes": 9766
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWigTest/test.bw",
+        "path_type": "hardlink",
+        "sha256": "cfbf15ba7e9559db9841b246a12a79b51c44b2215137b652dc8f35b100b7ae86",
+        "sha256_in_prefix": "cfbf15ba7e9559db9841b246a12a79b51c44b2215137b652dc8f35b100b7ae86",
+        "size_in_bytes": 12966
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyBigWigTest/test.py",
+        "path_type": "hardlink",
+        "sha256": "7ec659481db2aa578be61ab37e17cd432698df5adcc53b4ac2c077ed4078890b",
+        "sha256_in_prefix": "7ec659481db2aa578be61ab37e17cd432698df5adcc53b4ac2c077ed4078890b",
+        "size_in_bytes": 10701
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "pybigwig=0.3.5",
+  "sha256": "e324f23ffca9820066fe6b595a4626ac94add98a6796fbee9a2ab1634c961512",
+  "size": 177188,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/pybigwig-0.3.5-np112py36_0.tar.bz2",
+  "version": "0.3.5"
+}

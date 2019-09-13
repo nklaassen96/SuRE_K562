@@ -1,0 +1,85 @@
+{
+  "build": "py36h28b3542_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "python >=3.6,<3.7.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/appdirs-1.4.3-py36h28b3542_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/__pycache__/appdirs.cpython-36.pyc",
+    "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/appdirs.py"
+  ],
+  "fn": "appdirs-1.4.3-py36h28b3542_0.conda",
+  "legacy_bz2_md5": "365a0cdfc09996dd65bb89d1c91d3fb2",
+  "legacy_bz2_size": 16057,
+  "license": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/appdirs-1.4.3-py36h28b3542_0",
+    "type": 1
+  },
+  "md5": "e1f09939f03802678eb414179d436a73",
+  "name": "appdirs",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/appdirs-1.4.3-py36h28b3542_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/__pycache__/appdirs.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "35274dfe5e8fe9f7d57581fc46b101e5529e8a3512f4d7258b7bc685a09e1713",
+        "sha256_in_prefix": "35274dfe5e8fe9f7d57581fc46b101e5529e8a3512f4d7258b7bc685a09e1713",
+        "size_in_bytes": 20660
+      },
+      {
+        "_path": "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "22de08d9ef8d4cf478db9f043833fdf6cff4b2fa1ebb98037146ea5ceaebbaed",
+        "sha256_in_prefix": "22de08d9ef8d4cf478db9f043833fdf6cff4b2fa1ebb98037146ea5ceaebbaed",
+        "size_in_bytes": 10646
+      },
+      {
+        "_path": "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "e6df28ef234c29cbfaeeb7d17953d24af956713d8e83da4b8c5158ee9d5e8940",
+        "sha256_in_prefix": "e6df28ef234c29cbfaeeb7d17953d24af956713d8e83da4b8c5158ee9d5e8940",
+        "size_in_bytes": 234
+      },
+      {
+        "_path": "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/appdirs-1.4.3-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "9ca9dc13c094a9911127a56e4162f8fdb92e9d23c335f9fb299a9be13af96043",
+        "sha256_in_prefix": "9ca9dc13c094a9911127a56e4162f8fdb92e9d23c335f9fb299a9be13af96043",
+        "size_in_bytes": 8
+      },
+      {
+        "_path": "lib/python3.6/site-packages/appdirs.py",
+        "path_type": "hardlink",
+        "sha256": "3227af504bafde5fe6408487e52174b210e4fc13611c7cd88803eb4f72133782",
+        "sha256_in_prefix": "3227af504bafde5fe6408487e52174b210e4fc13611c7cd88803eb4f72133782",
+        "size_in_bytes": 24701
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "e2b09027f24a94d94f7885957c86a7dca8ce5ca5f202b405519f4f63f514520b",
+  "size": 15580,
+  "subdir": "linux-64",
+  "timestamp": 1530919426471,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/appdirs-1.4.3-py36h28b3542_0.conda",
+  "version": "1.4.3"
+}

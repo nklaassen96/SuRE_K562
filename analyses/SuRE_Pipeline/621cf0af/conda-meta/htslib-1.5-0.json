@@ -1,0 +1,340 @@
+{
+  "build": "0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "bzip2",
+    "curl",
+    "xz"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/htslib-1.5-0",
+  "features": "",
+  "files": [
+    "bin/bgzip",
+    "bin/htsfile",
+    "bin/tabix",
+    "include/htslib/bgzf.h",
+    "include/htslib/cram.h",
+    "include/htslib/faidx.h",
+    "include/htslib/hfile.h",
+    "include/htslib/hts.h",
+    "include/htslib/hts_defs.h",
+    "include/htslib/hts_endian.h",
+    "include/htslib/hts_log.h",
+    "include/htslib/kbitset.h",
+    "include/htslib/kfunc.h",
+    "include/htslib/khash.h",
+    "include/htslib/khash_str2int.h",
+    "include/htslib/klist.h",
+    "include/htslib/knetfile.h",
+    "include/htslib/kseq.h",
+    "include/htslib/ksort.h",
+    "include/htslib/kstring.h",
+    "include/htslib/regidx.h",
+    "include/htslib/sam.h",
+    "include/htslib/synced_bcf_reader.h",
+    "include/htslib/tbx.h",
+    "include/htslib/thread_pool.h",
+    "include/htslib/vcf.h",
+    "include/htslib/vcf_sweep.h",
+    "include/htslib/vcfutils.h",
+    "lib/libhts.a",
+    "lib/libhts.so",
+    "lib/libhts.so.1.5",
+    "lib/libhts.so.2",
+    "lib/pkgconfig/htslib.pc",
+    "share/man/man1/htsfile.1",
+    "share/man/man1/tabix.1",
+    "share/man/man5/faidx.5",
+    "share/man/man5/sam.5",
+    "share/man/man5/vcf.5"
+  ],
+  "fn": "htslib-1.5-0.tar.bz2",
+  "license": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/htslib-1.5-0",
+    "type": 1
+  },
+  "md5": "71934a531c97816b78a6c004f925d367",
+  "name": "htslib",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/htslib-1.5-0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/bgzip",
+        "path_type": "hardlink",
+        "sha256": "c77f1926ffc402cc82431a6a7fe972aea3c510e2035f80394c1169bf985ecba8",
+        "sha256_in_prefix": "c77f1926ffc402cc82431a6a7fe972aea3c510e2035f80394c1169bf985ecba8",
+        "size_in_bytes": 579387
+      },
+      {
+        "_path": "bin/htsfile",
+        "path_type": "hardlink",
+        "sha256": "3ae10d22e43eb6a6bbb2e1d433bde12f5dda9a044663b66952ced484d2365e97",
+        "sha256_in_prefix": "3ae10d22e43eb6a6bbb2e1d433bde12f5dda9a044663b66952ced484d2365e97",
+        "size_in_bytes": 678680
+      },
+      {
+        "_path": "bin/tabix",
+        "path_type": "hardlink",
+        "sha256": "bfb2ee772080bf92f9c23bef9b030535a1a930e04151bc933a33a532c86f32d0",
+        "sha256_in_prefix": "bfb2ee772080bf92f9c23bef9b030535a1a930e04151bc933a33a532c86f32d0",
+        "size_in_bytes": 696173
+      },
+      {
+        "_path": "include/htslib/bgzf.h",
+        "path_type": "hardlink",
+        "sha256": "51d57d97e3dec59d5f8a803e8673c1431c7fe97f9ab5300b174a1357bea11a97",
+        "sha256_in_prefix": "51d57d97e3dec59d5f8a803e8673c1431c7fe97f9ab5300b174a1357bea11a97",
+        "size_in_bytes": 14541
+      },
+      {
+        "_path": "include/htslib/cram.h",
+        "path_type": "hardlink",
+        "sha256": "20a70c2841eae02b4415c91a70fc08099e90bd566531930c90ed7f482b01fe35",
+        "sha256_in_prefix": "20a70c2841eae02b4415c91a70fc08099e90bd566531930c90ed7f482b01fe35",
+        "size_in_bytes": 15393
+      },
+      {
+        "_path": "include/htslib/faidx.h",
+        "path_type": "hardlink",
+        "sha256": "48927ac06248e0a1620deb88fa789cd6cad1bcb7b3756111d378c6b43734a3e5",
+        "sha256_in_prefix": "48927ac06248e0a1620deb88fa789cd6cad1bcb7b3756111d378c6b43734a3e5",
+        "size_in_bytes": 5696
+      },
+      {
+        "_path": "include/htslib/hfile.h",
+        "path_type": "hardlink",
+        "sha256": "60cfe8f53c016219240d5ab2c663bba868876f1551bab4439077b693cf2b16e6",
+        "sha256_in_prefix": "60cfe8f53c016219240d5ab2c663bba868876f1551bab4439077b693cf2b16e6",
+        "size_in_bytes": 8754
+      },
+      {
+        "_path": "include/htslib/hts.h",
+        "path_type": "hardlink",
+        "sha256": "8e4cbbe7d57850dc1d1e562ad070dc2590d3c7a879496004975c4baad96eafe8",
+        "sha256_in_prefix": "8e4cbbe7d57850dc1d1e562ad070dc2590d3c7a879496004975c4baad96eafe8",
+        "size_in_bytes": 27544
+      },
+      {
+        "_path": "include/htslib/hts_defs.h",
+        "path_type": "hardlink",
+        "sha256": "8335c71397081e9472581c5d2865cd63dbf0ac94d6b54436a227142afc631ed9",
+        "sha256_in_prefix": "8335c71397081e9472581c5d2865cd63dbf0ac94d6b54436a227142afc631ed9",
+        "size_in_bytes": 2649
+      },
+      {
+        "_path": "include/htslib/hts_endian.h",
+        "path_type": "hardlink",
+        "sha256": "4abef1dc648b1f2b3f45b61098df5377fe007a1cb6750fa999d119fef41d16b0",
+        "sha256_in_prefix": "4abef1dc648b1f2b3f45b61098df5377fe007a1cb6750fa999d119fef41d16b0",
+        "size_in_bytes": 11449
+      },
+      {
+        "_path": "include/htslib/hts_log.h",
+        "path_type": "hardlink",
+        "sha256": "5ee0cee094b92a6833f7ba71e83ea543b917889746a9e186fd4a2a610ff8b76a",
+        "sha256_in_prefix": "5ee0cee094b92a6833f7ba71e83ea543b917889746a9e186fd4a2a610ff8b76a",
+        "size_in_bytes": 3890
+      },
+      {
+        "_path": "include/htslib/kbitset.h",
+        "path_type": "hardlink",
+        "sha256": "bd2e770606c735ec27e69cf70c111c445108d6ddb87818ff55b82b9faf03133a",
+        "sha256_in_prefix": "bd2e770606c735ec27e69cf70c111c445108d6ddb87818ff55b82b9faf03133a",
+        "size_in_bytes": 4195
+      },
+      {
+        "_path": "include/htslib/kfunc.h",
+        "path_type": "hardlink",
+        "sha256": "287891ff84c291a5aa2d545d20f0cbd5cb70bf575aefa8ba1ba1c7e1e27c07e1",
+        "sha256_in_prefix": "287891ff84c291a5aa2d545d20f0cbd5cb70bf575aefa8ba1ba1c7e1e27c07e1",
+        "size_in_bytes": 2716
+      },
+      {
+        "_path": "include/htslib/khash.h",
+        "path_type": "hardlink",
+        "sha256": "55866bd010a4aa7ae9a2e91a5c0c0c0d9bbbfd5c7f3b54b76ba4104445826eb9",
+        "sha256_in_prefix": "55866bd010a4aa7ae9a2e91a5c0c0c0d9bbbfd5c7f3b54b76ba4104445826eb9",
+        "size_in_bytes": 21540
+      },
+      {
+        "_path": "include/htslib/khash_str2int.h",
+        "path_type": "hardlink",
+        "sha256": "5d4a0697820de07f015064b308a1941a96c75f651bafc87feeffbaee29e5f259",
+        "sha256_in_prefix": "5d4a0697820de07f015064b308a1941a96c75f651bafc87feeffbaee29e5f259",
+        "size_in_bytes": 3990
+      },
+      {
+        "_path": "include/htslib/klist.h",
+        "path_type": "hardlink",
+        "sha256": "8785a9e851393077cb7d1180df2c0077540076da9f6e9ffbb7de0406d3d48640",
+        "sha256_in_prefix": "8785a9e851393077cb7d1180df2c0077540076da9f6e9ffbb7de0406d3d48640",
+        "size_in_bytes": 5086
+      },
+      {
+        "_path": "include/htslib/knetfile.h",
+        "path_type": "hardlink",
+        "sha256": "d5961c4159597e145c20d5c838a13ab888545bfb5edaefa3534257ef2f573d89",
+        "sha256_in_prefix": "d5961c4159597e145c20d5c838a13ab888545bfb5edaefa3534257ef2f573d89",
+        "size_in_bytes": 2851
+      },
+      {
+        "_path": "include/htslib/kseq.h",
+        "path_type": "hardlink",
+        "sha256": "a6cd918d88b4c56e95851a11d89c2458ba534c275c94669f3c0eaeaf415b893f",
+        "sha256_in_prefix": "a6cd918d88b4c56e95851a11d89c2458ba534c275c94669f3c0eaeaf415b893f",
+        "size_in_bytes": 8900
+      },
+      {
+        "_path": "include/htslib/ksort.h",
+        "path_type": "hardlink",
+        "sha256": "0c012f78143751268c304756a4f6059966061227c197c2cd7de0d8a6097e45d7",
+        "sha256_in_prefix": "0c012f78143751268c304756a4f6059966061227c197c2cd7de0d8a6097e45d7",
+        "size_in_bytes": 10152
+      },
+      {
+        "_path": "include/htslib/kstring.h",
+        "path_type": "hardlink",
+        "sha256": "5d3f0e892a1a31526a93b864d5d3f306b4ced7e37b337b13cb80b726a7c2dfab",
+        "sha256_in_prefix": "5d3f0e892a1a31526a93b864d5d3f306b4ced7e37b337b13cb80b726a7c2dfab",
+        "size_in_bytes": 6933
+      },
+      {
+        "_path": "include/htslib/regidx.h",
+        "path_type": "hardlink",
+        "sha256": "f6a7abd517b31fbffa872f794263991daabda93cd3dc932cb3f34cc633393a42",
+        "sha256_in_prefix": "f6a7abd517b31fbffa872f794263991daabda93cd3dc932cb3f34cc633393a42",
+        "size_in_bytes": 5845
+      },
+      {
+        "_path": "include/htslib/sam.h",
+        "path_type": "hardlink",
+        "sha256": "ed5242fcb2dd445fe5e5069171514ca7b10faa540998b2adbe257f2d6da8e45f",
+        "sha256_in_prefix": "ed5242fcb2dd445fe5e5069171514ca7b10faa540998b2adbe257f2d6da8e45f",
+        "size_in_bytes": 23677
+      },
+      {
+        "_path": "include/htslib/synced_bcf_reader.h",
+        "path_type": "hardlink",
+        "sha256": "7b01f07144209d75022a7a718920d147bb56a3705c58522d75029be62c77facc",
+        "sha256_in_prefix": "7b01f07144209d75022a7a718920d147bb56a3705c58522d75029be62c77facc",
+        "size_in_bytes": 14954
+      },
+      {
+        "_path": "include/htslib/tbx.h",
+        "path_type": "hardlink",
+        "sha256": "8770b712d8a371fd7faf15f2a96af2dfd9775ffc8be198b0f267fd5ccf5b79ac",
+        "sha256_in_prefix": "8770b712d8a371fd7faf15f2a96af2dfd9775ffc8be198b0f267fd5ccf5b79ac",
+        "size_in_bytes": 3118
+      },
+      {
+        "_path": "include/htslib/thread_pool.h",
+        "path_type": "hardlink",
+        "sha256": "7d3a39f0a4fd33e8bca4703f85d1a549bf1fa6be7641fba20c2e7dbb33b3a3c3",
+        "sha256_in_prefix": "7d3a39f0a4fd33e8bca4703f85d1a549bf1fa6be7641fba20c2e7dbb33b3a3c3",
+        "size_in_bytes": 9384
+      },
+      {
+        "_path": "include/htslib/vcf.h",
+        "path_type": "hardlink",
+        "sha256": "2564df4f82e7bca31e8a328c68114a69ac9d4cbc20f94b7c0c1568dba2056a42",
+        "sha256_in_prefix": "2564df4f82e7bca31e8a328c68114a69ac9d4cbc20f94b7c0c1568dba2056a42",
+        "size_in_bytes": 43302
+      },
+      {
+        "_path": "include/htslib/vcf_sweep.h",
+        "path_type": "hardlink",
+        "sha256": "d94aeca4a7878291fc5c4d2ddbfa5f9693cdf9a2ca2c98929797ba5523d5a76a",
+        "sha256_in_prefix": "d94aeca4a7878291fc5c4d2ddbfa5f9693cdf9a2ca2c98929797ba5523d5a76a",
+        "size_in_bytes": 1602
+      },
+      {
+        "_path": "include/htslib/vcfutils.h",
+        "path_type": "hardlink",
+        "sha256": "45fee596d3497e83f2fa38f7c8f6d34574f7922a50c6270fd370c1e02acce026",
+        "sha256_in_prefix": "45fee596d3497e83f2fa38f7c8f6d34574f7922a50c6270fd370c1e02acce026",
+        "size_in_bytes": 4822
+      },
+      {
+        "_path": "lib/libhts.a",
+        "path_type": "hardlink",
+        "sha256": "459d4729aaffa04effddb002129b894a6928bc792e7aee4e25bda42c5f4ebd7e",
+        "sha256_in_prefix": "459d4729aaffa04effddb002129b894a6928bc792e7aee4e25bda42c5f4ebd7e",
+        "size_in_bytes": 1103754
+      },
+      {
+        "_path": "lib/libhts.so",
+        "path_type": "softlink",
+        "sha256": "0db3e901d5340b88cabb6784c8c6b8b3e1e3e46284094dc61ad6bf74349560ef",
+        "size_in_bytes": 849605
+      },
+      {
+        "_path": "lib/libhts.so.1.5",
+        "path_type": "hardlink",
+        "sha256": "0db3e901d5340b88cabb6784c8c6b8b3e1e3e46284094dc61ad6bf74349560ef",
+        "sha256_in_prefix": "0db3e901d5340b88cabb6784c8c6b8b3e1e3e46284094dc61ad6bf74349560ef",
+        "size_in_bytes": 849605
+      },
+      {
+        "_path": "lib/libhts.so.2",
+        "path_type": "softlink",
+        "sha256": "0db3e901d5340b88cabb6784c8c6b8b3e1e3e46284094dc61ad6bf74349560ef",
+        "size_in_bytes": 849605
+      },
+      {
+        "_path": "lib/pkgconfig/htslib.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "90630de94d1f611ace8571b1b728cd948d4aac20ece106c0a17616dedc42f21c",
+        "sha256_in_prefix": "478525e7e9800e9b008b65520d4507606fe66cbd478b1736cecbebfba3384cc3",
+        "size_in_bytes": 523
+      },
+      {
+        "_path": "share/man/man1/htsfile.1",
+        "path_type": "hardlink",
+        "sha256": "e2e0c0dd889bf68db1e027e19198bd40f8c6e81e97b7df38108060d904e57e0c",
+        "sha256_in_prefix": "e2e0c0dd889bf68db1e027e19198bd40f8c6e81e97b7df38108060d904e57e0c",
+        "size_in_bytes": 3311
+      },
+      {
+        "_path": "share/man/man1/tabix.1",
+        "path_type": "hardlink",
+        "sha256": "68371f7705e21955002b0119d2ec33834a8896b13fdd3e0de9da3562b21a4005",
+        "sha256_in_prefix": "68371f7705e21955002b0119d2ec33834a8896b13fdd3e0de9da3562b21a4005",
+        "size_in_bytes": 5813
+      },
+      {
+        "_path": "share/man/man5/faidx.5",
+        "path_type": "hardlink",
+        "sha256": "ad28cc879aebbda262d557592dfa8cd345d73043876b254873957ffa27e07004",
+        "sha256_in_prefix": "ad28cc879aebbda262d557592dfa8cd345d73043876b254873957ffa27e07004",
+        "size_in_bytes": 4770
+      },
+      {
+        "_path": "share/man/man5/sam.5",
+        "path_type": "hardlink",
+        "sha256": "784e551fd59f9df3abd38dc209b970db4001b96bf5e126dd80eea74a8ae7d518",
+        "sha256_in_prefix": "784e551fd59f9df3abd38dc209b970db4001b96bf5e126dd80eea74a8ae7d518",
+        "size_in_bytes": 2785
+      },
+      {
+        "_path": "share/man/man5/vcf.5",
+        "path_type": "hardlink",
+        "sha256": "ddf4dc219c85a590fd0cd2335b0df83e6c4a1e2c8f7c80cb9bad03031067141a",
+        "sha256_in_prefix": "ddf4dc219c85a590fd0cd2335b0df83e6c4a1e2c8f7c80cb9bad03031067141a",
+        "size_in_bytes": 3538
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "htslib=1.5",
+  "sha256": "d4842f68fc6caa26edca84030f3dc1a6031b4528620bc82b6ff5fa54c561aa75",
+  "size": 1109919,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/htslib-1.5-0.tar.bz2",
+  "version": "1.5"
+}

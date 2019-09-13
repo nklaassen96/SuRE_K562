@@ -12,7 +12,7 @@ TARGET="sorted_cnt_tbls"
 TARGET="bed2coverage_done"
 TARGET="all"
 
-CMD="/usr/bin/time -v nice -19 snakemake "${DRYRUN}"-prs "${SNAKEFILE}" --use-conda --resources ram=150 --configfile "${CONFIG}" --cores 25 ${TARGET} &> "${LOG}""
+CMD="/usr/bin/time -v nice -19 snakemake "${DRYRUN}"-prs "${SNAKEFILE}" --use-conda --conda-prefix $PWD --resources ram=150 --configfile "${CONFIG}" --cores 25 ${TARGET} &> "${LOG}""
 echo "${CMD}"
 eval ${CMD}
 

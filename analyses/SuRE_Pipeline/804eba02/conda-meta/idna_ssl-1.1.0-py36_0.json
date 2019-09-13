@@ -1,0 +1,111 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "idna",
+    "python >=3.6,<3.7.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/idna_ssl-1.1.0-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/__pycache__/idna_ssl.cpython-36.pyc",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/installed-files.txt",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/not-zip-safe",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/idna_ssl.py"
+  ],
+  "fn": "idna_ssl-1.1.0-py36_0.conda",
+  "legacy_bz2_md5": "a827baa4b47e657ef01680fdfef157cc",
+  "legacy_bz2_size": 6558,
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/idna_ssl-1.1.0-py36_0",
+    "type": 1
+  },
+  "md5": "265105d7315e4a97fe4b1a455181b9a0",
+  "name": "idna_ssl",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/idna_ssl-1.1.0-py36_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/__pycache__/idna_ssl.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "57b07700992dc2b7ec135d3f2db7de6deb7c237e72182443aa2a24e8eb9cbab6",
+        "sha256_in_prefix": "57b07700992dc2b7ec135d3f2db7de6deb7c237e72182443aa2a24e8eb9cbab6",
+        "size_in_bytes": 937
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "eef590d150cdc84a7fdc40aeb35d246ad265ce9398f9080c4e41a9b55765fcb7",
+        "sha256_in_prefix": "eef590d150cdc84a7fdc40aeb35d246ad265ce9398f9080c4e41a9b55765fcb7",
+        "size_in_bytes": 2812
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "e5bf802b6e28bdf5bf860c1f8abb313170448c7e61017a87a5923306d40772b7",
+        "sha256_in_prefix": "e5bf802b6e28bdf5bf860c1f8abb313170448c7e61017a87a5923306d40772b7",
+        "size_in_bytes": 251
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/installed-files.txt",
+        "path_type": "hardlink",
+        "sha256": "86251bbf957d1e0f7a5979d40821807c35ff55c85ea574f7fa70d68e8867ec97",
+        "sha256_in_prefix": "86251bbf957d1e0f7a5979d40821807c35ff55c85ea574f7fa70d68e8867ec97",
+        "size_in_bytes": 136
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/not-zip-safe",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink",
+        "sha256": "1c2513d3751f71874ef1e1901d68874390f57611cfbdceb5a9adc02f4f048d68",
+        "sha256_in_prefix": "1c2513d3751f71874ef1e1901d68874390f57611cfbdceb5a9adc02f4f048d68",
+        "size_in_bytes": 10
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl-1.1.0-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "1dd12ef1f5f77a4db325db2c3549054595496ef5eda814eac29a216d67958721",
+        "sha256_in_prefix": "1dd12ef1f5f77a4db325db2c3549054595496ef5eda814eac29a216d67958721",
+        "size_in_bytes": 9
+      },
+      {
+        "_path": "lib/python3.6/site-packages/idna_ssl.py",
+        "path_type": "hardlink",
+        "sha256": "4434f856d4f1222658afa55ad7aac9a4a8a45d372489074fc150540bf5f24467",
+        "sha256_in_prefix": "4434f856d4f1222658afa55ad7aac9a4a8a45d372489074fc150540bf5f24467",
+        "size_in_bytes": 779
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "0b94d38f4741b9030b0a843a719b35833250e3fbaabfc0fc1b01046a59cc3f3b",
+  "size": 7055,
+  "subdir": "linux-64",
+  "timestamp": 1535510962043,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/idna_ssl-1.1.0-py36_0.conda",
+  "version": "1.1.0"
+}

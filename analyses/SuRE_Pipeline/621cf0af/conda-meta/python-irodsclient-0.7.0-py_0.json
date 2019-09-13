@@ -1,0 +1,784 @@
+{
+  "build": "py_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "prettytable >=0.7.2",
+    "python",
+    "six >=1.10.0",
+    "xmlrunner >=1.7.7"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/python-irodsclient-0.7.0-py_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/irods/__init__.py",
+    "lib/python3.6/site-packages/irods/access.py",
+    "lib/python3.6/site-packages/irods/account.py",
+    "lib/python3.6/site-packages/irods/api_number.py",
+    "lib/python3.6/site-packages/irods/client_server_negotiation.py",
+    "lib/python3.6/site-packages/irods/collection.py",
+    "lib/python3.6/site-packages/irods/column.py",
+    "lib/python3.6/site-packages/irods/connection.py",
+    "lib/python3.6/site-packages/irods/constants.py",
+    "lib/python3.6/site-packages/irods/data_object.py",
+    "lib/python3.6/site-packages/irods/exception.py",
+    "lib/python3.6/site-packages/irods/keywords.py",
+    "lib/python3.6/site-packages/irods/manager/__init__.py",
+    "lib/python3.6/site-packages/irods/manager/access_manager.py",
+    "lib/python3.6/site-packages/irods/manager/collection_manager.py",
+    "lib/python3.6/site-packages/irods/manager/data_object_manager.py",
+    "lib/python3.6/site-packages/irods/manager/metadata_manager.py",
+    "lib/python3.6/site-packages/irods/manager/resource_manager.py",
+    "lib/python3.6/site-packages/irods/manager/user_manager.py",
+    "lib/python3.6/site-packages/irods/message/__init__.py",
+    "lib/python3.6/site-packages/irods/message/message.py",
+    "lib/python3.6/site-packages/irods/message/ordered.py",
+    "lib/python3.6/site-packages/irods/message/property.py",
+    "lib/python3.6/site-packages/irods/meta.py",
+    "lib/python3.6/site-packages/irods/models.py",
+    "lib/python3.6/site-packages/irods/password_obfuscation.py",
+    "lib/python3.6/site-packages/irods/pool.py",
+    "lib/python3.6/site-packages/irods/query.py",
+    "lib/python3.6/site-packages/irods/resource.py",
+    "lib/python3.6/site-packages/irods/results.py",
+    "lib/python3.6/site-packages/irods/rule.py",
+    "lib/python3.6/site-packages/irods/session.py",
+    "lib/python3.6/site-packages/irods/test/README.rst",
+    "lib/python3.6/site-packages/irods/test/__init__.py",
+    "lib/python3.6/site-packages/irods/test/access_test.py",
+    "lib/python3.6/site-packages/irods/test/admin_test.py",
+    "lib/python3.6/site-packages/irods/test/collection_test.py",
+    "lib/python3.6/site-packages/irods/test/connection_test.py",
+    "lib/python3.6/site-packages/irods/test/data_obj_test.py",
+    "lib/python3.6/site-packages/irods/test/extended_test.py",
+    "lib/python3.6/site-packages/irods/test/file_test.py",
+    "lib/python3.6/site-packages/irods/test/helpers.py",
+    "lib/python3.6/site-packages/irods/test/irods_consortium_continuous_integration_build_hook.py",
+    "lib/python3.6/site-packages/irods/test/message_test.py",
+    "lib/python3.6/site-packages/irods/test/meta_test.py",
+    "lib/python3.6/site-packages/irods/test/pool_test.py",
+    "lib/python3.6/site-packages/irods/test/query_test.py",
+    "lib/python3.6/site-packages/irods/test/rule_test.py",
+    "lib/python3.6/site-packages/irods/test/runner.py",
+    "lib/python3.6/site-packages/irods/test/unicode_sampler.xml",
+    "lib/python3.6/site-packages/irods/test/unicode_test.py",
+    "lib/python3.6/site-packages/irods/test/user_group_test.py",
+    "lib/python3.6/site-packages/irods/ticket.py",
+    "lib/python3.6/site-packages/irods/user.py",
+    "lib/python3.6/site-packages/irods/version.py",
+    "lib/python3.6/site-packages/python_irodsclient-0.7.0-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/python_irodsclient-0.7.0-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/python_irodsclient-0.7.0-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/python_irodsclient-0.7.0-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/python_irodsclient-0.7.0-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/irods/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/access.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/account.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/api_number.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/client_server_negotiation.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/collection.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/column.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/connection.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/constants.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/data_object.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/exception.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/keywords.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/access_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/collection_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/data_object_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/metadata_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/resource_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/manager/__pycache__/user_manager.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/message/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/message/__pycache__/message.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/message/__pycache__/ordered.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/message/__pycache__/property.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/meta.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/models.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/password_obfuscation.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/pool.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/query.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/resource.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/results.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/rule.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/session.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/access_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/admin_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/collection_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/connection_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/data_obj_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/extended_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/file_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/helpers.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/irods_consortium_continuous_integration_build_hook.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/message_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/meta_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/pool_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/query_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/rule_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/runner.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/unicode_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/test/__pycache__/user_group_test.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/ticket.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/user.cpython-36.pyc",
+    "lib/python3.6/site-packages/irods/__pycache__/version.cpython-36.pyc"
+  ],
+  "fn": "python-irodsclient-0.7.0-py_0.tar.bz2",
+  "license": "BSD-3-Clause",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/python-irodsclient-0.7.0-py_0",
+    "type": 1
+  },
+  "md5": "be484063a0bd74189ac6123eb897b784",
+  "name": "python-irodsclient",
+  "noarch": "python",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/python-irodsclient-0.7.0-py_0.tar.bz2",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "site-packages/irods/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "1764aca43023fd620ca57b2f658e4d585df350080e0ca4980b79284380c4c204",
+        "sha256_in_prefix": "1764aca43023fd620ca57b2f658e4d585df350080e0ca4980b79284380c4c204",
+        "size_in_bytes": 424
+      },
+      {
+        "_path": "site-packages/irods/access.py",
+        "path_type": "hardlink",
+        "sha256": "3db8f7dd52f122e8e92f746f207e8e2eded63f413fef245b60b9892649a76345",
+        "sha256_in_prefix": "3db8f7dd52f122e8e92f746f207e8e2eded63f413fef245b60b9892649a76345",
+        "size_in_bytes": 355
+      },
+      {
+        "_path": "site-packages/irods/account.py",
+        "path_type": "hardlink",
+        "sha256": "2ab975d084d0921d625370952fb9c84018a6010f03c5b2c746e2d31b4be2ccbd",
+        "sha256_in_prefix": "2ab975d084d0921d625370952fb9c84018a6010f03c5b2c746e2d31b4be2ccbd",
+        "size_in_bytes": 1046
+      },
+      {
+        "_path": "site-packages/irods/api_number.py",
+        "path_type": "hardlink",
+        "sha256": "0eec8f008db0242a10ed8d60f32f0a17cb85de332ae004fa1585b307c76232d1",
+        "sha256_in_prefix": "0eec8f008db0242a10ed8d60f32f0a17cb85de332ae004fa1585b307c76232d1",
+        "size_in_bytes": 5270
+      },
+      {
+        "_path": "site-packages/irods/client_server_negotiation.py",
+        "path_type": "hardlink",
+        "sha256": "14a7c79fc5e68492282993000824d5d99bdb9d1f5d1e33d5a57f3dc699ee3f5c",
+        "sha256_in_prefix": "14a7c79fc5e68492282993000824d5d99bdb9d1f5d1e33d5a57f3dc699ee3f5c",
+        "size_in_bytes": 995
+      },
+      {
+        "_path": "site-packages/irods/collection.py",
+        "path_type": "hardlink",
+        "sha256": "7d91f7fad6f63ea28fea28fe2fd43ecdc9d850d1032775ba2e9a38cfaa3bd9bc",
+        "sha256_in_prefix": "7d91f7fad6f63ea28fea28fe2fd43ecdc9d850d1032775ba2e9a38cfaa3bd9bc",
+        "size_in_bytes": 2422
+      },
+      {
+        "_path": "site-packages/irods/column.py",
+        "path_type": "hardlink",
+        "sha256": "8851544b6e6dc0477a92c02c9a40d26c920524c5b91ff8ce5e141c890d945945",
+        "sha256_in_prefix": "8851544b6e6dc0477a92c02c9a40d26c920524c5b91ff8ce5e141c890d945945",
+        "size_in_bytes": 2969
+      },
+      {
+        "_path": "site-packages/irods/connection.py",
+        "path_type": "hardlink",
+        "sha256": "54af795fcfa6bdf23425e7bda9f5b1873541a3e17194b42ecf363b2e5e1ffeaa",
+        "sha256_in_prefix": "54af795fcfa6bdf23425e7bda9f5b1873541a3e17194b42ecf363b2e5e1ffeaa",
+        "size_in_bytes": 15450
+      },
+      {
+        "_path": "site-packages/irods/constants.py",
+        "path_type": "hardlink",
+        "sha256": "1aab8551cd1333f96dee2aab3fb2f605789fc0e0a333f5548e5073d3e9924a4e",
+        "sha256_in_prefix": "1aab8551cd1333f96dee2aab3fb2f605789fc0e0a333f5548e5073d3e9924a4e",
+        "size_in_bytes": 79
+      },
+      {
+        "_path": "site-packages/irods/data_object.py",
+        "path_type": "hardlink",
+        "sha256": "d3fb1084fa73279c40f2455578dd893937074c13192a6cfadd95c889f4194664",
+        "sha256_in_prefix": "d3fb1084fa73279c40f2455578dd893937074c13192a6cfadd95c889f4194664",
+        "size_in_bytes": 4013
+      },
+      {
+        "_path": "site-packages/irods/exception.py",
+        "path_type": "hardlink",
+        "sha256": "f327c90f1963e9134568a283114f916f018649049dc7a4ed84eeabb04de31152",
+        "sha256_in_prefix": "f327c90f1963e9134568a283114f916f018649049dc7a4ed84eeabb04de31152",
+        "size_in_bytes": 33539
+      },
+      {
+        "_path": "site-packages/irods/keywords.py",
+        "path_type": "hardlink",
+        "sha256": "54cd7f20229dc65d089ab1faf528abcb1082588b1b7acee58b570f733322f052",
+        "sha256_in_prefix": "54cd7f20229dc65d089ab1faf528abcb1082588b1b7acee58b570f733322f052",
+        "size_in_bytes": 10002
+      },
+      {
+        "_path": "site-packages/irods/manager/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "162a5567f1a6f76cbaef04f23266dbc5bd789386f483282eeb73b7a76fc6358e",
+        "sha256_in_prefix": "162a5567f1a6f76cbaef04f23266dbc5bd789386f483282eeb73b7a76fc6358e",
+        "size_in_bytes": 79
+      },
+      {
+        "_path": "site-packages/irods/manager/access_manager.py",
+        "path_type": "hardlink",
+        "sha256": "bbe8626aa2590a91c66211c85aecb4ff55c03053831e339aad8f40d54e981072",
+        "sha256_in_prefix": "bbe8626aa2590a91c66211c85aecb4ff55c03053831e339aad8f40d54e981072",
+        "size_in_bytes": 2164
+      },
+      {
+        "_path": "site-packages/irods/manager/collection_manager.py",
+        "path_type": "hardlink",
+        "sha256": "43edda7909a048c383409f6619e8cafb33be8b69104b7ee183d17aa76bc7d9d0",
+        "sha256_in_prefix": "43edda7909a048c383409f6619e8cafb33be8b69104b7ee183d17aa76bc7d9d0",
+        "size_in_bytes": 4472
+      },
+      {
+        "_path": "site-packages/irods/manager/data_object_manager.py",
+        "path_type": "hardlink",
+        "sha256": "e9483e324c95689eae23e4de447b2246483f3fd53cb4ee0fb6875baddb99b476",
+        "sha256_in_prefix": "e9483e324c95689eae23e4de447b2246483f3fd53cb4ee0fb6875baddb99b476",
+        "size_in_bytes": 10528
+      },
+      {
+        "_path": "site-packages/irods/manager/metadata_manager.py",
+        "path_type": "hardlink",
+        "sha256": "695933408328ae06ebdf0df5d211b187913f1b51d97cd2f4f508e11981b9fd1d",
+        "sha256_in_prefix": "695933408328ae06ebdf0df5d211b187913f1b51d97cd2f4f508e11981b9fd1d",
+        "size_in_bytes": 4263
+      },
+      {
+        "_path": "site-packages/irods/manager/resource_manager.py",
+        "path_type": "hardlink",
+        "sha256": "89b44e2f3a3c866cf7c84b058a2cd327b3e8f095fff6656fa4deed3561e99e0a",
+        "sha256_in_prefix": "89b44e2f3a3c866cf7c84b058a2cd327b3e8f095fff6656fa4deed3561e99e0a",
+        "size_in_bytes": 5329
+      },
+      {
+        "_path": "site-packages/irods/manager/user_manager.py",
+        "path_type": "hardlink",
+        "sha256": "adf7140cb7051f186d5a4d4d68f7d67e9606bf8e006c49411de1b90aaebbe763",
+        "sha256_in_prefix": "adf7140cb7051f186d5a4d4d68f7d67e9606bf8e006c49411de1b90aaebbe763",
+        "size_in_bytes": 5509
+      },
+      {
+        "_path": "site-packages/irods/message/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "6ab1443f41a3d48338a431dd769356c1116fb453c36ce4d6772de3aa029abd88",
+        "sha256_in_prefix": "6ab1443f41a3d48338a431dd769356c1116fb453c36ce4d6772de3aa029abd88",
+        "size_in_bytes": 17931
+      },
+      {
+        "_path": "site-packages/irods/message/message.py",
+        "path_type": "hardlink",
+        "sha256": "5a5276d64305912a56e1a350c6e7dca9a2e25be488845dc59441a4855dba6b9e",
+        "sha256_in_prefix": "5a5276d64305912a56e1a350c6e7dca9a2e25be488845dc59441a4855dba6b9e",
+        "size_in_bytes": 1222
+      },
+      {
+        "_path": "site-packages/irods/message/ordered.py",
+        "path_type": "hardlink",
+        "sha256": "2e1652ed2b95ab8683db180c0bcd53c3c1fb1784e4f352d95e5c50b4b2d9b947",
+        "sha256_in_prefix": "2e1652ed2b95ab8683db180c0bcd53c3c1fb1784e4f352d95e5c50b4b2d9b947",
+        "size_in_bytes": 1167
+      },
+      {
+        "_path": "site-packages/irods/message/property.py",
+        "path_type": "hardlink",
+        "sha256": "c13f14f9f33994c2ff6ddc8c2dcb12fe552d40665a5a1a807d0ddc116d1ab91c",
+        "sha256_in_prefix": "c13f14f9f33994c2ff6ddc8c2dcb12fe552d40665a5a1a807d0ddc116d1ab91c",
+        "size_in_bytes": 3090
+      },
+      {
+        "_path": "site-packages/irods/meta.py",
+        "path_type": "hardlink",
+        "sha256": "dbba0e816e1ca3c2fef5b2b7b80193c1e6b05c1e27f534077f36a30043147ba6",
+        "sha256_in_prefix": "dbba0e816e1ca3c2fef5b2b7b80193c1e6b05c1e27f534077f36a30043147ba6",
+        "size_in_bytes": 3378
+      },
+      {
+        "_path": "site-packages/irods/models.py",
+        "path_type": "hardlink",
+        "sha256": "b254bf5a3aea593e92dfd513d62c4432a9961908ae3d51897e13f4b5f8aaa35b",
+        "sha256_in_prefix": "b254bf5a3aea593e92dfd513d62c4432a9961908ae3d51897e13f4b5f8aaa35b",
+        "size_in_bytes": 6088
+      },
+      {
+        "_path": "site-packages/irods/password_obfuscation.py",
+        "path_type": "hardlink",
+        "sha256": "b5a8d7a3446d3c0f921f4658634e608be4fddab35f2ea578ef15bd4f7ff42f6b",
+        "sha256_in_prefix": "b5a8d7a3446d3c0f921f4658634e608be4fddab35f2ea578ef15bd4f7ff42f6b",
+        "size_in_bytes": 8690
+      },
+      {
+        "_path": "site-packages/irods/pool.py",
+        "path_type": "hardlink",
+        "sha256": "1f3ec0ab3f1a0e96f72e1164b22f3d5420cb561a560eaddedc620d52d4365f41",
+        "sha256_in_prefix": "1f3ec0ab3f1a0e96f72e1164b22f3d5420cb561a560eaddedc620d52d4365f41",
+        "size_in_bytes": 1126
+      },
+      {
+        "_path": "site-packages/irods/query.py",
+        "path_type": "hardlink",
+        "sha256": "3c6f9684665133883ed6a42ad0b212b9b4dd49d7b46a8037614875573d856cb5",
+        "sha256_in_prefix": "3c6f9684665133883ed6a42ad0b212b9b4dd49d7b46a8037614875573d856cb5",
+        "size_in_bytes": 10719
+      },
+      {
+        "_path": "site-packages/irods/resource.py",
+        "path_type": "hardlink",
+        "sha256": "09e87334c954ee9a204a5847a164903c32c9882f7a994a5a42e84a0c5240f983",
+        "sha256_in_prefix": "09e87334c954ee9a204a5847a164903c32c9882f7a994a5a42e84a0c5240f983",
+        "size_in_bytes": 1769
+      },
+      {
+        "_path": "site-packages/irods/results.py",
+        "path_type": "hardlink",
+        "sha256": "a98d61245df2eac850e554b7232f1343d3ad1738b24f431ef628963c5f957c39",
+        "sha256_in_prefix": "a98d61245df2eac850e554b7232f1343d3ad1738b24f431ef628963c5f957c39",
+        "size_in_bytes": 2753
+      },
+      {
+        "_path": "site-packages/irods/rule.py",
+        "path_type": "hardlink",
+        "sha256": "c2a207a4407bb8329b82158ef25ad6ad820eb5f2e5a1079068df4efc8474e11f",
+        "sha256_in_prefix": "c2a207a4407bb8329b82158ef25ad6ad820eb5f2e5a1079068df4efc8474e11f",
+        "size_in_bytes": 3050
+      },
+      {
+        "_path": "site-packages/irods/session.py",
+        "path_type": "hardlink",
+        "sha256": "637ba03f8b4686fb5103c32cea812f02c58c390d08ea955b6458e73b9e381e87",
+        "sha256_in_prefix": "637ba03f8b4686fb5103c32cea812f02c58c390d08ea955b6458e73b9e381e87",
+        "size_in_bytes": 4699
+      },
+      {
+        "_path": "site-packages/irods/test/README.rst",
+        "path_type": "hardlink",
+        "sha256": "47756ed03124ae27828d8f18a8c50772f3b59e6b4bb64731c8889cbe56fe460b",
+        "sha256_in_prefix": "47756ed03124ae27828d8f18a8c50772f3b59e6b4bb64731c8889cbe56fe460b",
+        "size_in_bytes": 726
+      },
+      {
+        "_path": "site-packages/irods/test/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "site-packages/irods/test/access_test.py",
+        "path_type": "hardlink",
+        "sha256": "7d00a5ba25c536eeae28975ceef3a390a6d850771aecd236e2a31c47e311282e",
+        "sha256_in_prefix": "7d00a5ba25c536eeae28975ceef3a390a6d850771aecd236e2a31c47e311282e",
+        "size_in_bytes": 3698
+      },
+      {
+        "_path": "site-packages/irods/test/admin_test.py",
+        "path_type": "hardlink",
+        "sha256": "e88c103d425c47afe5e3625fee551c9d740f990b98816e49fc623e4f1cf40a8a",
+        "sha256_in_prefix": "e88c103d425c47afe5e3625fee551c9d740f990b98816e49fc623e4f1cf40a8a",
+        "size_in_bytes": 9772
+      },
+      {
+        "_path": "site-packages/irods/test/collection_test.py",
+        "path_type": "hardlink",
+        "sha256": "b42b794027efb9e4b90e088194e13a2e69c423e63b1e905351a88b1e0ca1b34f",
+        "sha256_in_prefix": "b42b794027efb9e4b90e088194e13a2e69c423e63b1e905351a88b1e0ca1b34f",
+        "size_in_bytes": 9524
+      },
+      {
+        "_path": "site-packages/irods/test/connection_test.py",
+        "path_type": "hardlink",
+        "sha256": "e4e937e662bec1c65efcae9aecbd63b5c0889b776659e00d7fbc35d6e3474f4a",
+        "sha256_in_prefix": "e4e937e662bec1c65efcae9aecbd63b5c0889b776659e00d7fbc35d6e3474f4a",
+        "size_in_bytes": 1685
+      },
+      {
+        "_path": "site-packages/irods/test/data_obj_test.py",
+        "path_type": "hardlink",
+        "sha256": "f72ed14593d66677af68004afe6b6a06916e2c492234cfb628c70092997503bd",
+        "sha256_in_prefix": "f72ed14593d66677af68004afe6b6a06916e2c492234cfb628c70092997503bd",
+        "size_in_bytes": 29977
+      },
+      {
+        "_path": "site-packages/irods/test/extended_test.py",
+        "path_type": "hardlink",
+        "sha256": "8ac2aeaf1959e4fa57dd93cbf6cf875c5e16673b735f99abcea8fb2c55fb7ffb",
+        "sha256_in_prefix": "8ac2aeaf1959e4fa57dd93cbf6cf875c5e16673b735f99abcea8fb2c55fb7ffb",
+        "size_in_bytes": 2355
+      },
+      {
+        "_path": "site-packages/irods/test/file_test.py",
+        "path_type": "hardlink",
+        "sha256": "732162e51018318b2f08cd56855edd98379143e149b5d341859458202c61e492",
+        "sha256_in_prefix": "732162e51018318b2f08cd56855edd98379143e149b5d341859458202c61e492",
+        "size_in_bytes": 2660
+      },
+      {
+        "_path": "site-packages/irods/test/helpers.py",
+        "path_type": "hardlink",
+        "sha256": "1897b79d8181a00aff775b1457b1bc1b3909dc9fec1e6a28b667e953872637f7",
+        "sha256_in_prefix": "1897b79d8181a00aff775b1457b1bc1b3909dc9fec1e6a28b667e953872637f7",
+        "size_in_bytes": 3702
+      },
+      {
+        "_path": "site-packages/irods/test/irods_consortium_continuous_integration_build_hook.py",
+        "path_type": "hardlink",
+        "sha256": "8dc31b207f8b2070aaa1169e21c45f3083ab58517e80b4e794416a26cec13dbd",
+        "sha256_in_prefix": "8dc31b207f8b2070aaa1169e21c45f3083ab58517e80b4e794416a26cec13dbd",
+        "size_in_bytes": 2160
+      },
+      {
+        "_path": "site-packages/irods/test/message_test.py",
+        "path_type": "hardlink",
+        "sha256": "e1af697a5a4d9ea467650cede4dbfd57028906de4e9e92f4c705e39fbf147551",
+        "sha256_in_prefix": "e1af697a5a4d9ea467650cede4dbfd57028906de4e9e92f4c705e39fbf147551",
+        "size_in_bytes": 7194
+      },
+      {
+        "_path": "site-packages/irods/test/meta_test.py",
+        "path_type": "hardlink",
+        "sha256": "4d54ab95f6a022a813c3b6856e500ef9ae687748a126c0ccee0395e8bdac3464",
+        "sha256_in_prefix": "4d54ab95f6a022a813c3b6856e500ef9ae687748a126c0ccee0395e8bdac3464",
+        "size_in_bytes": 8250
+      },
+      {
+        "_path": "site-packages/irods/test/pool_test.py",
+        "path_type": "hardlink",
+        "sha256": "3c25db707224c8b4348ddbec14a2bfd0959327a18a56e17ce24ca984fe2476e9",
+        "sha256_in_prefix": "3c25db707224c8b4348ddbec14a2bfd0959327a18a56e17ce24ca984fe2476e9",
+        "size_in_bytes": 2125
+      },
+      {
+        "_path": "site-packages/irods/test/query_test.py",
+        "path_type": "hardlink",
+        "sha256": "e8e3fb482d29383c54b8891a1d7d157feb309c148aa3bea4de4d9a31cd8de1b4",
+        "sha256_in_prefix": "e8e3fb482d29383c54b8891a1d7d157feb309c148aa3bea4de4d9a31cd8de1b4",
+        "size_in_bytes": 9430
+      },
+      {
+        "_path": "site-packages/irods/test/rule_test.py",
+        "path_type": "hardlink",
+        "sha256": "d1aa35a5f71d25ee4b44b82fb532886fab5c12b765fa8463388645c3e743c898",
+        "sha256_in_prefix": "d1aa35a5f71d25ee4b44b82fb532886fab5c12b765fa8463388645c3e743c898",
+        "size_in_bytes": 6296
+      },
+      {
+        "_path": "site-packages/irods/test/runner.py",
+        "path_type": "hardlink",
+        "sha256": "c7c27c9c9ef91eafe7d93e69633dbcc5e8473f7c2af6b1193681941be4e89d2e",
+        "sha256_in_prefix": "c7c27c9c9ef91eafe7d93e69633dbcc5e8473f7c2af6b1193681941be4e89d2e",
+        "size_in_bytes": 1139
+      },
+      {
+        "_path": "site-packages/irods/test/unicode_sampler.xml",
+        "path_type": "hardlink",
+        "sha256": "1f9eebbca7e796b944f9655beb21dba8a411a48f55ba046de92fe91e28d9f9bd",
+        "sha256_in_prefix": "1f9eebbca7e796b944f9655beb21dba8a411a48f55ba046de92fe91e28d9f9bd",
+        "size_in_bytes": 26095
+      },
+      {
+        "_path": "site-packages/irods/test/unicode_test.py",
+        "path_type": "hardlink",
+        "sha256": "011ceaf670ac7776845f67236793c31316f6f1a9b5af64c65d4f84c2786d44be",
+        "sha256_in_prefix": "011ceaf670ac7776845f67236793c31316f6f1a9b5af64c65d4f84c2786d44be",
+        "size_in_bytes": 2647
+      },
+      {
+        "_path": "site-packages/irods/test/user_group_test.py",
+        "path_type": "hardlink",
+        "sha256": "f62c3a96d210fdfccff3bfd401296c453fbd454c579c1d2e2b9256c38247311b",
+        "sha256_in_prefix": "f62c3a96d210fdfccff3bfd401296c453fbd454c579c1d2e2b9256c38247311b",
+        "size_in_bytes": 3520
+      },
+      {
+        "_path": "site-packages/irods/ticket.py",
+        "path_type": "hardlink",
+        "sha256": "584d11dab79edd24957db271be0d40f79098709e469a1f6fa803c2c91c7bc15e",
+        "sha256_in_prefix": "584d11dab79edd24957db271be0d40f79098709e469a1f6fa803c2c91c7bc15e",
+        "size_in_bytes": 1370
+      },
+      {
+        "_path": "site-packages/irods/user.py",
+        "path_type": "hardlink",
+        "sha256": "6b0a40d90e8bada33f9055b608d1425871b37eaa414b707c2040f9a24bb397bc",
+        "sha256_in_prefix": "6b0a40d90e8bada33f9055b608d1425871b37eaa414b707c2040f9a24bb397bc",
+        "size_in_bytes": 1774
+      },
+      {
+        "_path": "site-packages/irods/version.py",
+        "path_type": "hardlink",
+        "sha256": "3b2948cde64f27150543be89d03101b67dbff817ef5e3155508a0c89c9cefb32",
+        "sha256_in_prefix": "3b2948cde64f27150543be89d03101b67dbff817ef5e3155508a0c89c9cefb32",
+        "size_in_bytes": 21
+      },
+      {
+        "_path": "site-packages/python_irodsclient-0.7.0-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "1a665d7f2ad59c88cd0f68178e43a2caf2a9d9ef82aa8d143b4e56839aa86a20",
+        "sha256_in_prefix": "1a665d7f2ad59c88cd0f68178e43a2caf2a9d9ef82aa8d143b4e56839aa86a20",
+        "size_in_bytes": 11725
+      },
+      {
+        "_path": "site-packages/python_irodsclient-0.7.0-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "408fb57b3548f079a4f7d399f12c4674d69e7520d2b5917ecb12094e37fa11bc",
+        "sha256_in_prefix": "408fb57b3548f079a4f7d399f12c4674d69e7520d2b5917ecb12094e37fa11bc",
+        "size_in_bytes": 1612
+      },
+      {
+        "_path": "site-packages/python_irodsclient-0.7.0-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "site-packages/python_irodsclient-0.7.0-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink",
+        "sha256": "6ec49b729b02942e28b7f4153ec8a57f51046fad5863aa637994749ef99a0d7e",
+        "sha256_in_prefix": "6ec49b729b02942e28b7f4153ec8a57f51046fad5863aa637994749ef99a0d7e",
+        "size_in_bytes": 48
+      },
+      {
+        "_path": "site-packages/python_irodsclient-0.7.0-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "4d3eccc5b501d10e8f2af351de39355f532e09d9984086c87f1afc59d806a889",
+        "sha256_in_prefix": "4d3eccc5b501d10e8f2af351de39355f532e09d9984086c87f1afc59d806a889",
+        "size_in_bytes": 6
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/access.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/account.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/api_number.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/client_server_negotiation.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/collection.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/column.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/connection.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/constants.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/data_object.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/exception.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/keywords.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/access_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/collection_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/data_object_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/metadata_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/resource_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/manager/__pycache__/user_manager.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/message/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/message/__pycache__/message.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/message/__pycache__/ordered.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/message/__pycache__/property.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/meta.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/models.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/password_obfuscation.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/pool.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/query.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/resource.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/results.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/rule.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/session.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/access_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/admin_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/collection_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/connection_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/data_obj_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/extended_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/file_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/helpers.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/irods_consortium_continuous_integration_build_hook.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/message_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/meta_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/pool_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/query_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/rule_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/runner.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/unicode_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/test/__pycache__/user_group_test.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/ticket.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/user.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/irods/__pycache__/version.cpython-36.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "5c972dbab07fa961476912d09d6b8920f2066a8243b9c2b0723f384e3a370447",
+  "size": 63455,
+  "subdir": "noarch",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/python-irodsclient-0.7.0-py_0.tar.bz2",
+  "version": "0.7.0"
+}

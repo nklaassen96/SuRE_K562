@@ -1,0 +1,43 @@
+{
+  "build": "0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc",
+    "libpng",
+    "mysql",
+    "openssl",
+    "zlib"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/ucsc-wigtobigwig-332-0",
+  "features": "",
+  "files": [
+    "bin/wigToBigWig"
+  ],
+  "fn": "ucsc-wigtobigwig-332-0.tar.bz2",
+  "license": "varies; see http://genome.ucsc.edu/license",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/ucsc-wigtobigwig-332-0",
+    "type": 1
+  },
+  "md5": "ed679e7aff70b3812d9e341221cb9255",
+  "name": "ucsc-wigtobigwig",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/ucsc-wigtobigwig-332-0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/wigToBigWig",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "ucsc-wigtobigwig=332",
+  "sha256": "56282b2e2cae0312631a6b73520653d29b1036ee36b098f6a5a33c29e24eb61c",
+  "size": 408057,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/ucsc-wigtobigwig-332-0.tar.bz2",
+  "version": "332"
+}

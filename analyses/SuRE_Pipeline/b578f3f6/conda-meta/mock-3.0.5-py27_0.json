@@ -1,0 +1,119 @@
+{
+  "build": "py27_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "funcsigs",
+    "python >=2.7,<2.8.0a0",
+    "six"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/mock-3.0.5-py27_0",
+  "features": "",
+  "files": [
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/INSTALLER",
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/LICENSE.txt",
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/METADATA",
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/RECORD",
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/WHEEL",
+    "lib/python2.7/site-packages/mock-3.0.5.dist-info/top_level.txt",
+    "lib/python2.7/site-packages/mock/__init__.py",
+    "lib/python2.7/site-packages/mock/__init__.pyc",
+    "lib/python2.7/site-packages/mock/mock.py",
+    "lib/python2.7/site-packages/mock/mock.pyc"
+  ],
+  "fn": "mock-3.0.5-py27_0.conda",
+  "legacy_bz2_md5": "f5ce14b0ea292f32fb6a169ef57c1dbb",
+  "legacy_bz2_size": 47529,
+  "license": "BSD-2-Clause",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/mock-3.0.5-py27_0",
+    "type": 1
+  },
+  "md5": "12de7726c8aee498b59effe0f41642b6",
+  "name": "mock",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/mock-3.0.5-py27_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+        "sha256_in_prefix": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+        "size_in_bytes": 4
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/LICENSE.txt",
+        "path_type": "hardlink",
+        "sha256": "5831ee149d3850b28df8ff02fb7bd07cecda81e85cc8435c20827d3922202d34",
+        "sha256_in_prefix": "5831ee149d3850b28df8ff02fb7bd07cecda81e85cc8435c20827d3922202d34",
+        "size_in_bytes": 1342
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "2ec694d2815a4e31f27073fbee1ae854c7473351c90c87003c9b6a7837edcc5e",
+        "sha256_in_prefix": "2ec694d2815a4e31f27073fbee1ae854c7473351c90c87003c9b6a7837edcc5e",
+        "size_in_bytes": 3153
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "b982b5bf2cb95bc0ac7a7a0acf3ee4ae841dd2da4547b68d58e95703c3005893",
+        "sha256_in_prefix": "b982b5bf2cb95bc0ac7a7a0acf3ee4ae841dd2da4547b68d58e95703c3005893",
+        "size_in_bytes": 647
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "87f6959f9381d8811152331b8b6a6e72647fcf3589b64df4dd85ef861eb4349f",
+        "sha256_in_prefix": "87f6959f9381d8811152331b8b6a6e72647fcf3589b64df4dd85ef861eb4349f",
+        "size_in_bytes": 110
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock-3.0.5.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "61b1946176b6d6031da0cac42e0f359e77e47c121de491809bb2bc6cc53c8564",
+        "sha256_in_prefix": "61b1946176b6d6031da0cac42e0f359e77e47c121de491809bb2bc6cc53c8564",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "d12751c6e75f5d3d14b7fd4109e6c65d869e23347ee1f77286fee33ecf3c5fe3",
+        "sha256_in_prefix": "d12751c6e75f5d3d14b7fd4109e6c65d869e23347ee1f77286fee33ecf3c5fe3",
+        "size_in_bytes": 113
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock/__init__.pyc",
+        "path_type": "hardlink",
+        "sha256": "426f2536db046091af49f4c6bff9b07f66961cae26fa9b1fa51993c4793659bc",
+        "sha256_in_prefix": "426f2536db046091af49f4c6bff9b07f66961cae26fa9b1fa51993c4793659bc",
+        "size_in_bytes": 293
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock/mock.py",
+        "path_type": "hardlink",
+        "sha256": "b6856a2cba3de51599a836c094bd0166cba923dafc88d8849427419909aa352e",
+        "sha256_in_prefix": "b6856a2cba3de51599a836c094bd0166cba923dafc88d8849427419909aa352e",
+        "size_in_bytes": 86333
+      },
+      {
+        "_path": "lib/python2.7/site-packages/mock/mock.pyc",
+        "path_type": "hardlink",
+        "sha256": "7f29f909f032680fd3e0b7175ca309230653e3cf1b57ee0cc5f0a728c1308719",
+        "sha256_in_prefix": "7f29f909f032680fd3e0b7175ca309230653e3cf1b57ee0cc5f0a728c1308719",
+        "size_in_bytes": 77861
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "c3a93d0df9c5c73d174b88a288182eaafe1be1ed372f45699455cdefdf184e47",
+  "size": 50066,
+  "subdir": "linux-64",
+  "timestamp": 1559063941031,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/mock-3.0.5-py27_0.conda",
+  "version": "3.0.5"
+}

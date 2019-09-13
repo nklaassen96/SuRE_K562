@@ -1,0 +1,98 @@
+{
+  "build": "hd408876_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "libgcc-ng >=7.3.0",
+    "libstdcxx-ng >=7.3.0",
+    "lz4-c >=1.8.1.2,<1.9.0a0",
+    "snappy >=1.1.7,<2.0a0",
+    "zlib >=1.2.11,<1.3.0a0",
+    "zstd >=1.3.7,<1.3.8.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/blosc-1.16.3-hd408876_0",
+  "features": "",
+  "files": [
+    "include/blosc-export.h",
+    "include/blosc.h",
+    "lib/libblosc.a",
+    "lib/libblosc.so",
+    "lib/libblosc.so.1",
+    "lib/libblosc.so.1.16.3",
+    "lib/pkgconfig/blosc.pc"
+  ],
+  "fn": "blosc-1.16.3-hd408876_0.conda",
+  "legacy_bz2_md5": "482aa96b3d914b84aff2c14c0af94bcc",
+  "legacy_bz2_size": 84280,
+  "license": "BSD 3-Clause",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/blosc-1.16.3-hd408876_0",
+    "type": 1
+  },
+  "md5": "a14fe192da283c28862e0c20c2a99687",
+  "name": "blosc",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/blosc-1.16.3-hd408876_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "include/blosc-export.h",
+        "path_type": "hardlink",
+        "sha256": "35845da65bd13b4b610752116d8c0cae703cf22a86a007574133c35bc8395b20",
+        "sha256_in_prefix": "35845da65bd13b4b610752116d8c0cae703cf22a86a007574133c35bc8395b20",
+        "size_in_bytes": 1639
+      },
+      {
+        "_path": "include/blosc.h",
+        "path_type": "hardlink",
+        "sha256": "e8b06a7db87a20bd487ba5b73fed3cbb59ee63342582bcd720d665b4ccf93f1c",
+        "sha256_in_prefix": "e8b06a7db87a20bd487ba5b73fed3cbb59ee63342582bcd720d665b4ccf93f1c",
+        "size_in_bytes": 20591
+      },
+      {
+        "_path": "lib/libblosc.a",
+        "path_type": "hardlink",
+        "sha256": "9d7309abf268c7a44aa6ef997a865f8d3fb6ae2061206a0356e7e504c865c0c4",
+        "sha256_in_prefix": "9d7309abf268c7a44aa6ef997a865f8d3fb6ae2061206a0356e7e504c865c0c4",
+        "size_in_bytes": 130238
+      },
+      {
+        "_path": "lib/libblosc.so",
+        "path_type": "softlink",
+        "sha256": "dd6bf648291fa736dd03441a931feee795bfb5bbe83b57df22d8e28219eabf65",
+        "size_in_bytes": 95784
+      },
+      {
+        "_path": "lib/libblosc.so.1",
+        "path_type": "softlink",
+        "sha256": "dd6bf648291fa736dd03441a931feee795bfb5bbe83b57df22d8e28219eabf65",
+        "size_in_bytes": 95784
+      },
+      {
+        "_path": "lib/libblosc.so.1.16.3",
+        "path_type": "hardlink",
+        "sha256": "dd6bf648291fa736dd03441a931feee795bfb5bbe83b57df22d8e28219eabf65",
+        "sha256_in_prefix": "dd6bf648291fa736dd03441a931feee795bfb5bbe83b57df22d8e28219eabf65",
+        "size_in_bytes": 95784
+      },
+      {
+        "_path": "lib/pkgconfig/blosc.pc",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "b1a3f3ddda4d326be465d9e6f50e10c0d6a92ca0d39ff8894f6dee471067dc81",
+        "sha256_in_prefix": "ce484f03ba948f6d39bd93801d22999639021dd884d8067a61046c41a00e0859",
+        "size_in_bytes": 339
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "0a5fbd481c57eacce3eac16101f0f67a2ab7c5a7432d117be2bf7124a496b74a",
+  "size": 72885,
+  "subdir": "linux-64",
+  "timestamp": 1558554355436,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/blosc-1.16.3-hd408876_0.conda",
+  "version": "1.16.3"
+}

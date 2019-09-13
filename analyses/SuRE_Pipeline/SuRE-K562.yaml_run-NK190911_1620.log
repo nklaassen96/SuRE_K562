@@ -1,0 +1,67 @@
+Provided cores: 25
+Rules claiming more threads will be scaled down.
+Provided resources: ram=150
+Job counts:
+	count	jobs
+	207	_bed2coverage_chr
+	1	all
+	1	bed2coverage
+	6	cDNA
+	460	iPCR_WASP_filter_remapped_reads
+	460	iPCR_WASP_find_SNPs
+	460	iPCR_WASP_map_bowtie2_paired_end
+	460	iPCR_WASP_merge_bams
+	480	iPCR_WASP_sort_and_index_bam
+	23	iPCR_annot_WASP
+	460	iPCR_bam2bedpe
+	460	iPCR_map
+	23	iPCR_merge_bedpe
+	20	iPCR_splitBAM
+	23	merge_all
+	2	plDNA
+	3546
+
+rule iPCR_WASP_sort_and_index_bam:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1/iPCR_3336_3.bam
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3.bam
+    jobid: 3117
+    reason: Updated input files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1/iPCR_3336_3.bam
+    wildcards: s=iPCR_3336_3, p=1, b=iPCR_3336_3
+    threads: 4
+    resources: ram=25
+
+ProtectedOutputException in line 218 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Write-protected output files for rule iPCR_WASP_sort_and_index_bam:
+/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3.bam
+SuRE-seq pipeline version:  0.14.feature_SNP-usr-config 
+ git commit hash:  /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline
+bc007e8e31a1119a007f8335f7c99abb748d60dc 
+
+
+reading SNPs from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+reading VCF from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/
+Command exited with non-zero status 1
+	Command being timed: "nice -19 snakemake -prs /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake --use-conda --conda-prefix /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline --resources ram=150 --configfile SuRE-K562.yaml --cores 25 all"
+	User time (seconds): 8.15
+	System time (seconds): 0.44
+	Percent of CPU this job got: 99%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 0:08.61
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 74640
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 63124
+	Voluntary context switches: 26
+	Involuntary context switches: 34
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 3352
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

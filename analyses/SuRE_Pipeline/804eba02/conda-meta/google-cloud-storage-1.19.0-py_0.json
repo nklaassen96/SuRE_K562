@@ -1,0 +1,261 @@
+{
+  "build": "py_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "google-auth >=1.2.0",
+    "google-cloud-core >=1.0.3,<2.0dev",
+    "google-resumable-media >=0.3.1",
+    "python"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/google-cloud-storage-1.19.0-py_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/google/cloud/storage/__init__.py",
+    "lib/python3.6/site-packages/google/cloud/storage/_helpers.py",
+    "lib/python3.6/site-packages/google/cloud/storage/_http.py",
+    "lib/python3.6/site-packages/google/cloud/storage/_signing.py",
+    "lib/python3.6/site-packages/google/cloud/storage/acl.py",
+    "lib/python3.6/site-packages/google/cloud/storage/batch.py",
+    "lib/python3.6/site-packages/google/cloud/storage/blob.py",
+    "lib/python3.6/site-packages/google/cloud/storage/bucket.py",
+    "lib/python3.6/site-packages/google/cloud/storage/client.py",
+    "lib/python3.6/site-packages/google/cloud/storage/hmac_key.py",
+    "lib/python3.6/site-packages/google/cloud/storage/iam.py",
+    "lib/python3.6/site-packages/google/cloud/storage/notification.py",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0-py2.7-nspkg.pth",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/INSTALLER",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/LICENSE",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/METADATA",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/RECORD",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/WHEEL",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/namespace_packages.txt",
+    "lib/python3.6/site-packages/google_cloud_storage-1.19.0.dist-info/top_level.txt",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_helpers.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_http.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_signing.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/acl.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/batch.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/blob.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/bucket.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/client.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/hmac_key.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/iam.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/cloud/storage/__pycache__/notification.cpython-36.pyc"
+  ],
+  "fn": "google-cloud-storage-1.19.0-py_0.tar.bz2",
+  "license": "Apache-2.0",
+  "license_family": "APACHE",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/google-cloud-storage-1.19.0-py_0",
+    "type": 1
+  },
+  "md5": "e513ee9aa452578ce8af45af312b0852",
+  "name": "google-cloud-storage",
+  "noarch": "python",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/google-cloud-storage-1.19.0-py_0.tar.bz2",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "site-packages/google/cloud/storage/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "59934005acae75e35fef8d0731b3ab9566194688249b85f685ece3e210ce50b6",
+        "sha256_in_prefix": "59934005acae75e35fef8d0731b3ab9566194688249b85f685ece3e210ce50b6",
+        "size_in_bytes": 1504
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/_helpers.py",
+        "path_type": "hardlink",
+        "sha256": "48db07bc310b223a901edf99800e776a0ce672471baaeb324de28383c7a3a723",
+        "sha256_in_prefix": "48db07bc310b223a901edf99800e776a0ce672471baaeb324de28383c7a3a723",
+        "size_in_bytes": 8699
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/_http.py",
+        "path_type": "hardlink",
+        "sha256": "39bc8901f4d144c104fc68ffa1b6ba5f4832bf0b28f0c1187321da57faedfd1a",
+        "sha256_in_prefix": "39bc8901f4d144c104fc68ffa1b6ba5f4832bf0b28f0c1187321da57faedfd1a",
+        "size_in_bytes": 1683
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/_signing.py",
+        "path_type": "hardlink",
+        "sha256": "529d3c393fbba101a4abd36b6da691cb0d13f19f42cbd39fada8c81a1187ef4e",
+        "sha256_in_prefix": "529d3c393fbba101a4abd36b6da691cb0d13f19f42cbd39fada8c81a1187ef4e",
+        "size_in_bytes": 21294
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/acl.py",
+        "path_type": "hardlink",
+        "sha256": "abf34731e87cc7b6d60d69977d66e25825cbcf2a09c2a09938c9e58450d0d175",
+        "sha256_in_prefix": "abf34731e87cc7b6d60d69977d66e25825cbcf2a09c2a09938c9e58450d0d175",
+        "size_in_bytes": 20283
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/batch.py",
+        "path_type": "hardlink",
+        "sha256": "8b8a31aa5781eee29a59f0c72d441aa66def2f338ed5f21495be85f97c42c1a3",
+        "sha256_in_prefix": "8b8a31aa5781eee29a59f0c72d441aa66def2f338ed5f21495be85f97c42c1a3",
+        "size_in_bytes": 11187
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/blob.py",
+        "path_type": "hardlink",
+        "sha256": "7655dd8a69e429ff078fb0f5ccd79f9eed7ab2ae175bac530f500b8e1970bbec",
+        "sha256_in_prefix": "7655dd8a69e429ff078fb0f5ccd79f9eed7ab2ae175bac530f500b8e1970bbec",
+        "size_in_bytes": 75080
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/bucket.py",
+        "path_type": "hardlink",
+        "sha256": "9dc9a17123487513fb7e59c14baa10aeb3389832056a6fceb6670d502104304a",
+        "sha256_in_prefix": "9dc9a17123487513fb7e59c14baa10aeb3389832056a6fceb6670d502104304a",
+        "size_in_bytes": 77919
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/client.py",
+        "path_type": "hardlink",
+        "sha256": "78577022986c002891994a76d1f483a2c8e6155447abde691e1ea18799674f96",
+        "sha256_in_prefix": "78577022986c002891994a76d1f483a2c8e6155447abde691e1ea18799674f96",
+        "size_in_bytes": 25297
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/hmac_key.py",
+        "path_type": "hardlink",
+        "sha256": "c7fc4e4ef7b230605c319a0a9e89cc9bc2e6ae5cfd17604aa73ba61301f20956",
+        "sha256_in_prefix": "c7fc4e4ef7b230605c319a0a9e89cc9bc2e6ae5cfd17604aa73ba61301f20956",
+        "size_in_bytes": 6705
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/iam.py",
+        "path_type": "hardlink",
+        "sha256": "4d159a7ea6044bad9bb6824560adc8f133f1dcfd8f2793b1f38cae1573ef69f9",
+        "sha256_in_prefix": "4d159a7ea6044bad9bb6824560adc8f133f1dcfd8f2793b1f38cae1573ef69f9",
+        "size_in_bytes": 2803
+      },
+      {
+        "_path": "site-packages/google/cloud/storage/notification.py",
+        "path_type": "hardlink",
+        "sha256": "64f8cc64e52ba5117ecd6fe62736bc0ce988aa40e050bd36284c415c96ea8f2b",
+        "sha256_in_prefix": "64f8cc64e52ba5117ecd6fe62736bc0ce988aa40e050bd36284c415c96ea8f2b",
+        "size_in_bytes": 13087
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0-py2.7-nspkg.pth",
+        "path_type": "hardlink",
+        "sha256": "6f40f9759937454ccae78b59f62643bcb9bbbbc96d73913362b1829a1b2ea0dc",
+        "sha256_in_prefix": "6f40f9759937454ccae78b59f62643bcb9bbbbc96d73913362b1829a1b2ea0dc",
+        "size_in_bytes": 1698
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "sha256_in_prefix": "cfc7749b96f63bd31c3c42b5c471bf756814053e847c10f3eb003417bc523d30",
+        "size_in_bytes": 11358
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "8a2029b328fc0ed092db9be67b6f60ba2c8bd1143a064dc184b16a8d2437b354",
+        "sha256_in_prefix": "8a2029b328fc0ed092db9be67b6f60ba2c8bd1143a064dc184b16a8d2437b354",
+        "size_in_bytes": 4596
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "13be46bc42d98ec8a2a28011f8268837cad5d9309981280cfb580f735fb6de5c",
+        "sha256_in_prefix": "13be46bc42d98ec8a2a28011f8268837cad5d9309981280cfb580f735fb6de5c",
+        "size_in_bytes": 2272
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "f3335865bc10497a01f487d73a33df78dc2f02c00b0237df824dbb16abc259ba",
+        "sha256_in_prefix": "f3335865bc10497a01f487d73a33df78dc2f02c00b0237df824dbb16abc259ba",
+        "size_in_bytes": 110
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/namespace_packages.txt",
+        "path_type": "hardlink",
+        "sha256": "bfc21a62a444d9ad289c018922965e164907f37c1749665147d78ec9f330a137",
+        "sha256_in_prefix": "bfc21a62a444d9ad289c018922965e164907f37c1749665147d78ec9f330a137",
+        "size_in_bytes": 20
+      },
+      {
+        "_path": "site-packages/google_cloud_storage-1.19.0.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "ff542f48922114019fc5befd0fa0e107b494c365fa4f8af09f3fcb2eb6dc0f77",
+        "sha256_in_prefix": "ff542f48922114019fc5befd0fa0e107b494c365fa4f8af09f3fcb2eb6dc0f77",
+        "size_in_bytes": 7
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_helpers.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_http.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/_signing.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/acl.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/batch.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/blob.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/bucket.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/client.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/hmac_key.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/iam.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/cloud/storage/__pycache__/notification.cpython-36.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "29168f886ec0de66f28ea9c6ed4e04cc1d2915a0e6ee70e4be027998e3c92177",
+  "size": 52510,
+  "subdir": "noarch",
+  "timestamp": 1567555817645,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/google-cloud-storage-1.19.0-py_0.tar.bz2",
+  "version": "1.19.0"
+}

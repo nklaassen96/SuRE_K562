@@ -1,0 +1,13 @@
+# Package Information for pkg-config
+
+prefix=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/e8102343
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: SQLite
+Description: SQL database engine
+Version: 3.23.1
+Libs: -L${libdir} -lsqlite3
+Libs.private: -ldl -lpthread 
+Cflags: -I${includedir}

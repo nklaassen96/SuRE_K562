@@ -1,0 +1,13 @@
+prefix=/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/621cf0af
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+modules=1
+
+Name: libXML
+Version: 2.9.9
+Description: libXML library version2.
+Requires:
+Libs: -L${libdir} -lxml2
+Libs.private:  -lpthread -L/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/621cf0af/lib -lz -L/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/621cf0af/lib -llzma -L/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/621cf0af/lib -lm  
+Cflags: -I${includedir}/libxml2 -I/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/621cf0af/include 

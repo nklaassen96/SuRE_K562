@@ -1,0 +1,109 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "pyasn1 >=0.1.3",
+    "python 3.6*"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/rsa-3.1.4-py36_0",
+  "features": "",
+  "files": [
+    "bin/pyrsa-decrypt",
+    "bin/pyrsa-decrypt-bigfile",
+    "bin/pyrsa-encrypt",
+    "bin/pyrsa-encrypt-bigfile",
+    "bin/pyrsa-keygen",
+    "bin/pyrsa-priv2pub",
+    "bin/pyrsa-sign",
+    "bin/pyrsa-verify",
+    "lib/python3.6/site-packages/rsa-3.1.4-py3.6.egg",
+    "lib/python3.6/site-packages/rsa.pth"
+  ],
+  "fn": "rsa-3.1.4-py36_0.tar.bz2",
+  "license": "Apache Software License",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/rsa-3.1.4-py36_0",
+    "type": 1
+  },
+  "md5": "ee7480fd633b9a71300e317aa63fc6c6",
+  "name": "rsa",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/rsa-3.1.4-py36_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/pyrsa-decrypt",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "18fc3fffe6c37cb42d840db32db4cba91332ab0a48ea04824bb6ff7adbc3b422"
+      },
+      {
+        "_path": "bin/pyrsa-decrypt-bigfile",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "70401ad302587587fa1afff9b124f2c63f51c9586fee4240b64b155b7fac97aa"
+      },
+      {
+        "_path": "bin/pyrsa-encrypt",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "7ad7aeedb98dd3885a818e9db05ba03111fe1829eb8ee753d8a3770f1212140a"
+      },
+      {
+        "_path": "bin/pyrsa-encrypt-bigfile",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "25a80e53642bd453d6c3fcfe7749255f517aa370c3f98027eca56fdcf0b4b015"
+      },
+      {
+        "_path": "bin/pyrsa-keygen",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "0ce24abe8837c372baea8c4284af453e60d58647b275823f37053b65d426f8ea"
+      },
+      {
+        "_path": "bin/pyrsa-priv2pub",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "b07282118faf2be4fd1dbd381f421cb975239c0b8ca9b1613f06d1dc533a5c4b"
+      },
+      {
+        "_path": "bin/pyrsa-sign",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "8ac7b1e907f929eb1094edd981499bdb5dd96dde212ab3a7a41a12dfb0645a52"
+      },
+      {
+        "_path": "bin/pyrsa-verify",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256_in_prefix": "d36f3c0bfda610af4fd03452802ab1b45035cd75f7614fed552dad8a68328b74"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/rsa-3.1.4-py3.6.egg",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/rsa.pth",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "cc13dbc1628e1d990af59dbdd322ff5b6a066445e1dbc0658fa587fdbaf1c114",
+  "size": 89426,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/rsa-3.1.4-py36_0.tar.bz2",
+  "version": "3.1.4"
+}

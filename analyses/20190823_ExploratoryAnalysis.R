@@ -21,7 +21,7 @@ library(vcfR)
 #library(VariantAnnotation) #is within VariantTools?
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 #read the vcf file that was downloaded
-vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF241LKI.vcf.gz", 
+vcfK <- readVcf("~/projects/SuRE_K562/data/external/Encode_K562_VCF/ENCFF606RIC.vcf.gz", 
                genome = "hg19")
 }
 
@@ -80,8 +80,8 @@ gr$OVERLAP <- countOverlaps(gr) > 1
 for (i in 1:2) {
   
   if (i == 1) {variant = gr} else {variant = gr[gr$NEW == T]}
-#variant <- gr
-#gr_all <- locateVariants(variant, txdb, AllVariants()) #locate the variants
+variant <- gr
+gr_all <- locateVariants(variant, txdb, AllVariants()) #locate the variants
 
 gr_in <- locateVariants(variant, txdb,IntronVariants())  
 gr_inu <- gr_in[!duplicated(gr_in$QUERYID)]

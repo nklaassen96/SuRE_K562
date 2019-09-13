@@ -1,0 +1,5 @@
+numpy
+pysam>=0.9.0
+
+[htseq-qa]
+matplotlib>=1.4

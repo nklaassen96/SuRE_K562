@@ -1,0 +1,11 @@
+prefix=/home/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/804eba02
+exec_prefix=${prefix}
+libdir=${exec_prefix}/lib
+includedir=${prefix}/include
+
+Name: expat
+Version: 2.2.6
+Description: expat XML parser
+URL: http://www.libexpat.org
+Libs: -L${libdir} -lexpat
+Cflags: -I${includedir}

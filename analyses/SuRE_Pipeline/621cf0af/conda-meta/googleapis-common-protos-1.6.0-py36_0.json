@@ -1,0 +1,967 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "protobuf",
+    "python >=3.6,<3.7.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/googleapis-common-protos-1.6.0-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/google/api/__init__.py",
+    "lib/python3.6/site-packages/google/api/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/annotations_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/auth_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/backend_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/billing_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/client_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/config_change_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/consumer_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/context_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/control_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/distribution_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/documentation_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/endpoint_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/field_behavior_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/http_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/httpbody_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/label_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/launch_stage_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/log_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/logging_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/metric_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/monitored_resource_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/monitoring_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/quota_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/resource_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/service_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/source_info_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/system_parameter_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/__pycache__/usage_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/api/annotations_pb2.py",
+    "lib/python3.6/site-packages/google/api/auth_pb2.py",
+    "lib/python3.6/site-packages/google/api/backend_pb2.py",
+    "lib/python3.6/site-packages/google/api/billing_pb2.py",
+    "lib/python3.6/site-packages/google/api/client_pb2.py",
+    "lib/python3.6/site-packages/google/api/config_change_pb2.py",
+    "lib/python3.6/site-packages/google/api/consumer_pb2.py",
+    "lib/python3.6/site-packages/google/api/context_pb2.py",
+    "lib/python3.6/site-packages/google/api/control_pb2.py",
+    "lib/python3.6/site-packages/google/api/distribution_pb2.py",
+    "lib/python3.6/site-packages/google/api/documentation_pb2.py",
+    "lib/python3.6/site-packages/google/api/endpoint_pb2.py",
+    "lib/python3.6/site-packages/google/api/field_behavior_pb2.py",
+    "lib/python3.6/site-packages/google/api/http_pb2.py",
+    "lib/python3.6/site-packages/google/api/httpbody_pb2.py",
+    "lib/python3.6/site-packages/google/api/label_pb2.py",
+    "lib/python3.6/site-packages/google/api/launch_stage_pb2.py",
+    "lib/python3.6/site-packages/google/api/log_pb2.py",
+    "lib/python3.6/site-packages/google/api/logging_pb2.py",
+    "lib/python3.6/site-packages/google/api/metric_pb2.py",
+    "lib/python3.6/site-packages/google/api/monitored_resource_pb2.py",
+    "lib/python3.6/site-packages/google/api/monitoring_pb2.py",
+    "lib/python3.6/site-packages/google/api/quota_pb2.py",
+    "lib/python3.6/site-packages/google/api/resource_pb2.py",
+    "lib/python3.6/site-packages/google/api/service_pb2.py",
+    "lib/python3.6/site-packages/google/api/source_info_pb2.py",
+    "lib/python3.6/site-packages/google/api/system_parameter_pb2.py",
+    "lib/python3.6/site-packages/google/api/usage_pb2.py",
+    "lib/python3.6/site-packages/google/logging/type/__init__.py",
+    "lib/python3.6/site-packages/google/logging/type/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/logging/type/__pycache__/http_request_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/logging/type/__pycache__/log_severity_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/logging/type/http_request_pb2.py",
+    "lib/python3.6/site-packages/google/logging/type/log_severity_pb2.py",
+    "lib/python3.6/site-packages/google/longrunning/__init__.py",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_grpc.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_grpc_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_proto.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_proto_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/longrunning/operations_grpc.py",
+    "lib/python3.6/site-packages/google/longrunning/operations_grpc_pb2.py",
+    "lib/python3.6/site-packages/google/longrunning/operations_pb2.py",
+    "lib/python3.6/site-packages/google/longrunning/operations_proto.py",
+    "lib/python3.6/site-packages/google/longrunning/operations_proto_pb2.py",
+    "lib/python3.6/site-packages/google/rpc/__init__.py",
+    "lib/python3.6/site-packages/google/rpc/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/rpc/__pycache__/code_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/rpc/__pycache__/error_details_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/rpc/__pycache__/status_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/rpc/code_pb2.py",
+    "lib/python3.6/site-packages/google/rpc/error_details_pb2.py",
+    "lib/python3.6/site-packages/google/rpc/status_pb2.py",
+    "lib/python3.6/site-packages/google/type/__init__.py",
+    "lib/python3.6/site-packages/google/type/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/calendar_period_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/color_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/date_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/dayofweek_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/expr_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/fraction_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/latlng_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/money_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/postal_address_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/quaternion_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/__pycache__/timeofday_pb2.cpython-36.pyc",
+    "lib/python3.6/site-packages/google/type/calendar_period_pb2.py",
+    "lib/python3.6/site-packages/google/type/color_pb2.py",
+    "lib/python3.6/site-packages/google/type/date_pb2.py",
+    "lib/python3.6/site-packages/google/type/dayofweek_pb2.py",
+    "lib/python3.6/site-packages/google/type/expr_pb2.py",
+    "lib/python3.6/site-packages/google/type/fraction_pb2.py",
+    "lib/python3.6/site-packages/google/type/latlng_pb2.py",
+    "lib/python3.6/site-packages/google/type/money_pb2.py",
+    "lib/python3.6/site-packages/google/type/postal_address_pb2.py",
+    "lib/python3.6/site-packages/google/type/quaternion_pb2.py",
+    "lib/python3.6/site-packages/google/type/timeofday_pb2.py",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0-py3.6-nspkg.pth",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/INSTALLER",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/LICENSE",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/METADATA",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/RECORD",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/WHEEL",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/namespace_packages.txt",
+    "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/top_level.txt"
+  ],
+  "fn": "googleapis-common-protos-1.6.0-py36_0.conda",
+  "legacy_bz2_md5": "21e386d9606d1e79123042ff7c4bf0fe",
+  "legacy_bz2_size": 68730,
+  "license": "Apache 2.0",
+  "license_family": "APACHE",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/googleapis-common-protos-1.6.0-py36_0",
+    "type": 1
+  },
+  "md5": "2b8384d28b4cd7964ed027eb58e58082",
+  "name": "googleapis-common-protos",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/googleapis-common-protos-1.6.0-py36_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "981a3d27975a9e9ec082bafb200b09f44c83b770fa077f9898605af119134791",
+        "sha256_in_prefix": "981a3d27975a9e9ec082bafb200b09f44c83b770fa077f9898605af119134791",
+        "size_in_bytes": 133
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/annotations_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "52acbf0655138dd37d2e94d8d54734b350a6ce4af547734fd35a83c2ae2306e1",
+        "sha256_in_prefix": "52acbf0655138dd37d2e94d8d54734b350a6ce4af547734fd35a83c2ae2306e1",
+        "size_in_bytes": 1870
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/auth_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "7191d7d4e7b4afd6361f09655d59b468331d7755b6bdb17228e0487833e18ceb",
+        "sha256_in_prefix": "7191d7d4e7b4afd6361f09655d59b468331d7755b6bdb17228e0487833e18ceb",
+        "size_in_bytes": 4965
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/backend_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "028aa5ff7f02b483512faba875fa7979ae5863615f85813608e34db0f87225df",
+        "sha256_in_prefix": "028aa5ff7f02b483512faba875fa7979ae5863615f85813608e34db0f87225df",
+        "size_in_bytes": 4045
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/billing_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6d73f41f2dc5c63655c233d8c980eeda63f530298b7c1f8f3fe2f40e5d84ed6f",
+        "sha256_in_prefix": "6d73f41f2dc5c63655c233d8c980eeda63f530298b7c1f8f3fe2f40e5d84ed6f",
+        "size_in_bytes": 2886
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/client_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2d554cfbe5d35f1de5dd2fa82bb0323c0c9181283c8bf9edc9c689d1beba64e4",
+        "sha256_in_prefix": "2d554cfbe5d35f1de5dd2fa82bb0323c0c9181283c8bf9edc9c689d1beba64e4",
+        "size_in_bytes": 2236
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/config_change_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "704a7bb7ef6c282c485b412a72a8799f4e950acf472bce7df0ffda860ec915ce",
+        "sha256_in_prefix": "704a7bb7ef6c282c485b412a72a8799f4e950acf472bce7df0ffda860ec915ce",
+        "size_in_bytes": 3629
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/consumer_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e81af6c5a9a4af1e4c293dedf85a0e8521461ce33ac53dc19b1bc034f9377996",
+        "sha256_in_prefix": "e81af6c5a9a4af1e4c293dedf85a0e8521461ce33ac53dc19b1bc034f9377996",
+        "size_in_bytes": 3212
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/context_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f5a6badad916128c7cb28b28512ea2c22135cae96dd457c6ea68f8a12f35af86",
+        "sha256_in_prefix": "f5a6badad916128c7cb28b28512ea2c22135cae96dd457c6ea68f8a12f35af86",
+        "size_in_bytes": 2938
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/control_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "9a033bf9016437a53116e3e30a93e1e76e71dd947e24ee0ce49ce71fc75cc438",
+        "sha256_in_prefix": "9a033bf9016437a53116e3e30a93e1e76e71dd947e24ee0ce49ce71fc75cc438",
+        "size_in_bytes": 1969
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/distribution_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b22578ad2ad029d8ade7529b331376b7921ea0eea75339a75398586bdf9a7ae8",
+        "sha256_in_prefix": "b22578ad2ad029d8ade7529b331376b7921ea0eea75339a75398586bdf9a7ae8",
+        "size_in_bytes": 7379
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/documentation_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "456b3c800ce432d1146053c6dca98f51b4fab6940cea628af9249de688899c11",
+        "sha256_in_prefix": "456b3c800ce432d1146053c6dca98f51b4fab6940cea628af9249de688899c11",
+        "size_in_bytes": 3885
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/endpoint_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0a478be181b517dfb4a111deba88cd82365bbc7824e14aa85631146296e17064",
+        "sha256_in_prefix": "0a478be181b517dfb4a111deba88cd82365bbc7824e14aa85631146296e17064",
+        "size_in_bytes": 2624
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/field_behavior_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "83b1d5b1d7ee033e2f6d47cc112eebdc2569c50efe6e9b5c902c5a452f78fd76",
+        "sha256_in_prefix": "83b1d5b1d7ee033e2f6d47cc112eebdc2569c50efe6e9b5c902c5a452f78fd76",
+        "size_in_bytes": 2679
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/http_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e7bc5b907d9f47c5ef51309c5cb9902806bab5737f61346e9aec79f2edf51a2a",
+        "sha256_in_prefix": "e7bc5b907d9f47c5ef51309c5cb9902806bab5737f61346e9aec79f2edf51a2a",
+        "size_in_bytes": 4577
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/httpbody_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "20ae0c82a2c822785431496f2587e26eead4c05f870d87101168c78d65a6e277",
+        "sha256_in_prefix": "20ae0c82a2c822785431496f2587e26eead4c05f870d87101168c78d65a6e277",
+        "size_in_bytes": 2384
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/label_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "5342968160dec28b741b0a5de73135da397125c2b5220f3686597f5eb30c11aa",
+        "sha256_in_prefix": "5342968160dec28b741b0a5de73135da397125c2b5220f3686597f5eb30c11aa",
+        "size_in_bytes": 2741
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/launch_stage_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "210648a402c6e7d568543cd298bb1874a8fd827bd36a504b2fff83fae55f3eca",
+        "sha256_in_prefix": "210648a402c6e7d568543cd298bb1874a8fd827bd36a504b2fff83fae55f3eca",
+        "size_in_bytes": 1959
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/log_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e21bfd60fa6405e8075da0e299f2b38c1bd69addcd1a3bb8f71faf15cb14e89d",
+        "sha256_in_prefix": "e21bfd60fa6405e8075da0e299f2b38c1bd69addcd1a3bb8f71faf15cb14e89d",
+        "size_in_bytes": 2564
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/logging_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "3b1268e91e8d04e12330ee9041673ae8722594ae653dbe404d91df8d00f19ce9",
+        "sha256_in_prefix": "3b1268e91e8d04e12330ee9041673ae8722594ae653dbe404d91df8d00f19ce9",
+        "size_in_bytes": 2982
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/metric_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0ea6f124f881e3f41ee1aaf193867f140437cc01956fb2666143372db3eb1e1f",
+        "sha256_in_prefix": "0ea6f124f881e3f41ee1aaf193867f140437cc01956fb2666143372db3eb1e1f",
+        "size_in_bytes": 6555
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/monitored_resource_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d7ce8d87c1744d71e9b37ad88880d41ff51a5f36231c04c2452d5185f74aacd9",
+        "sha256_in_prefix": "d7ce8d87c1744d71e9b37ad88880d41ff51a5f36231c04c2452d5185f74aacd9",
+        "size_in_bytes": 5314
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/monitoring_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "58c55e1311b32507e7dbf8cd24a2d1e25bcc6c008dcc4475d7152890ae18e0eb",
+        "sha256_in_prefix": "58c55e1311b32507e7dbf8cd24a2d1e25bcc6c008dcc4475d7152890ae18e0eb",
+        "size_in_bytes": 3069
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/quota_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "7115f9950c80566f5690b098e67c5e59a6b91876f93a5dced34b7e09a01ce36f",
+        "sha256_in_prefix": "7115f9950c80566f5690b098e67c5e59a6b91876f93a5dced34b7e09a01ce36f",
+        "size_in_bytes": 5323
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/resource_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c3bf5a6e5413424ea22a94bfb19c6628a8bc4cedb888948b4281709f5af0bf39",
+        "sha256_in_prefix": "c3bf5a6e5413424ea22a94bfb19c6628a8bc4cedb888948b4281709f5af0bf39",
+        "size_in_bytes": 4246
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/service_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "54c5c55531f9bdbcdd8529397cbccdb097a636f49b674cb91e59338158f33409",
+        "sha256_in_prefix": "54c5c55531f9bdbcdd8529397cbccdb097a636f49b674cb91e59338158f33409",
+        "size_in_bytes": 8301
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/source_info_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "9183781dd976270ff1fb517f70c690cf87daa564f02406c5f9602761fdfb4f11",
+        "sha256_in_prefix": "9183781dd976270ff1fb517f70c690cf87daa564f02406c5f9602761fdfb4f11",
+        "size_in_bytes": 2165
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/system_parameter_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0c734a7d908c2f6e4d7809b59b53cd24503f7f13f24f48b20f025b4c68828958",
+        "sha256_in_prefix": "0c734a7d908c2f6e4d7809b59b53cd24503f7f13f24f48b20f025b4c68828958",
+        "size_in_bytes": 3312
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/__pycache__/usage_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2ee8795f5826ab12a068ad4e745a30e2e6a0d700b7976e36113ea0476b5fca13",
+        "sha256_in_prefix": "2ee8795f5826ab12a068ad4e745a30e2e6a0d700b7976e36113ea0476b5fca13",
+        "size_in_bytes": 3085
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/annotations_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "0fd243943497b9cee99312f6ddf2ab6c9c46c1e5f7c5d5c310e1b390a08d7489",
+        "sha256_in_prefix": "0fd243943497b9cee99312f6ddf2ab6c9c46c1e5f7c5d5c310e1b390a08d7489",
+        "size_in_bytes": 2080
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/auth_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "3846d821bb8c60749910f808673c0ba43b83b818b2ba7db3dc809be58e0e4887",
+        "sha256_in_prefix": "3846d821bb8c60749910f808673c0ba43b83b818b2ba7db3dc809be58e0e4887",
+        "size_in_bytes": 11644
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/backend_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "b4c7cf74a55de083353a108215b9b9430c06101d6e27bbcd3f043534dc549a01",
+        "sha256_in_prefix": "b4c7cf74a55de083353a108215b9b9430c06101d6e27bbcd3f043534dc549a01",
+        "size_in_bytes": 7631
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/billing_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "01e3a781262f389280adfae65d4d6797d2b91f3df3ea12e25b18341f82a628ed",
+        "sha256_in_prefix": "01e3a781262f389280adfae65d4d6797d2b91f3df3ea12e25b18341f82a628ed",
+        "size_in_bytes": 4482
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/client_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "8ec1ac752b745066a914196ad4133c0c673305ce660a286f33fe85a7f7c3b0c4",
+        "sha256_in_prefix": "8ec1ac752b745066a914196ad4133c0c673305ce660a286f33fe85a7f7c3b0c4",
+        "size_in_bytes": 3179
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/config_change_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "6e389a54b9725fe33eb9249509271ca41cf5c867d70f9a349469893fb7a00cba",
+        "sha256_in_prefix": "6e389a54b9725fe33eb9249509271ca41cf5c867d70f9a349469893fb7a00cba",
+        "size_in_bytes": 6531
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/consumer_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "61acc032bb4df7f231a5ff4d0261d3765faf69c89b5ed48dde159629b67075a7",
+        "sha256_in_prefix": "61acc032bb4df7f231a5ff4d0261d3765faf69c89b5ed48dde159629b67075a7",
+        "size_in_bytes": 5651
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/context_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "31f86b1ad0263aefa3c9373b0daa847c0db81c137677f5101be4c6b0ef43c72c",
+        "sha256_in_prefix": "31f86b1ad0263aefa3c9373b0daa847c0db81c137677f5101be4c6b0ef43c72c",
+        "size_in_bytes": 5180
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/control_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "63279418740f23dd05915a990b2beead44606ad92a4980d6a867226f358d24a2",
+        "sha256_in_prefix": "63279418740f23dd05915a990b2beead44606ad92a4980d6a867226f358d24a2",
+        "size_in_bytes": 2230
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/distribution_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "e6514ab1ea6dc3db2e8fff842071b28103aa205fd5770c9d03bbbd87aa502dc3",
+        "sha256_in_prefix": "e6514ab1ea6dc3db2e8fff842071b28103aa205fd5770c9d03bbbd87aa502dc3",
+        "size_in_bytes": 19116
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/documentation_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "f21e91d1b3c8a6aa8308f7b6ea93aa419e9e7cfab7301a44e4fa2036fbb5c278",
+        "sha256_in_prefix": "f21e91d1b3c8a6aa8308f7b6ea93aa419e9e7cfab7301a44e4fa2036fbb5c278",
+        "size_in_bytes": 8350
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/endpoint_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "782e10a3acbd638933403c9bca2338b6813ba605ee2d3ea24f654c0594870156",
+        "sha256_in_prefix": "782e10a3acbd638933403c9bca2338b6813ba605ee2d3ea24f654c0594870156",
+        "size_in_bytes": 4105
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/field_behavior_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "d0dc5413b32d53c6bccccc82b4d6ba0c7caa475c30bfc5a2f33d8ef335493b20",
+        "sha256_in_prefix": "d0dc5413b32d53c6bccccc82b4d6ba0c7caa475c30bfc5a2f33d8ef335493b20",
+        "size_in_bytes": 3618
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/http_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "9c3157b63ad6bc2cf7f057c1bff5230b00392a0c70b99c544638a05b829abf11",
+        "sha256_in_prefix": "9c3157b63ad6bc2cf7f057c1bff5230b00392a0c70b99c544638a05b829abf11",
+        "size_in_bytes": 10661
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/httpbody_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "1c9dcb33438fda46384450f13d6fda937b7e3c242ac7a59cca380ca4628c422d",
+        "sha256_in_prefix": "1c9dcb33438fda46384450f13d6fda937b7e3c242ac7a59cca380ca4628c422d",
+        "size_in_bytes": 3337
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/label_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "4632956ffff002246f35d07fa7874d274081d04a5b8fe33b079f308ed2d5c648",
+        "sha256_in_prefix": "4632956ffff002246f35d07fa7874d274081d04a5b8fe33b079f308ed2d5c648",
+        "size_in_bytes": 4162
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/launch_stage_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "d0d69c1b4196fb7834ae14257ef14df56739a1d0f0439f22dc3d1dafc3dac6dd",
+        "sha256_in_prefix": "d0d69c1b4196fb7834ae14257ef14df56739a1d0f0439f22dc3d1dafc3dac6dd",
+        "size_in_bytes": 2625
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/log_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "68cc9a7a957ed32d815a52e1bd6cdcb8edabd53b5f39d612ed7fa0def194deb4",
+        "sha256_in_prefix": "68cc9a7a957ed32d815a52e1bd6cdcb8edabd53b5f39d612ed7fa0def194deb4",
+        "size_in_bytes": 3816
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/logging_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "2c4c88b75905a75a5cd8467ed869a7ec003d2b6fa279f8260931f565b357da83",
+        "sha256_in_prefix": "2c4c88b75905a75a5cd8467ed869a7ec003d2b6fa279f8260931f565b357da83",
+        "size_in_bytes": 4896
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/metric_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "5a36462c54dbf3c5b97f75924e3025313f668950e39cf9f2e324a7967b009cbf",
+        "sha256_in_prefix": "5a36462c54dbf3c5b97f75924e3025313f668950e39cf9f2e324a7967b009cbf",
+        "size_in_bytes": 15551
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/monitored_resource_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "7f56d1f1ad9708e7e9be0ac58b86e3d1a8dd6b4d6743d96166b41eaf4e82029f",
+        "sha256_in_prefix": "7f56d1f1ad9708e7e9be0ac58b86e3d1a8dd6b4d6743d96166b41eaf4e82029f",
+        "size_in_bytes": 12433
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/monitoring_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "78ea7851a031f075587c6d2d803ff67fb7160e1ff3fe8c310e0a0ee25cfb78fd",
+        "sha256_in_prefix": "78ea7851a031f075587c6d2d803ff67fb7160e1ff3fe8c310e0a0ee25cfb78fd",
+        "size_in_bytes": 5059
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/quota_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "62850210d91cc33e8b9005ad575669ee3fb75e2a26e1e20a940fd94b947c6d1d",
+        "sha256_in_prefix": "62850210d91cc33e8b9005ad575669ee3fb75e2a26e1e20a940fd94b947c6d1d",
+        "size_in_bytes": 13136
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/resource_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "2854bf87009de9079d24eace4c50e0b1e178ef741f2aa0f0bfbc01b75eb49c9a",
+        "sha256_in_prefix": "2854bf87009de9079d24eace4c50e0b1e178ef741f2aa0f0bfbc01b75eb49c9a",
+        "size_in_bytes": 8015
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/service_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "815e7180e0c0b90a7867faee155601075c794345b8e77bb866ea1bd2e5859888",
+        "sha256_in_prefix": "815e7180e0c0b90a7867faee155601075c794345b8e77bb866ea1bd2e5859888",
+        "size_in_bytes": 18145
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/source_info_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "b1992ffbfa304d1935294299c62cb142e3985706f42ef9e9da8dccfe32e63414",
+        "sha256_in_prefix": "b1992ffbfa304d1935294299c62cb142e3985706f42ef9e9da8dccfe32e63414",
+        "size_in_bytes": 2553
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/system_parameter_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "cfaa14945cdb5bfbd0b34ec268f7b75c843c1e8310e6a672454c9ff6944f132f",
+        "sha256_in_prefix": "cfaa14945cdb5bfbd0b34ec268f7b75c843c1e8310e6a672454c9ff6944f132f",
+        "size_in_bytes": 6374
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/api/usage_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "53f3f852c64b413771c0b50b3ee28e44aa3b9039c8c01b5bb63f23717ea7e84d",
+        "sha256_in_prefix": "53f3f852c64b413771c0b50b3ee28e44aa3b9039c8c01b5bb63f23717ea7e84d",
+        "size_in_bytes": 5334
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "83d3ac031a807d7c1ed0d87fdd136e8585aa879ddb3c2f41159ac0f4daba4ada",
+        "sha256_in_prefix": "83d3ac031a807d7c1ed0d87fdd136e8585aa879ddb3c2f41159ac0f4daba4ada",
+        "size_in_bytes": 142
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/__pycache__/http_request_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e182f595bc758fb8c43e53287f1d74a01da3c769d681c3e86fe0a3d9119e4402",
+        "sha256_in_prefix": "e182f595bc758fb8c43e53287f1d74a01da3c769d681c3e86fe0a3d9119e4402",
+        "size_in_bytes": 4197
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/__pycache__/log_severity_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "54e16dce6ef7dd9ea5916fe7d083e2a67193ea7ca4a3b45b6a1d967fba2e9eb1",
+        "sha256_in_prefix": "54e16dce6ef7dd9ea5916fe7d083e2a67193ea7ca4a3b45b6a1d967fba2e9eb1",
+        "size_in_bytes": 2340
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/http_request_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "b4428acb26b115be8a7d680a7db6800cb58218859352b8c0245945740410fa13",
+        "sha256_in_prefix": "b4428acb26b115be8a7d680a7db6800cb58218859352b8c0245945740410fa13",
+        "size_in_bytes": 8052
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/logging/type/log_severity_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "e7e0e5d0f5f9f916f0e7f8f34cb38b69728d32b042c4709462985e491e461245",
+        "sha256_in_prefix": "e7e0e5d0f5f9f916f0e7f8f34cb38b69728d32b042c4709462985e491e461245",
+        "size_in_bytes": 3260
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fc0c1dae4662947e6e6095f742846d57429c2d97d5f5eb9c26ed7aeafab69b6b",
+        "sha256_in_prefix": "fc0c1dae4662947e6e6095f742846d57429c2d97d5f5eb9c26ed7aeafab69b6b",
+        "size_in_bytes": 141
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_grpc.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "db28dca1edf2079ff420bef541ef736f705f550561b44d8b2c852de24cc8f021",
+        "sha256_in_prefix": "db28dca1edf2079ff420bef541ef736f705f550561b44d8b2c852de24cc8f021",
+        "size_in_bytes": 253
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_grpc_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2a9094717340ac52a66773da619d656ef07891ac6e633dd8aef7cf082ccc6605",
+        "sha256_in_prefix": "2a9094717340ac52a66773da619d656ef07891ac6e633dd8aef7cf082ccc6605",
+        "size_in_bytes": 1858
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2a1431b83fff852e6f4ccfd83c81872b0623a7f0b2a0c0706db5bc8e8eba5b94",
+        "sha256_in_prefix": "2a1431b83fff852e6f4ccfd83c81872b0623a7f0b2a0c0706db5bc8e8eba5b94",
+        "size_in_bytes": 609
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_proto.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "45837ba42ffdbb36e7a3ee06543c2a9e5accfe04705b3b4e8068dae415406c7a",
+        "sha256_in_prefix": "45837ba42ffdbb36e7a3ee06543c2a9e5accfe04705b3b4e8068dae415406c7a",
+        "size_in_bytes": 255
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/__pycache__/operations_proto_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f610f7618e6f1559f3ff82fa08b3b487deb9429d35272927fad1d3cc7ee8f5a3",
+        "sha256_in_prefix": "f610f7618e6f1559f3ff82fa08b3b487deb9429d35272927fad1d3cc7ee8f5a3",
+        "size_in_bytes": 8531
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/operations_grpc.py",
+        "path_type": "hardlink",
+        "sha256": "c7405f92e8fc3ca62082abc21c56fc7ef68f968afbd2165e67b7337a1e110893",
+        "sha256_in_prefix": "c7405f92e8fc3ca62082abc21c56fc7ef68f968afbd2165e67b7337a1e110893",
+        "size_in_bytes": 220
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/operations_grpc_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "88b09e7c644c9b0f640315bed7558fc62a55c23068d0430d633ccf3e83ef662a",
+        "sha256_in_prefix": "88b09e7c644c9b0f640315bed7558fc62a55c23068d0430d633ccf3e83ef662a",
+        "size_in_bytes": 1978
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/operations_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "97647e0ec737d7be46512a0a5140515035b427faf9d30b5ec46c23f8c06dc5e3",
+        "sha256_in_prefix": "97647e0ec737d7be46512a0a5140515035b427faf9d30b5ec46c23f8c06dc5e3",
+        "size_in_bytes": 1115
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/operations_proto.py",
+        "path_type": "hardlink",
+        "sha256": "7c5cb78f83ba3ebab7ed73903954c94b0fc7704ef6b1e9572075db4529c2891e",
+        "sha256_in_prefix": "7c5cb78f83ba3ebab7ed73903954c94b0fc7704ef6b1e9572075db4529c2891e",
+        "size_in_bytes": 221
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/longrunning/operations_proto_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "acd0986d31b8624ac86816b821794c88fc2bfcff5d0f2652834af096f03c9449",
+        "sha256_in_prefix": "acd0986d31b8624ac86816b821794c88fc2bfcff5d0f2652834af096f03c9449",
+        "size_in_bytes": 19093
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b9dfe0cda6d2f8767a65a4b5929853d01129fe9dc85302175f46b1e24df986e3",
+        "sha256_in_prefix": "b9dfe0cda6d2f8767a65a4b5929853d01129fe9dc85302175f46b1e24df986e3",
+        "size_in_bytes": 133
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/__pycache__/code_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "2025ad1995281a938b192927b2c0aea95540e5d6b4fe5b36e05cabe5b72fea72",
+        "sha256_in_prefix": "2025ad1995281a938b192927b2c0aea95540e5d6b4fe5b36e05cabe5b72fea72",
+        "size_in_bytes": 2747
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/__pycache__/error_details_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "46804d9e586b4fe6ffef7ecae889ee5e4cffad866f204b5c8115bb0c6a9b01a3",
+        "sha256_in_prefix": "46804d9e586b4fe6ffef7ecae889ee5e4cffad866f204b5c8115bb0c6a9b01a3",
+        "size_in_bytes": 7970
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/__pycache__/status_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "ff3e91faec3bd395d9463e64a6b8f92b9d845605b71f929ecfdf0a755824f9aa",
+        "sha256_in_prefix": "ff3e91faec3bd395d9463e64a6b8f92b9d845605b71f929ecfdf0a755824f9aa",
+        "size_in_bytes": 2315
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/code_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "774b611af32779296e04fdd9af5a808a09b319689a6dd503d9b64175ea218e95",
+        "sha256_in_prefix": "774b611af32779296e04fdd9af5a808a09b319689a6dd503d9b64175ea218e95",
+        "size_in_bytes": 4612
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/error_details_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "b7319c63bf33b8797ca2fe6aa9dcba7a4fa2c6dbffce01d62d9691ac3f47447f",
+        "sha256_in_prefix": "b7319c63bf33b8797ca2fe6aa9dcba7a4fa2c6dbffce01d62d9691ac3f47447f",
+        "size_in_bytes": 22299
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/rpc/status_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "782045b5e122cf05dde6d7bdc7464230dafecdd2474750bd72fb98aa3b04b60f",
+        "sha256_in_prefix": "782045b5e122cf05dde6d7bdc7464230dafecdd2474750bd72fb98aa3b04b60f",
+        "size_in_bytes": 3234
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "sha256_in_prefix": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+        "size_in_bytes": 0
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d893aa196778f17bb9490e0d0f2c7534151bc9aff49e0daa93af4b926ba26d83",
+        "sha256_in_prefix": "d893aa196778f17bb9490e0d0f2c7534151bc9aff49e0daa93af4b926ba26d83",
+        "size_in_bytes": 134
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/calendar_period_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d89a7a305bf08033791ca8eb525d71328d0276b40f606d8b9b36692ee0c3c0b9",
+        "sha256_in_prefix": "d89a7a305bf08033791ca8eb525d71328d0276b40f606d8b9b36692ee0c3c0b9",
+        "size_in_bytes": 2158
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/color_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "758f2c42f25996e101f81316f374a45bc814094c2bf297e9eda1a144c93cd708",
+        "sha256_in_prefix": "758f2c42f25996e101f81316f374a45bc814094c2bf297e9eda1a144c93cd708",
+        "size_in_bytes": 2428
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/date_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0badf4ff57edc094d5db70c215dfbe4ff268bb7fe9de582078d08f5e7928fd08",
+        "sha256_in_prefix": "0badf4ff57edc094d5db70c215dfbe4ff268bb7fe9de582078d08f5e7928fd08",
+        "size_in_bytes": 2069
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/dayofweek_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e312c18d1d406de47a88504de9e637401c41861033f5775173778ed403e45047",
+        "sha256_in_prefix": "e312c18d1d406de47a88504de9e637401c41861033f5775173778ed403e45047",
+        "size_in_bytes": 2112
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/expr_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "50d0a4291a74fe7e7a02c366fb8c1abee3695f2d311444d2c83df82b1a3592ad",
+        "sha256_in_prefix": "50d0a4291a74fe7e7a02c366fb8c1abee3695f2d311444d2c83df82b1a3592ad",
+        "size_in_bytes": 2274
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/fraction_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d3a7ebde7cb52657ec3c1e6af75265976e6627693716ab2d124c5049327f7ad0",
+        "sha256_in_prefix": "d3a7ebde7cb52657ec3c1e6af75265976e6627693716ab2d124c5049327f7ad0",
+        "size_in_bytes": 2059
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/latlng_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6e791215ad4b80a785c269f37a4010609d74d94c24ecf460229c00ac948244e5",
+        "sha256_in_prefix": "6e791215ad4b80a785c269f37a4010609d74d94c24ecf460229c00ac948244e5",
+        "size_in_bytes": 2046
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/money_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d4c8a55ebb2c68fb05e9d78b60b30e504dfa791fc435ed9b075f319c7b4b5542",
+        "sha256_in_prefix": "d4c8a55ebb2c68fb05e9d78b60b30e504dfa791fc435ed9b075f319c7b4b5542",
+        "size_in_bytes": 2151
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/postal_address_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c3b35551db363d37a11b3fbb9c33867b605e5e05b5daadcab6cddbf1fb1b2183",
+        "sha256_in_prefix": "c3b35551db363d37a11b3fbb9c33867b605e5e05b5daadcab6cddbf1fb1b2183",
+        "size_in_bytes": 3452
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/quaternion_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "4b9db1f363181caaf35b2fc7d650ff27e5610f6e15467d56184a068c39939f98",
+        "sha256_in_prefix": "4b9db1f363181caaf35b2fc7d650ff27e5610f6e15467d56184a068c39939f98",
+        "size_in_bytes": 2268
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/__pycache__/timeofday_pb2.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "141879d6161413e5695a936f20bfa297f17275f2283aa6dd6b18478bfb8b3bb1",
+        "sha256_in_prefix": "141879d6161413e5695a936f20bfa297f17275f2283aa6dd6b18478bfb8b3bb1",
+        "size_in_bytes": 2285
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/calendar_period_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "e046e4989f4c6016f47773917b73bd837537d519256db02230a151a53aaf8f33",
+        "sha256_in_prefix": "e046e4989f4c6016f47773917b73bd837537d519256db02230a151a53aaf8f33",
+        "size_in_bytes": 3048
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/color_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "e49d975e2e1f83df1a6dd2aa5fe024e90947e5476c9d14c81b2b09d549f15cd5",
+        "sha256_in_prefix": "e49d975e2e1f83df1a6dd2aa5fe024e90947e5476c9d14c81b2b09d549f15cd5",
+        "size_in_bytes": 3656
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/date_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "551101309076f2b1c9835f9cb279433cba83dbb3888343e67a16c225bea2dcf1",
+        "sha256_in_prefix": "551101309076f2b1c9835f9cb279433cba83dbb3888343e67a16c225bea2dcf1",
+        "size_in_bytes": 2904
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/dayofweek_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "425fbcc9518535de40b8855c87dd2f21ad4b6cb41fb4a2b4b1c3ad6809ab96bd",
+        "sha256_in_prefix": "425fbcc9518535de40b8855c87dd2f21ad4b6cb41fb4a2b4b1c3ad6809ab96bd",
+        "size_in_bytes": 2977
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/expr_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "bf0580818d13acb3205c48396c5a82201e9098a1769d00015c6530327e2a7e76",
+        "sha256_in_prefix": "bf0580818d13acb3205c48396c5a82201e9098a1769d00015c6530327e2a7e76",
+        "size_in_bytes": 3388
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/fraction_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "c01c335485718b096bba40d1b64db091201d55b7465cac2e4dace028b7ce62e0",
+        "sha256_in_prefix": "c01c335485718b096bba40d1b64db091201d55b7465cac2e4dace028b7ce62e0",
+        "size_in_bytes": 2623
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/latlng_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "6d8f78988a97160059af70a851fe2a5ec3925718a2bb118cbf835a0663593e3b",
+        "sha256_in_prefix": "6d8f78988a97160059af70a851fe2a5ec3925718a2bb118cbf835a0663593e3b",
+        "size_in_bytes": 2601
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/money_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "04ee082fed13fa8b68aad947905557964ecbb1f3199657a4258841a5b9e549c7",
+        "sha256_in_prefix": "04ee082fed13fa8b68aad947905557964ecbb1f3199657a4258841a5b9e549c7",
+        "size_in_bytes": 2965
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/postal_address_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "e1b84982845d5090a78e990b0d87187efc879cc666291aa27840f93035a58cf3",
+        "sha256_in_prefix": "e1b84982845d5090a78e990b0d87187efc879cc666291aa27840f93035a58cf3",
+        "size_in_bytes": 6647
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/quaternion_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "42ea5e3eb93efb509be0d6887ecbf7415e16de5b3a62f45ce5db940d6d75b059",
+        "sha256_in_prefix": "42ea5e3eb93efb509be0d6887ecbf7415e16de5b3a62f45ce5db940d6d75b059",
+        "size_in_bytes": 3416
+      },
+      {
+        "_path": "lib/python3.6/site-packages/google/type/timeofday_pb2.py",
+        "path_type": "hardlink",
+        "sha256": "6c6fd04b1501e3b37ea888960cda16e9362bf99535e5ca98f2e9b0d727954030",
+        "sha256_in_prefix": "6c6fd04b1501e3b37ea888960cda16e9362bf99535e5ca98f2e9b0d727954030",
+        "size_in_bytes": 3427
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0-py3.6-nspkg.pth",
+        "path_type": "hardlink",
+        "sha256": "4e0e2ba637b0171ece4364f416026bd37ab5a630eebf4b37fcab7b3a6e8d4536",
+        "sha256_in_prefix": "4e0e2ba637b0171ece4364f416026bd37ab5a630eebf4b37fcab7b3a6e8d4536",
+        "size_in_bytes": 1710
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "sha256_in_prefix": "d0edee15f91b406f3f99726e44eb990be6e34fd0345b52b910c568e0eef6a2a8",
+        "size_in_bytes": 5
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/LICENSE",
+        "path_type": "hardlink",
+        "sha256": "c62a1cc62e85e51a18ddd590970e03ffe47017653033cc515781fdb445a7aa5e",
+        "sha256_in_prefix": "c62a1cc62e85e51a18ddd590970e03ffe47017653033cc515781fdb445a7aa5e",
+        "size_in_bytes": 11352
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "f2fd0dae658a4dfb18b71f53c2d6bba6b2b2d2087dd387ca391b9001d85a297f",
+        "sha256_in_prefix": "f2fd0dae658a4dfb18b71f53c2d6bba6b2b2d2087dd387ca391b9001d85a297f",
+        "size_in_bytes": 1152
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "94f7fa8ed028c4e7e078380043adc85f20dea9ce2d4d48d79735177251278008",
+        "sha256_in_prefix": "94f7fa8ed028c4e7e078380043adc85f20dea9ce2d4d48d79735177251278008",
+        "size_in_bytes": 8482
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "3e7894f9a067018e3e063db6e564dd66d734dd123a38815407fe24ed1ab8664c",
+        "sha256_in_prefix": "3e7894f9a067018e3e063db6e564dd66d734dd123a38815407fe24ed1ab8664c",
+        "size_in_bytes": 93
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/namespace_packages.txt",
+        "path_type": "hardlink",
+        "sha256": "6580d6bbdbc28194ec0144ed5fad011fdbd8c76b633c51909d48e024093fbaeb",
+        "sha256_in_prefix": "6580d6bbdbc28194ec0144ed5fad011fdbd8c76b633c51909d48e024093fbaeb",
+        "size_in_bytes": 22
+      },
+      {
+        "_path": "lib/python3.6/site-packages/googleapis_common_protos-1.6.0.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "ff542f48922114019fc5befd0fa0e107b494c365fa4f8af09f3fcb2eb6dc0f77",
+        "sha256_in_prefix": "ff542f48922114019fc5befd0fa0e107b494c365fa4f8af09f3fcb2eb6dc0f77",
+        "size_in_bytes": 7
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "d09a2b47c8791c4b6de074077e33e30b42ec29085679656f2de25232aabb05a8",
+  "size": 73086,
+  "subdir": "linux-64",
+  "timestamp": 1564753971037,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/googleapis-common-protos-1.6.0-py36_0.conda",
+  "version": "1.6.0"
+}

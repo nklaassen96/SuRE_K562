@@ -1,0 +1,195 @@
+{
+  "build": "py_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/noarch",
+  "constrains": [],
+  "depends": [
+    "python"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/cachetools-2.1.0-py_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/cachetools-2.1.0.dist-info/INSTALLER",
+    "lib/python3.6/site-packages/cachetools-2.1.0.dist-info/METADATA",
+    "lib/python3.6/site-packages/cachetools-2.1.0.dist-info/RECORD",
+    "lib/python3.6/site-packages/cachetools-2.1.0.dist-info/WHEEL",
+    "lib/python3.6/site-packages/cachetools-2.1.0.dist-info/top_level.txt",
+    "lib/python3.6/site-packages/cachetools/__init__.py",
+    "lib/python3.6/site-packages/cachetools/abc.py",
+    "lib/python3.6/site-packages/cachetools/cache.py",
+    "lib/python3.6/site-packages/cachetools/func.py",
+    "lib/python3.6/site-packages/cachetools/keys.py",
+    "lib/python3.6/site-packages/cachetools/lfu.py",
+    "lib/python3.6/site-packages/cachetools/lru.py",
+    "lib/python3.6/site-packages/cachetools/rr.py",
+    "lib/python3.6/site-packages/cachetools/ttl.py",
+    "lib/python3.6/site-packages/cachetools/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/abc.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/cache.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/func.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/keys.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/lfu.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/lru.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/rr.cpython-36.pyc",
+    "lib/python3.6/site-packages/cachetools/__pycache__/ttl.cpython-36.pyc"
+  ],
+  "fn": "cachetools-2.1.0-py_0.tar.bz2",
+  "license": "MIT",
+  "license_family": "MIT",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/cachetools-2.1.0-py_0",
+    "type": 1
+  },
+  "md5": "3e2958e427596e26d4a6a685c382bee5",
+  "name": "cachetools",
+  "noarch": "python",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/cachetools-2.1.0-py_0.tar.bz2",
+  "package_type": "noarch_python",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "site-packages/cachetools-2.1.0.dist-info/INSTALLER",
+        "path_type": "hardlink",
+        "sha256": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+        "sha256_in_prefix": "ceebae7b8927a3227e5303cf5e0f1f7b34bb542ad7250ac03fbcde36ec2f1508",
+        "size_in_bytes": 4
+      },
+      {
+        "_path": "site-packages/cachetools-2.1.0.dist-info/METADATA",
+        "path_type": "hardlink",
+        "sha256": "7fb257b7f22d041a1bd56ca533dc39e312bc0b0fbd8f4d4af4012011285aa489",
+        "sha256_in_prefix": "7fb257b7f22d041a1bd56ca533dc39e312bc0b0fbd8f4d4af4012011285aa489",
+        "size_in_bytes": 4229
+      },
+      {
+        "_path": "site-packages/cachetools-2.1.0.dist-info/RECORD",
+        "path_type": "hardlink",
+        "sha256": "eb00a67226902bee031a0969a3887d6282a8098f1dec86192fcebf3063791983",
+        "sha256_in_prefix": "eb00a67226902bee031a0969a3887d6282a8098f1dec86192fcebf3063791983",
+        "size_in_bytes": 1295
+      },
+      {
+        "_path": "site-packages/cachetools-2.1.0.dist-info/WHEEL",
+        "path_type": "hardlink",
+        "sha256": "81dbae3f206f149412434cddcb117b934cf29c35db21bbe0e59047a17ba6e6e9",
+        "sha256_in_prefix": "81dbae3f206f149412434cddcb117b934cf29c35db21bbe0e59047a17ba6e6e9",
+        "size_in_bytes": 110
+      },
+      {
+        "_path": "site-packages/cachetools-2.1.0.dist-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "6a2d851fbf131b0a017028157e8a9bce4e48402b670ee91d4ace332ae54fbc3b",
+        "sha256_in_prefix": "6a2d851fbf131b0a017028157e8a9bce4e48402b670ee91d4ace332ae54fbc3b",
+        "size_in_bytes": 11
+      },
+      {
+        "_path": "site-packages/cachetools/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "7917f1dfc10f62a31b3c14b9dfeca162282eea532d8b80d24d77b1bfd5f0b222",
+        "sha256_in_prefix": "7917f1dfc10f62a31b3c14b9dfeca162282eea532d8b80d24d77b1bfd5f0b222",
+        "size_in_bytes": 3465
+      },
+      {
+        "_path": "site-packages/cachetools/abc.py",
+        "path_type": "hardlink",
+        "sha256": "0fc2f713dbf71f934b7892993627295dc2105bff655a37a5d7a7be57913a0a3b",
+        "sha256_in_prefix": "0fc2f713dbf71f934b7892993627295dc2105bff655a37a5d7a7be57913a0a3b",
+        "size_in_bytes": 1104
+      },
+      {
+        "_path": "site-packages/cachetools/cache.py",
+        "path_type": "hardlink",
+        "sha256": "849b126a3d8ca03aec1b588973583bc1fea2627f2fb1a38d2c1a478d0cb4ec5f",
+        "sha256_in_prefix": "849b126a3d8ca03aec1b588973583bc1fea2627f2fb1a38d2c1a478d0cb4ec5f",
+        "size_in_bytes": 2818
+      },
+      {
+        "_path": "site-packages/cachetools/func.py",
+        "path_type": "hardlink",
+        "sha256": "840527ab89172c26653f82a8b9bc0fb3d0deb304aed71cdf6dec6b7f122409f5",
+        "sha256_in_prefix": "840527ab89172c26653f82a8b9bc0fb3d0deb304aed71cdf6dec6b7f122409f5",
+        "size_in_bytes": 2982
+      },
+      {
+        "_path": "site-packages/cachetools/keys.py",
+        "path_type": "hardlink",
+        "sha256": "7f8e7d8c367934fde57b1e2cf53ed629f04d9e57e643d76bf1ce1562827b8599",
+        "sha256_in_prefix": "7f8e7d8c367934fde57b1e2cf53ed629f04d9e57e643d76bf1ce1562827b8599",
+        "size_in_bytes": 1073
+      },
+      {
+        "_path": "site-packages/cachetools/lfu.py",
+        "path_type": "hardlink",
+        "sha256": "02d3f2e11bd194d43e2e3547ce1faf8b139e34e26fe4cbb12113ea4d5c26ea58",
+        "sha256_in_prefix": "02d3f2e11bd194d43e2e3547ce1faf8b139e34e26fe4cbb12113ea4d5c26ea58",
+        "size_in_bytes": 1116
+      },
+      {
+        "_path": "site-packages/cachetools/lru.py",
+        "path_type": "hardlink",
+        "sha256": "24396d196a96497335661318a30cf2ff4ca1d8e87b1b974231fe940ad2901cc9",
+        "sha256_in_prefix": "24396d196a96497335661318a30cf2ff4ca1d8e87b1b974231fe940ad2901cc9",
+        "size_in_bytes": 1503
+      },
+      {
+        "_path": "site-packages/cachetools/rr.py",
+        "path_type": "hardlink",
+        "sha256": "140797acb1be913beaef4ad19ddb2441fd716080cc42cb6d38cedc721ebafee8",
+        "sha256_in_prefix": "140797acb1be913beaef4ad19ddb2441fd716080cc42cb6d38cedc721ebafee8",
+        "size_in_bytes": 1042
+      },
+      {
+        "_path": "site-packages/cachetools/ttl.py",
+        "path_type": "hardlink",
+        "sha256": "19ca043fc61fe46b189efb2041feefb7aa06bce13aad37c89e28fff8420a3a8a",
+        "sha256_in_prefix": "19ca043fc61fe46b189efb2041feefb7aa06bce13aad37c89e28fff8420a3a8a",
+        "size_in_bytes": 6110
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/abc.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/cache.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/func.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/keys.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/lfu.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/lru.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/rr.cpython-36.pyc",
+        "path_type": "pyc_file"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/cachetools/__pycache__/ttl.cpython-36.pyc",
+        "path_type": "pyc_file"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "2491d532b5368a084fd16718e1668ea8895f4c4c0be4f8ee9042acdb66747bf2",
+  "size": 10521,
+  "subdir": "noarch",
+  "timestamp": 1533024579926,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/noarch/cachetools-2.1.0-py_0.tar.bz2",
+  "version": "2.1.0"
+}

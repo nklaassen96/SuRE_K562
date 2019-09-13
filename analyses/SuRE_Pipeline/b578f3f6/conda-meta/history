@@ -1,0 +1,51 @@
+==> 2019-09-12 11:04:39 <==
+# cmd: /DATA/usr/n.klaassen/miniconda3/bin/conda-env create --file /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/conda-env-py2.yml --prefix /home/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/b578f3f6
+# conda version: 4.7.11
++bioconda::libdeflate-1.0-h14c3975_1
++bioconda::pysam-0.15.3-py27hda2845c_1
++defaults::_libgcc_mutex-0.1-main
++defaults::blas-1.0-mkl
++defaults::blosc-1.16.3-hd408876_0
++defaults::bzip2-1.0.8-h7b6447c_0
++defaults::ca-certificates-2019.5.15-1
++defaults::certifi-2019.6.16-py27_1
++defaults::curl-7.61.0-h84994c4_0
++defaults::funcsigs-1.0.2-py27_0
++defaults::hdf5-1.10.4-hb1b8bf9_0
++defaults::intel-openmp-2019.4-243
++defaults::libcurl-7.61.0-h1ad7b7a_0
++defaults::libedit-3.1-heed3624_0
++defaults::libffi-3.2.1-hd88cf55_4
++defaults::libgcc-ng-9.1.0-hdf63c60_0
++defaults::libgfortran-ng-7.3.0-hdf63c60_0
++defaults::libssh2-1.8.0-h9cfc8f7_4
++defaults::libstdcxx-ng-9.1.0-hdf63c60_0
++defaults::lz4-c-1.8.1.2-h14c3975_0
++defaults::lzo-2.10-h49e0be7_2
++defaults::mkl-2019.4-243
++defaults::mkl-service-2.3.0-py27he904b0f_0
++defaults::mkl_fft-1.0.14-py27ha843d7b_0
++defaults::mkl_random-1.0.2-py27hd81dba3_0
++defaults::mock-3.0.5-py27_0
++defaults::ncurses-6.0-h9df7e31_2
++defaults::numexpr-2.7.0-py27h9e4a6bb_0
++defaults::numpy-1.16.4-py27h7e9f1db_0
++defaults::numpy-base-1.16.4-py27hde5b4d6_0
++defaults::openssl-1.0.2t-h7b6447c_0
++defaults::pandas-0.24.2-py27he6710b0_0
++defaults::pip-19.2.2-py27_0
++defaults::pytables-3.5.2-py27h71ec239_1
++defaults::python-2.7.13-heccc3f1_16
++defaults::python-dateutil-2.8.0-py27_0
++defaults::pytz-2019.2-py_0
++defaults::readline-7.0-ha6073c6_4
++defaults::setuptools-41.0.1-py27_0
++defaults::six-1.12.0-py27_0
++defaults::snappy-1.1.7-hbae5bb6_3
++defaults::sqlite-3.23.1-he433501_0
++defaults::tk-8.6.8-hbc83047_0
++defaults::wheel-0.33.4-py27_0
++defaults::xz-5.2.4-h14c3975_4
++defaults::zlib-1.2.11-h7b6447c_3
++defaults::zstd-1.3.7-h0b5b093_0
+# update specs: ['python=2.7.13', 'hdf5', 'numpy', 'pysam', 'pytables', 'pandas']

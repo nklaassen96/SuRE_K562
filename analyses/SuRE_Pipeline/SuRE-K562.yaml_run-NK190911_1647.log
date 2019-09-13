@@ -1,0 +1,508 @@
+Provided cores: 25
+Rules claiming more threads will be scaled down.
+Provided resources: ram=150
+Job counts:
+	count	jobs
+	207	_bed2coverage_chr
+	1	all
+	1	bed2coverage
+	6	cDNA
+	460	iPCR_WASP_filter_remapped_reads
+	460	iPCR_WASP_find_SNPs
+	460	iPCR_WASP_map_bowtie2_paired_end
+	460	iPCR_WASP_merge_bams
+	460	iPCR_WASP_sort_and_index_bam
+	23	iPCR_annot_WASP
+	460	iPCR_bam2bedpe
+	460	iPCR_map
+	23	iPCR_merge_bedpe
+	23	merge_all
+	2	plDNA
+	3506
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr2.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.to.remap.bam
+    jobid: 1815
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.keep.bam
+    wildcards: s=iPCR_3336_1, c=chr2
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_rev.fastq.gz; 
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/map1_sort/iPCR_3466_5_L001_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.to.remap.bam
+    jobid: 2245
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.keep.bam
+    wildcards: s=iPCR_3466_5_L001, c=chr1
+
+/bin/bash: activate: No such file or directory
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/map1_sort/iPCR_3466_5_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2'/'iPCR_3466_5_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2'/'iPCR_3466_5_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_rev.fastq.gz; 
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/map1_sort/iPCR_3336_4_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.to.remap.bam
+    jobid: 2217
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_rev.fastq.gz
+    wildcards: s=iPCR_3336_4, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/map1_sort/iPCR_3336_4_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2'/'iPCR_3336_4_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2'/'iPCR_3336_4_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_rev.fastq.gz; 
+
+/bin/bash: activate: No such file or directory
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/map1_sort/iPCR_3466_6_L001_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.to.remap.bam
+    jobid: 2215
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.to.remap.bam
+    wildcards: s=iPCR_3466_6_L001, c=chr1
+
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+/bin/bash: activate: No such file or directory
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/map1_sort/iPCR_3466_6_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2'/'iPCR_3466_6_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2'/'iPCR_3466_6_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_rev.fastq.gz; 
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr2_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3875_2_16_2_RNA_55_5_K562_SuRE23_PCRrep2_CGATGTA_S64_L008_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T2/SuRE23_55_B2_T2_trimmed_table.txt.gz
+    jobid: 2
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T2/SuRE23_55_B2_T2_trimmed_table.txt.gz
+    wildcards: s=SuRE23_55_B2_T2
+
+/bin/bash: activate: No such file or directory
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_55_B2_T2' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T2' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3875_2_16_2_RNA_55_5_K562_SuRE23_PCRrep2_CGATGTA_S64_L008_R1_001.fastq.gz
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/map1_sort/iPCR_3466_3_L002_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.to.remap.bam
+    jobid: 2223
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_rev.fastq.gz
+    wildcards: s=iPCR_3466_3_L002, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/map1_sort/iPCR_3466_3_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2'/'iPCR_3466_3_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2'/'iPCR_3466_3_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_rev.fastq.gz; 
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.to.remap.bam
+    jobid: 2206
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_rev.fastq.gz
+    wildcards: s=iPCR_3336_1, c=chr1
+
+/bin/bash: activate: No such file or directory
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/map1_sort/iPCR_3466_4_L002_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.to.remap.bam
+    jobid: 2211
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.keep.bam
+    wildcards: s=iPCR_3466_4_L002, c=chr1
+
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/map1_sort/iPCR_3466_4_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2'/'iPCR_3466_4_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2'/'iPCR_3466_4_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/map1_sort/iPCR_3336_4_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2'/'iPCR_3336_4_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2'/'iPCR_3336_4_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_4/fastq2/iPCR_3336_4_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/map1_sort/iPCR_3466_5_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2'/'iPCR_3466_5_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2'/'iPCR_3466_5_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L001/fastq2/iPCR_3466_5_L001_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+/bin/bash: activate: No such file or directory
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/map1_sort/iPCR_3466_4_L001_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.to.remap.bam
+    jobid: 2213
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_forw.fastq.gz
+    wildcards: s=iPCR_3466_4_L001, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/map1_sort/iPCR_3466_4_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2'/'iPCR_3466_4_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2'/'iPCR_3466_4_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_rev.fastq.gz; 
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3875_1_16_1_RNA_55_5_K562_SuRE23_PCRrep1_ATCACGA_S63_L008_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T1/SuRE23_55_B2_T1_trimmed_table.txt.gz
+    jobid: 28
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T1/SuRE23_55_B2_T1_trimmed_table.txt.gz
+    wildcards: s=SuRE23_55_B2_T1
+
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_55_B2_T1' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_55_B2_T1' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3875_1_16_1_RNA_55_5_K562_SuRE23_PCRrep1_ATCACGA_S63_L008_R1_001.fastq.gz
+/bin/bash: activate: No such file or directory
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/map1_sort/iPCR_3466_6_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2'/'iPCR_3466_6_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2'/'iPCR_3466_6_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L001/fastq2/iPCR_3466_6_L001_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr2.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.to.remap.bam
+    jobid: 1822
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_rev.fastq.gz
+    wildcards: s=iPCR_3336_5, c=chr2
+
+/bin/bash: activate: No such file or directory
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_rev.fastq.gz; 
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.to.remap.bam
+    jobid: 2208
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_forw.fastq.gz
+    wildcards: s=iPCR_3336_3, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+/bin/bash: activate: No such file or directory
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr2.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.to.remap.bam
+    jobid: 1836
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_forw.fastq.gz
+    wildcards: s=iPCR_3336_3, c=chr2
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_rev.fastq.gz; 
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.to.remap.bam
+    jobid: 2243
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.keep.bam
+    wildcards: s=iPCR_3336_5, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_rev.fastq.gz; 
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/map1_sort/iPCR_3466_5_L002_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.to.remap.bam
+    jobid: 2220
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_rev.fastq.gz
+    wildcards: s=iPCR_3466_5_L002, c=chr1
+
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/map1_sort/iPCR_3466_3_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2'/'iPCR_3466_3_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2'/'iPCR_3466_3_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L002/fastq2/iPCR_3466_3_L002_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/map1_sort/iPCR_3466_5_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2'/'iPCR_3466_5_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2'/'iPCR_3466_5_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+/bin/bash: activate: No such file or directory
+
+rule plDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/PL/3419_29_10_29_Sce1_plDNA_SuRE23_PCRrep1_TACCTTA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.1/plDNA.1_trimmed_table.txt.gz
+    jobid: 4
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.1/plDNA.1_trimmed_table.txt.gz
+    wildcards: s=plDNA.1
+
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'plDNA.1' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.1' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/PL/3419_29_10_29_Sce1_plDNA_SuRE23_PCRrep1_TACCTTA_L002_R1_001.fastq.gz
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/map1_sort/iPCR_3336_1_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2'/'iPCR_3336_1_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_1/fastq2/iPCR_3336_1_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/map1_sort/iPCR_3466_3_L001_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.to.remap.bam
+    jobid: 2236
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_forw.fastq.gz
+    wildcards: s=iPCR_3466_3_L001, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/map1_sort/iPCR_3466_3_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2'/'iPCR_3466_3_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2'/'iPCR_3466_3_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/map1_sort/iPCR_3466_4_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2'/'iPCR_3466_4_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2'/'iPCR_3466_4_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L001/fastq2/iPCR_3466_4_L001_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+/bin/bash: activate: No such file or directory
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/map1_sort/iPCR_3466_4_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2'/'iPCR_3466_4_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2'/'iPCR_3466_4_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_4_L002/fastq2/iPCR_3466_4_L002_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+/bin/bash: activate: No such file or directory
+
+rule plDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/PL/3419_30_10_30_Sce1_plDNA_SuRE23_PCRrep2_CTGTGTA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.2/plDNA.2_trimmed_table.txt.gz
+    jobid: 12
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.2/plDNA.2_trimmed_table.txt.gz
+    wildcards: s=plDNA.2
+
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'plDNA.2' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/plDNA/plDNA.2' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/PL/3419_30_10_30_Sce1_plDNA_SuRE23_PCRrep2_CTGTGTA_L002_R1_001.fastq.gz
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/map1_sort/iPCR_3466_6_L002_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.to.remap.bam
+    jobid: 2232
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.keep.bam
+    wildcards: s=iPCR_3466_6_L002, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/map1_sort/iPCR_3466_6_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2'/'iPCR_3466_6_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2'/'iPCR_3466_6_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_rev.fastq.gz; 
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr2_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/map1_sort/iPCR_3336_3_chr2.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr2'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2'/'iPCR_3336_3_chr2'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_3/fastq2/iPCR_3336_3_chr2_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+/bin/bash: activate: No such file or directory
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/map1_sort/iPCR_3336_5_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2'/'iPCR_3336_5_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3336_5/fastq2/iPCR_3336_5_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_3_12_3_RNA_45_6_K562_SuRE23_TFrep2_PCRrep1_pgcDNA_adapter_2_150604_hg_GATCAGA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T3/SuRE23_45_B1_T3_trimmed_table.txt.gz
+    jobid: 23
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T3/SuRE23_45_B1_T3_trimmed_table.txt.gz
+    wildcards: s=SuRE23_45_B1_T3
+
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_45_B1_T3' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T3' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_3_12_3_RNA_45_6_K562_SuRE23_TFrep2_PCRrep1_pgcDNA_adapter_2_150604_hg_GATCAGA_L002_R1_001.fastq.gz
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_1_12_1_RNA_45_5_K562_SuRE23_TFrep1_PCRrep1_pgcDNA_adapter_2_150604_hg_CAGATCA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T1/SuRE23_45_B1_T1_trimmed_table.txt.gz
+    jobid: 11
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T1/SuRE23_45_B1_T1_trimmed_table.txt.gz
+    wildcards: s=SuRE23_45_B1_T1
+
+/bin/bash: activate: No such file or directory
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_45_B1_T1' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T1' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_1_12_1_RNA_45_5_K562_SuRE23_TFrep1_PCRrep1_pgcDNA_adapter_2_150604_hg_CAGATCA_L002_R1_001.fastq.gz
+/bin/bash: activate: No such file or directory
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_4_12_4_RNA_45_6_K562_SuRE23_TFrep2_PCRrep2_pgcDNA_adapter_2_150604_hg_TAGCTTA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T4/SuRE23_45_B1_T4_trimmed_table.txt.gz
+    jobid: 18
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T4/SuRE23_45_B1_T4_trimmed_table.txt.gz
+    wildcards: s=SuRE23_45_B1_T4
+
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_45_B1_T4' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T4' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_4_12_4_RNA_45_6_K562_SuRE23_TFrep2_PCRrep2_pgcDNA_adapter_2_150604_hg_TAGCTTA_L002_R1_001.fastq.gz
+/bin/bash: activate: No such file or directory
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/map1_sort/iPCR_3466_2_L001_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.to.remap.bam
+    jobid: 2226
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.to.remap.bam
+    wildcards: s=iPCR_3466_2_L001, c=chr1
+
+/bin/bash: activate: No such file or directory
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/map1_sort/iPCR_3466_2_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2'/'iPCR_3466_2_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2'/'iPCR_3466_2_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_rev.fastq.gz; 
+/bin/bash: activate: No such file or directory
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+
+rule iPCR_WASP_find_SNPs:
+    input: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/map1_sort/iPCR_3466_2_L002_chr1.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.to.remap.bam
+    jobid: 2235
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.to.remap.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_forw.fastq.gz
+    wildcards: s=iPCR_3466_2_L002, c=chr1
+
+mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/map1_sort/iPCR_3466_2_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2'/'iPCR_3466_2_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2'/'iPCR_3466_2_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_rev.fastq.gz; 
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/map1_sort/iPCR_3466_5_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2'/'iPCR_3466_5_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2'/'iPCR_3466_5_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_5_L002/fastq2/iPCR_3466_5_L002_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/map1_sort/iPCR_3466_3_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2'/'iPCR_3466_3_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2'/'iPCR_3466_3_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_3_L001/fastq2/iPCR_3466_3_L001_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/map1_sort/iPCR_3466_6_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2'/'iPCR_3466_6_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2'/'iPCR_3466_6_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_6_L002/fastq2/iPCR_3466_6_L002_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/map1_sort/iPCR_3466_2_L001_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2'/'iPCR_3466_2_L001_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2'/'iPCR_3466_2_L001_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L001/fastq2/iPCR_3466_2_L001_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+
+rule cDNA:
+    input: /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_2_12_2_RNA_45_5_K562_SuRE23_TFrep1_PCRrep2_pgcDNA_adapter_2_150604_hg_ACTTGAA_L002_R1_001.fastq.gz
+    output: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T2/SuRE23_45_B1_T2_trimmed_table.txt.gz
+    jobid: 32
+    reason: Missing output files: /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T2/SuRE23_45_B1_T2_trimmed_table.txt.gz
+    wildcards: s=SuRE23_45_B1_T2
+
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/cDNA-plDNA-count-BC.bash -l -b 'SuRE23_45_B1_T2' -o '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/cDNA/SuRE23_45_B1_T2' -a CCTAGCTAACTATAACGGTCCTAAGGTAGCGAA /home/ludo/projects/LP190816_SuRE_K562_SNP/data/LP20190816_K562_rawData/cDNA/3520_2_12_2_RNA_45_5_K562_SuRE23_TFrep1_PCRrep2_pgcDNA_adapter_2_150604_hg_ACTTGAA_L002_R1_001.fastq.gz
+/bin/bash: activate: No such file or directory
+Will exit after finishing currently running jobs.
+/bin/bash: activate: No such file or directory
+Traceback (most recent call last):
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py", line 5, in <module>
+    import numpy as np
+ImportError: No module named numpy
+Error in job iPCR_WASP_find_SNPs while creating output files /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_forw.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_rev.fastq.gz, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.keep.bam, /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1.to.remap.bam.
+RuleException:
+CalledProcessError in line 188 of /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake:
+Command 'mkdir -p '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2' ; PYTHONPATH=$PYTHONPATH:/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping python2.7  /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/WASP/mapping/find_intersecting_snps.py --is_paired_end --is_sorted --output_dir '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2' --snp_dir /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/map1_sort/iPCR_3466_2_L002_chr1.bam; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2'/'iPCR_3466_2_L002_chr1'.remap.fq1.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_forw.fastq.gz; mv '/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2'/'iPCR_3466_2_L002_chr1'.remap.fq2.gz /DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/iPCR/iPCR_3466_2_L002/fastq2/iPCR_3466_2_L002_chr1_rev.fastq.gz; ' returned non-zero exit status 1.
+  File "/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake", line 188, in __rule_iPCR_WASP_find_SNPs
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/concurrent/futures/thread.py", line 56, in run
+Will exit after finishing currently running jobs.
+Read 199 records
+Read 215 records
+Read 240 records
+Finished job 23.
+1 of 3506 steps (0.03%) done
+Will exit after finishing currently running jobs.
+Finished job 18.
+2 of 3506 steps (0.06%) done
+Will exit after finishing currently running jobs.
+Read 308 records
+Finished job 11.
+3 of 3506 steps (0.09%) done
+Will exit after finishing currently running jobs.
+Finished job 32.
+4 of 3506 steps (0.11%) done
+Will exit after finishing currently running jobs.
+Read 13 records
+Read 17 records
+Finished job 4.
+5 of 3506 steps (0.14%) done
+Will exit after finishing currently running jobs.
+Finished job 12.
+6 of 3506 steps (0.17%) done
+Will exit after finishing currently running jobs.
+Read 849 records
+Read 900 records
+Finished job 28.
+7 of 3506 steps (0.20%) done
+Will exit after finishing currently running jobs.
+Finished job 2.
+8 of 3506 steps (0.23%) done
+Will exit after finishing currently running jobs.
+Exiting because a job execution failed. Look above for error message
+SuRE-seq pipeline version:  0.14.feature_SNP-usr-config 
+ git commit hash:  /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline
+bc007e8e31a1119a007f8335f7c99abb748d60dc 
+
+
+reading SNPs from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+reading VCF from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/
+Command exited with non-zero status 1
+	Command being timed: "nice -19 snakemake -prs /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake --use-conda --conda-prefix /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline --resources ram=150 --configfile SuRE-K562.yaml --cores 25 all"
+	User time (seconds): 14554.00
+	System time (seconds): 577.52
+	Percent of CPU this job got: 439%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 57:19.35
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 15802048
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 127
+	Minor (reclaiming a frame) page faults: 39767159
+	Voluntary context switches: 27151862
+	Involuntary context switches: 394811
+	Swaps: 0
+	File system inputs: 21907904
+	File system outputs: 258005584
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

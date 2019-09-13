@@ -1,0 +1,770 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://repo.anaconda.com/pkgs/main/linux-64",
+  "constrains": [],
+  "depends": [
+    "bcrypt >=3.1.3",
+    "cryptography >=1.5",
+    "pyasn1 >=0.1.7",
+    "pynacl >=1.0.1",
+    "python >=3.6,<3.7.0a0"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/paramiko-2.4.2-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/paramiko/__init__.py",
+    "lib/python3.6/site-packages/paramiko/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/_version.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/_winapi.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/agent.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/auth_handler.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/ber.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/buffered_pipe.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/channel.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/client.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/common.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/compress.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/config.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/dsskey.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/ecdsakey.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/ed25519key.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/file.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/hostkeys.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/kex_ecdh_nist.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/kex_gex.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/kex_group1.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/kex_group14.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/kex_gss.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/message.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/packet.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/pipe.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/pkey.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/primes.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/proxy.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/py3compat.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/rsakey.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/server.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_attr.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_client.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_file.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_handle.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_server.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/sftp_si.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/ssh_exception.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/ssh_gss.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/transport.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/util.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/__pycache__/win_pageant.cpython-36.pyc",
+    "lib/python3.6/site-packages/paramiko/_version.py",
+    "lib/python3.6/site-packages/paramiko/_winapi.py",
+    "lib/python3.6/site-packages/paramiko/agent.py",
+    "lib/python3.6/site-packages/paramiko/auth_handler.py",
+    "lib/python3.6/site-packages/paramiko/ber.py",
+    "lib/python3.6/site-packages/paramiko/buffered_pipe.py",
+    "lib/python3.6/site-packages/paramiko/channel.py",
+    "lib/python3.6/site-packages/paramiko/client.py",
+    "lib/python3.6/site-packages/paramiko/common.py",
+    "lib/python3.6/site-packages/paramiko/compress.py",
+    "lib/python3.6/site-packages/paramiko/config.py",
+    "lib/python3.6/site-packages/paramiko/dsskey.py",
+    "lib/python3.6/site-packages/paramiko/ecdsakey.py",
+    "lib/python3.6/site-packages/paramiko/ed25519key.py",
+    "lib/python3.6/site-packages/paramiko/file.py",
+    "lib/python3.6/site-packages/paramiko/hostkeys.py",
+    "lib/python3.6/site-packages/paramiko/kex_ecdh_nist.py",
+    "lib/python3.6/site-packages/paramiko/kex_gex.py",
+    "lib/python3.6/site-packages/paramiko/kex_group1.py",
+    "lib/python3.6/site-packages/paramiko/kex_group14.py",
+    "lib/python3.6/site-packages/paramiko/kex_gss.py",
+    "lib/python3.6/site-packages/paramiko/message.py",
+    "lib/python3.6/site-packages/paramiko/packet.py",
+    "lib/python3.6/site-packages/paramiko/pipe.py",
+    "lib/python3.6/site-packages/paramiko/pkey.py",
+    "lib/python3.6/site-packages/paramiko/primes.py",
+    "lib/python3.6/site-packages/paramiko/proxy.py",
+    "lib/python3.6/site-packages/paramiko/py3compat.py",
+    "lib/python3.6/site-packages/paramiko/rsakey.py",
+    "lib/python3.6/site-packages/paramiko/server.py",
+    "lib/python3.6/site-packages/paramiko/sftp.py",
+    "lib/python3.6/site-packages/paramiko/sftp_attr.py",
+    "lib/python3.6/site-packages/paramiko/sftp_client.py",
+    "lib/python3.6/site-packages/paramiko/sftp_file.py",
+    "lib/python3.6/site-packages/paramiko/sftp_handle.py",
+    "lib/python3.6/site-packages/paramiko/sftp_server.py",
+    "lib/python3.6/site-packages/paramiko/sftp_si.py",
+    "lib/python3.6/site-packages/paramiko/ssh_exception.py",
+    "lib/python3.6/site-packages/paramiko/ssh_gss.py",
+    "lib/python3.6/site-packages/paramiko/transport.py",
+    "lib/python3.6/site-packages/paramiko/util.py",
+    "lib/python3.6/site-packages/paramiko/win_pageant.py"
+  ],
+  "fn": "paramiko-2.4.2-py36_0.conda",
+  "legacy_bz2_md5": "70dfeeff0e54e35d12378989b47de1fe",
+  "legacy_bz2_size": 246105,
+  "license": "LGPL 2.1",
+  "license_family": "LGPL",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/paramiko-2.4.2-py36_0",
+    "type": 1
+  },
+  "md5": "b1cd60aa70ad9d51451e2b9b9bcd0322",
+  "name": "paramiko",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/paramiko-2.4.2-py36_0.conda",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink",
+        "sha256": "4f171e0ec5e8eeca792096aebbc686895697f47d8f5b5b04238a0cf223e496a7",
+        "sha256_in_prefix": "4f171e0ec5e8eeca792096aebbc686895697f47d8f5b5b04238a0cf223e496a7",
+        "size_in_bytes": 1415
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink",
+        "sha256": "417af4da69d1a146ca38821d3c6aafd6f499cc9daa170959fd4b15521eb61071",
+        "sha256_in_prefix": "417af4da69d1a146ca38821d3c6aafd6f499cc9daa170959fd4b15521eb61071",
+        "size_in_bytes": 5450
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink",
+        "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "sha256_in_prefix": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b",
+        "size_in_bytes": 1
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink",
+        "sha256": "c225cceb08ced5c0dc8d3cf3734b61b254ea997259c97d13bde1ef251038d1e5",
+        "sha256_in_prefix": "c225cceb08ced5c0dc8d3cf3734b61b254ea997259c97d13bde1ef251038d1e5",
+        "size_in_bytes": 60
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko-2.4.2-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink",
+        "sha256": "47d9fe78273fd64c750e78a317b1a59a6f87ebb93d8d4cf9ae6d98a0f2fc9f9e",
+        "sha256_in_prefix": "47d9fe78273fd64c750e78a317b1a59a6f87ebb93d8d4cf9ae6d98a0f2fc9f9e",
+        "size_in_bytes": 9
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__init__.py",
+        "path_type": "hardlink",
+        "sha256": "cb0b6f48d5b3de730a167c5c77f785a80024a4febea1a9f326d4cf8c397a217e",
+        "sha256_in_prefix": "cb0b6f48d5b3de730a167c5c77f785a80024a4febea1a9f326d4cf8c397a217e",
+        "size_in_bytes": 3734
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "7a269500281cf08cfc0edc5f61ce1f29d83212f94e6ba4c4efa7a6c3d5309d01",
+        "sha256_in_prefix": "7a269500281cf08cfc0edc5f61ce1f29d83212f94e6ba4c4efa7a6c3d5309d01",
+        "size_in_bytes": 3126
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/_version.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "bb84ff6f1311dfff13cec73c34bc9063dbca37d7ad19f7bc93ec0f5c8efa0211",
+        "sha256_in_prefix": "bb84ff6f1311dfff13cec73c34bc9063dbca37d7ad19f7bc93ec0f5c8efa0211",
+        "size_in_bytes": 227
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/_winapi.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "427a7e0b2f667a9f1659b0aa430abc58bf1361274e522f21aa609f98888af310",
+        "sha256_in_prefix": "427a7e0b2f667a9f1659b0aa430abc58bf1361274e522f21aa609f98888af310",
+        "size_in_bytes": 9453
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/agent.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b2296d37ee08c9aa85a7a9a4a57cabebce9ba8bf24272f0b167f9b51d1f780ab",
+        "sha256_in_prefix": "b2296d37ee08c9aa85a7a9a4a57cabebce9ba8bf24272f0b167f9b51d1f780ab",
+        "size_in_bytes": 13347
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/auth_handler.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "bdcb2c3aa23f19bc898f6e2d4e1e337db5350b44b02ce2f2f37553157dd7e693",
+        "sha256_in_prefix": "bdcb2c3aa23f19bc898f6e2d4e1e337db5350b44b02ce2f2f37553157dd7e693",
+        "size_in_bytes": 18897
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/ber.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "e077d8658d5a925102ac455054e8e6e34302994ed7e5c9e3ad24d59bb3b125fa",
+        "sha256_in_prefix": "e077d8658d5a925102ac455054e8e6e34302994ed7e5c9e3ad24d59bb3b125fa",
+        "size_in_bytes": 3251
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/buffered_pipe.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "126dc3a3ebae7056d14162efe073fc4241854d31967a93c4e8764e8351e0ac40",
+        "sha256_in_prefix": "126dc3a3ebae7056d14162efe073fc4241854d31967a93c4e8764e8351e0ac40",
+        "size_in_bytes": 5976
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/channel.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fd171d0eccefe946728f858d1a8fe88b6c6cf7c10f6c170d73906973f3eb5410",
+        "sha256_in_prefix": "fd171d0eccefe946728f858d1a8fe88b6c6cf7c10f6c170d73906973f3eb5410",
+        "size_in_bytes": 43120
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/client.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "5d79c5fee86645571493b9800e67a0e7da466ca48e4376dfa9eb705b4edfc51b",
+        "sha256_in_prefix": "5d79c5fee86645571493b9800e67a0e7da466ca48e4376dfa9eb705b4edfc51b",
+        "size_in_bytes": 23726
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/common.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "1ea2f645d1ab86fd259f30c1be3119a61f972d0349ea76bf51bf97b50bbd220e",
+        "sha256_in_prefix": "1ea2f645d1ab86fd259f30c1be3119a61f972d0349ea76bf51bf97b50bbd220e",
+        "size_in_bytes": 5046
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/compress.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "1a0d40217c7a0bc2bb6ba3cbf8b10321f7bdee40b48c2d99cf6981b7513b999f",
+        "sha256_in_prefix": "1a0d40217c7a0bc2bb6ba3cbf8b10321f7bdee40b48c2d99cf6981b7513b999f",
+        "size_in_bytes": 1145
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/config.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "a61c3ccbb70b5cc5235031c3773571197c2033b6948fb17c2a69487454232c65",
+        "sha256_in_prefix": "a61c3ccbb70b5cc5235031c3773571197c2033b6948fb17c2a69487454232c65",
+        "size_in_bytes": 6552
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/dsskey.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "d5ea9c2e20f313ff1139ffc772cf83046e19b830335355447f8d212b471b610b",
+        "sha256_in_prefix": "d5ea9c2e20f313ff1139ffc772cf83046e19b830335355447f8d212b471b610b",
+        "size_in_bytes": 6305
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/ecdsakey.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c6d844e42df47d42dc5a160978c0fb82d148d6afd1da67286a0e2bb62d199f97",
+        "sha256_in_prefix": "c6d844e42df47d42dc5a160978c0fb82d148d6afd1da67286a0e2bb62d199f97",
+        "size_in_bytes": 8898
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/ed25519key.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b49fca7fcf4c62c2d79137d86f8708e13ab64b681420415306641af68328feb3",
+        "sha256_in_prefix": "b49fca7fcf4c62c2d79137d86f8708e13ab64b681420415306641af68328feb3",
+        "size_in_bytes": 4896
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/file.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c55a29a5c713522e75cebb1edd2b979cee8d788b982b350328e34447e30c2d36",
+        "sha256_in_prefix": "c55a29a5c713522e75cebb1edd2b979cee8d788b982b350328e34447e30c2d36",
+        "size_in_bytes": 14348
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/hostkeys.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "18020427f63c6a7de51a7484b5159caded2f69bca28ade3374dcaa775f8afee3",
+        "sha256_in_prefix": "18020427f63c6a7de51a7484b5159caded2f69bca28ade3374dcaa775f8afee3",
+        "size_in_bytes": 12228
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/kex_ecdh_nist.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6589009cfa000f5d41b84e9fca90d2024547f4900f8f0cbd11b51fc26ab6a638",
+        "sha256_in_prefix": "6589009cfa000f5d41b84e9fca90d2024547f4900f8f0cbd11b51fc26ab6a638",
+        "size_in_bytes": 4147
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/kex_gex.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "46a59d57e2f6ca07d1dc5b3ea67be0b8a7f2ee9524ea429e80492a77ead113e2",
+        "sha256_in_prefix": "46a59d57e2f6ca07d1dc5b3ea67be0b8a7f2ee9524ea429e80492a77ead113e2",
+        "size_in_bytes": 6481
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/kex_group1.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c7a0fd1242333ba7d07bf9d6c488b47610c66f50c385e775cae28366516c6c72",
+        "sha256_in_prefix": "c7a0fd1242333ba7d07bf9d6c488b47610c66f50c385e775cae28366516c6c72",
+        "size_in_bytes": 3876
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/kex_group14.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b02edea19c6e8ca1212abc41ea099fa80e1c54a7bdd58cb9bc2e33a575e2a501",
+        "sha256_in_prefix": "b02edea19c6e8ca1212abc41ea099fa80e1c54a7bdd58cb9bc2e33a575e2a501",
+        "size_in_bytes": 901
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/kex_gss.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "a1a6b4081b27fd52a7ff59eb53d29012abaeaf2540bd7cd4d7512ae670d781bb",
+        "sha256_in_prefix": "a1a6b4081b27fd52a7ff59eb53d29012abaeaf2540bd7cd4d7512ae670d781bb",
+        "size_in_bytes": 17206
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/message.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "9c3a27ab54cf812c7b3a3eb60ecfde2bd1586d56f46fd48e7b2454a4033f145e",
+        "sha256_in_prefix": "9c3a27ab54cf812c7b3a3eb60ecfde2bd1586d56f46fd48e7b2454a4033f145e",
+        "size_in_bytes": 9691
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/packet.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "1d3ec1ff966c0b769fa4065807ffda5cb0c7c0b603871d92902b6c97aeb97f36",
+        "sha256_in_prefix": "1d3ec1ff966c0b769fa4065807ffda5cb0c7c0b603871d92902b6c97aeb97f36",
+        "size_in_bytes": 13667
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/pipe.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "63973dd9a0e8f8f5f3daa8370a856b08796ce7b4e77284936b18e2f380f4af0e",
+        "sha256_in_prefix": "63973dd9a0e8f8f5f3daa8370a856b08796ce7b4e77284936b18e2f380f4af0e",
+        "size_in_bytes": 4208
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/pkey.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "71f62b16d6836856634f0d90994ce8a0e6ba8e865358e04ae105a9e93f470fdb",
+        "sha256_in_prefix": "71f62b16d6836856634f0d90994ce8a0e6ba8e865358e04ae105a9e93f470fdb",
+        "size_in_bytes": 17909
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/primes.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b9c4d64b7513a4d806774ee4c146972b74928228b8dcb2be8d4cc73d36e569b8",
+        "sha256_in_prefix": "b9c4d64b7513a4d806774ee4c146972b74928228b8dcb2be8d4cc73d36e569b8",
+        "size_in_bytes": 2697
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/proxy.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "0453e75e7baf378c3818105617ff30bbf241dabbb4b942617cbd6d02220e8cb8",
+        "sha256_in_prefix": "0453e75e7baf378c3818105617ff30bbf241dabbb4b942617cbd6d02220e8cb8",
+        "size_in_bytes": 3354
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/py3compat.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "503a7a2c13ed056ff153c4201e95dfdbaa53073ea6ef7e4e24fb7f851c867592",
+        "sha256_in_prefix": "503a7a2c13ed056ff153c4201e95dfdbaa53073ea6ef7e4e24fb7f851c867592",
+        "size_in_bytes": 4096
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/rsakey.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "675cc7ab34b98ae23d7eca954822fbd923d49b6b3e82f4ae738caad6c51105a3",
+        "sha256_in_prefix": "675cc7ab34b98ae23d7eca954822fbd923d49b6b3e82f4ae738caad6c51105a3",
+        "size_in_bytes": 5175
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/server.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "5cf4d3ef93d217e92c053a3855bcbb97a696b68d38346d573ad79a6d4bd0e1fb",
+        "sha256_in_prefix": "5cf4d3ef93d217e92c053a3855bcbb97a696b68d38346d573ad79a6d4bd0e1fb",
+        "size_in_bytes": 31594
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "7a3b527f1f42c3232db75c1da45538a5b3cb23a2d827a6d3e5c80c9d135b5d71",
+        "sha256_in_prefix": "7a3b527f1f42c3232db75c1da45538a5b3cb23a2d827a6d3e5c80c9d135b5d71",
+        "size_in_bytes": 4496
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_attr.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "c0dd6b1515d1756054c21519d7d92bf20c17e090afed185c12124fa836e3ab52",
+        "sha256_in_prefix": "c0dd6b1515d1756054c21519d7d92bf20c17e090afed185c12124fa836e3ab52",
+        "size_in_bytes": 5705
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_client.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "74e657c77999e53b2ab0fdee1d06dbb7728ff15c902188758a259f397386fdb0",
+        "sha256_in_prefix": "74e657c77999e53b2ab0fdee1d06dbb7728ff15c902188758a259f397386fdb0",
+        "size_in_bytes": 29590
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_file.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f5954a42a48bbcea15e16c31fb5f07206f813595f490d9b734e4b22c6ba658aa",
+        "sha256_in_prefix": "f5954a42a48bbcea15e16c31fb5f07206f813595f490d9b734e4b22c6ba658aa",
+        "size_in_bytes": 17419
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_handle.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "a5b4f13487e73cb6b3f628140877ed24fa8e61fec81f6edea04ea820ab3d7dc1",
+        "sha256_in_prefix": "a5b4f13487e73cb6b3f628140877ed24fa8e61fec81f6edea04ea820ab3d7dc1",
+        "size_in_bytes": 6719
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_server.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "4422e51a388f651022c9fed47e85a374154cc1aa0fecd6c7ed60a47e6df5f284",
+        "sha256_in_prefix": "4422e51a388f651022c9fed47e85a374154cc1aa0fecd6c7ed60a47e6df5f284",
+        "size_in_bytes": 12104
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/sftp_si.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "6bf23e75d88a81a1e2da665fbfc30698b07a063dd7030d04bd5a3e6938b0b8a2",
+        "sha256_in_prefix": "6bf23e75d88a81a1e2da665fbfc30698b07a063dd7030d04bd5a3e6938b0b8a2",
+        "size_in_bytes": 12881
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/ssh_exception.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "fa8a6cf39b8c65f5f1030b42d4f4ae3071cceea7d70850b16f1ac33f21af9f1b",
+        "sha256_in_prefix": "fa8a6cf39b8c65f5f1030b42d4f4ae3071cceea7d70850b16f1ac33f21af9f1b",
+        "size_in_bytes": 6235
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/ssh_gss.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "b277ddb259d9194705833654cb671ef319ad0cdb2cc29b2f65ed26403cad8813",
+        "sha256_in_prefix": "b277ddb259d9194705833654cb671ef319ad0cdb2cc29b2f65ed26403cad8813",
+        "size_in_bytes": 16829
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/transport.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "f6b792c9a5f77f69cb9344ca112960df23b66c2a6577ef938de524f05f2a7fd5",
+        "sha256_in_prefix": "f6b792c9a5f77f69cb9344ca112960df23b66c2a6577ef938de524f05f2a7fd5",
+        "size_in_bytes": 82152
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/util.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "594be63618c7a8a836394488cdab14d632b7fec10d3cdc798743169377fd8990",
+        "sha256_in_prefix": "594be63618c7a8a836394488cdab14d632b7fec10d3cdc798743169377fd8990",
+        "size_in_bytes": 8438
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/__pycache__/win_pageant.cpython-36.pyc",
+        "path_type": "hardlink",
+        "sha256": "43cc144fa6a76a394d7598f5bd0414a2db0006ba1659bd986e0a832a7dec96fd",
+        "sha256_in_prefix": "43cc144fa6a76a394d7598f5bd0414a2db0006ba1659bd986e0a832a7dec96fd",
+        "size_in_bytes": 3436
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/_version.py",
+        "path_type": "hardlink",
+        "sha256": "038f1c717f014f01ea94ee692aabbec9b0e04d3f9b18c5a22e0873e07ad5df58",
+        "sha256_in_prefix": "038f1c717f014f01ea94ee692aabbec9b0e04d3f9b18c5a22e0873e07ad5df58",
+        "size_in_bytes": 80
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/_winapi.py",
+        "path_type": "hardlink",
+        "sha256": "febbde8a1afb8abc7b2f12b424da58ee8138165b6c4958353a2661b9c2e5544c",
+        "sha256_in_prefix": "febbde8a1afb8abc7b2f12b424da58ee8138165b6c4958353a2661b9c2e5544c",
+        "size_in_bytes": 11358
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/agent.py",
+        "path_type": "hardlink",
+        "sha256": "8957f269d9488e9d989d190249607ea2cfb54ba1245a0969b40acce404d22642",
+        "sha256_in_prefix": "8957f269d9488e9d989d190249607ea2cfb54ba1245a0969b40acce404d22642",
+        "size_in_bytes": 12758
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/auth_handler.py",
+        "path_type": "hardlink",
+        "sha256": "3ebe623fb9557f7ebf1dd3e1f17451b07b8737e0433c93a83af77ec9149180ac",
+        "sha256_in_prefix": "3ebe623fb9557f7ebf1dd3e1f17451b07b8737e0433c93a83af77ec9149180ac",
+        "size_in_bytes": 31957
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/ber.py",
+        "path_type": "hardlink",
+        "sha256": "fc0bb41cfaa4bcb0e4512e14b1dbb240eb11c93ac89a5a6372d7979197fd176d",
+        "sha256_in_prefix": "fc0bb41cfaa4bcb0e4512e14b1dbb240eb11c93ac89a5a6372d7979197fd176d",
+        "size_in_bytes": 4351
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/buffered_pipe.py",
+        "path_type": "hardlink",
+        "sha256": "388557f7b6c1404f5dfca109967ca71ec87815a6e86590d2613903f0783fbb3e",
+        "sha256_in_prefix": "388557f7b6c1404f5dfca109967ca71ec87815a6e86590d2613903f0783fbb3e",
+        "size_in_bytes": 7462
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/channel.py",
+        "path_type": "hardlink",
+        "sha256": "c00e3a69f1f0e0b246e751028dbe0a4451ff151205d9aca445a114f4b2c900de",
+        "sha256_in_prefix": "c00e3a69f1f0e0b246e751028dbe0a4451ff151205d9aca445a114f4b2c900de",
+        "size_in_bytes": 48465
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/client.py",
+        "path_type": "hardlink",
+        "sha256": "cc601a423a9151d9100d18afbe9d2af7b705a698d014bcd19dafde967067037b",
+        "sha256_in_prefix": "cc601a423a9151d9100d18afbe9d2af7b705a698d014bcd19dafde967067037b",
+        "size_in_bytes": 31494
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/common.py",
+        "path_type": "hardlink",
+        "sha256": "18c0beb58d01ced99ea71dd6a9981e50e6e57339a5e7905c94a50fceb2ce6fd8",
+        "sha256_in_prefix": "18c0beb58d01ced99ea71dd6a9981e50e6e57339a5e7905c94a50fceb2ce6fd8",
+        "size_in_bytes": 7893
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/compress.py",
+        "path_type": "hardlink",
+        "sha256": "8bc444ab53573e0f87b8a1a2dcc4d544c18eb039d03a14b8414bbd3a177a50b2",
+        "sha256_in_prefix": "8bc444ab53573e0f87b8a1a2dcc4d544c18eb039d03a14b8414bbd3a177a50b2",
+        "size_in_bytes": 1294
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/config.py",
+        "path_type": "hardlink",
+        "sha256": "d783dba5022e53a2fada645e98afce7a628d88b71ca7d45bf10837ccd695c7ac",
+        "sha256_in_prefix": "d783dba5022e53a2fada645e98afce7a628d88b71ca7d45bf10837ccd695c7ac",
+        "size_in_bytes": 10693
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/dsskey.py",
+        "path_type": "hardlink",
+        "sha256": "7742ca56b0e52bf72d10b28ad5214eaf50773c8caccc82c3a402179d41f9243c",
+        "sha256_in_prefix": "7742ca56b0e52bf72d10b28ad5214eaf50773c8caccc82c3a402179d41f9243c",
+        "size_in_bytes": 7834
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/ecdsakey.py",
+        "path_type": "hardlink",
+        "sha256": "b96e73d0aa14ad8c7f8cb542b2c654e43d2e98c92cc19185bfd11a864f4b08aa",
+        "sha256_in_prefix": "b96e73d0aa14ad8c7f8cb542b2c654e43d2e98c92cc19185bfd11a864f4b08aa",
+        "size_in_bytes": 10385
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/ed25519key.py",
+        "path_type": "hardlink",
+        "sha256": "e48db540ae6e605e9ec80f2c301e1f64188cfe4498d19b68c848c07d8ab9cdc9",
+        "sha256_in_prefix": "e48db540ae6e605e9ec80f2c301e1f64188cfe4498d19b68c848c07d8ab9cdc9",
+        "size_in_bytes": 7920
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/file.py",
+        "path_type": "hardlink",
+        "sha256": "337098faa76d479f09785a680be571c1ac2ebb32cb3420d33baeb9b27460914f",
+        "sha256_in_prefix": "337098faa76d479f09785a680be571c1ac2ebb32cb3420d33baeb9b27460914f",
+        "size_in_bytes": 19584
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/hostkeys.py",
+        "path_type": "hardlink",
+        "sha256": "f1d69e5574b4796b6d04a4a0cf21d973484580783fee9ea8b42637b8b1ac3f34",
+        "sha256_in_prefix": "f1d69e5574b4796b6d04a4a0cf21d973484580783fee9ea8b42637b8b1ac3f34",
+        "size_in_bytes": 13154
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/kex_ecdh_nist.py",
+        "path_type": "hardlink",
+        "sha256": "15340de7bd0e548e0b04cf76e3e159e70575ca3df17f2db62a4dc42ac7d87130",
+        "sha256_in_prefix": "15340de7bd0e548e0b04cf76e3e159e70575ca3df17f2db62a4dc42ac7d87130",
+        "size_in_bytes": 4489
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/kex_gex.py",
+        "path_type": "hardlink",
+        "sha256": "eb2d3a65695d4760f25a98cc0cd2c8e3b8770fc957dfa0bbecf38708c5e94203",
+        "sha256_in_prefix": "eb2d3a65695d4760f25a98cc0cd2c8e3b8770fc957dfa0bbecf38708c5e94203",
+        "size_in_bytes": 10302
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/kex_group1.py",
+        "path_type": "hardlink",
+        "sha256": "97db6b36e4141d35c45afdbbedf6f89fb165a7476ff42cb74f1d606283a8e8df",
+        "sha256_in_prefix": "97db6b36e4141d35c45afdbbedf6f89fb165a7476ff42cb74f1d606283a8e8df",
+        "size_in_bytes": 5726
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/kex_group14.py",
+        "path_type": "hardlink",
+        "sha256": "2ecd20b4023e1d80a362c903c5c2bdef8b28801f6332a8a6261c03cdacbc99c2",
+        "sha256_in_prefix": "2ecd20b4023e1d80a362c903c5c2bdef8b28801f6332a8a6261c03cdacbc99c2",
+        "size_in_bytes": 1717
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/kex_gss.py",
+        "path_type": "hardlink",
+        "sha256": "e983739000481ea63ffb835afcf2e69be78ed10924f0b915c45d255d70c67ab8",
+        "sha256_in_prefix": "e983739000481ea63ffb835afcf2e69be78ed10924f0b915c45d255d70c67ab8",
+        "size_in_bytes": 24581
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/message.py",
+        "path_type": "hardlink",
+        "sha256": "50ddc626a9e6735577b24b9517b0adcab6c17fb1431191afebe4203abc63aed7",
+        "sha256_in_prefix": "50ddc626a9e6735577b24b9517b0adcab6c17fb1431191afebe4203abc63aed7",
+        "size_in_bytes": 9010
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/packet.py",
+        "path_type": "hardlink",
+        "sha256": "48f11a27cc040a3844118098808422765574bb932f472f8a0005aea987aa36a2",
+        "sha256_in_prefix": "48f11a27cc040a3844118098808422765574bb932f472f8a0005aea987aa36a2",
+        "size_in_bytes": 20247
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/pipe.py",
+        "path_type": "hardlink",
+        "sha256": "0eb73a1de04f9450843abc1b7fb2a7fcd3b4258e2f4535d035bf49360d394388",
+        "sha256_in_prefix": "0eb73a1de04f9450843abc1b7fb2a7fcd3b4258e2f4535d035bf49360d394388",
+        "size_in_bytes": 3922
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/pkey.py",
+        "path_type": "hardlink",
+        "sha256": "f01d33efe0ff26a77a5a372e1461393fbcdfaf3cf60d1f087102b47b36e52d15",
+        "sha256_in_prefix": "f01d33efe0ff26a77a5a372e1461393fbcdfaf3cf60d1f087102b47b36e52d15",
+        "size_in_bytes": 20817
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/primes.py",
+        "path_type": "hardlink",
+        "sha256": "4b47a7ee590ce1444ae5ece6600530c541de466cfb699184882aa26dc8325f30",
+        "sha256_in_prefix": "4b47a7ee590ce1444ae5ece6600530c541de466cfb699184882aa26dc8325f30",
+        "size_in_bytes": 5121
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/proxy.py",
+        "path_type": "hardlink",
+        "sha256": "c20d455180a1f442596d50037cdc27138e7c6d0a80d0987da77569c603a77cb3",
+        "sha256_in_prefix": "c20d455180a1f442596d50037cdc27138e7c6d0a80d0987da77569c603a77cb3",
+        "size_in_bytes": 4445
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/py3compat.py",
+        "path_type": "hardlink",
+        "sha256": "8ad7788115bcb5c2e103085fdfcccb2a60ed3d8f2d30fbe2c1f22360e1c86920",
+        "sha256_in_prefix": "8ad7788115bcb5c2e103085fdfcccb2a60ed3d8f2d30fbe2c1f22360e1c86920",
+        "size_in_bytes": 3990
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/rsakey.py",
+        "path_type": "hardlink",
+        "sha256": "857de76ab4c46345a4a6a5316219bb0183ae6132c96eed0e75a8c97f654b4747",
+        "sha256_in_prefix": "857de76ab4c46345a4a6a5316219bb0183ae6132c96eed0e75a8c97f654b4747",
+        "size_in_bytes": 5984
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/server.py",
+        "path_type": "hardlink",
+        "sha256": "50037a5fd14abc2277da0bd8c998b9c0a7fbb9bc579bfda835d96eaa01cd24c0",
+        "sha256_in_prefix": "50037a5fd14abc2277da0bd8c998b9c0a7fbb9bc579bfda835d96eaa01cd24c0",
+        "size_in_bytes": 30408
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp.py",
+        "path_type": "hardlink",
+        "sha256": "6c9576df447dbee46bbf0380afbfef415b4c62165f004268a964656d7a879836",
+        "sha256_in_prefix": "6c9576df447dbee46bbf0380afbfef415b4c62165f004268a964656d7a879836",
+        "size_in_bytes": 6027
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_attr.py",
+        "path_type": "hardlink",
+        "sha256": "f030fad113ba4432775da8d1a200769ca7b41d42b30815b88efe6d5f8093384f",
+        "sha256_in_prefix": "f030fad113ba4432775da8d1a200769ca7b41d42b30815b88efe6d5f8093384f",
+        "size_in_bytes": 8350
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_client.py",
+        "path_type": "hardlink",
+        "sha256": "2f561ebbdcd08e8be706bc21e3618be1a1fab4bf6cb6ba00e3e17bdd12a7b999",
+        "sha256_in_prefix": "2f561ebbdcd08e8be706bc21e3618be1a1fab4bf6cb6ba00e3e17bdd12a7b999",
+        "size_in_bytes": 34219
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_file.py",
+        "path_type": "hardlink",
+        "sha256": "d0ea127ff3bc57ac3687ac3d5fef1b6c9c66e2d49d251f501b0a9dc07e2e9206",
+        "sha256_in_prefix": "d0ea127ff3bc57ac3687ac3d5fef1b6c9c66e2d49d251f501b0a9dc07e2e9206",
+        "size_in_bytes": 20582
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_handle.py",
+        "path_type": "hardlink",
+        "sha256": "4f52ae29c69308e9caee2d5cd7988d9af469be76c82038f1b39b2e98a3b15891",
+        "sha256_in_prefix": "4f52ae29c69308e9caee2d5cd7988d9af469be76c82038f1b39b2e98a3b15891",
+        "size_in_bytes": 7436
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_server.py",
+        "path_type": "hardlink",
+        "sha256": "08b63a3a44fa09ef9d87efd599d4d4059d254569d3b3c4c1a62bce871027d9dc",
+        "sha256_in_prefix": "08b63a3a44fa09ef9d87efd599d4d4059d254569d3b3c4c1a62bce871027d9dc",
+        "size_in_bytes": 19604
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/sftp_si.py",
+        "path_type": "hardlink",
+        "sha256": "52923fc09f1c122b52c0087057065b341f85a7f190d63fb9b25f5d6ba3798e2f",
+        "sha256_in_prefix": "52923fc09f1c122b52c0087057065b341f85a7f190d63fb9b25f5d6ba3798e2f",
+        "size_in_bytes": 12575
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/ssh_exception.py",
+        "path_type": "hardlink",
+        "sha256": "690f5e62b6017150e68a713c5228c01ba495b2de93d5d0cc10aa3b357db84280",
+        "sha256_in_prefix": "690f5e62b6017150e68a713c5228c01ba495b2de93d5d0cc10aa3b357db84280",
+        "size_in_bytes": 6114
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/ssh_gss.py",
+        "path_type": "hardlink",
+        "sha256": "929d939e48b247570f6a972f66a5b9296e72b2698f2f4b9a4e2640aea2d1d628",
+        "sha256_in_prefix": "929d939e48b247570f6a972f66a5b9296e72b2698f2f4b9a4e2640aea2d1d628",
+        "size_in_bytes": 21184
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/transport.py",
+        "path_type": "hardlink",
+        "sha256": "a0cce0af4cc96d4ab54a0f4087b87e0d11496e148ca44f53c7a267596ef9dfc2",
+        "sha256_in_prefix": "a0cce0af4cc96d4ab54a0f4087b87e0d11496e148ca44f53c7a267596ef9dfc2",
+        "size_in_bytes": 112270
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/util.py",
+        "path_type": "hardlink",
+        "sha256": "b4c8ad88db1d0d6be23d741c32c0c8d8fbc197f75d7c4b67a8b6b34c44d3d4f3",
+        "sha256_in_prefix": "b4c8ad88db1d0d6be23d741c32c0c8d8fbc197f75d7c4b67a8b6b34c44d3d4f3",
+        "size_in_bytes": 8522
+      },
+      {
+        "_path": "lib/python3.6/site-packages/paramiko/win_pageant.py",
+        "path_type": "hardlink",
+        "sha256": "b2f4bb938f6d0a57c04c915f2d0f1b6997d8277253bc563170d1b72af98085ac",
+        "sha256_in_prefix": "b2f4bb938f6d0a57c04c915f2d0f1b6997d8277253bc563170d1b72af98085ac",
+        "size_in_bytes": 4265
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "27c917a8809cef89e3c85a185cffefcdb7b3d02fcd276021f28858bf8c47b3a9",
+  "size": 241862,
+  "subdir": "linux-64",
+  "timestamp": 1539637548905,
+  "track_features": "",
+  "url": "https://repo.anaconda.com/pkgs/main/linux-64/paramiko-2.4.2-py36_0.conda",
+  "version": "2.4.2"
+}

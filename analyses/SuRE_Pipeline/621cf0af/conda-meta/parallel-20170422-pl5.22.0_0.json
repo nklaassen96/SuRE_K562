@@ -1,0 +1,309 @@
+{
+  "build": "pl5.22.0_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "perl 5.22.0*"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/parallel-20170422-pl5.22.0_0",
+  "features": "",
+  "files": [
+    "bin/env_parallel",
+    "bin/env_parallel.ash",
+    "bin/env_parallel.bash",
+    "bin/env_parallel.csh",
+    "bin/env_parallel.dash",
+    "bin/env_parallel.fish",
+    "bin/env_parallel.ksh",
+    "bin/env_parallel.pdksh",
+    "bin/env_parallel.sh",
+    "bin/env_parallel.tcsh",
+    "bin/env_parallel.zsh",
+    "bin/niceload",
+    "bin/parallel",
+    "bin/parcat",
+    "bin/sem",
+    "bin/sql",
+    "share/doc/parallel/env_parallel.html",
+    "share/doc/parallel/env_parallel.pdf",
+    "share/doc/parallel/env_parallel.texi",
+    "share/doc/parallel/niceload.html",
+    "share/doc/parallel/niceload.pdf",
+    "share/doc/parallel/niceload.texi",
+    "share/doc/parallel/parallel.html",
+    "share/doc/parallel/parallel.pdf",
+    "share/doc/parallel/parallel.texi",
+    "share/doc/parallel/parallel_alternatives.html",
+    "share/doc/parallel/parallel_alternatives.pdf",
+    "share/doc/parallel/parallel_alternatives.texi",
+    "share/doc/parallel/parallel_design.html",
+    "share/doc/parallel/parallel_design.pdf",
+    "share/doc/parallel/parallel_design.texi",
+    "share/doc/parallel/parallel_tutorial.html",
+    "share/doc/parallel/parallel_tutorial.pdf",
+    "share/doc/parallel/parallel_tutorial.texi",
+    "share/doc/parallel/parcat.html",
+    "share/doc/parallel/parcat.pdf",
+    "share/doc/parallel/parcat.texi",
+    "share/doc/parallel/parset.pdf",
+    "share/doc/parallel/parset.texi",
+    "share/doc/parallel/sem.html",
+    "share/doc/parallel/sem.pdf",
+    "share/doc/parallel/sem.texi",
+    "share/doc/parallel/sql.html",
+    "share/doc/parallel/sql.pdf",
+    "share/doc/parallel/sql.texi",
+    "share/man/man1/env_parallel.1",
+    "share/man/man1/niceload.1",
+    "share/man/man1/parallel.1",
+    "share/man/man1/parcat.1",
+    "share/man/man1/parset.1",
+    "share/man/man1/sem.1",
+    "share/man/man1/sql.1",
+    "share/man/man7/parallel_alternatives.7",
+    "share/man/man7/parallel_design.7",
+    "share/man/man7/parallel_tutorial.7"
+  ],
+  "fn": "parallel-20170422-pl5.22.0_0.tar.bz2",
+  "license": "GPLv3",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/parallel-20170422-pl5.22.0_0",
+    "type": 1
+  },
+  "md5": "c21913ed6e1424cacdf35b5d68abed80",
+  "name": "parallel",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/parallel-20170422-pl5.22.0_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/env_parallel",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.ash",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.bash",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.csh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.dash",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.fish",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.ksh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.pdksh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.sh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.tcsh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/env_parallel.zsh",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/niceload",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/parallel",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/parcat",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "bin/sem",
+        "path_type": "softlink"
+      },
+      {
+        "_path": "bin/sql",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/env_parallel.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/env_parallel.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/env_parallel.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/niceload.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/niceload.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/niceload.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_alternatives.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_alternatives.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_alternatives.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_design.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_design.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_design.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_tutorial.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_tutorial.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parallel_tutorial.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parcat.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parcat.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parcat.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parset.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/parset.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sem.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sem.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sem.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sql.html",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sql.pdf",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/doc/parallel/sql.texi",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/env_parallel.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/niceload.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/parallel.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/parcat.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/parset.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/sem.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man1/sql.1",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man7/parallel_alternatives.7",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man7/parallel_design.7",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "share/man/man7/parallel_tutorial.7",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "parallel=20170422",
+  "sha256": "50a6e27193978a4df887d38deb3b074b9c315fbdb73f46edd1d4fe4eb501e71a",
+  "size": 1227453,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/parallel-20170422-pl5.22.0_0.tar.bz2",
+  "version": "20170422"
+}

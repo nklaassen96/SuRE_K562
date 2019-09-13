@@ -1,0 +1,137 @@
+Creating conda environment /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/conda-env-py2.yml...
+Traceback (most recent call last):
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/site-packages/snakemake/conda.py", line 156, in create
+    stderr=subprocess.STDOUT)
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/subprocess.py", line 356, in check_output
+    **kwargs).stdout
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/subprocess.py", line 438, in run
+    output=stdout, stderr=stderr)
+subprocess.CalledProcessError: Command '['conda', 'env', 'create', '--file', '/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/conda-env-py2.yml', '--prefix', '/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/.snakemake/conda/fc382a74']' returned non-zero exit status 1.
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/site-packages/snakemake/__init__.py", line 469, in snakemake
+    force_use_threads=use_threads)
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/site-packages/snakemake/workflow.py", line 450, in execute
+    dag.create_conda_envs(dryrun=dryrun)
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/site-packages/snakemake/dag.py", line 169, in create_conda_envs
+    env.create(dryrun)
+  File "/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE/lib/python3.6/site-packages/snakemake/conda.py", line 165, in create
+    e.output.decode())
+snakemake.exceptions.CreateCondaEnvironmentException: Could not create conda environment from /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/conda-env-py2.yml:
+Warning: you have pip-installed dependencies in your environment file, but you do not list pip itself as one of your conda dependencies.  Conda may not use the correct pip to install your packages, and they may end up in the wrong place.  Please add an explicit pip dependency.  I'm adding one for you, but still nagging you.
+Collecting package metadata (repodata.json): ...working... done
+Solving environment: ...working... done
+Preparing transaction: ...working... done
+Verifying transaction: ...working... done
+Executing transaction: ...working... done
+
+# >>>>>>>>>>>>>>>>>>>>>> ERROR REPORT <<<<<<<<<<<<<<<<<<<<<<
+
+    Traceback (most recent call last):
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/site-packages/conda/exceptions.py", line 1062, in __call__
+        return func(*args, **kwargs)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/site-packages/conda_env/cli/main.py", line 73, in do_call
+        exit_code = getattr(module, func_name)(args, parser)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/site-packages/conda_env/cli/main_create.py", line 101, in execute
+        installer.install(prefix, pkg_specs, args, env)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/site-packages/conda_env/installers/pip.py", line 41, in _pip_install_via_requirements
+        delete=False)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/site-packages/conda/_vendor/auxlib/compat.py", line 80, in Utf8NamedTemporaryFile
+        dir=dir, delete=delete)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/tempfile.py", line 547, in NamedTemporaryFile
+        (fd, name) = _mkstemp_inner(dir, prefix, suffix, flags, output_type)
+      File "/DATA/usr/n.klaassen/miniconda3/lib/python3.7/tempfile.py", line 258, in _mkstemp_inner
+        fd = _os.open(file, flags, 0o600)
+    PermissionError: [Errno 13] Permission denied: '/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/condaenv.nl2xju0o.requirements.txt'
+
+`$ /DATA/usr/n.klaassen/miniconda3/bin/conda-env create --file /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/code/conda-env-py2.yml --prefix /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline/.snakemake/conda/fc382a74`
+
+  environment variables:
+                 CIO_TEST=<not set>
+  CONDA_AUTO_UPDATE_CONDA=false
+        CONDA_DEFAULT_ENV=K562_SuRE
+                CONDA_EXE=/DATA/usr/n.klaassen/miniconda3/bin/conda
+             CONDA_PREFIX=/DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE
+           CONDA_PREFIX_1=/DATA/usr/n.klaassen/miniconda3
+    CONDA_PROMPT_MODIFIER=(K562_SuRE)
+         CONDA_PYTHON_EXE=/DATA/usr/n.klaassen/miniconda3/bin/python
+               CONDA_ROOT=/DATA/usr/n.klaassen/miniconda3
+              CONDA_SHLVL=2
+                  MANPATH=:/opt/puppetlabs/puppet/share/man
+                     PATH=/home/n.klaassen/bin:/home/n.klaassen/.local/bin:/home/n.klaassen/bin:
+                          /home/n.klaassen/.local/bin:/DATA/usr/n.klaassen/miniconda3/envs/K562_
+                          SuRE/bin:/DATA/usr/n.klaassen/miniconda3/condabin:/usr/local/sbin:/usr
+                          /local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/
+                          snap/bin:/opt/puppetlabs/bin
+       REQUESTS_CA_BUNDLE=<not set>
+            SSL_CERT_FILE=<not set>
+
+     active environment : K562_SuRE
+    active env location : /DATA/usr/n.klaassen/miniconda3/envs/K562_SuRE
+            shell level : 2
+       user config file : /home/n.klaassen/.condarc
+ populated config files : 
+          conda version : 4.7.11
+    conda-build version : not installed
+         python version : 3.7.4.final.0
+       virtual packages : 
+       base environment : /DATA/usr/n.klaassen/miniconda3  (writable)
+           channel URLs : https://repo.anaconda.com/pkgs/main/linux-64
+                          https://repo.anaconda.com/pkgs/main/noarch
+                          https://repo.anaconda.com/pkgs/r/linux-64
+                          https://repo.anaconda.com/pkgs/r/noarch
+          package cache : /DATA/usr/n.klaassen/miniconda3/pkgs
+                          /home/n.klaassen/.conda/pkgs
+       envs directories : /DATA/usr/n.klaassen/miniconda3/envs
+                          /home/n.klaassen/.conda/envs
+               platform : linux-64
+             user-agent : conda/4.7.11 requests/2.22.0 CPython/3.7.4 Linux/4.4.0-159-generic ubuntu/16.04.6 glibc/2.23
+                UID:GID : 1262200341:1262200341
+             netrc file : None
+           offline mode : False
+
+
+An unexpected error has occurred. Conda has prepared the above report.
+
+If submitted, this report will be used by core maintainers to improve
+future releases of conda.
+Would you like conda to send this report to the core maintainers?
+
+[y/N]: 
+Timeout reached. No report sent.
+
+
+SuRE-seq pipeline version:  0.14.feature_SNP-usr-config 
+ git commit hash:  /DATA/usr/n.klaassen/projects/SuRE_K562/analyses/SuRE_Pipeline
+/DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline
+bc007e8e31a1119a007f8335f7c99abb748d60dc 
+
+
+reading SNPs from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/SuRE_SNPs
+reading VCF from /DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_SNPs/vcf/
+Command exited with non-zero status 1
+	Command being timed: "nice -19 snakemake -prs /DATA/usr/ludo/projects/LP190816_SuRE_K562_SNP/code/SuRE-WASP-pipeline/SuRE-snakemake --use-conda --resources ram=150 --configfile SuRE-K562.yaml --cores 25 all"
+	User time (seconds): 20.57
+	System time (seconds): 1.86
+	Percent of CPU this job got: 36%
+	Elapsed (wall clock) time (h:mm:ss or m:ss): 1:02.07
+	Average shared text size (kbytes): 0
+	Average unshared data size (kbytes): 0
+	Average stack size (kbytes): 0
+	Average total size (kbytes): 0
+	Maximum resident set size (kbytes): 578856
+	Average resident set size (kbytes): 0
+	Major (requiring I/O) page faults: 0
+	Minor (reclaiming a frame) page faults: 695065
+	Voluntary context switches: 17537
+	Involuntary context switches: 106
+	Swaps: 0
+	File system inputs: 0
+	File system outputs: 93976
+	Socket messages sent: 0
+	Socket messages received: 0
+	Signals delivered: 0
+	Page size (bytes): 4096
+	Exit status: 1

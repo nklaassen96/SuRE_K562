@@ -1,0 +1,612 @@
+{
+  "build": "h2d50403_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/conda-forge/linux-64",
+  "constrains": [],
+  "depends": [
+    "gettext",
+    "libstdcxx-ng >=4.9"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/gawk-4.1.3-h2d50403_0",
+  "features": "",
+  "files": [
+    "bin/awk",
+    "bin/gawk",
+    "bin/gawk-4.1.3",
+    "bin/igawk",
+    "include/gawkapi.h",
+    "lib/gawk/filefuncs.so",
+    "lib/gawk/fnmatch.so",
+    "lib/gawk/fork.so",
+    "lib/gawk/inplace.so",
+    "lib/gawk/ordchr.so",
+    "lib/gawk/readdir.so",
+    "lib/gawk/readfile.so",
+    "lib/gawk/revoutput.so",
+    "lib/gawk/revtwoway.so",
+    "lib/gawk/rwarray.so",
+    "lib/gawk/testext.so",
+    "lib/gawk/time.so",
+    "libexec/awk/grcat",
+    "libexec/awk/pwcat",
+    "share/awk/assert.awk",
+    "share/awk/bits2str.awk",
+    "share/awk/cliff_rand.awk",
+    "share/awk/ctime.awk",
+    "share/awk/ftrans.awk",
+    "share/awk/getopt.awk",
+    "share/awk/gettime.awk",
+    "share/awk/group.awk",
+    "share/awk/inplace.awk",
+    "share/awk/join.awk",
+    "share/awk/libintl.awk",
+    "share/awk/noassign.awk",
+    "share/awk/ord.awk",
+    "share/awk/passwd.awk",
+    "share/awk/processarray.awk",
+    "share/awk/quicksort.awk",
+    "share/awk/readable.awk",
+    "share/awk/readfile.awk",
+    "share/awk/rewind.awk",
+    "share/awk/round.awk",
+    "share/awk/shellquote.awk",
+    "share/awk/strtonum.awk",
+    "share/awk/walkarray.awk",
+    "share/awk/zerofile.awk",
+    "share/info/gawk.info",
+    "share/info/gawkinet.info",
+    "share/locale/ca/LC_MESSAGES/gawk.mo",
+    "share/locale/da/LC_MESSAGES/gawk.mo",
+    "share/locale/de/LC_MESSAGES/gawk.mo",
+    "share/locale/es/LC_MESSAGES/gawk.mo",
+    "share/locale/fi/LC_MESSAGES/gawk.mo",
+    "share/locale/fr/LC_MESSAGES/gawk.mo",
+    "share/locale/it/LC_MESSAGES/gawk.mo",
+    "share/locale/ja/LC_MESSAGES/gawk.mo",
+    "share/locale/ms/LC_MESSAGES/gawk.mo",
+    "share/locale/nl/LC_MESSAGES/gawk.mo",
+    "share/locale/pl/LC_MESSAGES/gawk.mo",
+    "share/locale/sv/LC_MESSAGES/gawk.mo",
+    "share/locale/vi/LC_MESSAGES/gawk.mo",
+    "share/man/man1/gawk.1",
+    "share/man/man1/igawk.1",
+    "share/man/man3/filefuncs.3am",
+    "share/man/man3/fnmatch.3am",
+    "share/man/man3/fork.3am",
+    "share/man/man3/inplace.3am",
+    "share/man/man3/ordchr.3am",
+    "share/man/man3/readdir.3am",
+    "share/man/man3/readfile.3am",
+    "share/man/man3/revoutput.3am",
+    "share/man/man3/revtwoway.3am",
+    "share/man/man3/rwarray.3am",
+    "share/man/man3/time.3am"
+  ],
+  "fn": "gawk-4.1.3-h2d50403_0.tar.bz2",
+  "license": "GPL-3.0",
+  "license_family": "GPL",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/gawk-4.1.3-h2d50403_0",
+    "type": 1
+  },
+  "md5": "13811f38b3bdd9b2e58d9a2706645c39",
+  "name": "gawk",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/gawk-4.1.3-h2d50403_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "bin/awk",
+        "path_type": "softlink",
+        "sha256": "cca694ff99896d5246bf0be9905cebba5afbb62e2db66c6ded6a679bcee46a9f",
+        "size_in_bytes": 734463
+      },
+      {
+        "_path": "bin/gawk",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/home/conda/feedstock_root/build_artifacts/gawk_1529532054866/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "sha256": "cca694ff99896d5246bf0be9905cebba5afbb62e2db66c6ded6a679bcee46a9f",
+        "sha256_in_prefix": "b6e8ccb9c6d3382831605ed9afc764ade0e1a3e577ed89c3c7c3a44dcfa040fc",
+        "size_in_bytes": 734463
+      },
+      {
+        "_path": "bin/gawk-4.1.3",
+        "file_mode": "binary",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/home/conda/feedstock_root/build_artifacts/gawk_1529532054866/_h_env_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placehold_placeh",
+        "sha256": "cca694ff99896d5246bf0be9905cebba5afbb62e2db66c6ded6a679bcee46a9f",
+        "sha256_in_prefix": "b6e8ccb9c6d3382831605ed9afc764ade0e1a3e577ed89c3c7c3a44dcfa040fc",
+        "size_in_bytes": 734463
+      },
+      {
+        "_path": "bin/igawk",
+        "path_type": "hardlink",
+        "sha256": "89f6b65ec91dede73bf8f8744850ad6d424b1852dce344d270db90802002af0e",
+        "sha256_in_prefix": "89f6b65ec91dede73bf8f8744850ad6d424b1852dce344d270db90802002af0e",
+        "size_in_bytes": 3189
+      },
+      {
+        "_path": "include/gawkapi.h",
+        "path_type": "hardlink",
+        "sha256": "e47f4b528b322c1486ccd30a2c3228eded29a0b0db18ce7bc431ec4574f16c5f",
+        "sha256_in_prefix": "e47f4b528b322c1486ccd30a2c3228eded29a0b0db18ce7bc431ec4574f16c5f",
+        "size_in_bytes": 30929
+      },
+      {
+        "_path": "lib/gawk/filefuncs.so",
+        "path_type": "hardlink",
+        "sha256": "74db636afccccff3394dcf78d779ef259a2a5b39b9132c753b97a7bf7d223bfd",
+        "sha256_in_prefix": "74db636afccccff3394dcf78d779ef259a2a5b39b9132c753b97a7bf7d223bfd",
+        "size_in_bytes": 33712
+      },
+      {
+        "_path": "lib/gawk/fnmatch.so",
+        "path_type": "hardlink",
+        "sha256": "ff2b21674d4159ec58a3f963e7d6ba9c4c97adbc5ef4b40055cc4944baffe411",
+        "sha256_in_prefix": "ff2b21674d4159ec58a3f963e7d6ba9c4c97adbc5ef4b40055cc4944baffe411",
+        "size_in_bytes": 11279
+      },
+      {
+        "_path": "lib/gawk/fork.so",
+        "path_type": "hardlink",
+        "sha256": "eb81c0e31f8738dae135e2e4147308ff9d1470a2d5202ba3cb1d3b64f1d196c2",
+        "sha256_in_prefix": "eb81c0e31f8738dae135e2e4147308ff9d1470a2d5202ba3cb1d3b64f1d196c2",
+        "size_in_bytes": 11466
+      },
+      {
+        "_path": "lib/gawk/inplace.so",
+        "path_type": "hardlink",
+        "sha256": "45cd1a3bfcb99df47faf31ebea5bf41726f29b26a6d8c81e5b5a6b5af8eef815",
+        "sha256_in_prefix": "45cd1a3bfcb99df47faf31ebea5bf41726f29b26a6d8c81e5b5a6b5af8eef815",
+        "size_in_bytes": 14841
+      },
+      {
+        "_path": "lib/gawk/ordchr.so",
+        "path_type": "hardlink",
+        "sha256": "8afb15590e9aad849d712664abd767099322d128caac7d53ad2751bd11147ec1",
+        "sha256_in_prefix": "8afb15590e9aad849d712664abd767099322d128caac7d53ad2751bd11147ec1",
+        "size_in_bytes": 10025
+      },
+      {
+        "_path": "lib/gawk/readdir.so",
+        "path_type": "hardlink",
+        "sha256": "534181dd5e3e70267329104478d9da09055d4f05256ae50c5db7c2364058730f",
+        "sha256_in_prefix": "534181dd5e3e70267329104478d9da09055d4f05256ae50c5db7c2364058730f",
+        "size_in_bytes": 10974
+      },
+      {
+        "_path": "lib/gawk/readfile.so",
+        "path_type": "hardlink",
+        "sha256": "c3968be0e5c428312835ec051d5d76ffe9538c34d95ed275059dd7023d7f7227",
+        "sha256_in_prefix": "c3968be0e5c428312835ec051d5d76ffe9538c34d95ed275059dd7023d7f7227",
+        "size_in_bytes": 11842
+      },
+      {
+        "_path": "lib/gawk/revoutput.so",
+        "path_type": "hardlink",
+        "sha256": "133f1b328fcba601c7a63e896a09d754aed095dc160107e3b8f4ca23d8baa1cf",
+        "sha256_in_prefix": "133f1b328fcba601c7a63e896a09d754aed095dc160107e3b8f4ca23d8baa1cf",
+        "size_in_bytes": 9581
+      },
+      {
+        "_path": "lib/gawk/revtwoway.so",
+        "path_type": "hardlink",
+        "sha256": "0f807b3505a4bfb4cf6936dec37d3cc5755b92202f089d434ee934ec2238d951",
+        "sha256_in_prefix": "0f807b3505a4bfb4cf6936dec37d3cc5755b92202f089d434ee934ec2238d951",
+        "size_in_bytes": 11082
+      },
+      {
+        "_path": "lib/gawk/rwarray.so",
+        "path_type": "hardlink",
+        "sha256": "ae9e0f43a5dedc41e83a93d2e1f994526effcdfbb30c03f53d98af5588ce6895",
+        "sha256_in_prefix": "ae9e0f43a5dedc41e83a93d2e1f994526effcdfbb30c03f53d98af5588ce6895",
+        "size_in_bytes": 14841
+      },
+      {
+        "_path": "lib/gawk/testext.so",
+        "path_type": "hardlink",
+        "sha256": "c9ec2961fcb1322e3221687849267e38117ff2245c8efee34f47a21e388373f3",
+        "sha256_in_prefix": "c9ec2961fcb1322e3221687849267e38117ff2245c8efee34f47a21e388373f3",
+        "size_in_bytes": 23048
+      },
+      {
+        "_path": "lib/gawk/time.so",
+        "path_type": "hardlink",
+        "sha256": "b32fdfd1efe5ac0b34a347917ba72978b5287ff751d84cdc0731a59983b1b591",
+        "sha256_in_prefix": "b32fdfd1efe5ac0b34a347917ba72978b5287ff751d84cdc0731a59983b1b591",
+        "size_in_bytes": 9847
+      },
+      {
+        "_path": "libexec/awk/grcat",
+        "path_type": "hardlink",
+        "sha256": "d7da71730eaf47294141d49b1e74003139662660656bd5e261c1955b64ba94e5",
+        "sha256_in_prefix": "d7da71730eaf47294141d49b1e74003139662660656bd5e261c1955b64ba94e5",
+        "size_in_bytes": 8219
+      },
+      {
+        "_path": "libexec/awk/pwcat",
+        "path_type": "hardlink",
+        "sha256": "23e9a5631700f77ee3b1a670241bc03292acc892b1fff94c483d04dad4aa2f45",
+        "sha256_in_prefix": "23e9a5631700f77ee3b1a670241bc03292acc892b1fff94c483d04dad4aa2f45",
+        "size_in_bytes": 7998
+      },
+      {
+        "_path": "share/awk/assert.awk",
+        "path_type": "hardlink",
+        "sha256": "07f9e0362956d40ea6a92bedd4f292666185d038885387cb00adb5ade1582d93",
+        "sha256_in_prefix": "07f9e0362956d40ea6a92bedd4f292666185d038885387cb00adb5ade1582d93",
+        "size_in_bytes": 383
+      },
+      {
+        "_path": "share/awk/bits2str.awk",
+        "path_type": "hardlink",
+        "sha256": "0dfc56fd3b766eb73f8ef953de48a2a4d08f7893931026fd42f97956a607ebcd",
+        "sha256_in_prefix": "0dfc56fd3b766eb73f8ef953de48a2a4d08f7893931026fd42f97956a607ebcd",
+        "size_in_bytes": 330
+      },
+      {
+        "_path": "share/awk/cliff_rand.awk",
+        "path_type": "hardlink",
+        "sha256": "41b20eba1d788cdc7d64c3860315b3bb8613f80b5f7d8f04774c31caef64dd42",
+        "sha256_in_prefix": "41b20eba1d788cdc7d64c3860315b3bb8613f80b5f7d8f04774c31caef64dd42",
+        "size_in_bytes": 307
+      },
+      {
+        "_path": "share/awk/ctime.awk",
+        "path_type": "hardlink",
+        "sha256": "cf1b816f600516ec0a4f84901e12c48f44c5309bd6bd7b32f9a17abd026f2b86",
+        "sha256_in_prefix": "cf1b816f600516ec0a4f84901e12c48f44c5309bd6bd7b32f9a17abd026f2b86",
+        "size_in_bytes": 234
+      },
+      {
+        "_path": "share/awk/ftrans.awk",
+        "path_type": "hardlink",
+        "sha256": "9957afaddfec5f2c6bc4f9cb12c576e6c367c1b681a472e91ced9caff5292722",
+        "sha256_in_prefix": "9957afaddfec5f2c6bc4f9cb12c576e6c367c1b681a472e91ced9caff5292722",
+        "size_in_bytes": 315
+      },
+      {
+        "_path": "share/awk/getopt.awk",
+        "path_type": "hardlink",
+        "sha256": "990d764228a3ae5f919dd0e585661fd14bf217617e7fcf33e4c40124d6969287",
+        "sha256_in_prefix": "990d764228a3ae5f919dd0e585661fd14bf217617e7fcf33e4c40124d6969287",
+        "size_in_bytes": 2202
+      },
+      {
+        "_path": "share/awk/gettime.awk",
+        "path_type": "hardlink",
+        "sha256": "7baacb670919547d1fc2ec186d6ad937c6f7cc2d03e0b2e8f6802742dc7c6023",
+        "sha256_in_prefix": "7baacb670919547d1fc2ec186d6ad937c6f7cc2d03e0b2e8f6802742dc7c6023",
+        "size_in_bytes": 2491
+      },
+      {
+        "_path": "share/awk/group.awk",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "ce62d38d0bfd8130aa3aa0f3efd42da7dff8c900193f1d494155693df14de048",
+        "sha256_in_prefix": "8460d79279a343b48993760429fd20a1fb87d9449fe1111ef0efdc80315646b9",
+        "size_in_bytes": 1792
+      },
+      {
+        "_path": "share/awk/inplace.awk",
+        "path_type": "hardlink",
+        "sha256": "986f6e50726f9171326edccd00084b0b9133d019e6560b99419b21306fa59de4",
+        "sha256_in_prefix": "986f6e50726f9171326edccd00084b0b9133d019e6560b99419b21306fa59de4",
+        "size_in_bytes": 573
+      },
+      {
+        "_path": "share/awk/join.awk",
+        "path_type": "hardlink",
+        "sha256": "9af26157a40c1e1c09dfa73152e07cbff4c4f4b31b7bf8132572270da6dfc052",
+        "sha256_in_prefix": "9af26157a40c1e1c09dfa73152e07cbff4c4f4b31b7bf8132572270da6dfc052",
+        "size_in_bytes": 378
+      },
+      {
+        "_path": "share/awk/libintl.awk",
+        "path_type": "hardlink",
+        "sha256": "2b3a65b9053d2f4f08733870ef2cf1b5ee8aeba74dc6b9b1d1610fc0d9ac0eee",
+        "sha256_in_prefix": "2b3a65b9053d2f4f08733870ef2cf1b5ee8aeba74dc6b9b1d1610fc0d9ac0eee",
+        "size_in_bytes": 238
+      },
+      {
+        "_path": "share/awk/noassign.awk",
+        "path_type": "hardlink",
+        "sha256": "7ffc84e6d111aaf56cb0d3756bbcbd73e2510069ee6fc05bc1ea0e412884663e",
+        "sha256_in_prefix": "7ffc84e6d111aaf56cb0d3756bbcbd73e2510069ee6fc05bc1ea0e412884663e",
+        "size_in_bytes": 422
+      },
+      {
+        "_path": "share/awk/ord.awk",
+        "path_type": "hardlink",
+        "sha256": "e7d37acc67a101dd2e23c19ed3f9dfd5d01ea93af63b2ebc8679976e1ef051ce",
+        "sha256_in_prefix": "e7d37acc67a101dd2e23c19ed3f9dfd5d01ea93af63b2ebc8679976e1ef051ce",
+        "size_in_bytes": 937
+      },
+      {
+        "_path": "share/awk/passwd.awk",
+        "file_mode": "text",
+        "path_type": "hardlink",
+        "prefix_placeholder": "/opt/anaconda1anaconda2anaconda3",
+        "sha256": "95ca290f4b2acd965190801c41c36591d1fd2fc8fa47ab187354576cee57a0e2",
+        "sha256_in_prefix": "f504ab5a1dfe55a26e2bcf0b691a537fca72fb52c9edacb63986e91a2ce7bcae",
+        "size_in_bytes": 1227
+      },
+      {
+        "_path": "share/awk/processarray.awk",
+        "path_type": "hardlink",
+        "sha256": "ac1e8e8dee8105c5c1ab2a1b87fcb668885473b7e90b7b0c137275742c704166",
+        "sha256_in_prefix": "ac1e8e8dee8105c5c1ab2a1b87fcb668885473b7e90b7b0c137275742c704166",
+        "size_in_bytes": 355
+      },
+      {
+        "_path": "share/awk/quicksort.awk",
+        "path_type": "hardlink",
+        "sha256": "b769b7a892acedcdb98d18c3cf05544d4d85488a0378aaacba0c6e2ddb71bf35",
+        "sha256_in_prefix": "b769b7a892acedcdb98d18c3cf05544d4d85488a0378aaacba0c6e2ddb71bf35",
+        "size_in_bytes": 1031
+      },
+      {
+        "_path": "share/awk/readable.awk",
+        "path_type": "hardlink",
+        "sha256": "06e27abeb78eff929cb1f44256f195fe2d86ebb62814f731f420df286c8f1094",
+        "sha256_in_prefix": "06e27abeb78eff929cb1f44256f195fe2d86ebb62814f731f420df286c8f1094",
+        "size_in_bytes": 489
+      },
+      {
+        "_path": "share/awk/readfile.awk",
+        "path_type": "hardlink",
+        "sha256": "751d619465eb57c9d6314eb2a97e783ff84ff108cd1c4efeff8f62400dd77609",
+        "sha256_in_prefix": "751d619465eb57c9d6314eb2a97e783ff84ff108cd1c4efeff8f62400dd77609",
+        "size_in_bytes": 267
+      },
+      {
+        "_path": "share/awk/rewind.awk",
+        "path_type": "hardlink",
+        "sha256": "878279434b70956b26eca128a0939c1a14da97b1626fe402eb76d44485fbc268",
+        "sha256_in_prefix": "878279434b70956b26eca128a0939c1a14da97b1626fe402eb76d44485fbc268",
+        "size_in_bytes": 404
+      },
+      {
+        "_path": "share/awk/round.awk",
+        "path_type": "hardlink",
+        "sha256": "28b705d2e2b01cc3ed450cc42e2ff99b058b55ef5a49cbc483aded7bdfa58aff",
+        "sha256_in_prefix": "28b705d2e2b01cc3ed450cc42e2ff99b058b55ef5a49cbc483aded7bdfa58aff",
+        "size_in_bytes": 661
+      },
+      {
+        "_path": "share/awk/shellquote.awk",
+        "path_type": "hardlink",
+        "sha256": "78e7df6e31f55536a4c3853f6d54644877aa892ed7fc6e1d4dc9080284d78565",
+        "sha256_in_prefix": "78e7df6e31f55536a4c3853f6d54644877aa892ed7fc6e1d4dc9080284d78565",
+        "size_in_bytes": 472
+      },
+      {
+        "_path": "share/awk/strtonum.awk",
+        "path_type": "hardlink",
+        "sha256": "abd27d285278e83655617efbd8e09b5f5271dd6ede37847b0ebd6632be2dde74",
+        "sha256_in_prefix": "abd27d285278e83655617efbd8e09b5f5271dd6ede37847b0ebd6632be2dde74",
+        "size_in_bytes": 1454
+      },
+      {
+        "_path": "share/awk/walkarray.awk",
+        "path_type": "hardlink",
+        "sha256": "3a7f02f135e91bbf1c1cd498ea0e1489802d58c83bb4d112c0a407593db31dd8",
+        "sha256_in_prefix": "3a7f02f135e91bbf1c1cd498ea0e1489802d58c83bb4d112c0a407593db31dd8",
+        "size_in_bytes": 214
+      },
+      {
+        "_path": "share/awk/zerofile.awk",
+        "path_type": "hardlink",
+        "sha256": "c20a5e00b43fbfb9ea420da93f64422ce13d4aebb3b725e2ac3ba0102f169bee",
+        "sha256_in_prefix": "c20a5e00b43fbfb9ea420da93f64422ce13d4aebb3b725e2ac3ba0102f169bee",
+        "size_in_bytes": 424
+      },
+      {
+        "_path": "share/info/gawk.info",
+        "path_type": "hardlink",
+        "sha256": "c21a3c800ed1e01dd42bb0676b1c9abbf94ab08642f0ab25034794c985f86335",
+        "sha256_in_prefix": "c21a3c800ed1e01dd42bb0676b1c9abbf94ab08642f0ab25034794c985f86335",
+        "size_in_bytes": 1529749
+      },
+      {
+        "_path": "share/info/gawkinet.info",
+        "path_type": "hardlink",
+        "sha256": "452afca1d812a7c9859e377a39c1d11c61b38b70e3818143018b07cdff6e955f",
+        "sha256_in_prefix": "452afca1d812a7c9859e377a39c1d11c61b38b70e3818143018b07cdff6e955f",
+        "size_in_bytes": 207194
+      },
+      {
+        "_path": "share/locale/ca/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "8d50b91a59f4b45c42acb315100a40e2a6fd695be82d0c07a441e702643e4f71",
+        "sha256_in_prefix": "8d50b91a59f4b45c42acb315100a40e2a6fd695be82d0c07a441e702643e4f71",
+        "size_in_bytes": 82049
+      },
+      {
+        "_path": "share/locale/da/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "2fac87c8e44542d007bf65d9272e32dc604cf638e3a6f797ed4b1b10235d8a95",
+        "sha256_in_prefix": "2fac87c8e44542d007bf65d9272e32dc604cf638e3a6f797ed4b1b10235d8a95",
+        "size_in_bytes": 51491
+      },
+      {
+        "_path": "share/locale/de/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "7f450e0c7202f723ccb422cf14ac4d99d98cd508e06a51798350cdf40626b6bc",
+        "sha256_in_prefix": "7f450e0c7202f723ccb422cf14ac4d99d98cd508e06a51798350cdf40626b6bc",
+        "size_in_bytes": 86359
+      },
+      {
+        "_path": "share/locale/es/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "0529fd36134015f8bfd37b898447b32b7fda9c4b3988f6911ef83482eae64ab5",
+        "sha256_in_prefix": "0529fd36134015f8bfd37b898447b32b7fda9c4b3988f6911ef83482eae64ab5",
+        "size_in_bytes": 43722
+      },
+      {
+        "_path": "share/locale/fi/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "b545826566c202a1066d73e6e8aa902055122014a30a6537ebf114a5bade32a0",
+        "sha256_in_prefix": "b545826566c202a1066d73e6e8aa902055122014a30a6537ebf114a5bade32a0",
+        "size_in_bytes": 85865
+      },
+      {
+        "_path": "share/locale/fr/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "b0f33c71c2028bf471986cbdc8448881be6c537d17c1c2fc2be4f7a512404c8c",
+        "sha256_in_prefix": "b0f33c71c2028bf471986cbdc8448881be6c537d17c1c2fc2be4f7a512404c8c",
+        "size_in_bytes": 86892
+      },
+      {
+        "_path": "share/locale/it/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "3bc281dd5620ff0bc0675ae8b0b9b6cf4090e596aa91f436fcf7da54b9d3943e",
+        "sha256_in_prefix": "3bc281dd5620ff0bc0675ae8b0b9b6cf4090e596aa91f436fcf7da54b9d3943e",
+        "size_in_bytes": 82296
+      },
+      {
+        "_path": "share/locale/ja/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "00540658092f76374e6929daee132ec7bdf78af001260deb3c419f0af28d1c30",
+        "sha256_in_prefix": "00540658092f76374e6929daee132ec7bdf78af001260deb3c419f0af28d1c30",
+        "size_in_bytes": 51602
+      },
+      {
+        "_path": "share/locale/ms/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "7a988efc752215630b54ab8e893b347afdfb3145e9962dff89e8439959d23c28",
+        "sha256_in_prefix": "7a988efc752215630b54ab8e893b347afdfb3145e9962dff89e8439959d23c28",
+        "size_in_bytes": 1183
+      },
+      {
+        "_path": "share/locale/nl/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "64e4c9de1269ef021549aeb191d78ebe2d8a80c428e7b441f39d359d00203bbb",
+        "sha256_in_prefix": "64e4c9de1269ef021549aeb191d78ebe2d8a80c428e7b441f39d359d00203bbb",
+        "size_in_bytes": 82198
+      },
+      {
+        "_path": "share/locale/pl/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "98a5cafcdba15dcb9cc1c8678273bf86eb571408e837f50b1d3b9fc08711a097",
+        "sha256_in_prefix": "98a5cafcdba15dcb9cc1c8678273bf86eb571408e837f50b1d3b9fc08711a097",
+        "size_in_bytes": 70252
+      },
+      {
+        "_path": "share/locale/sv/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "639c0b6b9ef0aa22526aa98e3640d59b64d60c3ad38c6f8684734ea4f1f94b2f",
+        "sha256_in_prefix": "639c0b6b9ef0aa22526aa98e3640d59b64d60c3ad38c6f8684734ea4f1f94b2f",
+        "size_in_bytes": 82224
+      },
+      {
+        "_path": "share/locale/vi/LC_MESSAGES/gawk.mo",
+        "path_type": "hardlink",
+        "sha256": "243bbe84538f43bac6af93381fc8e1dbd2e5f5b24702e266ffeb570a8c02e745",
+        "sha256_in_prefix": "243bbe84538f43bac6af93381fc8e1dbd2e5f5b24702e266ffeb570a8c02e745",
+        "size_in_bytes": 94364
+      },
+      {
+        "_path": "share/man/man1/gawk.1",
+        "path_type": "hardlink",
+        "sha256": "f4b8ac77e7080caaebdc8ad5cf8609fc4e662cf5a909cbd2adf9d917ecc17b0a",
+        "sha256_in_prefix": "f4b8ac77e7080caaebdc8ad5cf8609fc4e662cf5a909cbd2adf9d917ecc17b0a",
+        "size_in_bytes": 88334
+      },
+      {
+        "_path": "share/man/man1/igawk.1",
+        "path_type": "hardlink",
+        "sha256": "4259a2e13b006c80204d6abd27430e1054bb3f40c4769b0399be98e435a153f3",
+        "sha256_in_prefix": "4259a2e13b006c80204d6abd27430e1054bb3f40c4769b0399be98e435a153f3",
+        "size_in_bytes": 1160
+      },
+      {
+        "_path": "share/man/man3/filefuncs.3am",
+        "path_type": "hardlink",
+        "sha256": "96e9109e60cf66edbce611bf96f013268301b261b1f92cd03a0be3cbce4c2098",
+        "sha256_in_prefix": "96e9109e60cf66edbce611bf96f013268301b261b1f92cd03a0be3cbce4c2098",
+        "size_in_bytes": 8847
+      },
+      {
+        "_path": "share/man/man3/fnmatch.3am",
+        "path_type": "hardlink",
+        "sha256": "ae72098d2b6e9db8dc7dace9d021eb3bd4aad4589421e5402aa4130685db9525",
+        "sha256_in_prefix": "ae72098d2b6e9db8dc7dace9d021eb3bd4aad4589421e5402aa4130685db9525",
+        "size_in_bytes": 3074
+      },
+      {
+        "_path": "share/man/man3/fork.3am",
+        "path_type": "hardlink",
+        "sha256": "ceea86ce9f24cfe0fd6dd21898d14323d8709d1be159b85bb14fa8605e05118a",
+        "sha256_in_prefix": "ceea86ce9f24cfe0fd6dd21898d14323d8709d1be159b85bb14fa8605e05118a",
+        "size_in_bytes": 2613
+      },
+      {
+        "_path": "share/man/man3/inplace.3am",
+        "path_type": "hardlink",
+        "sha256": "6f5102a95b12322e05fdfd86b65434e743f33e2845e894d42ffff1742341b170",
+        "sha256_in_prefix": "6f5102a95b12322e05fdfd86b65434e743f33e2845e894d42ffff1742341b170",
+        "size_in_bytes": 2286
+      },
+      {
+        "_path": "share/man/man3/ordchr.3am",
+        "path_type": "hardlink",
+        "sha256": "628d1562ac27f480e7cce1547ff86c631b4d0d77bfcd31fa6f6b7575edc2a725",
+        "sha256_in_prefix": "628d1562ac27f480e7cce1547ff86c631b4d0d77bfcd31fa6f6b7575edc2a725",
+        "size_in_bytes": 2168
+      },
+      {
+        "_path": "share/man/man3/readdir.3am",
+        "path_type": "hardlink",
+        "sha256": "c30cf9fe30ac9692473b576609446ce8db6c8ebdfa86b93d925bcf2589ebfcc2",
+        "sha256_in_prefix": "c30cf9fe30ac9692473b576609446ce8db6c8ebdfa86b93d925bcf2589ebfcc2",
+        "size_in_bytes": 2715
+      },
+      {
+        "_path": "share/man/man3/readfile.3am",
+        "path_type": "hardlink",
+        "sha256": "c6542762e989936377f78eb9fad97f12ba2bacb840ed63ea573c8510eeb5c70b",
+        "sha256_in_prefix": "c6542762e989936377f78eb9fad97f12ba2bacb840ed63ea573c8510eeb5c70b",
+        "size_in_bytes": 2403
+      },
+      {
+        "_path": "share/man/man3/revoutput.3am",
+        "path_type": "hardlink",
+        "sha256": "0ed5bddb574492df7d8585941822759adb0a255d3c4f25d1b27fdfce5709b706",
+        "sha256_in_prefix": "0ed5bddb574492df7d8585941822759adb0a255d3c4f25d1b27fdfce5709b706",
+        "size_in_bytes": 1996
+      },
+      {
+        "_path": "share/man/man3/revtwoway.3am",
+        "path_type": "hardlink",
+        "sha256": "876f3f4512f1ee012dead31468f82f4867fa337740b9471aaa2758be1d702fca",
+        "sha256_in_prefix": "876f3f4512f1ee012dead31468f82f4867fa337740b9471aaa2758be1d702fca",
+        "size_in_bytes": 1951
+      },
+      {
+        "_path": "share/man/man3/rwarray.3am",
+        "path_type": "hardlink",
+        "sha256": "823a65d5a43dd823b2130f1dba4b17d609afc75ad183cdd2ee809445f17f5cd5",
+        "sha256_in_prefix": "823a65d5a43dd823b2130f1dba4b17d609afc75ad183cdd2ee809445f17f5cd5",
+        "size_in_bytes": 3144
+      },
+      {
+        "_path": "share/man/man3/time.3am",
+        "path_type": "hardlink",
+        "sha256": "074717f83af0e25f2cbb65aac39da53a26ae2b26c03c76add1ca75319c218137",
+        "sha256_in_prefix": "074717f83af0e25f2cbb65aac39da53a26ae2b26c03c76add1ca75319c218137",
+        "size_in_bytes": 2434
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "gawk=4.1.3",
+  "sha256": "12b9a0d2b6694d970b2eac24953a1c804dc4933c3e218e7506c54183edb9189d",
+  "size": 1192202,
+  "subdir": "linux-64",
+  "timestamp": 1529532117115,
+  "track_features": "",
+  "url": "https://conda.anaconda.org/conda-forge/linux-64/gawk-4.1.3-h2d50403_0.tar.bz2",
+  "version": "4.1.3"
+}

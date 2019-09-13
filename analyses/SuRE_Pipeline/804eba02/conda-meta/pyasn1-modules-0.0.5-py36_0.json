@@ -1,0 +1,265 @@
+{
+  "build": "py36_0",
+  "build_number": 0,
+  "channel": "https://conda.anaconda.org/bioconda/linux-64",
+  "constrains": [],
+  "depends": [
+    "pyasn1",
+    "python 3.6*"
+  ],
+  "extracted_package_dir": "/DATA/usr/n.klaassen/miniconda3/pkgs/pyasn1-modules-0.0.5-py36_0",
+  "features": "",
+  "files": [
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/PKG-INFO",
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/SOURCES.txt",
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/dependency_links.txt",
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/requires.txt",
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/top_level.txt",
+    "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/zip-safe",
+    "lib/python3.6/site-packages/pyasn1_modules/__init__.py",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/__init__.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/pem.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/pkcs12.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1155.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1157.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1901.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1902.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1905.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2251.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2314.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2315.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2437.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2459.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2511.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2560.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3412.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3414.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3447.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc4210.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc5208.cpython-36.pyc",
+    "lib/python3.6/site-packages/pyasn1_modules/pem.py",
+    "lib/python3.6/site-packages/pyasn1_modules/pkcs12.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc1155.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc1157.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc1901.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc1902.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc1905.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2251.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2314.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2315.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2437.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2459.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2511.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc2560.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc3412.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc3414.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc3447.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc4210.py",
+    "lib/python3.6/site-packages/pyasn1_modules/rfc5208.py"
+  ],
+  "fn": "pyasn1-modules-0.0.5-py36_0.tar.bz2",
+  "license": "BSD",
+  "link": {
+    "source": "/DATA/usr/n.klaassen/miniconda3/pkgs/pyasn1-modules-0.0.5-py36_0",
+    "type": 1
+  },
+  "md5": "12d2be1a7e032ddbb88467f73fcf2ec7",
+  "name": "pyasn1-modules",
+  "package_tarball_full_path": "/DATA/usr/n.klaassen/miniconda3/pkgs/pyasn1-modules-0.0.5-py36_0.tar.bz2",
+  "paths_data": {
+    "paths": [
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/PKG-INFO",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/SOURCES.txt",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/dependency_links.txt",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/requires.txt",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/top_level.txt",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules-0.0.5-py3.6.egg-info/zip-safe",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__init__.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/__init__.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/pem.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/pkcs12.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1155.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1157.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1901.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1902.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc1905.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2251.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2314.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2315.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2437.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2459.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2511.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc2560.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3412.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3414.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc3447.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc4210.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/__pycache__/rfc5208.cpython-36.pyc",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/pem.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/pkcs12.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc1155.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc1157.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc1901.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc1902.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc1905.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2251.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2314.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2315.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2437.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2459.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2511.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc2560.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc3412.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc3414.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc3447.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc4210.py",
+        "path_type": "hardlink"
+      },
+      {
+        "_path": "lib/python3.6/site-packages/pyasn1_modules/rfc5208.py",
+        "path_type": "hardlink"
+      }
+    ],
+    "paths_version": 1
+  },
+  "requested_spec": "None",
+  "sha256": "8cee4e766bd27a03e4fc78a00cef0ab5bb5118760c9c426c3e165c2949af0cd8",
+  "size": 46107,
+  "subdir": "linux-64",
+  "track_features": "",
+  "url": "https://conda.anaconda.org/bioconda/linux-64/pyasn1-modules-0.0.5-py36_0.tar.bz2",
+  "version": "0.0.5"
+}
