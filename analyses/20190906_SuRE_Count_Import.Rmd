@@ -1,0 +1,222 @@
+---
+title: "20190906_SuRE_Count_Import"
+author: "Noud Klaassen"
+date: "23-9-2019"
+output: html_document
+---
+```{r library loading, message=F, results = F}
+library(data.table)
+library(knitr)
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(VariantTools)
+library(tidyverse)
+```
+This script is used to process the SuRE-counts_chr.txt.gz files that have been generated per chromosome for the SuRE pipeline. This time the pipeline was run with all variants (novel and present in dbSNP).
+
+# Load and rewrite data
+
+### Rewrite txt files to SNV-separated rows 
+In current data files, gDNA fragments contain multiple SNVs. These occur in one single row, separated by commas. To be able to analyse the data, the following script reads the `SuRE-counts_chr.txt.gz` files into R, separates the rows with the `separate_rows` function from the `tidyr` library. Consequently it writes the data to `txt` files that can be read into R for furter sessions
+
+```{r data saving, eval=F}
+dir <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_output/SuRE-counts_"
+
+for (chrom in paste0("chr", c(1:22, "X"))){ #THIS FUNCTION TAKES 30 MIN TO COMPLETE!!!!
+  #READ TXT.GZ
+    tab <- fread(paste0(dir, chrom, ".txt.gz"), header = TRUE, sep = "\t", stringsAsFactors = FALSE)
+    print(paste0(chrom, " is read at", Sys.time()))
+  
+  #SEPARATE ROWS
+    name <- paste0("sure", chrom)
+    tabsep <- separate_rows(tab, SNPrelpos:SNPidx, SNPbaseInf:PAT_MAT, sep = ",") 
+    assign(name, tabsep)
+    print(paste0(chrom, " is separated at", Sys.time()))
+  
+  #WRITE SEPARATE TXT FILES
+    write.table(get(paste0("sure", chrom)), paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_Counts_Separated_20190917/SuRE-Counts_Separated_", chrom,  ".txt"), 
+            quote = FALSE, 
+            sep = "\t", 
+            row.names = FALSE, 
+            col.names = TRUE)
+    print(paste0(chrom, "is writen to .txt file at ", Sys.time()))
+}
+```
+
+### Load SNV-separated txt files into R
+Following code is used to load the previously generated txt files into R. The `assign` function is used to read the `txt` files into R as `datatables` using the `fread` function from the `data.table` library. With the `rbind` function, each consecutive datatable is merged togeter in a vertical fashion.
+
+```{r data loading, eval = T, results = "hide", cache = F}
+
+
+sure = NULL
+for (chrom in paste0("chr", c(1:22, "X"))){
+  assign(paste0("sure", chrom), fread(paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/SuRE_Counts_Separated_20190917/SuRE-Counts_Separated_", chrom,  ".txt"), 
+             header = TRUE, 
+             sep = "\t", 
+             stringsAsFactors = FALSE,
+             na.strings = NULL))
+  print(paste0(chrom," is read"))
+  sure <- rbind(sure, get(paste0("sure", chrom)))
+  print(paste0(chrom, " is added to datatable"))
+  rm(list=paste0("sure", chrom))
+}
+```
+
+### Summarize and normalize replicates
+Data consists of two biological replicates (B1 and B2) of which the first biological replicate contains 4 technical replicates(B1_T1 to B1_T4) and the second biological replicate contains two technical replicates (B2_T1 - B2_T2). Data was summarized to combine all biological replicates, and combine these also. Notice that the technical replicates should actually be normalized (e.g. to reads per billion) to make a better comparison between technical replicates and biological replicates. As presented in the tables, there is a difference between these replicates by the number of cDNA reads. As can be seen, the amount of gDNA fragments with cDNA reads >0 is very low. Also the amount of usable bases (A, G, C, T) is around 12%. The rest is unknown due to the fact that the middle fragment of the gDNA was excised during laboratory protocols. Finally the dDNA counts (`SuRE_B`) where normalized with the iPCR data (`iPCR`) simply by dividing. Notice that iPCR counts could also be normalized to reads per billion but I think that won't change the analysis.  
+
+```{r summarizing biological replicates, eval = T, cache = F, dependson="data loading"}
+sure$SuRE_B1 <- sure$SuRE23_45_B1_T1+sure$SuRE23_45_B1_T2+sure$SuRE23_45_B1_T3+sure$SuRE23_45_B1_T4
+sure$SuRE_B2 <- sure$SuRE23_55_B2_T1+sure$SuRE23_55_B2_T2
+sure$SuRE_B  <- sure$SuRE_B1+sure$SuRE_B2
+sure$cDNA.normby.ipcr <- sure$SuRE_B / sure$iPCR
+```
+```{r, message = F, echo = F, results = 'asis', cache = F}
+
+df <- data.frame(row.names = c("B1_T1", "B1_T2", "B1_T3", "B1_T4", "B2_T1", "B2_T2"), c(3910735, 5404995, 2838568, 3202289, 13372197, 14543503), c(716084,  760153 , 796863 , 879787 ,5301093 ,5564243))
+kable(df, col.names = c("cDNA counts", "gDNA fragments where 'cDNA counts > 0'"))
+```
+
+### Retrieve variants that have >0 Ref allele cDNA counts & >1 Alt allele cDNA counts
+First a new `data.table` `s1` is generated that removes the gDNA fragments where the variantbase is not ref or alt allele (SNPvar = 2) or undetermined (SNPvar = 3). Then, for every SNP, the table function is applied over SNPvar, generating a table that contains the amount of gDNA fragments with the ref allele (SNPvar = 1) and the alt allele (SNPvar = 2). If the length of this table is equal to 2, both variants are present. Next, the rownames of these variants (`n`) are saved, and new variants (`nchr`) are found. Then the novel variants containing only nonambiguous bases are saved into `surealtref2` which are 9176 variants. 
+
+```{r, eval = T, cache = F, dependson="summarizing biological replicates"}
+s1 <- sure[sure$SNPvar != 3 & sure$SNPvar != 2]
+c1 <- as.data.frame(as.matrix(tapply(s1$SNPvar, s1$SNP_ID, function(x){length(table(x))})))
+
+n <- rownames(c1)[c1$V1 == 2]
+nchr <- n[grepl("chr", n)]
+
+surealtref <- sure[sure$SNP_ID %in% nchr,] #contains names of NOVEL variants that haveref en alt
+surealtref2 <- surealtref[surealtref$SNPvar != 3 & surealtref$SNPvar != 2] #AND only containing rows with nonambiguos bases
+```
+
+# Loop through all SNVs
+To investigate the differences between the Ref and Alt allele in terms of cDNA counts, a Wilcoxon test should be performed. Also each SNV can be assigned to a genomic element (e.g. promoter, intron, coding etc.)
+
+### Prepare data
+To loop through all the SNV, first the set should be defined which is done in `sure.set`. `snp.names` contain the SNV names present in the `sure.set`. Then an empty  `data.frame` is build to store the results from the loop. 
+```{r, eval = T}
+library(data.table)
+  # define the sure dataframe that will be used
+  sure.set <- surealtref2
+  head(sure.set, n=3)
+
+  # The first colomn in snp.names could be "", indicating the gDNA fragments that have no SNPs in them
+  # This row should be removed if it is present
+
+  if (unique(sure.set$SNP_ID)[1] == ""){
+    snp.names <- unique(sure.set$SNP_ID)[2:length(snp.names)]}else{
+    snp.names <- unique(sure.set$SNP_ID)
+  }
+
+  # Generate a dataframe to which the results below can be stored  
+  results.sure <- data.frame(matrix(nrow= length(snp.names), ncol = 9))
+  colnames(results.sure) = c("chr", "snp.abs.pos", "SNP_ID", "ref.element.count", "alt.element.count", "ref.cDNA.mean", "alt.cDNA.mean", "wilcox.pvalue", "variant")
+```
+
+### Prepare genetic element annotation
+To annotate the SNV to their respective genetic element a `GRanges` object has to be created that contains the genomic coordinates of that SNV. The `reduce` function is used to remove similar rows. These positions can be annotated with the `locateVariants` function. To extract these elements a dataframe was created (`variants.df`).  
+
+```{r genetic element annotation, eval = T, message = F, warning=F}
+
+  txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+  
+  # Generate a granges file from the results.sure dataframe
+  snp.granges <- GenomicRanges::reduce(GRanges(seqnames = sure.set$chr, ranges = IRanges(start = sure.set[,SNPabspos],end = sure.set[,SNPabspos])))
+  head(snp.granges)
+  # Locate variants
+  variants.granges <- locateVariants(snp.granges, txdb, AllVariants())
+  
+  # Save variants in a dataframe
+  df.chr <- seqnames(variants.granges)
+  df.snp.abs.pos <- start(variants.granges)
+  df.snp.pos <- paste0(df.chr,":", df.snp.abs.pos)
+  df.variant <- variants.granges$LOCATION
+  variants.df <- data.frame(df.chr, df.snp.abs.pos, df.snp.pos, df.variant)
+  head(variants.df)
+  # Use the distinct function from dplyr to remove identical rows
+  # These could for example contain multiple rows that contain an 
+  # intron
+  
+  variants.df.nonredundant <- distinct(variants.df)
+  head(variants.df.nonredundant)
+```
+
+### Run the Loop
+Then a loop is performed to (for each SNV) do the following:
+
+* retrieve rownumbers for that specific SNV (`snp.idx`)
+* generate a small dataframe for that specific SNV (`sure.snp`)
+* retrieve rownumbers that have the reference allele (`ref`)
+* retrieve rownumbers that have the alternative allele (`alt`)
+* Store chromosome, genomic position and SNV id into `results.sure`
+* Count the number of unique gDNA fragments for that specific SNV allele (`ref.element.count` and `alt.cDNA.mean`)
+* Calculate the mean cDNA count per allele `ref.cDNA.mean` and `alt.cDNA.mean`
+* Perform a Wilcoxon test if there is at least 1 cDNA count for the reference and alternative allele
+* Annotate the SNV position in the following order (promoter > splicesite > coding > 5'UTR > 3'UTR > intron > intergenic). This order is neccesary because some genomic positions can overlap multiple genomic elements (e.g. intron and promoter)
+
+```{r snv loop, eval = T, warning=F, error=F}
+for (i in 1:length(snp.names)){
+  
+  if (i %% 100 == 0) {print(i)}
+  
+  
+  # Retrieve rownumbers of the respective SNP and
+  # generate a small dataframe containing the desired variant
+  snp.idx <- which(sure.set$SNP_ID == snp.names[i])
+  sure.snp <- sure.set[snp.idx]
+  
+  ref <- which(sure.snp$SNPvar == 0)
+  alt <- which(sure.snp$SNPvar == 1)
+  
+  
+  
+  # Assign variables that are constant per variant (chromosome, absolute position and SNPid)
+  results.sure[i, "chr"] <- sure.snp[1]$chr
+  results.sure[i, "snp.abs.pos"] <- sure.snp[1]$SNPabspos
+  results.sure[i, "SNP_ID"] <- sure.snp[1]$SNP_ID
+  
+  
+  
+  # Assign the number of counts
+  results.sure[i, "ref.element.count"] <- sum(sure.snp$SNPvar == 0)
+  results.sure[i, "alt.element.count"] <- sum(sure.snp$SNPvar == 1)
+  
+  
+  results.sure[i, "ref.cDNA.mean"] <- round(mean(sure.snp[ref, cDNA.normby.ipcr]), digits = 1)
+  results.sure[i, "alt.cDNA.mean"] <- round(mean(sure.snp[alt, cDNA.normby.ipcr]), digits = 1)
+  
+  
+ 
+  # Perform wilcoxon test if there is at least 1 ref and 1 alt sequence measured (and t.test if at least 2 for both)
+  if (length(alt) >= 1 & length(ref) >= 1){
+    results.sure[i, "wilcox.pvalue"] <- wilcox.test(sure.snp[ref, cDNA.normby.ipcr], sure.snp[alt, cDNA.normby.ipcr])$p.value
+  }
+  
+  
+  # Generate a unique snpi.id in the format "chr1:3824989"
+  snp.id <- paste0(results.sure[i,"chr"], ":", results.sure[i, "snp.abs.pos"])
+  
+  
+  # Generate a factor stating all variants for that specific snp (could be >1)
+  # Then sort the factor based on the levels and take the first (most important)
+  # variant as which we want it to classify
+  
+  
+  variants <- variants.df.nonredundant[variants.df.nonredundant$df.snp.pos == snp.id, "df.variant"]
+  variants.sorted <- sort(factor(variants, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")))
+  
+  
+  results.sure[i,"variant"] <- as.character(variants.sorted[1])
+  
+}
+head(results.sure)
+```
+
+
+
+
+```{r session}
+sessionInfo()
+```

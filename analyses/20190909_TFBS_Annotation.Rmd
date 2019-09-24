@@ -60,3 +60,7 @@ gr_tfbs$File[s]
 OVERLAP.REDUNDANT <- gr_new[q]
 OVERLAP.REDUNDANT$FILE <- gr_tfbs$File[s]
 ```
+
+```{r session}
+sessionInfo()
+```

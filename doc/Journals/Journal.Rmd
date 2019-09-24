@@ -63,3 +63,31 @@ I downloaded `bed_files.tar.gz` from `http://jaspar.genereg.net/download/bed_fil
 
 #### 10-09-2019 (Tu)
 I got the bedfiles annotation of the TFBS working for the `GRanges` file. Able to generate a `GRanges` file with all novel mutations and the corresonding number of the file of the TFBS they interfere with. Mind that mutations that alter multiple TFBS occur in multiple rows. For the SuRE-pipeline, I resolved a few errors regarding the SNPs database annotation. We use the non-phased files. Important to go to the conda environment of K562_SuRE, otherwise, python is not correctly installed (`conda activate K562_SuRE`)
+
+#### We-Fr
+Prepare the SuRE pipeline and files for the sure pipeline.
+
+### Week 5
+
+#### 16-09-2019 (Mo)
+Analyse data for the SuRE pipeline with the `20190913_SuRE_Explore.R` script.
+
+#### 17-09-2019 (Tu)
+Analyse data for the SuRE pipeline
+
+#### 18-09-2019 (We)
+Analyse data for the SuRE pipeline with a more clean script `20190916_SuRE_Count_Import.R`
+
+#### 19-09-2019 (Th)
+Figured out that the data is really not of that good and sufficient quality. Of the 3 million SNVs only 9,176 have >10 cDNA reads per variant location and are also novel. Some concern arrises on whether mutations in dbSNP could be somatic. 
+
+#### 20-09-2019 (Fr)
+Analysed the SuRE data some more and figured out that for all novel SNP there are only two significant hits. This is a problem and we most likely do not continue with the analysis of this dataset. 
+
+### Week 6
+
+#### 23-09-2019 (Mo)
+The possibility that somatic mutations are present in dbSNP was explored a little further. Within literature many different practices are used. Some remove all dbSNP hits. Others are working with logg odss ratios (LOR) and dbSNP and COSMIC (somatic mutations in cancer database). Some publicatios make use of the `MuTect` software that also employs the dbSNP to differentiate probabilities of calls. 
+
+#### 24-09-2019 (Tu)
+Literature research on the COSMIC and dbSNP databases. It is still not clear to what extent somatic mutations are present in dbSNP. However, from the known SNPs in the K562 paper there is 4.8% (145,792 variants) that are present in the COSMIC database. 
