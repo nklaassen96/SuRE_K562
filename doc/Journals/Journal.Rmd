@@ -4,17 +4,27 @@ author: "Noud Klaassen"
 output: html_document
 ---
 
----
-title: "Test"
----
-## Week 1
+[**Project 1: SuRE: Somatic Mutations K562**](#p1)  
+
+* [Week 1 (15-08)](#w1)  
+* [Week 2 (26-08)](#w2)  
+* [Week 3 (02-09)](#w3)  
+* [Week 4 (09-09)](#w4)  
+* [Week 5 (16-09)](#w5)  
+* [Week 6 (23-09)](#w6)  
+
+[**Project 2: SuRE: Germline Indels**](#p2)
+
+# Project 1: SuRE: Somatic Mutations K562 {#p1}
+
+## Week 1{#w1}
 #### 15-08-2019 (Th)
 VCF-files of K562 have been loaded in RStudio (non-phased) via the `wget` command in Linux. Exploratory analyses on the nr. of SNPs per chromosome, average QUAL-scores.
 
 #### 16-08-2019 (Fr)
 Received feedback from Ludo on the `RMarkdown`-file that was created. Some more exploratory analysese were performed
 
-## Week 2
+## Week 2{#w2}
 #### 26-08-2019 (Mo)
 I generated a RProject for the K562_SuRE directory. I linked the files to the GitHub repository which I will commit every day at the end of the day. Also I started exploring the uniqueness in the MNVs that I have found. It seems that 0 MNVs start at the same position, but 0.5% of MNVs have some overlap with other MNVs
 
@@ -30,7 +40,7 @@ I rewrote the whole `20190823_VariantCalling.R`-script. Primarily all informatio
 #### 30-08-2019 (Fr)
 Tried to annotate transcription factor binding domains. Didn't work because the `MotIV`-package required GSL which was hard to install and link properly. Installed conda on the server. Got the dotplot function of the `KaryoplotR` working.
 
-## Week 3
+## Week 3{#w3}
 #### 02-09-2019 (Mo)
 Tried some more `KaryoplotR` functions. I wanted to annotate the genomic positions with Transcription Factor Binding Sites (TFBS). Therefore i downloaded the `RegulomeDB.dbSNP138`. However, this database could not be loaded in R. Also, it only contains information on SNPs present in the dbSNP.
 
@@ -56,7 +66,7 @@ df = data.frame(Files, Type, Variants, Overlap, Directory)
 kable(df)
 ```
 
-### Week 4
+### Week 4{#w4}
 
 #### 09-09-2019 (Mo)
 I downloaded `bed_files.tar.gz` from `http://jaspar.genereg.net/download/bed_files.tar.gz` to function as a database for transcription factor binding sites. I previously did the same with `RegulomeDB.dbSNP132.Category3.txt` from `http://www.regulomedb.org/downloads/RegulomeDB.dbSNP132.Category3.txt.gz`, but this file could not be loaded into R. `MA1198.1.bed` was removed by using the MobaXterm as it contains no data. 
@@ -67,7 +77,7 @@ I got the bedfiles annotation of the TFBS working for the `GRanges` file. Able t
 #### We-Fr
 Prepare the SuRE pipeline and files for the sure pipeline.
 
-### Week 5
+### Week 5{#w5}
 
 #### 16-09-2019 (Mo)
 Analyse data for the SuRE pipeline with the `20190913_SuRE_Explore.R` script.
@@ -84,10 +94,15 @@ Figured out that the data is really not of that good and sufficient quality. Of 
 #### 20-09-2019 (Fr)
 Analysed the SuRE data some more and figured out that for all novel SNP there are only two significant hits. This is a problem and we most likely do not continue with the analysis of this dataset. 
 
-### Week 6
+### Week 6{#w6}
 
 #### 23-09-2019 (Mo)
 The possibility that somatic mutations are present in dbSNP was explored a little further. Within literature many different practices are used. Some remove all dbSNP hits. Others are working with logg odss ratios (LOR) and dbSNP and COSMIC (somatic mutations in cancer database). Some publicatios make use of the `MuTect` software that also employs the dbSNP to differentiate probabilities of calls. 
 
 #### 24-09-2019 (Tu)
 Literature research on the COSMIC and dbSNP databases. It is still not clear to what extent somatic mutations are present in dbSNP. However, from the known SNPs in the K562 paper there is 4.8% (145,792 variants) that are present in the COSMIC database. 
+
+#### 25-09-2019 (We)
+Discussed again with Bas and Ludo that we are going to leave the K562 paper behind. Now we are going to work on the indels. 
+
+# Project 2: SuRE: Germline Indels {#p2}
