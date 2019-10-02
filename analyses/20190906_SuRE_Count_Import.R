@@ -208,11 +208,11 @@ for (i in 1:length(snp.names)){
   # variant as which we want it to classify
   
   
-  variants <- variants.df.nonredundant[variants.df.nonredundant$df.snp.pos == snp.id, "df.variant"]
-  variants.sorted <- sort(factor(variants, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")))
+  #variants <- variants.df.nonredundant[variants.df.nonredundant$df.snp.pos == snp.id, "df.variant"]
+  #variants.sorted <- sort(factor(variants, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")))
   
   
-  results.sure[i,"variant"] <- as.character(variants.sorted[1])
+  #results.sure[i,"variant"] <- as.character(variants.sorted[1])
   
 }
 
