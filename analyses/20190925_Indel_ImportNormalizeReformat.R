@@ -1,5 +1,6 @@
 ### STILL TO DO:
-### REMOVE ROWS WHERE SNP.ID = "."
+### REMOVE ROWS WHERE SNP.ID = "." --> zit al in pvalue script
+### Toevoegen dat ook bij 45-2 (of 45-1) de kolomnamen omgewisseld worden naar 3/2 of 2/3
 
 
 
@@ -15,8 +16,8 @@ library(tidyverse)
 dir.input <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/"
 
 sure.indel.allrep <- NULL
-replicate <- "SuRE42-2/"
-### for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-1/", "SuRE44-2/")){
+#replicate <- "SuRE42-1/"
+for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/")){
 
   # Genarate a string that can be used to name and identify files
   rep.str <- str_replace(string = str_remove_all(replicate, pattern = "[SuRE/]"), pattern = "-", replacement = "_")
@@ -30,9 +31,9 @@ for (chrom in c(1:22, "X")){
   
   sure.indel.allparent <- NULL
 
-  for (parent in c("equal", "maternal", "paternal")){
+  for (parent in c("ambiguous", "equal", "maternal", "paternal")){
   
-    
+    print(paste("start", parent, "at", Sys.time()))
     file.name <- paste0(dir.input, replicate, parent, "/", chrom, ".bedpe.gz")
     
     
@@ -42,7 +43,7 @@ for (chrom in c(1:22, "X")){
     sure.BCcounts <- fread(file.name, header = TRUE, sep = "\t", stringsAsFactors = FALSE)
     sure.BCcounts <- sure.BCcounts[sure.BCcounts$SNP_ID != ""]
     sure.BCcounts <- sure.BCcounts[sure.BCcounts$SNP_TYPE != "snp" & sure.BCcounts$SNP_TYPE != "snp,snp" & sure.BCcounts$SNP_TYPE != "snp,snp,snp"]
-
+    print("read counts")
   
     ## For some gDNA fragments, the variant within this fragment is sequenced twice,
     ## once in the forward and once in the reverse read. In this case a single row will 
@@ -66,6 +67,7 @@ for (chrom in c(1:22, "X")){
     # columns can be replaced simply with the strsplit() function. 
  
     x <- separate_rows(sure.BCcounts, SNP_SEQ, sep = ",")
+    print("separated")
   
     # As the separates was only performed on the SNP_SEQ column, the other columns
     # need to be splitted as well. This is done with the strsplit() function. Subsequently
@@ -93,7 +95,7 @@ for (chrom in c(1:22, "X")){
     # Combine the `equal`, `maternal` and `paternal` data into 1 object
     
     sure.indel.allparent <- rbind(sure.indel.allparent, sure.indel)
-    
+    print("finished rbind")
 
     
   } ### END LOOP EQUAL/PATERNAL/MATERNAL ###
@@ -107,6 +109,8 @@ for (chrom in c(1:22, "X")){
                                                sure.indel.allparent$SNP_PARENT != "unexpected" & 
                                                sure.indel.allparent$SNP_PARENT != "unread",]
   
+  # Add a column for the library
+  sure.indel.allparent$library <- rep.str
   
   # For every chromosome, the R object containing the variants is saved
   # into the /combined directory of that specific replicate
@@ -118,9 +122,7 @@ for (chrom in c(1:22, "X")){
   
   sure.indel.allchrom <- rbind(sure.indel.allchrom, sure.indel.allparent)
   
-  # Add a column for the library
-  
-  sure.indel.allchrom$library <- rep.str
+
   
   
 } ### END LOOP CHROM 1:22,X ###
@@ -167,13 +169,14 @@ saveRDS(sure.indel.allchrom, file = paste0(dir.input, replicate, "combined/", "s
 
 # Concatonate the files per replicate into one big file
 
-### sure.indel.allrep <- rbind(sure.indel.allrep, sure.indel.allchrom)
-### 
-### } ### END LOOP REP 1:6 ###   
-### 
-### fname <- paste0(dir.input, "sure.indel.allrep.RDS")
-### saveRDS(sure.indel.allrep, file = fname)
-### print(paste0("Function completely finished at ", Sys.time()))
+sure.indel.allrep <- rbind(sure.indel.allrep, sure.indel.allchrom)
+print(paste(replicate, "finished at", Sys.time()))
+
+} ### END LOOP REP 1:6 ###
+
+fname <- paste0(dir.input, "sure.indel.allrep.RDS")
+saveRDS(sure.indel.allrep, file = fname)
+print(paste0("Function completely finished at ", Sys.time()))
 
 
 

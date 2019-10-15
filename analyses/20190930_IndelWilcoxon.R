@@ -3,11 +3,13 @@
 ### change the dataset to subset from (`counts`) to a much smaller dataset containing only the usefull variants. Use the `snps` variable
 ### make sure everything is dataframe
 ### variant annotation is not yet correct as the multiple alleles lead to differen granges. 
+### plus and minus strand is NOT GOOD ANNOTATED
 
 # Script to calculate p-values between alternative and reference sequence
 
 # Load the required libraries
 library(data.table)
+library(tidyverse)
 
 
 # Load the required dataset
@@ -20,7 +22,7 @@ counts.df <- as.data.frame(counts)
 
 
 # Remove Rows with SNP_ID == "."
-counts.df <- counts.df[counts$SNP_ID != ".",]
+counts.df <- counts.df[counts.df$SNP_ID != ".",]
 
 # Get the indel.ids of the indels that have reads for reference and alternative alleles and
 # construct a new dataframe with only these indels. 
@@ -73,7 +75,7 @@ variants.df.nonredundant <- distinct(variants.df)
 
 system.time(
 for (i in 1:length(indel.ids.vector)){
-  print(i)
+  if (i %% 1 == 0){print(i)}
   snp.idx <- which(indel.df$SNP_ID == indel.ids.vector[i])
   
   ref <- which(indel.df[snp.idx, "SNP_VAR"] == 0)
