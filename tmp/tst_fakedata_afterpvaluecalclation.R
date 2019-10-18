@@ -20,13 +20,24 @@ counts <- norm.sure
 #
 ###
 
-results.sure <- results.indel[,1:16]
+results.sure <- results.indel
+
+p.real <- sort(-log10(results.sure$K562.wilcoxon.pvalue))
+p.shuf <- sort(-log10(results.sure$K562.wilcoxon.pvalue.random))
+
+plot(p.shuf, p.real)
+abline(a = 0, b = 1)
 
 raqtl.k562 <- na.omit(results.sure[results.sure$K562.wilcoxon.pvalue < 1.05,])
 raqtl.hepg2 <- na.omit(results.sure[results.sure$HepG2.wilcoxon.pvalue < 1.05,])
 
-
-
+mat <- matrix(nrow = 2, ncol = 2)
+colnames(mat) <- c("promoter", "other")
+rownames(mat) <- c("sign.", "not sign.")
+mat[1,1] <- nrow(results.indel[results.indel$location.annotation == "promoter" & results.indel$K562.wilcoxon.pvalue <0.005,])
+mat[2,1] <- nrow(results.indel[results.indel$location.annotation == "promoter" & results.indel$K562.wilcoxon.pvalue >= 0.005,])
+mat[1,2] <- nrow(results.indel[results.indel$location.annotation != "promoter" & results.indel$K562.wilcoxon.pvalue <0.005,])
+mat[2,2] <- nrow(results.indel[results.indel$location.annotation != "promoter" & results.indel$K562.wilcoxon.pvalue >=0.005,])
 #volcano k562
 fold.change.k562 <- log2(raqtl.k562$K562.cDNA.ref.mean/raqtl.k562$K562.cDNA.alt.mean)
 select.finite <- is.finite(fold.change.k562)

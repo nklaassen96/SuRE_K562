@@ -1,0 +1,167 @@
+> # this script is to have the giant file with all replicates, and split it in files per chromosome
+> #load required libraries
+> 
+> library(data.table)
+> library(tidyverse)
+> library(foreach)
+> library(doMC)
+> registerDoMC(cores = 5)
+> 
+> # define input and output directories
+> 
+> file.input.name <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/sure.indel.6rep.RDS"
+> dir.output <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/SuRE_combined/"
+> 
+> # load the giant datafile
+> 
+> sure.indel.combined <- readRDS(file = file.input.name)
+> 
+> print("large dataframe has been read")
+[1] "large dataframe has been read"
+> # Retrieve the chromosome numbers as one long vector
+> 
+> chrom.idx <- (str_remove_all(string = sure.indel.combined$chrom, pattern = "[_paternalmaternal]"))
+> 
+> # Count rows per chromosome as a test
+> x <- table(chrom.idx)
+> saveRDS(object = x, file = paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/tmp/nrowperchrom.RDS"))
+>  
+> print(paste(Sys.time(), "starting loop"))
+[1] "2019-10-17 17:36:55 starting loop"
+> 
+> foreach(i = c(1:22,"X")) %dopar%{
++   
++   print(paste("starting analysis of chromosome", i, "at", Sys.time()))
++  
++   # 1. Generate a new dataframe for chromosome i only
++   
++   sure.indel.chrom <- sure.indel.combined[chrom.idx == i,]
++   print(paste(Sys.time(),"finished dataframe generation", i))
++   
++   # 2. Save the new dataframe to a new r object
++   
++   file.output.name <- paste0(dir.output, "sure.indel.combined.chrom.", i, ".RDS")
++   saveRDS(object = sure.indel.chrom, file = file.output.name)
++ }
+[1] "starting analysis of chromosome 1 at 2019-10-17 17:36:56"
+[1] "starting analysis of chromosome 2 at 2019-10-17 17:36:57"
+[1] "starting analysis of chromosome 3 at 2019-10-17 17:36:57"
+[1] "starting analysis of chromosome 4 at 2019-10-17 17:36:58"
+[1] "starting analysis of chromosome 5 at 2019-10-17 17:36:59"
+[1] "2019-10-17 17:38:14 finished dataframe generation 1"
+[1] "2019-10-17 17:38:17 finished dataframe generation 3"
+[1] "2019-10-17 17:38:18 finished dataframe generation 4"
+[1] "2019-10-17 17:38:22 finished dataframe generation 5"
+[1] "2019-10-17 17:38:22 finished dataframe generation 2"
+[1] "starting analysis of chromosome 9 at 2019-10-17 17:39:58"
+[1] "starting analysis of chromosome 10 at 2019-10-17 17:39:58"
+[1] "2019-10-17 17:40:01 finished dataframe generation 9"
+[1] "2019-10-17 17:40:02 finished dataframe generation 10"
+[1] "starting analysis of chromosome 8 at 2019-10-17 17:40:07"
+[1] "2019-10-17 17:40:11 finished dataframe generation 8"
+[1] "starting analysis of chromosome 6 at 2019-10-17 17:40:26"
+[1] "2019-10-17 17:40:30 finished dataframe generation 6"
+[1] "starting analysis of chromosome 7 at 2019-10-17 17:40:32"
+[1] "2019-10-17 17:40:36 finished dataframe generation 7"
+[1] "starting analysis of chromosome 14 at 2019-10-17 17:41:08"
+[1] "2019-10-17 17:41:11 finished dataframe generation 14"
+[1] "starting analysis of chromosome 15 at 2019-10-17 17:41:24"
+[1] "2019-10-17 17:41:27 finished dataframe generation 15"
+[1] "starting analysis of chromosome 13 at 2019-10-17 17:41:28"
+[1] "2019-10-17 17:41:31 finished dataframe generation 13"
+[1] "starting analysis of chromosome 19 at 2019-10-17 17:42:05"
+[1] "starting analysis of chromosome 12 at 2019-10-17 17:42:06"
+[1] "2019-10-17 17:42:08 finished dataframe generation 19"
+[1] "starting analysis of chromosome 11 at 2019-10-17 17:42:10"
+[1] "2019-10-17 17:42:11 finished dataframe generation 12"
+[1] "2019-10-17 17:42:14 finished dataframe generation 11"
+[1] "starting analysis of chromosome 20 at 2019-10-17 17:42:21"
+[1] "2019-10-17 17:42:24 finished dataframe generation 20"
+[1] "starting analysis of chromosome 18 at 2019-10-17 17:42:28"
+[1] "2019-10-17 17:42:32 finished dataframe generation 18"
+[1] "starting analysis of chromosome X at 2019-10-17 17:43:16"
+[1] "2019-10-17 17:43:19 finished dataframe generation X"
+[1] "starting analysis of chromosome 16 at 2019-10-17 17:43:29"
+[1] "2019-10-17 17:43:32 finished dataframe generation 16"
+[1] "starting analysis of chromosome 17 at 2019-10-17 17:43:37"
+[1] "2019-10-17 17:43:40 finished dataframe generation 17"
+[1] "starting analysis of chromosome 21 at 2019-10-17 17:44:22"
+[1] "2019-10-17 17:44:24 finished dataframe generation 21"
+[1] "starting analysis of chromosome 22 at 2019-10-17 17:44:36"
+[1] "2019-10-17 17:44:38 finished dataframe generation 22"
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
+[[22]]
+NULL
+
+[[23]]
+NULL
+
+> 
+> 
+> print(paste(Sys.time(), "end loop"))
+[1] "2019-10-17 17:45:04 end loop"
+>   
+> 
+> 

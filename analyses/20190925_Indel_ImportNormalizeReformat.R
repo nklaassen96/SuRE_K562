@@ -17,7 +17,7 @@ dir.input <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_g
 
 sure.indel.allrep <- NULL
 #replicate <- "SuRE42-1/"
-for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/")){
+for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-1/", "SuRE44-2/" )){
 
   # Genarate a string that can be used to name and identify files
   rep.str <- str_replace(string = str_remove_all(replicate, pattern = "[SuRE/]"), pattern = "-", replacement = "_")
@@ -31,7 +31,7 @@ for (chrom in c(1:22, "X")){
   
   sure.indel.allparent <- NULL
 
-  for (parent in c("ambiguous", "equal", "maternal", "paternal")){
+  for (parent in c("equal", "maternal", "paternal")){
   
     print(paste("start", parent, "at", Sys.time()))
     file.name <- paste0(dir.input, replicate, parent, "/", chrom, ".bedpe.gz")

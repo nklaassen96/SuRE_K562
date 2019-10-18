@@ -1,0 +1,157 @@
+> # this script is to have the giant file with all replicates, and split it in files per chromosome
+> #load required libraries
+> 
+> library(data.table)
+> library(tidyverse)
+> library(foreach)
+> library(doMC)
+> registerDoMC(cores = 20)
+> 
+> # load the giant datafile
+> file.input.name <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/sure.indel.allrepWRONG.RDS"
+> dir.output <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/SuRE_combined/"
+> sure.indel.combined <- readRDS(file = file.input.name)
+> 
+> 
+> 
+> chrom.idx <- (str_remove_all(string = sure.indel.combined$chrom, pattern = "[_paternalmaternal]"))
+> 
+>  
+> print(paste("starting loop at", Sys.time()))
+[1] "starting loop at 2019-10-16 13:12:39"
+> 
+> foreach(i = c(1:22,"X")) %dopar%{
++   
++   print(paste("starting analysis of chromosome", i, "at", Sys.time()))
++  
++   #Generate a new dataframe for chromosome i only
++   sure.indel.chrom <- sure.indel.combined[chrom.idx == i,]
++   
++   print(paste("finished dataframe generation", i))
++   
++   #Save the new dataframe to a new r object
++   file.output.name <- paste0(dir.output, "sure.indel.combined.chrom.", i, ".RDS")
++   saveRDS(object = sure.indel.chrom, file = file.output.name)
++ }
+[1] "starting analysis of chromosome 1 at 2019-10-16 13:12:40"
+[1] "starting analysis of chromosome 2 at 2019-10-16 13:12:41"
+[1] "starting analysis of chromosome 3 at 2019-10-16 13:12:42"
+[1] "starting analysis of chromosome 4 at 2019-10-16 13:12:43"
+[1] "starting analysis of chromosome 5 at 2019-10-16 13:12:44"
+[1] "starting analysis of chromosome 6 at 2019-10-16 13:12:45"
+[1] "starting analysis of chromosome 7 at 2019-10-16 13:12:46"
+[1] "starting analysis of chromosome 8 at 2019-10-16 13:12:47"
+[1] "starting analysis of chromosome 9 at 2019-10-16 13:12:48"
+[1] "starting analysis of chromosome 10 at 2019-10-16 13:12:49"
+[1] "starting analysis of chromosome 11 at 2019-10-16 13:12:51"
+[1] "starting analysis of chromosome 12 at 2019-10-16 13:12:52"
+[1] "finished dataframe generation 8"
+[1] "starting analysis of chromosome 13 at 2019-10-16 13:12:54"
+[1] "finished dataframe generation 9"
+[1] "finished dataframe generation 10"
+[1] "starting analysis of chromosome 14 at 2019-10-16 13:12:55"
+[1] "finished dataframe generation 11"
+[1] "starting analysis of chromosome 15 at 2019-10-16 13:12:57"
+[1] "finished dataframe generation 13"
+[1] "starting analysis of chromosome 16 at 2019-10-16 13:12:59"
+[1] "finished dataframe generation 12"
+[1] "starting analysis of chromosome 17 at 2019-10-16 13:13:00"
+[1] "finished dataframe generation 15"
+[1] "finished dataframe generation 14"
+[1] "starting analysis of chromosome 18 at 2019-10-16 13:13:02"
+[1] "finished dataframe generation 16"
+[1] "starting analysis of chromosome 19 at 2019-10-16 13:13:03"
+[1] "starting analysis of chromosome 20 at 2019-10-16 13:13:04"
+[1] "finished dataframe generation 17"
+[1] "finished dataframe generation 18"
+[1] "finished dataframe generation 19"
+[1] "finished dataframe generation 20"
+[1] "finished dataframe generation 3"
+[1] "finished dataframe generation 7"
+[1] "finished dataframe generation 4"
+[1] "finished dataframe generation 1"
+[1] "finished dataframe generation 2"
+[1] "finished dataframe generation 5"
+[1] "finished dataframe generation 6"
+[1] "starting analysis of chromosome X at 2019-10-16 13:15:45"
+[1] "starting analysis of chromosome 22 at 2019-10-16 13:16:13"
+[1] "starting analysis of chromosome 21 at 2019-10-16 13:16:23"
+[1] "finished dataframe generation X"
+[1] "finished dataframe generation 22"
+[1] "finished dataframe generation 21"
+[[1]]
+NULL
+
+[[2]]
+NULL
+
+[[3]]
+NULL
+
+[[4]]
+NULL
+
+[[5]]
+NULL
+
+[[6]]
+NULL
+
+[[7]]
+NULL
+
+[[8]]
+NULL
+
+[[9]]
+NULL
+
+[[10]]
+NULL
+
+[[11]]
+NULL
+
+[[12]]
+NULL
+
+[[13]]
+NULL
+
+[[14]]
+NULL
+
+[[15]]
+NULL
+
+[[16]]
+NULL
+
+[[17]]
+NULL
+
+[[18]]
+NULL
+
+[[19]]
+NULL
+
+[[20]]
+NULL
+
+[[21]]
+NULL
+
+[[22]]
+NULL
+
+[[23]]
+NULL
+
+> 
+> 
+> print(paste("end loop at", Sys.time()))
+[1] "end loop at 2019-10-16 13:17:58"
+>   
+> 
+> 

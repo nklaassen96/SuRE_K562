@@ -106,3 +106,6 @@ Literature research on the COSMIC and dbSNP databases. It is still not clear to 
 Discussed again with Bas and Ludo that we are going to leave the K562 paper behind. Now we are going to work on the indels. 
 
 # Project 2: SuRE: Germline Indels {#p2}
+
+#### 18-10-2019 (Fr)
+Last week I have worked a lot on the data for the indels. First there was a problem with the "SNP_PARENT" column, that was not annotated correctly for the indels. Then, using the script that normalizes the data and saves the data in one (1) variant per row, it went wrong with the SuRE44_2 repeat. It turned out that this error was due to the fact that some columns in "SNP_ABS_POS_hg19"

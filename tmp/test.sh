@@ -1,0 +1,1 @@
+/usr/bin/time -v nice -19 R --no-save -q < ~/projects/SuRE_K562/analyses/20191016_SplitNormalizedCounts.R > ~/projects/SuRE_K562/analyses/Logs/20191017split.Rout
