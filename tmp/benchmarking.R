@@ -8,7 +8,7 @@ microbenchmark(mean(counts.df[snp.idx[ref], "cDNA.HepG2.norm.ipcr"]),
                mean(counts[snp.idx[ref], `cDNA.HepG2.norm.ipcr`]),
                mean(counts[snp.idx[ref], ]$cDNA.HepG2.norm.ipcr),
                
-               times = 10
+               times = 100
                )
 
 # 1,2,3 = GOOD ; # 4 = BAD (40% slower)
