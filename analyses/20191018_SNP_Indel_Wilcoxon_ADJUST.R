@@ -2,6 +2,7 @@
 ### variant annotation is not yet correct as the multiple alleles lead to differen granges. 
 ### plus and minus strand is NOT GOOD ANNOTATED
 
+
 # Script to calculate p-values between alternative and reference sequence
 
 # Load the required libraries
@@ -9,15 +10,15 @@ library(data.table)
 library(tidyverse)
 library(foreach)
 library(doMC)
-registerDoMC(cores = 3)
+registerDoMC(cores = 6)
 
 ### load annotation libraries ###
-
+'
 library(TxDb.Hsapiens.UCSC.hg19.knownGene)
 library(VariantTools)
 library(dplyr)
 txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
-
+'
 ###
 
 
@@ -25,20 +26,19 @@ txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
 
 # Loop through all files (1 file per chromosome)
 
-dir.input  = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/SuRE_combined/sure.snp_indel.combined.chrom."
-dir.output = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_pvalue/"
+
 
 print(paste("start function at", Sys.time()))
 
 
 
-foreach(k=c(1,9,17)) %dopar% {
+#foreach(k=c(1:22,"X")) %dopar% {
+foreach(k=c(1:2,4,7,10:11,13:22,"X")) %dopar% { 
   
+   
   # open the file and remove unnecesary columns
-  
-  file.name <- paste0(dir.input, k, ".RDS")  
-  counts.df <- readRDS(file = file.name)
-  counts.df[,c("count","SNP_PARENT", "cDNA.K562.B1", "cDNA.K562.B2", "cDNA.K562.B3", "cDNA.HepG2.B1", "cDNA.HepG2.B2", "library", "cDNA.K562.sum.norm", "cDNA.HepG2.sum.norm")] <- NULL
+  counts.df <- readRDS(file = paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Test_Old_Data/sure.reads.allrep.chr.", k, ".RDS"))
+  counts.df[,c("count","cDNA.K562.B1", "cDNA.K562.B2", "cDNA.K562.B3", "cDNA.HepG2.B1", "cDNA.HepG2.B2", "library", "cDNA.K562.sum.norm", "cDNA.HepG2.sum.norm", "SNPbase", "SNPvar")] <- NULL
   gc()
   
   
@@ -62,17 +62,21 @@ foreach(k=c(1,9,17)) %dopar% {
   
   #### ANNOTATION PREP
   b <- nrow(counts.df)
-  counts.df <- counts.df[!is.na(counts.df$SNP_ABS_POS_hg19),]
+  counts.df <- counts.df[!is.na(counts.df$SNPabspos),]
   a <- nrow(counts.df)
-  print(paste0(b-a,"/",b, " rows removed with NA in SNP_ABS_POS_hg19"))
+  print(paste0(b-a,"/",b, " rows removed with NA in SNPabspos"))
   
+  
+  
+  # REMOVE VARIANT ANNOTATION WITH THIS COMMA:
+  ' 
   # PREPARATION #
   
   # Generate a granges file from the results.sure dataframe
   # The reduce function is used to remove similar regions
-  snp.granges <- reduce(GRanges(seqnames = paste0("chr", str_remove_all(string = counts.df[, "chrom"], pattern = "[_maternalpaternal]")),
-                                ranges = IRanges(start = as.numeric(counts.df[,"SNP_ABS_POS_hg19"]),
-                                                 end =   as.numeric(counts.df[,"SNP_ABS_POS_hg19"]))
+  snp.granges <- reduce(GRanges(seqnames = counts.df[, "chr"],
+                                ranges = IRanges(start = as.numeric(counts.df[,"SNPabspos"]),
+                                                 end =   as.numeric(counts.df[,"SNPabspos"]))
   ))
   print("snp.granges has been created")
   
@@ -94,7 +98,8 @@ foreach(k=c(1,9,17)) %dopar% {
   variants.df.nonredundant <- dplyr::distinct(variants.df)
 
   #### ANNOTATION PREP END
-  
+  ' 
+  # STOP REMOVAL
   
   
   
@@ -122,7 +127,7 @@ foreach(k=c(1,9,17)) %dopar% {
   # Get the indel.ids of the indels that have reads for reference and alternative alleles and
   # construct a new dataframe with only these indels. 
   
-  snp_indel.ids.vector <- names(which(tapply(reduced.counts.df$SNP_VAR, reduced.counts.df$SNP_ID, function(x) {all(c(0,1) %in% x)} ) == TRUE))
+  snp_indel.ids.vector <- names(which(tapply(reduced.counts.df$SNPvarInf, reduced.counts.df$SNP_ID, function(x) {all(c(0,1) %in% x)} ) == TRUE))
   print(length(snp_indel.ids.vector))
   
   snp_indel.df <- reduced.counts.df[reduced.counts.df$SNP_ID %in% snp_indel.ids.vector,]
@@ -145,8 +150,8 @@ foreach(k=c(1,9,17)) %dopar% {
   
   # Generate an empty results dataframe for the indels 
   
-  results.indel <- data.frame(matrix(nrow = length(snp_indel.ids.vector), ncol = 21))
-  colnames(results.indel) <- c("SNP_ID","snp.type","ref.seq", "alt.seq", "chrom", "pos.hg19", "ref.element.count", "alt.element.count", "K562.cDNA.ref.mean","K562.cDNA.alt.mean", "K562.cDNA.ref.median", "K562.cDNA.alt.median", "HepG2.cDNA.ref.mean","HepG2.cDNA.alt.mean","HepG2.cDNA.ref.median", "HepG2.cDNA.alt.median", "K562.wilcoxon.pvalue", "HepG2.wilcoxon.pvalue", "K562.wilcoxon.pvalue.random", "HepG2.wilcoxon.pvalue.random", "location.annotation")
+  results.indel <- data.frame(matrix(nrow = length(snp_indel.ids.vector), ncol = 20))
+  colnames(results.indel) <- c("SNP_ID","ref.seq", "alt.seq", "chrom", "pos.hg19", "ref.element.count", "alt.element.count", "K562.cDNA.ref.mean","K562.cDNA.alt.mean", "K562.cDNA.ref.median", "K562.cDNA.alt.median", "HepG2.cDNA.ref.mean","HepG2.cDNA.alt.mean","HepG2.cDNA.ref.median", "HepG2.cDNA.alt.median", "K562.wilcoxon.pvalue", "HepG2.wilcoxon.pvalue", "K562.wilcoxon.pvalue.random", "HepG2.wilcoxon.pvalue.random", "location.annotation")
   
 
   
@@ -161,21 +166,20 @@ foreach(k=c(1,9,17)) %dopar% {
     
     snp.idx <- which(snp_indel.df$SNP_ID == snp_indel.ids.vector[i])
     
-    ref <- which(snp_indel.df[snp.idx, "SNP_VAR"] == 0)
-    alt <- which(snp_indel.df[snp.idx, "SNP_VAR"] == 1)
+    ref <- which(snp_indel.df[snp.idx, "SNPvarInf"] == 0)
+    alt <- which(snp_indel.df[snp.idx, "SNPvarInf"] == 1)
     
     ref.random <- sample(c(ref,alt), size = length(ref))
     alt.random <- c(ref,alt)[!c(ref,alt)%in%ref.random]
     
     # Construct results dataframe
     results.indel[i,"SNP_ID"]  <- snp_indel.df[snp.idx[1], "SNP_ID"]
-    results.indel[i,"chrom"]   <- str_remove_all(string = snp_indel.df[snp.idx[1], "chrom"], pattern = "[_maternalpaternal]")
-    results.indel[i,"pos.hg19"]<- snp_indel.df[snp.idx[1], "SNP_ABS_POS_hg19"]
-    results.indel[i,"snp.type"]<- snp_indel.df[snp.idx[1], "SNP_TYPE"]
-    #results.indel[i,"snp.subtype"] <- snp_indel.df[snp.idx[1], "SNP_SUBTYPE"]
+    results.indel[i,"chrom"]   <- snp_indel.df[snp.idx[1], "chr"]
+    results.indel[i,"pos.hg19"]<- snp_indel.df[snp.idx[1], "SNPabspos"]
+
     
-    results.indel[i,"ref.seq"] <- snp_indel.df[snp.idx[ref[1]], "SNP_SEQ"]
-    results.indel[i,"alt.seq"] <- snp_indel.df[snp.idx[alt[1]], "SNP_SEQ"]
+    results.indel[i,"ref.seq"] <- snp_indel.df[snp.idx[ref[1]], "SNPbaseInf"]
+    results.indel[i,"alt.seq"] <- snp_indel.df[snp.idx[alt[1]], "SNPbaseInf"]
     
     results.indel[i,"ref.element.count"] <- length(ref)
     results.indel[i,"alt.element.count"] <- length(alt)
@@ -195,12 +199,12 @@ foreach(k=c(1,9,17)) %dopar% {
     results.indel[i,"HepG2.wilcoxon.pvalue"] <- wilcox.test(snp_indel.df[snp.idx[ref], "cDNA.HepG2.norm.ipcr"], snp_indel.df[snp.idx[alt], "cDNA.HepG2.norm.ipcr"])$p.value
     results.indel[i,"K562.wilcoxon.pvalue.random"] <- wilcox.test(snp_indel.df[snp.idx[ref.random], "cDNA.K562.norm.ipcr"], snp_indel.df[snp.idx[alt.random], "cDNA.K562.norm.ipcr"])$p.value
     results.indel[i,"HepG2.wilcoxon.pvalue.random"] <- wilcox.test(snp_indel.df[snp.idx[ref.random], "cDNA.HepG2.norm.ipcr"], snp_indel.df[snp.idx[alt.random], "cDNA.HepG2.norm.ipcr"])$p.value
-    
+    '
     #annotate the variant location (e.g. promoter intron etc.)
     
     # Generate a unique snp.id in the format "chr1:3824989"
     
-    snp.id <- paste0("chr", results.indel[i,"chrom"], ":", results.indel[i,"pos.hg19"])
+    snp.id <- paste0(results.indel[i,"chrom"], ":", results.indel[i,"pos.hg19"])
     
     # Generate a factor stating all variants for that specific snp (could be >1)
     # Then sort the factor based on the levels and take the first (most important)
@@ -209,7 +213,7 @@ foreach(k=c(1,9,17)) %dopar% {
     variants <- sort(variants.df.nonredundant[variants.df.nonredundant$df.snp.pos == snp.id, "df.variant"])
     
     results.indel[i,"location.annotation"] <- as.character(variants[1])
-    
+    '
     
   
   } # end for-loop through 1000 snps
@@ -218,7 +222,7 @@ foreach(k=c(1,9,17)) %dopar% {
   
   } # end for-loop through snp-blocks
   
-  file.name <- paste0(dir.output, "sure.snp_indel.dataframe.pvalue.chrom.", k,".RDS")
+  file.name <- paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Test_Old_Data/pvalue.dataframe.chrom.", k,".RDS")
   saveRDS(object = all.results.indel, file = file.name)
   print(paste("end function chrom",k, Sys.time()))
   
@@ -227,12 +231,15 @@ foreach(k=c(1,9,17)) %dopar% {
 
 #After generation of all the individual files, load them all and concatonate them
 print(paste( Sys.time(), "start concatonating"))
+
 results.indel.all <- NULL
 
 for (i in c(1:22,"X")){
+  
   print(paste(Sys.time(), "start", i))
+ 
   # 1. Define data
-  dir.input <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_pvalue/sure.snp_indel.dataframe.pvalue.chrom."
+  dir.input <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Test_Old_Data/pvalue.dataframe.chrom."
   file.name <- paste0(dir.input, i, ".RDS")
   
   
@@ -263,7 +270,7 @@ a <- nrow(results.indel.all)
 print(paste0(b-a,"/",b, " rows removed with p.value NA removal"))
 
 
-file.name <- paste0(dir.output, "sure.snp_indel.dataframe.pvalue.all.20191105.RDS")
+file.name <- paste0("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Test_Old_Data/pvalue.dataframe.all.20191106.RDS")
 saveRDS(object = results.indel.all, file = file.name)
 
 print(paste(Sys.time(), "finish concatonating"))

@@ -7,16 +7,33 @@ library(data.table)
 library(tidyverse)
 library(foreach)
 library(doMC)
-registerDoMC(cores = 30)
+registerDoMC(cores = 10)
 
 
 dir.input <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_gDNA_Count/"
 
 #sure.snp_indel.allrep <- NULL
-#replicate <- "SuRE42-1/"
-for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-1/", "SuRE44-2/", "SuRE45-1/", "SuRE45-2/")){
-  
-  
+replicate <- "SuRE42-1/" # Sure45 first because this one is the most likely to give errorsss.
+
+rowsum.counts <- NULL
+rowsum.cdna1 <- NULL
+rowsum.cdna2 <- NULL
+rowsum.cdna3 <- NULL
+rowsum.cdna4 <- NULL
+rowsum.cdna5 <- NULL
+
+rowsumaftersplit.counts <- NULL
+rowsumaftersplit.cdna1 <- NULL
+rowsumaftersplit.cdna2 <- NULL
+rowsumaftersplit.cdna3 <- NULL
+rowsumaftersplit.cdna4 <- NULL
+rowsumaftersplit.cdna5 <- NULL
+
+### ### ### ### ### ### ### 44-1 AND ARE NOT BEING DONE, BE WARY FOR THIS!!! ONLY 7 REPS ### ### ### ### ### ###
+
+#for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-2/","SuRE45-1/", "SuRE45-2/")){
+#foreach(replicate = c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-2/","SuRE45-1/", "SuRE45-2/")) %dopar% {  
+foreach(replicate = c("SuRE44-1/")) %dopar% {    
   # First step is to normalize the data per replicate, to do that,
   # we need the total amount of ipcr counts and cdna counts. The
   # foreach loops provide a simple way to count the sum of the aforementioned
@@ -29,14 +46,27 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
   f4 <- ".bedpe.gz"
   file.vector <- paste0(f1,f2,f3,f4) 
   
-  sum.counts <-sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = c("count")))}))
-  sum.cdna1 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 14))}))
-  sum.cdna2 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 15))}))
-  sum.cdna3 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 16))}))
-  sum.cdna4 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 17))}))
-  sum.cdna5 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 18))}))
+  #check whether the file is already there, otherwise, generate it
   
-  saveRDS(object = data.frame(sum.counts, sum.cdna1, sum.cdna2, sum.cdna3, sum.cdna4, sum.cdna5, row.names ="total counts"), file = paste0(dir.input, replicate, "read.totals.RDS"))
+  read.totals.file <- paste0(dir.input, replicate, "read.totals.RDS")
+  
+  if (file.exists(read.totals.file)) {
+    sum.counts <-readRDS(read.totals.file)[,1]
+    sum.cdna1 <- readRDS(read.totals.file)[,2]
+    sum.cdna2 <- readRDS(read.totals.file)[,3]
+    sum.cdna3 <- readRDS(read.totals.file)[,4]
+    sum.cdna4 <- readRDS(read.totals.file)[,5]
+    sum.cdna5 <- readRDS(read.totals.file)[,6]
+    } else {
+    sum.counts <-sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = c("count")))}))
+    sum.cdna1 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 14))}))
+    sum.cdna2 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 15))}))
+    sum.cdna3 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 16))}))
+    sum.cdna4 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 17))}))
+    sum.cdna5 <- sum(unlist(foreach(k = c(1:length(file.vector))) %dopar% {sum(fread(file.vector[k], header = TRUE, sep = "\t", stringsAsFactors = FALSE, select = 18))}))
+    
+    saveRDS(object = data.frame(sum.counts, sum.cdna1, sum.cdna2, sum.cdna3, sum.cdna4, sum.cdna5, row.names ="total counts"), file = paste0(dir.input, replicate, "read.totals.RDS"))
+    }
   
   
   # Genarate a string that can be used to name and identify files
@@ -62,6 +92,101 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
       
       sure.BCcounts <- fread(file.name, header = TRUE, sep = "\t", stringsAsFactors = FALSE, drop = c("BC", "start", "end", "SNP_ABS_POS", "SNP_SUBTYPE", "start_hg19", "end_hg19"))
       sure.BCcounts <- sure.BCcounts[sure.BCcounts$SNP_ID != ""]
+      
+      
+      # testing testing testing testing downsampling
+            
+      
+            # retrieve files from the NatGen paper
+            downsample.k562.42.1 <- readRDS(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/Downsampling.vectors.joris/k562.downsampling.vector.SuRE42_1.180803 (2).rds")
+            downsample.hepg2.42.1 <-readRDS(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/Downsampling.vectors.joris/HepG2.downsampling.vector.SuRE42_1.180803.rds")
+            downsample.hepg2.43.1 <-readRDS(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/Downsampling.vectors.joris/HepG2.downsampling.vector.SuRE43_1.180803.rds")
+            
+            #downsample 42_1 (K562 & HepG2)
+            if (rep.str == "42_1"){
+            
+              
+              
+              
+              sure.BCcounts <- as.data.frame(sure.BCcounts)
+              sure.BCcounts$number <- seq(1:nrow(sure.BCcounts))
+            
+              for (i in 1:5){
+           
+              
+                # check column names
+                #print(i)
+                print(colnames(sure.BCcounts)[8+i])
+                
+                # make dataframe otherwise it will be harder to script
+                sure.BCcounts <- as.data.frame(sure.BCcounts)
+                
+                # downsample from the cDNA values
+                snpcounts <- rep(sure.BCcounts$number, sure.BCcounts[,8+i])
+                
+                snpcounts.sample <- sample(snpcounts, size = round(
+                  length(snpcounts) * c(downsample.k562.42.1,downsample.hepg2.42.1)[i],
+                  digits = 0))
+                
+                sure.BCcounts[,8+i] = 0
+                
+                sure.BCcounts[match(names(table(snpcounts.sample)),sure.BCcounts$number), i + 8] <- table(snpcounts.sample)
+              }
+            
+            # return back to data.table and remove the previously added "number" column   
+            sure.BCcounts$number <- NULL
+            sure.BCcounts <- as.data.table(sure.BCcounts)
+              
+            }
+            
+            #downsample 43_1 (HepG2 only)
+            if (rep.str == "43_1"){
+              
+              
+              
+              sure.BCcounts <- as.data.frame(sure.BCcounts)
+              sure.BCcounts$number <- seq(1:nrow(sure.BCcounts))
+              
+              for (i in 1:2){
+                
+                
+                # check column names
+                print(i)
+                print(colnames(sure.BCcounts)[11+i])
+                
+                # make dataframe otherwise it will be harder to script
+                sure.BCcounts <- as.data.frame(sure.BCcounts)
+                
+                # downsample
+                snpcounts <- rep(sure.BCcounts$number, sure.BCcounts[,11+i])
+                
+                snpcounts.sample <- sample(snpcounts, size = round(
+                  length(snpcounts) * c(downsample.hepg2.43.1)[i],
+                  digits = 0))
+                
+                sure.BCcounts[,11+i] = 0
+                
+                sure.BCcounts[match(names(table(snpcounts.sample)),sure.BCcounts$number),11+i] <- table(snpcounts.sample)
+              }
+            
+            # return back to data.table and remove the previously added "number" column   
+            sure.BCcounts$number <- NULL
+            sure.BCcounts <- as.data.table(sure.BCcounts)  
+              
+            }
+        
+         
+      
+      # testing testing testing testing end!
+      
+      # count to see whether downsampling was correct
+      rowsum.counts <- sum(sum(sure.BCcounts$count), rowsum.counts)
+      rowsum.cdna1 <- sum(sum(sure.BCcounts[,9]), rowsum.cdna1)
+      rowsum.cdna2 <- sum(sum(sure.BCcounts[,10]), rowsum.cdna2)
+      rowsum.cdna3 <- sum(sum(sure.BCcounts[,11]), rowsum.cdna3)
+      rowsum.cdna4 <- sum(sum(sure.BCcounts[,12]), rowsum.cdna4)
+      rowsum.cdna5 <- sum(sum(sure.BCcounts[,13]), rowsum.cdna5)
+      
       print("read counts")
       
       ## For some gDNA fragments, the variant within this fragment is sequenced twice,
@@ -103,6 +228,10 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
       
       sure.snp_indel <- x[!unlist(snp.duplicates)]
       
+      # make a numeric column of the SNP_ABS_POS_hg19
+      
+      sure.snp_indel$SNP_ABS_POS_hg19 <- as.numeric(sure.snp_indel$SNP_ABS_POS_hg19)
+      
       
       # Combine the `equal`, `maternal` and `paternal` data into 1 object
       
@@ -119,33 +248,67 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
     sure.snp_indel.allparent <- na.omit(sure.snp_indel.allparent)
     sure.snp_indel.allparent <- sure.snp_indel.allparent[sure.snp_indel.allparent$SNP_PARENT != "boundary_ovl" & 
                                                    sure.snp_indel.allparent$SNP_PARENT != "unexpected" & 
-                                                   sure.snp_indel.allparent$SNP_PARENT != "unread",]
+                                                   sure.snp_indel.allparent$SNP_PARENT != "unread" &
+                                                   sure.snp_indel.allparent$SNP_PARENT != "maternal_unexpected" &
+                                                   sure.snp_indel.allparent$SNP_PARENT != "paternal_unexpected" &
+                                                   sure.snp_indel.allparent$SNP_PARENT != "non_paternal_allele",]
     
     # Add a column for the library
     sure.snp_indel.allparent$library <- rep.str
-    
     
     
     # After the end of the loop through the chromosomes there is an R 
     # Object (`sure.indel.allchrom`) that contains all desired variants
     # for one specific replicate. iPCR data (`counts`) and cDNA counts 
     # (e.g. SuRE42_2_HepG2_B1) should be normalized to reads per billion
+    #
+    # With this we have to keep in mind that we downsampled for 42.1 (both cell lines) and 43.1 (HepG2 only), therefore
+    # we also have to adjust the normalization for these samples
+    
+    if (rep.str == "42_1"){
+      sure.snp_indel.allparent$count <- round(sure.snp_indel.allparent$count / sum.counts * 1e9, digits = 2)
+      sure.snp_indel.allparent[,9]   <- round(sure.snp_indel.allparent[,9] / (sum.cdna1 * c(downsample.k562.42.1,downsample.hepg2.42.1)[1]) * 1e9, digits = 1)
+      sure.snp_indel.allparent[,10]  <- round(sure.snp_indel.allparent[,10] / (sum.cdna2 * c(downsample.k562.42.1,downsample.hepg2.42.1)[2]) * 1e9, digits = 1)
+      sure.snp_indel.allparent[,11]  <- round(sure.snp_indel.allparent[,11] / (sum.cdna3 * c(downsample.k562.42.1,downsample.hepg2.42.1)[3]) * 1e9, digits = 1)
+      sure.snp_indel.allparent[,12]  <- round(sure.snp_indel.allparent[,12] / (sum.cdna4 * c(downsample.k562.42.1,downsample.hepg2.42.1)[4]) * 1e9, digits = 1)
+      sure.snp_indel.allparent[,13]  <- round(sure.snp_indel.allparent[,13] / (sum.cdna5 * c(downsample.k562.42.1,downsample.hepg2.42.1)[5]) * 1e9, digits = 1)
+    } else if (rep.str == "43_1") {
+      sure.snp_indel.allparent$count <- round(sure.snp_indel.allparent$count / sum.counts * 1e9, digits = 2)
+      sure.snp_indel.allparent[,9]   <- round(sure.snp_indel.allparent[,9] / sum.cdna1 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,10]  <- round(sure.snp_indel.allparent[,10] / sum.cdna2 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,11]  <- round(sure.snp_indel.allparent[,11] / sum.cdna3 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,12]  <- round(sure.snp_indel.allparent[,12] / (sum.cdna4 * downsample.hepg2.43.1[1]) * 1e9, digits = 1)
+      sure.snp_indel.allparent[,13]  <- round(sure.snp_indel.allparent[,13] / (sum.cdna5 * downsample.hepg2.43.1[2]) * 1e9, digits = 1)
+    } else {
+      sure.snp_indel.allparent$count <- round(sure.snp_indel.allparent$count / sum.counts * 1e9, digits = 2)
+      sure.snp_indel.allparent[,9]   <- round(sure.snp_indel.allparent[,9] / sum.cdna1 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,10]  <- round(sure.snp_indel.allparent[,10] / sum.cdna2 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,11]  <- round(sure.snp_indel.allparent[,11] / sum.cdna3 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,12]  <- round(sure.snp_indel.allparent[,12] / sum.cdna4 * 1e9, digits = 1)
+      sure.snp_indel.allparent[,13]  <- round(sure.snp_indel.allparent[,13] / sum.cdna5 * 1e9, digits = 1)
+    }
+      
+    # check the rowsums for later to see if downsampling was done correctly  
+    rowsumaftersplit.counts <- sum(sum(sure.snp_indel.allparent$count), rowsumaftersplit.counts)
+    rowsumaftersplit.cdna1 <- sum(sum(sure.snp_indel.allparent[,9]), rowsumaftersplit.cdna1)
+    rowsumaftersplit.cdna2 <- sum(sum(sure.snp_indel.allparent[,10]), rowsumaftersplit.cdna2)
+    rowsumaftersplit.cdna3 <- sum(sum(sure.snp_indel.allparent[,11]), rowsumaftersplit.cdna3)
+    rowsumaftersplit.cdna4 <- sum(sum(sure.snp_indel.allparent[,12]), rowsumaftersplit.cdna4)
+    rowsumaftersplit.cdna5 <- sum(sum(sure.snp_indel.allparent[,13]), rowsumaftersplit.cdna5)
+    
+    
+
   
-    sure.snp_indel.allparent$count <- round(sure.snp_indel.allparent$count / sum.counts * 1e9, digits = 2)
-    sure.snp_indel.allparent[,9]   <- round(sure.snp_indel.allparent[,9] / sum.cdna1 * 1e9, digits = 1)
-    sure.snp_indel.allparent[,10]  <- round(sure.snp_indel.allparent[,10] / sum.cdna2 * 1e9, digits = 1)
-    sure.snp_indel.allparent[,11]  <- round(sure.snp_indel.allparent[,11] / sum.cdna3 * 1e9, digits = 1)
-    sure.snp_indel.allparent[,12]  <- round(sure.snp_indel.allparent[,12] / sum.cdna4 * 1e9, digits = 1)
-    sure.snp_indel.allparent[,13]  <- round(sure.snp_indel.allparent[,13] / sum.cdna5 * 1e9, digits = 1)
+
   
   
     # To concatonate the R objects containing all chromosomes for every replicate,
-    # The columnnames of these objects should be an exact match. For every first replicate (e.g. 44-1)
+    # The columnnames of these objects should be an exact match. For every first replicate (e.g. 44-1) and 45-2
     # They are in the order K562 B1-B3 and then HepG2 B1-2. While for every second replicate (e.g. 44-2)
     # The order is reversed (HepG2 B1-B2 followed by K562 B1-B3). Column names are altered with the following script
   
     print(head(sure.snp_indel.allparent))
-    if (replicate %in% (c("SuRE42-1/","SuRE43-1/","SuRE44-1/", "SuRE45-1/"))){
+    if (replicate %in% (c("SuRE42-1/","SuRE43-1/","SuRE44-1/", "SuRE45-1/", "SuRE45-2/"))){
         colnames(sure.snp_indel.allparent)[9:13] <- c("cDNA.K562.B1", "cDNA.K562.B2", "cDNA.K562.B3", "cDNA.HepG2.B1", "cDNA.HepG2.B2")} else {
         colnames(sure.snp_indel.allparent)[9:13] <- c("cDNA.HepG2.B1", "cDNA.HepG2.B2", "cDNA.K562.B1", "cDNA.K562.B2", "cDNA.K562.B3")
     }
@@ -167,8 +330,9 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
     
     } ### END LOOP CHROM 1:22,X ###
   
-  
-  
+  # check whether downsampling was correct:
+  saveRDS(object = data.frame(rowsum.counts, rowsum.cdna1, rowsum.cdna2, rowsum.cdna3, rowsum.cdna4, rowsum.cdna5, row.names ="total counts"), file = paste0(dir.input, replicate, "downsampled.read.totals.RDS"))
+  saveRDS(object = data.frame(rowsumaftersplit.counts, rowsumaftersplit.cdna1, rowsumaftersplit.cdna2, rowsumaftersplit.cdna3, rowsumaftersplit.cdna4, rowsumaftersplit.cdna5, row.names ="total counts after split"), file = paste0(dir.input, replicate, "downsampled.after.split.read.totals.RDS"))
   
   # # For every replicate, the R object containing the variants for all chromosomes
   # # is saved into the /combined directory of the respective replicate
@@ -180,8 +344,8 @@ for (replicate in c("SuRE42-1/", "SuRE42-2/", "SuRE43-1/", "SuRE43-2/", "SuRE44-
   # sure.snp_indel.allrep <- rbind(sure.snp_indel.allrep, sure.snp_indel.allchrom)
   
   print(paste(replicate, "finished at", Sys.time()))
-  
-} ### END LOOP REP 1:6 ###
+  gc()
+} ### END LOOP REP 1:7 ###
 
 # fname <- paste0(dir.input, "sure.snp_indel.6rep.RDS")
 # saveRDS(sure.snp_indel.allrep, file = fname)
@@ -193,14 +357,14 @@ gc()
 
 ##### SCRIPT 2: COMBINING FILES PER CHROMOSOME #####
 
-# This second part of the script is used to generate separate count files per chromosome
+# This second part of the script is used to generate separate count files per chromosome for all replicates. 
 
 library(data.table)
 library(tidyverse)
 library(foreach)
 library(doMC)
 print(paste0(Sys.time(), " start script 2"))
-registerDoMC(cores = 3)
+registerDoMC(cores = 4)
 
 # define input and output directories
 
@@ -259,14 +423,11 @@ foreach(i = c(1:22,"X")) %dopar%{
   
   file.output.name <- paste0(dir.output, "sure.snp_indel.combined.chrom.", i, ".RDS")
   saveRDS(object = allrep, file = file.output.name)
+  gc()
 }
 
 
 print(paste(Sys.time(), "end script 2"))
-
-
-
-
 
 
 

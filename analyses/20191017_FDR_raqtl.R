@@ -9,6 +9,7 @@ library(data.table)
 # Load the dataframe with the p-values per variant
 
 file.name <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_pvalue/sure.indel.dataframe.pvalue.all.RDS"
+file.name <- "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_pvalue/sure.snp_indel.dataframe.pvalue.all.20191105.RDS"
 var.df <- readRDS(file.name)
 
 
@@ -25,12 +26,119 @@ var.df$hepg2.max <-c("ref", "alt")[apply(var.df[,c("HepG2.cDNA.ref.mean","HepG2.
 
 
 
+# remove positions where wilcoxon test results is NA or NaN
+b <- nrow(var.df)
+var.df <- var.df[!is.na(var.df$K562.wilcoxon.pvalue) & !is.na(var.df$HepG2.wilcoxon.pvalue),]
+a <- nrow(var.df)
+print(paste0(b-a,"/",b, " rows removed with p.value NA removal"))
+
 #select for >10 elements?
 
-var.df <- var.df[var.df$min.elements >10,]
-var.df$location.annotation <- NULL
+b <- nrow(var.df)
+var.df <- var.df[var.df$min.elements >= 10,]
+var.df <- var.df[var.df$max.elements <1000,]
+a <- nrow(var.df)
+print(paste0(b-a,"/",b, " rows removed with min and max element removal"))
 
 
+
+# Set the minimum for one of the alleles to 4 Sure signal
+var.df <- var.df[var.df$max.k562.expression >4,]
+var.df <- var.df[var.df$max.hepg2.expression >4,]
+
+var.df <- var.df[var.df$max.k562.expression > 4 | var.df$max.hepg2.expression > 4,]
+var.df <- var.df[var.df$max.hepg2.expression > 4.33 & var.df$snp.type == "snp",]
+
+#saveRDS(var.df, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/HepG2.10-1000.elements.4.min.SuREexpr.20191113.RDS")
+
+##################################
+#### TEST LOCATION ANNOTATION ####
+##################################
+
+library(TxDb.Hsapiens.UCSC.hg19.knownGene)
+library(VariantTools)
+library(dplyr)
+txdb <- TxDb.Hsapiens.UCSC.hg19.knownGene
+
+
+
+
+#var.df$location.annotation <- NULL
+var.df$location.annotation <- NA
+
+# in the var.df dataframe there is a 'pos' column. this column contains the hg_19
+var.df <- var.df[var.df$pos != "",]
+
+
+# PREPARATION #
+
+# Generate a granges file from the results.sure dataframe
+# The reduce function is used to remove similar regions
+snp.granges <- reduce(GRanges(seqnames = paste0("chr", var.df$chrom),
+                              ranges = IRanges(start = as.numeric(var.df[,"pos"]),
+                                               end =   as.numeric(var.df[,"pos"]))
+))
+print("snp.granges has been created")
+
+# Locate variants
+variants.granges <- locateVariants(snp.granges, txdb, AllVariants())
+print("variants have been located")
+
+# Save variants in a dataframe
+df.chr <- seqnames(variants.granges)
+df.snp.abs.pos <- start(variants.granges)
+df.snp.pos <- paste0(df.chr,":", df.snp.abs.pos)
+df.variant <- factor(variants.granges$LOCATION, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")) # or just variants.granges$LOCATION
+variants.df <- data.frame(df.chr, df.snp.abs.pos, df.snp.pos, df.variant, stringsAsFactors = FALSE)
+
+# Use the distinct function from dplyr to remove identical rows
+# These could for example contain multiple rows that contain an
+# intron for the same location due to multiple transcripts
+
+variants.df.nonredundant <- dplyr::distinct(variants.df)
+#levels(variants.df.nonredundant$df.variant) <- c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")
+
+#tst <- factor(variants.df.nonredundant$df.variant, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic"))
+
+## START LOOP START LOOP START LOOP START LOOP START LOOP ##
+
+# try to get items out of the loop
+
+SNP.IDS <- paste0("chr", var.df[,"chrom"], ":", var.df[, "pos"])
+
+#which(SNP.IDS %in% variants.df.nonredundant$df.snp.pos)
+#VARIANTS <- variants.df.nonredundant[]
+
+
+#loc.vector <- vector(length = nrow(var.df))
+
+for (i in 1:nrow(var.df)){
+  
+  if (i %% 1000 == 0) {print(paste(Sys.time(), i, "/", nrow(var.df)))}
+  
+  # Generate a unique snpi.id in the format "chr1:3824989"
+  snp.id <- SNP.IDS[i]
+  #snp.id <- paste0("chr", var.df[i,"chrom"], ":", var.df[i, "pos"])
+  
+  
+  # Generate a factor stating all variants for that specific snp (could be >1)
+  # Then sort the factor based on the levels and take the first (most important)
+  # variant as which we want it to classify
+  
+  
+  variants <- sort(variants.df.nonredundant[variants.df.nonredundant$df.snp.pos == snp.id, "df.variant"])
+  
+  #variants.sorted <- sort(factor(variants, levels = c("promoter","spliceSite", "coding", "fiveUTR", "threeUTR","intron", "intergenic")))
+  
+  #loc.vector[i] <- variants[1]
+  var.df[i,"location.annotation"] <- as.character(variants[1])
+}
+print("starting saving")
+#saveRDS(object = var.df, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indels_pvalue/sure.indel.dataframe.pvalue.all.annotated.RDS")
+print("finished saving")
+##################################
+#### TEST END ####################
+##################################
 
 # determine the FDR threshold that is able to get 5% for K562 and HepG2 to retrieve raQTLs
 
@@ -46,12 +154,19 @@ var.df$location.annotation <- NULL
   # loop through a series of p value threshold to determines at what p value threshold the FDR
   # is around 0.05
 
-  for (p in 10^-seq(2,10,by=0.1)) {
+  # dont loop through a random series of pvalues. Instead loop through actual pvalues that are in the 
+  # range where you expect the FDR cutoff to be (for K562 p.cutoff ~ 0.007). 
+  p.value.vector <- var.df$K562.wilcoxon.pvalue
+  p.value.vector.adj <- p.value.vector[p.value.vector < 0.008 & p.value.vector > 0.006]
+  p.value.vector.adj <- p.value.vector.adj[order(p.value.vector.adj, decreasing = TRUE)]
+  
+  for (p in c(1:length(p.value.vector.adj))) { #10^-seq(2,3,by=0.01))
   
   # generate the -log10(p) value
-  
-  p.threshold <- -log10(p)
-  
+  print(p)
+  #p.threshold <- -log10(p)
+  p.threshold <- -log10(p.value.vector.adj[p])
+    
   # count the amount of p values that would fall within the p value threshold
   
   sign.real <- sum(k562.p.real > p.threshold)
@@ -59,7 +174,7 @@ var.df$location.annotation <- NULL
   
   # calculate the FDR (fraction of shuffled p values that fall within the p value threshold)
   
-  FDR <- round(sign.shuf / (sign.real + sign.shuf), digits = 2)
+  FDR <- round(sign.shuf / (sign.real + sign.shuf), digits = 3)
   
   # summarize the results in 4 vectors
   
@@ -72,11 +187,12 @@ var.df$location.annotation <- NULL
   colnames(k562.df) <- c("p value threshold", "nr. of significant 'real' p values", "nr. of significant shuffled p values", "FDR")
 }
 
-  k562.fdr.pvalue <- k562.df[k562.df$FDR == 0.05,]$`p value threshold`[1] #find the first value for which FDR = 5% (it could be possible that this value is not there)
+  k562.fdr.pvalue <- k562.df[k562.df$FDR == 0.050,]$`p value threshold`[1] #find the first value for which FDR = 5% (it could be possible that this value is not there)
+  k562.fdr.pvalue <- p.value.vector.adj[k562.fdr.pvalue]
   raqtl.k562 <- var.df[var.df$K562.wilcoxon.pvalue < k562.fdr.pvalue,]
-  rm(c())
+  raqtl.k562 <- raqtl.k562[!is.na(raqtl.k562$K562.wilcoxon.pvalue),]
 
-
+saveRDS(raqtl.k562, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/K562.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
 
 #### HepG2 ####
 
@@ -89,13 +205,17 @@ var.df$location.annotation <- NULL
 
   # loop through a series of p value threshold to determines at what p value threshold the FDR
   # is around 0.05
+  
+  p.value.vector <- var.df$HepG2.wilcoxon.pvalue
+  p.value.vector.adj <- p.value.vector[p.value.vector < 0.003 & p.value.vector > 0.001]
+  p.value.vector.adj <- p.value.vector.adj[order(p.value.vector.adj, decreasing = TRUE)]
 
-  for (p in 10^-seq(2,10,by=0.1)) {
+  for (p in c(1:length(p.value.vector.adj))) {  #10^-seq(2,4,by=0.01)
   
   # generate the -log10(p) value
-  
-  p.threshold <- -log10(p)
-  
+  print(p)
+  #p.threshold <- -log10(p)
+  p.threshold <- -log10(p.value.vector.adj[p])
   # count the amount of p values that would fall within the p value threshold
   
   sign.real <- sum(hepg2.p.real > p.threshold)
@@ -116,8 +236,11 @@ var.df$location.annotation <- NULL
   colnames(hepg2.df) <- c("p value threshold", "nr. of significant 'real' p values", "nr. of significant shuffled p values", "FDR")
 }
 
-  hepg2.fdr.pvalue <- hepg2.df[hepg2.df$FDR == 0.05,]$`p value threshold`[1] #find the first value for which FDR = 5% (it could be possible that this value is not there)
-  raqtl.hepg2 <- na.omit(var.df[var.df$HepG2.wilcoxon.pvalue < hepg2.fdr.pvalue,])
+  hepg2.fdr.pvalue <- hepg2.df[hepg2.df$FDR == 0.050,]$`p value threshold`[1] #find the first value for which FDR = 5% (it could be possible that this value is not there)
+  hepg2.fdr.pvalue <- p.value.vector.adj[hepg2.fdr.pvalue]
+  raqtl.hepg2 <- var.df[var.df$HepG2.wilcoxon.pvalue < hepg2.fdr.pvalue,]
+  
+  saveRDS(raqtl.hepg2, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/HepG2.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
 
 #####
 
@@ -152,9 +275,9 @@ write.table(x = raqtl.hepg2$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_K
 
 # 3. download the snp2tfbs files
 
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_23450.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.txt")
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_25813.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.hepg2.txt")
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_27429.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.all.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_23450.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.raqtl.k562.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_25813.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.raqtl.hepg2.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_27429.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.all.txt")
 
 # 4. save the downloaded files as Robjects
 tfbs.raqtl.k562 <-  fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.txt", select = c(7,1,2,4,5,6))
@@ -216,9 +339,18 @@ for (tfbs.file in c("tfbs.raqtl.k562", "tfbs.raqtl.hepg2", "tfbs.all")){
 }
 
 
-# 7. Find the maximum scoredifferences and plug them into the raQTL dataframes
+# 7. Find the maximum scoredifferences and plug them into the raQTL / total INDEL dataframes
 
+### For all variants
+
+all.max.scorediff
+
+
+
+
+### For K562 raQTL (1st is max value, 2nd is mean value)
 k562.max.scorediff <- tapply(tfbs.raqtl.k562$score.differences, tfbs.raqtl.k562$snp.id, function(x){x[which.max(abs(x))]})
+k562.max.scorediff <- tapply(tfbs.raqtl.k562$score.differences, tfbs.raqtl.k562$snp.id, mean)
 
 for (i in c(1:nrow(raqtl.k562))){
   
@@ -255,6 +387,44 @@ for (i in c(1:nrow(raqtl.k562))){
   
 }
 
+### For HepG2 raQTL
+hepg2.max.scorediff <- tapply(tfbs.raqtl.hepg2$score.differences, tfbs.raqtl.hepg2$snp.id, function(x){x[which.max(abs(x))]})
+hepg2.max.scorediff <- tapply(tfbs.raqtl.hepg2$score.differences, tfbs.raqtl.hepg2$snp.id, mean)
+
+for (i in c(1:nrow(raqtl.hepg2))){
+  
+  print(i)
+  # find the snp.id and corresponding scorediff from the tfbs dataframe
+  snp.idx <- raqtl.hepg2[i,"SNP_ID"]
+  scorediff <- hepg2.max.scorediff[snp.idx]
+  
+  # if the value is present in the tfbs dataframe, plug the values in
+  if (!is.na(scorediff)){
+    
+    raqtl.hepg2[i,"hepg2.max.scorediff"] <- scorediff
+    raqtl.hepg2[i,"tf.match"] <- tfbs.raqtl.hepg2[tfbs.raqtl.hepg2$snp.id == snp.idx, tfbs.match][1]
+    
+    # if the maximum value of the sure expression is in the ref allele AND the maximum
+    # difference in tfbs score is negative, this means that the sure expression is in 
+    # concordance with the tfbs scores
+    
+    if (raqtl.hepg2[i, "hepg2.max"] == "ref" & sign(raqtl.hepg2[i, "hepg2.max.scorediff"]) == -1) { raqtl.hepg2[i,"motif.concordance"] <- "concordance"} 
+    if (raqtl.hepg2[i, "hepg2.max"] == "ref" & sign(raqtl.hepg2[i, "hepg2.max.scorediff"]) == 1)  { raqtl.hepg2[i,"motif.concordance"] <- "non.concordance"} 
+    if (raqtl.hepg2[i, "hepg2.max"] == "alt" & sign(raqtl.hepg2[i, "hepg2.max.scorediff"]) == -1) { raqtl.hepg2[i,"motif.concordance"] <- "non.concordance"} 
+    if (raqtl.hepg2[i, "hepg2.max"] == "alt" & sign(raqtl.hepg2[i, "hepg2.max.scorediff"]) == 1)  { raqtl.hepg2[i,"motif.concordance"] <- "concordance"}
+    if (sign(raqtl.hepg2[i, "hepg2.max.scorediff"]) == 0 )                                      { raqtl.hepg2[i,"motif.concordance"] <- "undetermined"} 
+    
+    
+    
+  } else {
+    
+    raqtl.hepg2[i, "motif.concordance"] <- "no motifs"
+  }
+  
+  
+  
+  
+}
 
 # plot(-log10(p.values), FDR.values, xlab = "-log10(p-value threshold")
 # abline(h = 0.05)
@@ -262,6 +432,17 @@ for (i in c(1:nrow(raqtl.k562))){
 # hist(k562.p.shuf, ylim = c(0,300), xlim=c(0,20), col = "red", breaks = 20)
 # hist(k562.p.real, ylim = c(0,300), xlim=c(0,20), col = alpha("gray",0.5), breaks = 60, add = T)
 # 
+
+
+# 8. Determine indel depletion in raqtls
+
+not.raqtl.idx <- which(!var.df$SNP_ID %in% raqtl.k562$SNP_ID)
+notraqtl <- var.df[not.raqtl.idx,]
+
+
+mat <- cbind(table(notraqtl$snp.type), table(raqtl.k562$snp.type))
+colnames(mat) = c("no raQTL", "raQTL")
+mat
 
 
 
@@ -319,48 +500,101 @@ barplot(table(raqtl.k562$tf.match), col = col.k562, xlab = "K562 raQTL motif mat
 box()
 
 
+# Figure 2 histogram of scoredifferences for all tfbs motif alterations
+
+# select only scoredifferences that are not zero
+data <- tfbs.all[tfbs.all$score.differences != 0,]$score.differences
+
+hist(data, 
+     breaks = 200, xlab = "Score differences", main = "Score difference distribution"
+     )
+text(x = -1000, y = 6000, "Remove 0 values")
+text(x = -1000, y = 5500, paste0("n = ", length(data)))
 
 
 
-# Figure x. barplot of concordance of tf matches k562
+# Figure 4a barplot of concordance of tf matches k562
 
 par(mar=c(9,8,4,1))
 barplot(table(raqtl.k562[raqtl.k562$motif.concordance %in% c("concordance", "non.concordance", "undetermined"),]$motif.concordance),
         names.arg = c("Concordance", "No concordance", "Undetermined"), 
         ylab = "Frequency", 
         col = col.k562, 
-        ylim = c(0,50), las = 3, cex.names = 1.3)
+        ylim = c(0,50), las = 3, cex.names = 1.3, 
+        main = "K562 raQTL")
+concordance.percentage = round(sum(raqtl.k562$motif.concordance == "concordance") / (sum(raqtl.k562$motif.concordance == "concordance") + sum(raqtl.k562$motif.concordance == "non.concordance")) * 100, digits = 1)
+text(x = 2, y = 48, labels = paste0("Concordance: ", concordance.percentage, "%"))
+box()
+
+# Figure 4b barplot of concordance of tf matches k562
+
+par(mar=c(9,5,4,2))
+barplot(table(raqtl.hepg2[raqtl.hepg2$motif.concordance %in% c("concordance", "non.concordance", "undetermined"),]$motif.concordance),
+        names.arg = c("Concordance", "No concordance", "Undetermined"), 
+        ylab = "Frequency", 
+        col = col.hepg2, 
+        ylim = c(0,25), las = 3, cex.names = 1.3, 
+        main = "TFBS-altering HepG2 raQTL")
+concordance.percentage = round(sum(raqtl.hepg2$motif.concordance == "concordance") / (sum(raqtl.hepg2$motif.concordance == "concordance") + sum(raqtl.hepg2$motif.concordance == "non.concordance")) * 100, digits = 1)
+text(x = 2, y = 23, labels = paste0("Concordance: ", concordance.percentage, "%"))
 box()
 
 
+# Figure 5 indels per chromosome
 
+df.k <- as.data.frame(table(factor(na.omit(raqtl.k562$chrom), levels = c(1:22, "X"))))
+#df.k$Var1 <- factor(x = df.k$Var1, levels= c(1:22,"X")) 
+df.k <- df.k[order(df.k$Var1),]
+df.k$cell <- factor("K562", levels = c("K562", "HepG2"))
 
+df.h <- as.data.frame(table(factor(na.omit(raqtl.hepg2$chrom), levels = c(1:22, "X"))))
+#df.h$Var1 <- factor(x = df.h$Var1, levels= c(1:22,"X")) 
+df.h <- df.h[order(df.h$Var1),]
+df.h$cell <- factor("HepG2", levels = c("K562", "HepG2"))
+
+df <- rbind(df.k, df.h)
+
+barplot(df.k$Freq, names.arg = paste0("chr ",df.k$Var1), las = 2, col = alpha(col.k562, 0.5))
+barplot(df.h$Freq, axes = FALSE, las = 2, col = alpha(col.hepg2, 0.5),add = T, )
+
+ggplot(df, aes(fill = cell, y = Freq, x = Var1)) +
+  geom_bar(position = "dodge", stat = "identity") +
+  xlab("Chromosome") +
+  ylab("Indels per chromosome") +
+  ggtitle("raQTL Indels per chromosome per cell line")+
+  scale_fill_manual(values = c(col.k562, col.hepg2), name = "Cell line") +
+  theme(plot.title = element_text(hjust = 0.5)) +
+  theme_bw()
 
 # Figure x. fractions affecting motifs
 
-tf.altering.all <- length(unique(tfbs.all$snp.id)) / length(unique(var.df$SNP_ID))
-tf.altering.raqtl.k562 <- length(unique(tfbs.raqtl.k562$snp.id)) / length(unique(raqtl.k562$SNP_ID))
-tf.altering.raqtl.hepg2 <- length(unique(tfbs.raqtl.hepg2$snp.id)) / length(unique(raqtl.hepg2$SNP_ID))
-values <- c(tf.altering.raqtl.hepg2, tf.altering.raqtl.k562, tf.altering.all)
-
-par(mar=c(5,8,4,1)+.1)
-barplot(values, names.arg = c("raQTLs HepG2", "raQTLs K562", "All indels tested"),
-        horiz = TRUE, 
-        xlab = "Fraction of Indels affecting TFBS", 
-        col = c(col.hepg2, col.k562, "black"), 
-        las = 1, 
-        cex.axis = 1.5, cex.names = 1, width = c(0.5,0.5,0.5), xpd = FALSE, xlim = c(0,0.5), )
+  tf.altering.all <- length(unique(tfbs.all$snp.id)) / length(unique(var.df$SNP_ID))
+  tf.altering.raqtl.k562 <- length(unique(tfbs.raqtl.k562$snp.id)) / length(unique(raqtl.k562$SNP_ID))
+  tf.altering.raqtl.hepg2 <- length(unique(tfbs.raqtl.hepg2$snp.id)) / length(unique(raqtl.hepg2$SNP_ID))
+  values <- c(tf.altering.raqtl.hepg2, tf.altering.raqtl.k562, tf.altering.all)
+  
+  png(filename= paste0(fig.output.dir, "tfbs.motif.affecting.fractions.png"))
+  par(mar=c(5,8,20,1)+.1)
+  barplot(values, names.arg = c("raQTLs HepG2", "raQTLs K562", "All indels tested"),
+          horiz = TRUE, 
+          xlab = "Fraction of Indels affecting TFBS", 
+          col = c(col.hepg2, col.k562, "black"), 
+          las = 1, 
+          cex.axis = 1.5, cex.names = 1, width = c(0.5,0.5,0.5), xpd = FALSE, xlim = c(0,0.5), )
+  dev.off()
 
 
 
 
 # Figure x. VennDiagram of overlaps
 
-draw.pairwise.venn(area1 = length(raqtl.k562$SNP_ID), 
-                   area2 = length(raqtl.hepg2$SNP_ID), 
-                   cross.area = sum(raqtl.k562$SNP_ID %in% raqtl.hepg2$SNP_ID),
-                   category = c("K562", "HepG2"), 
-                   cat.pos = c(0,0),cex = 1.5,cat.cex = 2, fill = c(col.k562, col.hepg2), alpha = c(0.8,0.8), cat.fontfamily = c("sans","sans"), fontfamily = c("sans", "sans", "sans"))
+  png(filename = paste0(fig.output.dir, "Venn.raQTL.overlap.png"))
+  draw.pairwise.venn(area1 = length(raqtl.k562$SNP_ID), 
+                     area2 = length(raqtl.hepg2$SNP_ID), 
+                     cross.area = sum(raqtl.k562$SNP_ID %in% raqtl.hepg2$SNP_ID),
+                     category = c("K562", "HepG2"), 
+                     cat.pos = c(0,0),cex = 1.5,cat.cex = 2, fill = c(col.k562, col.hepg2), alpha = c(0.8,0.8), cat.fontfamily = c("sans","sans"), fontfamily = c("sans", "sans", "sans"))
+  dev.off()
 
 
 
@@ -369,21 +603,38 @@ draw.pairwise.venn(area1 = length(raqtl.k562$SNP_ID),
 
 # Figure 1k. qq plot K562
 
-png(filename = paste0(fig.output.dir, "qqplot_k562.png"))
-p.real <- sort(-log10(var.df$K562.wilcoxon.pvalue))
-p.shuf <- sort(-log10(var.df$K562.wilcoxon.pvalue.random))
-plot(p.shuf, p.real, cex = 0.3, xlab = "-log10(p-values shuffled variants)", ylab = "-log10(p-values real variants)", main = "qq plot K562")
-abline(a = 0, b = 1)
-dev.off()
+  png(filename = paste0(fig.output.dir, "qqplot_k562.png"))
+  p.real <- sort(-log10(var.df$K562.wilcoxon.pvalue))
+  p.shuf <- sort(-log10(var.df$K562.wilcoxon.pvalue.random))
+  plot(p.shuf, p.real, cex = 0.3, xlab = "-log10(p-values shuffled variants)", ylab = "-log10(p-values real variants)", main = "qq plot K562")
+  abline(a = 0, b = 1)
+  dev.off()
 
 
 # Figure 1h. qq plot HepG2
 
-png(filename = paste0(fig.output.dir, "qqplot_hepg2.png"))
-p.real <- sort(-log10(var.df$HepG2.wilcoxon.pvalue))
-p.shuf <- sort(-log10(var.df$HepG2.wilcoxon.pvalue.random))
-plot(p.shuf, p.real, cex = 0.3, xlab = "-log10(p-values shuffled variants)", ylab = "-log10(p-values real variants)", main = "qq plot HepG2")
-abline(a = 0, b = 1)
-dev.off()
+  png(filename = paste0(fig.output.dir, "qqplot_hepg2.png"))
+  p.real <- sort(-log10(var.df$HepG2.wilcoxon.pvalue))
+  p.shuf <- sort(-log10(var.df$HepG2.wilcoxon.pvalue.random))
+  plot(p.shuf, p.real, cex = 0.3, xlab = "-log10(p-values shuffled variants)", ylab = "-log10(p-values real variants)", main = "qq plot HepG2")
+  abline(a = 0, b = 1)
+  dev.off()
 
 
+###### TST ########
+
+  f <- "/DATA/usr/n.klaassen/projects/SuRE_K562/tmp/"
+  write_feather(var.df, paste0(f,"tst.feather"))
+  
+  fea <- feather(paste0(f, "tst.feather"))
+  tst <- as.data.table(fea[1:10,])
+  tst <- fea[fea$SNP_ID == "rs34099723",] 
+    
+  
+###### TST ######
+  
+  
+  
+  
+  
+  

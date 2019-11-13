@@ -109,3 +109,21 @@ Discussed again with Bas and Ludo that we are going to leave the K562 paper behi
 
 #### 18-10-2019 (Fr)
 Last week I have worked a lot on the data for the indels. First there was a problem with the "SNP_PARENT" column, that was not annotated correctly for the indels. Then, using the script that normalizes the data and saves the data in one (1) variant per row, it went wrong with the SuRE44_2 repeat. It turned out that this error was due to the fact that some columns in "SNP_ABS_POS_hg19"
+
+#### (21-24)-10-2019 (Mo-Th)
+I worked the whole week on the raQTL analysis of the indels that were identified in the first version of the script (that does not do the normalization correctly and also has only replicate 1 till 6). this script is ready to run when the next selection of variant are put trough. Replicate 45-1 and 45-2 are also ready now.
+
+#### 29-10-2019 (Tu)
+Replicate 44-1 and 45-2 turned out to be wrong. Apparently we needed to do downsampling. I downsampled 42.1 (both cell lines) and 43.1 (HepG2 only) within the import.normalize etc script. I started the pipeline for the 6 replicate (indel + snp) including downsampling. With this downsampling you of course also need to change the normalization values. So i change the 'sum' values. 
+
+#### 31-10-2019 (Th)
+I started the pipeline (import & wilcox script) for 7 replicates (without 44-1) with downsampling. Took ~16h.
+
+#### 04-11-2019 (Mo)
+The data from the 20191031 Run looks to be successfull. We have a bit more significant SNPs (even with 7 reps instead of 8), which is good
+
+#### 05-11-2019 till 12-11-2019
+The Rscripts were rerun for the 8 replicates and now it is done. Job done on 2019-11-05 and saved as such. Log files might have the date from one day earlier. Did a lot of comparisons for the new and the old pipelines.And for the R scripts on the old pipeline. 
+
+#### 13-11-2019 (We)
+Presented the Somatic K562 data and some of the Indel data. Made new correlation plots that are saved in `Data/processed/Figures/Comparison_analysis`. With threshold between 10-999 elements for ref and alt and >4 SuRE expression I saved the definitive Indel raQTL sets for K562 (n=30862) and HepG2 (n=21467) in `Data/interim/SuRE_Indel_raQTLs`.

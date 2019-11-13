@@ -7,3 +7,4 @@ analyses/SuRE_Pipeline
 !analyses/SuRE_Pipeline/cmd.sh
 !analyses/SuRE_Pipeline/SuRE-K562.yaml
 analyses/SuRE_Pipeline/.snakemake
+analyses/Logs
