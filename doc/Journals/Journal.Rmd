@@ -127,3 +127,9 @@ The Rscripts were rerun for the 8 replicates and now it is done. Job done on 201
 
 #### 13-11-2019 (We)
 Presented the Somatic K562 data and some of the Indel data. Made new correlation plots that are saved in `Data/processed/Figures/Comparison_analysis`. With threshold between 10-999 elements for ref and alt and >4 SuRE expression I saved the definitive Indel raQTL sets for K562 (n=30862) and HepG2 (n=21467) in `Data/interim/SuRE_Indel_raQTLs`.
+
+#### 14-11-2019 (Th)
+I generated the SNP2TFBS figures (as I did earlier) but this time for the "right" indels. At least the indels for which I will continue the rest of the analyses (n~3000). Also generated figures for the differences in the pipeline. It seems that the "new" snps that I find have in general more referenece or alternative element counts (mapped gDNA fragments). Tomorrow maybe run the pipeline with the new downsampling vectors. For the figures I generated a few new script `raQTLs.20191114.R` for general figures and `20191113_SNP2TFBS_Reformat` for the SNP2TFBS related figures.
+
+#### 15-11-2019 (Fr)
+I started the analysis on the ENCODE annotations. That was also finished today. I made similar figures as in the Nature Genetics paper. I also generated a figure showing the new p-values of the "unfindable" raQTLs in the new analysis `Figures/Comparison_analysis/All.hist.p.value.distribution.png`. Next to that I generated some general statistics figures (qqplot, indel coverage, indel variant coverage and volcanoplot of suresignal difference between alt and ref) within `Figures/General Statistics`. I started the GTEx analysis, but I do not yet really understand what the data is about. Should try to find what the data means before continueing. 

@@ -33,16 +33,45 @@ write.table(x = raqtl.hepg2$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_K
 
 # 3. download the snp2tfbs files
 
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_14161.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.raqtl.k562.txt")
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_25813.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.raqtl.hepg2.txt")
-download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_27429.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/sec.motif.alteration.indel.all.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_43056.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.20191114.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_44625.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.hepg2.20191114.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_44897.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.all.20191114.txt")
 
 # 4. save the downloaded files as Robjects
-tfbs.raqtl.k562 <-  fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.txt", select = c(7,1,2,4,5,6))
-tfbs.raqtl.hepg2 <- fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.hepg2.txt", select = c(7,1,2,4,5,6))
-tfbs.all <-         fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.all.txt", select = c(7,1,2,4,5,6))
+tfbs.raqtl.k562 <-  fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.20191114.txt", select = c(7,1,2,4,5,6))
+tfbs.raqtl.hepg2 <- fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.hepg2.20191114.txt", select = c(7,1,2,4,5,6))
+tfbs.all <-         fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.all.20191114.txt", select = c(7,1,2,4,5,6))
 
-# 5. perform fisher exact test for enrichtment of motif alteration in raQTLs
+
+
+
+
+# 5. Reformat the dataframe for a row per transcription factor for the above 3 files
+
+for (tfbs.file in c("tfbs.raqtl.k562", "tfbs.raqtl.hepg2", "tfbs.all")){
+  
+  df <- get(tfbs.file)
+  
+  x <- unlist(strsplit(df$V6, split = ";"))
+  match.idx <- seq(1,length(x), by= 3)
+  tf.idx <- seq(2,length(x), by=3)
+  diff.score.idx <- seq(3,length(x), by = 3)
+  
+  col.match <- as.numeric(str_remove_all(string = x[match.idx], pattern = "MATCH="))
+  col.tf <- str_remove_all(x[tf.idx], pattern = "TF=")
+  col.diff.score <- str_remove_all(x[diff.score.idx], pattern = "ScoreDiff=")
+  
+  df$V6 <- NULL
+  df$m <- col.match
+  df$t <- col.tf
+  df$d <- col.diff.score
+  colnames(df) <- c("snp.id", "chrom","snp2tfbs.pos", "ref", "alt", "tfbs.match", "transcription.factor", "score.differences")
+  df <- separate_rows(df, transcription.factor, score.differences, sep = ",")
+  class(df$score.differences) <- "numeric"
+  
+  assign(x = tfbs.file, value = df)  
+}
+# 6. perform fisher exact test for enrichtment of motif alteration in raQTLs
 
 for (tfbs.raqtl in c("tfbs.raqtl.k562","tfbs.raqtl.hepg2")){
   
@@ -68,41 +97,46 @@ for (tfbs.raqtl in c("tfbs.raqtl.k562","tfbs.raqtl.hepg2")){
   } else {enrichment.hepg2.pvalue <- fisher.test(mat)$p.value}
 }
 
-
-
-# 6. Reformat the dataframe for a row per transcription factor for the above 3 files
-
-for (tfbs.file in c("tfbs.raqtl.k562", "tfbs.raqtl.hepg2", "tfbs.all")){
-  
-  df <- get(tfbs.file)
-  
-  x <- unlist(strsplit(df$V6, split = ";"))
-  match.idx <- seq(1,length(x), by= 3)
-  tf.idx <- seq(2,length(x), by=3)
-  diff.score.idx <- seq(3,length(x), by = 3)
-  
-  col.match <- as.numeric(str_remove_all(string = x[match.idx], pattern = "MATCH="))
-  col.tf <- str_remove_all(x[tf.idx], pattern = "TF=")
-  col.diff.score <- str_remove_all(x[diff.score.idx], pattern = "ScoreDiff=")
-  
-  df$V6 <- NULL
-  df$m <- col.match
-  df$t <- col.tf
-  df$d <- col.diff.score
-  colnames(df) <- c("snp.id", "chrom","snp2tfbs.pos", "ref", "alt", "tfbs.match", "transcription.factor", "score.differences")
-  df <- separate_rows(df, transcription.factor, score.differences, sep = ",")
-  class(df$score.differences) <- "numeric"
-  
-  assign(x = tfbs.file, value = df)  
-}
-
-
 # 7. Find the maximum scoredifferences and plug them into the raQTL / total INDEL dataframes
-
+{
 ### For all variants
 
-all.max.scorediff
+all.max.scorediff <- tapply(tfbs.all$score.differences, tfbs.all$snp.id, function(x){x[which.max(abs(x))]})
 
+  for (i in c(1:nrow(all.variants))){
+    
+    print(i)
+    # find the snp.id and corresponding scorediff from the tfbs dataframe
+    snp.idx <- all.variants[i,"SNP_ID"]
+    scorediff <- k562.max.scorediff[snp.idx]
+    
+    # if the value is present in the tfbs dataframe, plug the values in
+    if (!is.na(scorediff)){
+      
+      all.variants[i,"k562.max.scorediff"] <- scorediff
+      all.variants[i,"tf.match"] <- tfbs.all[tfbs.all$snp.id == snp.idx, tfbs.match][1]
+      
+      # if the maximum value of the sure expression is in the ref allele AND the maximum
+      # difference in tfbs score is negative, this means that the sure expression is in 
+      # concordance with the tfbs scores
+      
+      if (all.variants[i, "k562.max"] == "ref" & sign(all.variants[i, "k562.max.scorediff"]) == -1) { all.variants[i,"motif.concordance"] <- "concordance"} 
+      if (all.variants[i, "k562.max"] == "ref" & sign(all.variants[i, "k562.max.scorediff"]) == 1)  { all.variants[i,"motif.concordance"] <- "non.concordance"} 
+      if (all.variants[i, "k562.max"] == "alt" & sign(all.variants[i, "k562.max.scorediff"]) == -1) { all.variants[i,"motif.concordance"] <- "non.concordance"} 
+      if (all.variants[i, "k562.max"] == "alt" & sign(all.variants[i, "k562.max.scorediff"]) == 1)  { all.variants[i,"motif.concordance"] <- "concordance"}
+      if (sign(all.variants[i, "k562.max.scorediff"]) == 0 )                                      { all.variants[i,"motif.concordance"] <- "undetermined"} 
+      
+      
+      
+    } else {
+      
+      all.variants[i, "motif.concordance"] <- "no motifs"
+    }
+    
+    
+    
+    
+  }
 
 
 
@@ -183,3 +217,32 @@ for (i in c(1:nrow(raqtl.hepg2))){
   
   
 }
+}
+
+
+### Start generating figures
+
+col.k562 <- "steelblue"
+col.hepg2 <- "magenta4"
+
+
+## Figure 1. Fractions of motif altering SNPs for (1) all indels, (2) K562 raQTL, (3) HepG2 raQTL
+
+tf.altering.all <- length(unique(tfbs.all$snp.id)) / length(unique(all.variants$SNP_ID))
+tf.altering.raqtl.k562 <- length(unique(tfbs.raqtl.k562$snp.id)) / length(unique(raqtl.k562$SNP_ID))
+tf.altering.raqtl.hepg2 <- length(unique(tfbs.raqtl.hepg2$snp.id)) / length(unique(raqtl.hepg2$SNP_ID))
+values <- c(tf.altering.raqtl.hepg2, tf.altering.raqtl.k562, tf.altering.all)
+
+png(filename= "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.1.Fraction.indels.affecting.TFBS.png")
+par(mar=c(4,10,20,1)+.1)
+bp <- barplot(values, names.arg = c("HepG2 indel raQTLs ", "K562 indel raQTLs ", "All indels tested"),
+        horiz = TRUE, 
+        xlab = "Fraction of Indels affecting TFBS", 
+        col = c(col.hepg2, col.k562, "black"), 
+        las = 1, 
+        cex.axis = 1.5, cex.names = 1, width = c(0.5,0.5,0.5), xpd = FALSE, xlim = c(0,0.5), )
+text(values[2]+0.02, y = bp[2,], labels = "*",cex = 2 )
+text(values[1]+0.02, y = bp[1,], labels = "*",cex = 2)
+dev.off()
+
+

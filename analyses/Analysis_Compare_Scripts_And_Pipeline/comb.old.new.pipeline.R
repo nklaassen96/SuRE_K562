@@ -3,6 +3,7 @@
 
 
 library(data.table)
+library(VenndiaVennDiagram)
 
 published <- fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SuRE_OSF_NatGen/download.txt.gz")
 published <- published[order(published$SNP_ID),]
@@ -23,6 +24,7 @@ df <- df[df$max.elements <1000 & df$min.elements >= 10,]
 
 published.raqtl.k562 <- df[df$K562.wilcoxon.pvalue <= 0.006192715,]
 
+saveRDS(published.raqtl.k562, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.k562.RDS")
 # create my own raqtl for k562 with the var.df script in FDR
 
 novel.raqtl.k562 <- raqtl.k562
