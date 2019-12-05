@@ -554,11 +554,67 @@ summary {
 </div>
 <div id="till-12-11-2019" class="section level4">
 <h4>05-11-2019 till 12-11-2019</h4>
-<p>The Rscripts were rerun for the 8 replicates and now it is done. Did a lot of comparisons for the new and the old pipelines.</p>
+<p>The Rscripts were rerun for the 8 replicates and now it is done. Job done on 2019-11-05 and saved as such. Log files might have the date from one day earlier. Did a lot of comparisons for the new and the old pipelines.And for the R scripts on the old pipeline.</p>
 </div>
 <div id="we-4" class="section level4">
 <h4>13-11-2019 (We)</h4>
-<p>Presented the Somatic K562 data and some of the Indel data. Made new correlation plots that are saved in <code>Data/processed/Figures/Comparison_analysis</code>. Saved the definitive Indel sets</p>
+<p>Presented the Somatic K562 data and some of the Indel data. Made new correlation plots that are saved in <code>Data/processed/Figures/Comparison_analysis</code>. With threshold between 10-999 elements for ref and alt and &gt;4 SuRE expression I saved the definitive Indel raQTL sets for K562 (n=30862) and HepG2 (n=21467) in <code>Data/interim/SuRE_Indel_raQTLs</code>.</p>
+</div>
+<div id="th-5" class="section level4">
+<h4>14-11-2019 (Th)</h4>
+<p>I generated the SNP2TFBS figures (as I did earlier) but this time for the “right” indels. At least the indels for which I will continue the rest of the analyses (n~3000). Also generated figures for the differences in the pipeline. It seems that the “new” snps that I find have in general more referenece or alternative element counts (mapped gDNA fragments). Tomorrow maybe run the pipeline with the new downsampling vectors. For the figures I generated a few new script <code>raQTLs.20191114.R</code> for general figures and <code>20191113_SNP2TFBS_Reformat</code> for the SNP2TFBS related figures.</p>
+</div>
+<div id="fr-5" class="section level4">
+<h4>15-11-2019 (Fr)</h4>
+<p>I started the analysis on the ENCODE annotations. That was also finished today. I made similar figures as in the Nature Genetics paper. I also generated a figure showing the new p-values of the “unfindable” raQTLs in the new analysis <code>Figures/Comparison_analysis/All.hist.p.value.distribution.png</code>. Next to that I generated some general statistics figures (qqplot, indel coverage, indel variant coverage and volcanoplot of suresignal difference between alt and ref) within <code>Figures/General Statistics</code>. I started the GTEx analysis, but I do not y et really understand what the data is about. Should try to find what the data means before continueing.</p>
+</div>
+<div id="mo-6" class="section level4">
+<h4>18-11-2019 (Mo)</h4>
+<p>I made another figure showing the fraction of SNPs affecting TFBS which perfectly overlays with the published figure (as expected). I tried to combine the Indel and SNPs affecting into one figure. This was successfull, little bit tricky as I used the same script twice. But in the end I could see that the Indel values were similar to the values obtained before. Generated a figure showing the indel fractions for the 7 encode annotations. New downsampling vectors were used and my rscripts were run again. No matter what the outcome, this will only be for comparison with the old downsampling vectors in terms of raQTLs. Nothing else. Made a VennDiagram for the raQTL overlap in hepG2 as I have mostly done this for K562 only. VennDiagram looks almost the same, so probably no added value to always check both.</p>
+</div>
+<div id="tu-6" class="section level4">
+<h4>19-11-2019 (Tu)</h4>
+<p>Working from home. The Rscripts for the SNPs with the new downsampling vectors are done and there are almost no changes. I do find 990 extra variants and lose 1938 variants. But this is probably due to the downsampling variation and nothing to worry about.</p>
+</div>
+<div id="we-5" class="section level4">
+<h4>20-11-2019 (We)</h4>
+<p>Found a few sources that might be interesting (CADD and dbInDel).</p>
+</div>
+<div id="th-6" class="section level4">
+<h4>21-11-2019 (Th)</h4>
+<p>Generated volcanoplot (fold change vs p-value) for the three subsets (new, overlapping, old) of K562 raQTLs. Also generated a plot where you can see the fold change when you vary the p-value cutoff value. Downloaded the GWAS database from the EBI. I found 6 indel raQTLs in k562 that are present in these GWAS studies, but it is a pain to find correlations.</p>
+</div>
+<div id="fr-6" class="section level4">
+<h4>22-11-2019 (Fr)</h4>
+<p>I regenerated the concordance with TFBS figures. In this case I still assumed that scorediff = 0 means nothing. I made the figures for Indels and SNPs separate. Fine. Also generated a cutoff figure for p-value cutoff vs. concordance. Indels are much less concordant than snps. I do however still need to calculate the p-value though.</p>
+</div>
+<div id="mo-7" class="section level4">
+<h4>25-11-2019 (Mo)</h4>
+<p>Tried some GTEx analyses. Results differ quite a lot from the natgen paper (especially for hepg2). Maybe check again tomorrow to see is I mixed it up with K562 somewhere. Calculated the p-values which I did not have time for last friday.</p>
+</div>
+<div id="tu-7" class="section level4">
+<h4>26-11-2019 (Tu)</h4>
+<p>Wrote methods.</p>
+</div>
+<div id="we-6" class="section level4">
+<h4>27-11-2019 (We)</h4>
+<p>Sick</p>
+</div>
+<div id="th-7" class="section level4">
+<h4>28-11-2019 (Th)</h4>
+<p>I made a mistake in the mean(FC) calculations, so I regenerated all the figures with fold change. Now they are really similar to the fold changes as published earlier. Also the SNP2TFBS database still causes trouble. I downloaded the files externally. Generated an exammpl sure plot and motif analysis.</p>
+</div>
+<div id="fr-7" class="section level4">
+<h4>29-11-2019 (Fr)</h4>
+<p>Wrote more methods</p>
+</div>
+<div id="mo-8" class="section level4">
+<h4>02-12-2019 (Mo)</h4>
+<p>Started writing Chpt 1. Calculated some general statistics (nr. of reads, nr. of unique elements etc.). Redid part of the pipeline for a specific SNP. This analysis is in the SNP2TFBS file in analysis, no logic i Know.</p>
+</div>
+<div id="tu-8" class="section level4">
+<h4>03-12-2019 (Tu)</h4>
+<p>Generated a nice figure for an example indel with a loss of motif in SNP2TFBS. For this a part of the pipeline had to be rerun. Therefore the downsampling vector is of course different. Therefore the two plots vary a little bit, but I do not see this as a problem. Generated new volcanoplots for the three groups (overlap, extra, unidentified) because the mean fold change was wrong.</p>
 </div>
 </div>
 

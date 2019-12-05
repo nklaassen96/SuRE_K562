@@ -132,4 +132,44 @@ Presented the Somatic K562 data and some of the Indel data. Made new correlation
 I generated the SNP2TFBS figures (as I did earlier) but this time for the "right" indels. At least the indels for which I will continue the rest of the analyses (n~3000). Also generated figures for the differences in the pipeline. It seems that the "new" snps that I find have in general more referenece or alternative element counts (mapped gDNA fragments). Tomorrow maybe run the pipeline with the new downsampling vectors. For the figures I generated a few new script `raQTLs.20191114.R` for general figures and `20191113_SNP2TFBS_Reformat` for the SNP2TFBS related figures.
 
 #### 15-11-2019 (Fr)
-I started the analysis on the ENCODE annotations. That was also finished today. I made similar figures as in the Nature Genetics paper. I also generated a figure showing the new p-values of the "unfindable" raQTLs in the new analysis `Figures/Comparison_analysis/All.hist.p.value.distribution.png`. Next to that I generated some general statistics figures (qqplot, indel coverage, indel variant coverage and volcanoplot of suresignal difference between alt and ref) within `Figures/General Statistics`. I started the GTEx analysis, but I do not yet really understand what the data is about. Should try to find what the data means before continueing. 
+I started the analysis on the ENCODE annotations. That was also finished today. I made similar figures as in the Nature Genetics paper. I also generated a figure showing the new p-values of the "unfindable" raQTLs in the new analysis `Figures/Comparison_analysis/All.hist.p.value.distribution.png`. Next to that I generated some general statistics figures (qqplot, indel coverage, indel variant coverage and volcanoplot of suresignal difference between alt and ref) within `Figures/General Statistics`. I started the GTEx analysis, but I do not y
+et really understand what the data is about. Should try to find what the data means before continueing. 
+
+#### 18-11-2019 (Mo)
+I made another figure showing the fraction of SNPs affecting TFBS which perfectly overlays with the published figure (as expected). I tried to combine the Indel and SNPs affecting into one figure. This was successfull, little bit tricky as I used the same script twice. But in the end I could see that the Indel values were similar to the values obtained before. Generated a figure showing the indel fractions for the 7 encode annotations. New downsampling vectors were used and my rscripts were run again. No matter what the outcome, this will only be for comparison with the old downsampling vectors in terms of raQTLs. Nothing else. Made a VennDiagram for the raQTL overlap in hepG2 as I have mostly done this for K562 only. VennDiagram looks almost the same, so probably no added value to always check both. 
+
+#### 19-11-2019 (Tu)
+Working from home. The Rscripts for the SNPs with the new downsampling vectors are done and there are almost no changes. I do find 990 extra variants and lose 1938 variants. But this is probably due to the downsampling variation and nothing to worry about. 
+
+#### 20-11-2019 (We)
+Found a few sources that might be interesting (CADD and dbInDel).
+
+#### 21-11-2019 (Th)
+Generated volcanoplot (fold change vs p-value) for the three subsets (new, overlapping, old) of K562 raQTLs. Also generated a plot where you can see the fold change when you vary the p-value cutoff value. Downloaded the GWAS database from the EBI. I found 6 indel raQTLs in k562 that are present in these GWAS studies, but it is a pain to find correlations.
+
+#### 22-11-2019 (Fr)
+I regenerated the concordance with TFBS figures. In this case I still assumed that scorediff = 0 means nothing. I made the figures for Indels and SNPs separate. Fine. Also generated a cutoff figure for p-value cutoff vs. concordance. Indels are much less concordant than snps. I do however still need to calculate the p-value though. 
+
+#### 25-11-2019 (Mo)
+Tried some GTEx analyses. Results differ quite a lot from the natgen paper (especially for hepg2). Maybe check again tomorrow to see is I mixed it up with K562 somewhere. Calculated the p-values which I did not have time for last friday. 
+
+#### 26-11-2019 (Tu)
+Wrote methods. 
+
+#### 27-11-2019 (We)
+Sick
+
+#### 28-11-2019 (Th)
+I made a mistake in the mean(FC) calculations, so I regenerated all the figures with fold change. Now they are really similar to the fold changes as published earlier. Also the SNP2TFBS database still causes trouble. I downloaded the files externally. Generated an exammpl sure plot and motif analysis.
+
+#### 29-11-2019 (Fr)
+Wrote more methods
+
+#### 02-12-2019 (Mo)
+Started writing Chpt 1. Calculated some general statistics (nr. of reads, nr. of unique elements etc.). Redid part of the pipeline for a specific SNP. This analysis is in the SNP2TFBS file in analysis, no logic i Know. 
+
+#### 03-12-2019 (Tu)
+Generated a nice figure for an example indel with a loss of motif in SNP2TFBS. For this a part of the pipeline had to be rerun. Therefore the downsampling vector is of course different. Therefore the two plots vary a little bit, but I do not see this as a problem. Generated new volcanoplots for the three groups (overlap, extra, unidentified) because the mean fold change was wrong. 
+
+#### 04-12-2019 (We)
+Short day, little bit of writing CHP2. 

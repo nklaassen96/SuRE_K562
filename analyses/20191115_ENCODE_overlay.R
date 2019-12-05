@@ -1,4 +1,5 @@
 # This script will be used to overlay the ENCODE element annotations with the identified raQTLs and their position. 
+# Importantly this is only for K562!
 
 # load required libraries
 library(data.table)
@@ -50,7 +51,7 @@ all.variants <- readRDS(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/int
 
 #Load the raQTL sets
 raqtl.k562 <- readRDS(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/K562.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
-
+' # Test for a loop-variant. Later I made it working vectorized.
 for (i in c(1:nrow(raqtl.hepg2.indel))){
   
   print(i)
@@ -67,6 +68,8 @@ for (i in c(1:nrow(raqtl.hepg2.indel))){
   
   if(length(q) > 0){raqtl.hepg2.indel[i,"encode.annotation"] <- annotation.granges[q]$element} else {}
 }
+'
+
 ' ### This was a test to see if i get the same results. 
 # This works, but I have to make it vectorized for speed. 
 granges.all <- GRanges(seqnames = paste0("chr", raqtl.hepg2.indel$chrom), ranges = IRanges(start = raqtl.hepg2.indel$pos.hg19, end = raqtl.hepg2.indel$pos.hg19))
@@ -172,3 +175,49 @@ barplot(fraction.elements.snp.all, add = T, col = alpha(2, 0.5))
 
 barplot(fraction.elements.indel.k562, ylim = c(0,0.1))
 barplot(fraction.elements.snp.k562, col = alpha(2, 0.5), add = T)
+
+## Fig. 4 SNP enrichtment compared to indels.
+
+table(all.variants$encode.annotation, useNA = "always")
+
+# first only select the variants that could be annotated (~95%)
+all.variants.annotated <- all.variants[!is.na(all.variants$encode.annotation),]
+ind.pf <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "PF")/sum(all.variants.annotated$encode.annotation =="PF") #snp fraction in PF
+ind.e <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "E")/sum(all.variants.annotated$encode.annotation =="E")
+ind.r <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "R")/sum(all.variants.annotated$encode.annotation =="R")
+ind.ctcf <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "CTCF")/sum(all.variants.annotated$encode.annotation =="CTCF")
+ind.we <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "WE")/sum(all.variants.annotated$encode.annotation =="WE")
+ind.tss <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "TSS")/sum(all.variants.annotated$encode.annotation =="TSS")
+ind.t <- sum(all.variants.annotated$snp.type == "indel" & all.variants.annotated$encode.annotation == "T")/sum(all.variants.annotated$encode.annotation =="T")
+ind.all <- sum(all.variants.annotated$snp.type == "indel")/nrow(all.variants.annotated)
+
+indel.fractions <- c(ind.ctcf, ind.e, ind.pf, ind.r, ind.t, ind.tss, ind.we)
+
+png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/ENCODE.annotation/Fig.4.indel.fractions.per.annotation.png")
+par(mar=c(8,5,4,2))
+b <- barplot(indel.fractions, ylab = "Fraction of Indels", ylim = c(0,0.14), col = col.k562)
+text(pos = 2, cex = 1, x=b+0.4, y = -0.004,c("CTCF", "Enhancer", "Promoter flanking", "Repressed", "Transcribed", "Transcription start site", "Weak enhancer"), xpd = T, srt = 45 )
+abline(h = ind.all, lty = 3)
+text(b[c(1,2,4,5,7)], y = indel.fractions[c(1,2,4,5,7)]+0.004, labels = "*",cex = 2 )
+dev.off()
+
+#looks pretty good, now calculate p values a loop
+
+annotation.vector <- c("CTCF", "E", "PF", "R", "T", "TSS", "WE")
+p.value.vector <- rep(NA,7)
+names(p.value.vector) <- annotation.vector
+odds.ratio.vector <- rep(NA,7)
+names(odds.ratio.vector) <- annotation.vector
+
+for (i in c(1:7)){
+  
+  annotation.id <- annotation.vector[i]
+  print(annotation.id)
+  specific.variant <- table(all.variants.annotated[all.variants.annotated$encode.annotation == annotation.id,]$snp.type) #indel/snp for annotation.id
+  not.specific.variant <- table(all.variants.annotated[all.variants.annotated$encode.annotation != annotation.id,]$snp.type) #indel/snp for everything that is not annotation.id
+  contingency.matrix <- rbind(specific.variant, not.specific.variant)
+  p.value.vector[i]<- fisher.test(contingency.matrix)$p.value
+  odds.ratio.vector[i] <- fisher.test(contingency.matrix)$estimate
+}
+
+

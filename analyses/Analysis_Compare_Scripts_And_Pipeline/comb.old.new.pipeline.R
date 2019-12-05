@@ -27,6 +27,21 @@ published.raqtl.k562 <- df[df$K562.wilcoxon.pvalue <= 0.006192715,]
 saveRDS(published.raqtl.k562, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.k562.RDS")
 # create my own raqtl for k562 with the var.df script in FDR
 
+##### recreate the HepG2 raQTLs
+df <- published
+df <- df[df$hepg2.ref.mean >4 | df$hepg2.alt.mean >4,]
+df$max.elements <- apply(df[,c("ref.element.count","alt.element.count")], 1, max)
+df$min.elements <- apply(df[,c("ref.element.count","alt.element.count")], 1, min)
+df <- df[df$max.elements <1000 & df$min.elements >= 10,]
+
+published.raqtl.hepg2 <- df[df$HepG2.wilcoxon.pvalue <= 0.00173121,]
+
+saveRDS(published.raqtl.hepg2, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.hepg2.RDS")
+
+
+
+
+
 novel.raqtl.k562 <- raqtl.k562
 
 published.raqtl.novel.noraqtl.idx <-which(!published.raqtl.k562$SNP_ID %in% novel.raqtl.k562$SNP_ID)

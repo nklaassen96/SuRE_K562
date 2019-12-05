@@ -171,12 +171,12 @@ library(VennDiagram)
   
   
   # draw overlap in raqtl SNP_IDs
-  
+  png("data/processed/Figures/Compare_Rscripts/Fig.1.Venn.old.vs.new.Rscripts.png")
   draw.pairwise.venn(area1 = n_distinct(new.raqtl.k562$SNP_ID),
                      area2 = n_distinct(old.raqtl.k562$SNP_ID), 
                      cross.area = sum(new.raqtl.k562$SNP_ID %in% old.raqtl.k562$SNP_ID),
-                     category = c("NEW", "OLD"), fill = c(2,3),cat.cex = 2 , cat.pos = c(-40,40), cex = c(rep(1.4, 3)))
-  
+                     category = c("New analysis", "Old analysis"), fill = c(2,3),cat.cex = 2 , cat.pos = c(-40,40), cex = c(rep(1.4, 3)),cat.dist = c(0.04, 0.04), ext.text = T)
+  dev.off()
   
   # Find the 1043 SNPs that I cannot find in my analysis
   

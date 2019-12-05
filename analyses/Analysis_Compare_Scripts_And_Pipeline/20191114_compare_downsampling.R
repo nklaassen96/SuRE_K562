@@ -17,16 +17,20 @@ all.new <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_In
 
 new.raqtl.k562 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/K562.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
 new.raqtl.k562 <- new.raqtl.k562[new.raqtl.k562$snp.type == "snp",]
+new.raqtl.hepg2 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/HepG2.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
+new.raqtl.hepg2 <- new.raqtl.hepg2[new.raqtl.hepg2$snp.type == "snp",]
 
 old.raqtl.k562 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.k562.RDS")
-
-
+old.raqtl.hepg2 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.hepg2.RDS")
+new.downsample.raqtl.k562 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/NewDownsamplingK562RaQTL.20191119.RDS")
+new.downsample.raqtl.k562 <- new.downsample.raqtl.k562[new.downsample.raqtl.k562$snp.type == "snp",]
 
 
 # Determine the overlapping dataframe of indels
 
 overlap.raqtl <- new.raqtl.k562[which(new.raqtl.k562$SNP_ID %in% old.raqtl.k562$SNP_ID),]
 
+# Venn overlap new vs old pipeline (old downsampling vector)
 png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/Venn.K562.raQTL.overlap.png")
 draw.pairwise.venn(area1 = nrow(new.raqtl.k562),
                    area2 = nrow(old.raqtl.k562),
@@ -35,6 +39,17 @@ draw.pairwise.venn(area1 = nrow(new.raqtl.k562),
                    fill = c(2,3), 
                    cat.pos = c(-20,20),cex = rep(2,3),cat.cex = rep(1.3,2))
 dev.off()
+
+# Venn overlap new vs old pipeline (new downsampling vector)
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/Venn.K562.raQTL.overlap.new.downsampling.png")
+draw.pairwise.venn(area1 = nrow(new.downsample.raqtl.k562),
+                   area2 = nrow(old.raqtl.k562),
+                   cross.area = sum(new.downsample.raqtl.k562$SNP_ID %in% old.raqtl.k562$SNP_ID),
+                   category = c("New K562 raQTLs (SNPs only)", "Published K562 raQTLs"), 
+                   fill = c(2,3), 
+                   cat.pos = c(-20,20),cex = rep(2,3),cat.cex = rep(1.3,2))
+dev.off()
+
 
 new.raqtl.old.noraqtl.idx <- which(!new.raqtl.k562$SNP_ID %in% old.raqtl.k562$SNP_ID)
 old.raqtl.new.noraqtl.idx <- which(!old.raqtl.k562$SNP_ID %in% new.raqtl.k562$SNP_ID)
@@ -94,6 +109,10 @@ combined.all <- rbind(combined.old,
                       sample_n(combined.new, size = nrow(combined.old)),
                       sample_n(combined.overlap, size = nrow(combined.old)))
 
+# In this way, all the overlap points are plotted last, better to shuffle all the values first
+
+combined.all <- sample_n(combined.all, size = nrow(combined.all), replace = FALSE)
+
 combined.all <- rbind(combined.old, 
                       combined.new,
                       combined.overlap)
@@ -110,7 +129,7 @@ plot(x = combined.all$ref.element.count,
      ylim = c(0,500),
      xlim = c(0,500),
      cex = 0.2,
-     main = paste0("K562 raQTLs (sampled to n=",nrow(combined.old), ")"), 
+     main = paste0("K562 raQTLs"), 
      xlab = "Old ref.element.count",
      ylab = "New ref.element.count")
 abline(a = 0, b = 1)
@@ -137,7 +156,7 @@ plot(x = combined.all$alt.element.count,
      ylim = c(0,500),
      xlim = c(0,500),
      cex = 0.2,
-     main = paste0("K562 raQTLs (sampled to n=",nrow(combined.old), ")"), 
+     main = paste0("K562 raQTLs"), 
      xlab = "Old alt.element.count",
      ylab = "New alt.element.count")
 abline(a = 0, b = 1)
@@ -164,7 +183,7 @@ plot(x = combined.all$alt.element.count+combined.all$ref.element.count,
      ylim = c(0,600),
      xlim = c(0,600),
      cex = 0.2,
-     main = paste0("K562 raQTLs (sampled to n=",nrow(combined.old), ")"), 
+     main = paste0("K562 raQTLs"), 
      xlab = "Old alt+ref.element.count",
      ylab = "New alt+ref.element.count")
 abline(a = 0, b = 1)
@@ -179,18 +198,104 @@ dev.off()
 }
 
 
+
+
+
 # It seems that the new raqtls have gained the most reads. 
-# It might be insightfull to generate histograms of the ref.element.difference
+# It might be insightfull to generate boxplots of the ref.element.difference
 
 summary(combined.overlap$new.ref.element.count-combined.overlap$ref.element.count)
 hist(combined.overlap$new.ref.element.count-combined.overlap$ref.element.count, breaks = 1000)
 
 summary(combined.new$new.ref.element.count-combined.new$ref.element.count)
 png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.boxplot.ref.element.count.difference.png")
-boxplot(combined.old$new.ref.element.count-combined.old$ref.element.count,
+boxplot(main = "K562 raQTL",combined.old$new.ref.element.count-combined.old$ref.element.count,
         combined.new$new.ref.element.count-combined.new$ref.element.count, 
         combined.overlap$new.ref.element.count-combined.overlap$ref.element.count,names = c("Old raQTL", "New raQTL", "Overlaping raQTL"),col = c(2,3,4),outline = FALSE, ylab = "new.ref.element.count - old.ref.element.count")       
 abline(h = 0, cex = 2, lty = 3)
+dev.off()
+
+## Might be good to also plot histograms combined instead of boxplots
+h.overlap <- sample(combined.overlap$new.ref.element.count-combined.overlap$ref.element.count, size = nrow(combined.old))
+h.old <- sample(combined.old$new.ref.element.count-combined.old$ref.element.count, size = nrow(combined.old))
+h.new <- sample(combined.new$new.ref.element.count-combined.new$ref.element.count, size = nrow(combined.old))
+
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.hist.ref.element.count.difference.png")
+hist(main = NULL, h.overlap, breaks = 50, col = alpha(4, 0.5), ylim = c(0,1200), xlim = c(-150,300), xlab = expression(paste(Delta, "ref.element.count (new-old)")))
+hist(h.old, breaks = 10000, col = alpha(2, 0.5), add = T)
+hist(h.new, breaks = 180, col = alpha(3,0.5), add = T)
+legend("topright", 
+       fill = c(alpha(2, 0.5),
+                alpha(3, 0.5),
+                alpha(4, 0.5)),
+       legend = c(paste0("Only old raQTL (n=",sum(combined.all$subset == "old"), ")"),
+                  paste0("Only new raQTL (sampled to n=",sum(combined.all$subset == "new"), ")"),
+                  paste0("Both old and new raQTL (sampled to n=",sum(combined.all$subset == "overlap"), ")")))
+dev.off()
+
+## Next I want to plot volcanoplot of the fold change per group
+{
+# (1) Overlapping raQTLs
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.overlap.png")
+k562.fc.overlap <- log2(overlap.raqtl$K562.cDNA.ref.mean / overlap.raqtl$K562.cDNA.alt.mean)
+k562.fc.mean.overlap <-  mean(2^abs(k562.fc.overlap[is.finite(k562.fc.overlap)]), na.rm = TRUE)
+plot(xlim = c(-6,6), bty = "n", k562.fc.overlap, -log10(overlap.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs (overlap), ",n_distinct(overlap.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.overlap, digits = 1)))
+abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
+dev.off()
+
+# (2) Only new raQTLs
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.new.png")
+k562.fc.new <- log2(new.raqtl.old.noraqtl$K562.cDNA.ref.mean / new.raqtl.old.noraqtl$K562.cDNA.alt.mean)
+k562.fc.mean.new <-  mean(2^abs(k562.fc.new[is.finite(k562.fc.new)]), na.rm = TRUE)
+plot(xlim = c(-6,6),bty = "n", k562.fc.new, -log10(new.raqtl.old.noraqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('extra'), ",n_distinct(new.raqtl.old.noraqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.new, digits = 1)))
+abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
+dev.off()
+
+# (3) Only old raQTLs
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.old.png")
+k562.fc.old <- log2(new.noraqtl.old.raqtl$K562.cDNA.ref.mean / new.noraqtl.old.raqtl$K562.cDNA.alt.mean)
+k562.fc.mean.old <-  mean(2^abs(k562.fc.old[is.finite(k562.fc.old)]), na.rm = TRUE)
+plot(xlim = c(-6,6),bty = "n", k562.fc.old, -log10(new.noraqtl.old.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('unidentified'), ",n_distinct(new.noraqtl.old.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.old, digits = 1)))
+abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
+dev.off()
+}
+
+
+## Another plot That might be funny to make is a p-value cutoff, and then see what the average fold.change is
+
+p.values <- 10^(-seq(2,15, length.out = 15))
+mean.vector <- NULL
+size.vector <- NULL
+
+
+for (i in c(1:length(p.values))){
+        p.idx <- p.values[i]
+        raqtl.idx <- new.raqtl.k562[new.raqtl.k562$K562.wilcoxon.pvalue < p.idx,]
+        fc.idx <- log2(raqtl.idx$K562.cDNA.ref.mean / raqtl.idx$K562.cDNA.alt.mean)
+        mean.fc.idx <- 2^mean(abs(fc.idx[is.finite(fc.idx)]))
+        mean.vector[i] <- mean.fc.idx
+        size.vector[i] <- nrow(raqtl.idx)
+}
+
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.cutoff.foldchange.plot.png")
+plot(-log10(p.values),mean.vector, pch = 19, ylab = "Mean absolute fold change", xlab = "-log10(p-value cutoff)")
+dev.off()
+
+
+# Now try with ggplot for funsies
+
+#first we need the data as dataframe
+df <- as.data.frame(cbind(p.values,mean.vector,size.vector))
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.cutoff.foldchange.ggplot.png")
+ggplot(df, aes(-log10(p.values),mean.vector)) +
+        geom_point(size = size.vector/2000,aes(color = size.vector)) +
+        scale_color_viridis(name = "# raQTLs")+
+        ylab("Mean absolute fold change") +
+        xlab("-log10(p-value cutoff)")+
+        theme_bw()
 dev.off()
 
 ## For the SNPs that I do not find (old.raqtl.new.noraqtl) signicant. I want to know where their p-values exactly are
@@ -210,3 +315,34 @@ abline(v = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), lty = 2, cex = 3, l
 legend("topright", c(paste0("All tested SNPs (sampled to n=", nrow(all.sampled), ")"), 
                      paste0("Old raQTL, new no raQTL (n=", nrow(new.noraqtl.old.raqtl), ")")), fill = c("gray", alpha(2,0.5)))
 dev.off()
+
+## Effect size Old data
+# Just to see if i could recapitulate the fold change figures (supplemental figure 1g and 1h) I made the following plots.
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/Fig.1a.Effect.size.published.k562.png")
+pub.k562.fc <- log2(old.raqtl.k562$K562.cDNA.ref.mean / old.raqtl.k562$K562.cDNA.alt.mean)
+pub.k562.fc.mean <-  mean(2^abs(pub.k562.fc[is.finite(pub.k562.fc)]), na.rm = TRUE)
+plot(xlim = c(-6,6),bty = "n", pub.k562.fc, -log10(old.raqtl.k562$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("Published K562, ",n_distinct(old.raqtl.k562$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(pub.k562.fc.mean, digits = 1)))
+dev.off()
+
+png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/Fig.1b.Effect.size.published.hepg2.png")
+pub.hepg2.fc <- log2(old.raqtl.hepg2$hepg2.ref.mean / old.raqtl.hepg2$hepg2.alt.mean)
+pub.hepg2.fc.mean <-  mean(2^abs(pub.hepg2.fc[is.finite(pub.hepg2.fc)]), na.rm = TRUE)
+plot(xlim = c(-6,6),bty = "n", pub.hepg2.fc, -log10(old.raqtl.hepg2$HepG2.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("Published HepG2, ",n_distinct(old.raqtl.hepg2$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(pub.hepg2.fc.mean, digits = 1)))
+dev.off()
+
+# does not look good, mean should be 4, not 3.3, FIXED IT
+
+pub.k562.fc
+fc.abs <- abs(pub.k562.fc)
+fc.abs
+mean(fc.abs)
+# there are infinite values, i want to remove those
+fc.abs <- fc.abs[is.finite(fc.abs)]
+fc.abs
+mean(fc.abs)
+fc <- 2^fc.abs
+fc
+mean(fc)
+#This gives the right value...
