@@ -22,7 +22,9 @@ col.hepg2 <- "magenta4"
 
 #data is a gz-zipped txt file downloaded from ftp://ccg.vital-it.ch/snp2tfbs/mapped_files/ at 28-11-2019. file  = snp2tfbs_JASPAR_CORE_2014_vert.txt.gz
 
-snp2tfbs.df.2 <- read.delim("/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/snp2tfbs_JASPAR_CORE_2014_vert.txt.gz", header = FALSE, as.is = TRUE)
+snp2tfbs.df.2 <- read.delim("/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/snp2tfbs_JASPAR_CORE_2014_vert.txt.gz", header = FALSE, as.is = TRUE, )
+
+sum(all.variants$SNP_ID %in% snp2tfbs.df.2$V1)
 
 snp2tfbs.df.filtered <- snp2tfbs.df.2[grepl("rs", snp2tfbs.df.2$V1),]
 # alternative rows are removed. 
@@ -201,7 +203,7 @@ d <- reads.chr.15.filtered
 
 
 
-png(file = "data/processed/Figures/Indel_Example/Fig.1.sure.signal.per.allele.png")
+#png(file = "data/processed/Figures/Indel_Example/Fig.1.sure.signal.per.allele.png")
 #par(mar=c(4,6,4,0),)
 par(mfcol = c(1,2), mar=c(4,4,4,0))
 layout(matrix(c(2,1), 1, 2), widths = c(1.9,1))
@@ -253,7 +255,7 @@ jitter <- sample(seq(from=-0.50,to=0.50,by=0.001),nrow(all.reps.sampled),replace
 # calculate the distance from this point
 
 
-png("data/processed/Figures/Indel_Example/Fig.1b.sure.signal.per.allele.coverage.png")
+#png("data/processed/Figures/Indel_Example/Fig.1b.sure.signal.per.allele.coverage.png")
 par(mar=c(4,6,4,0))
 plot(ann = F, cex.lab = 1.5, axes = F, x=1, y=2, ylim = c(-2,12),  main = snp.id, xlim = c(97034658-400,97034658+400), cex.axis = 1.5 )
 arrows(x0 = all.reps.sampled[all.reps.sampled$SNP_VAR == 0,]$start_hg19, x1 = all.reps.sampled[all.reps.sampled$SNP_VAR == 0,]$end_hg19, 
@@ -275,7 +277,7 @@ dev.off()
 
 # Next thing I want to combine the two plots into one First do this, then go through the plots
 
-png("data/processed/Figures/Indel_Example/Fig.1c.sure.signal.per.allele.combined.png")
+#png("data/processed/Figures/Indel_Example/Fig.1c.sure.signal.per.allele.combined.png")
 dev.off()
 
 wilcox.test(d[d$SNP_VAR == 0]$cDNA.K562.norm.ipcr, d[d$SNP_VAR==1]$cDNA.K562.norm.ipcr)

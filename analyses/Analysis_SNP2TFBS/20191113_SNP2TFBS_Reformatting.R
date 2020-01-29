@@ -33,6 +33,8 @@ write.table(x = all.variants$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_
 write.table(x = raqtl.k562$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SNP2TFBS/snp.new.id.raqtl.562.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
 write.table(x = raqtl.hepg2$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SNP2TFBS/snp.new.id.raqtl.hepg2.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
 
+write.table(x = old.raqtl$SNP_ID, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SNP2TFBS/snp.old.raqtl.k562.txt", quote = FALSE, row.names = FALSE, col.names = FALSE)
+
 # These written tables can be transfered to the Windows PC with WinSCP
 
 # 2. do this as input on https://ccg.epfl.ch/snp2tfbs/snpselect.php
@@ -48,6 +50,7 @@ download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_44897.txt"
 download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_41221.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.raqtl.k562.20191118.txt")
 download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_42153.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.raqtl.hepg2.20191118.txt")
 download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_40204.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.all.20191118.txt")
+download.file(url = "https://ccg.epfl.ch/snp2tfbs/wwwtmp/match_output_6945.txt", destfile = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.raqtl.k562.old.only.20200110.txt")
 
 # 4. import the downloaded files as Robjects
 tfbs.raqtl.k562 <-  fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.indel.raqtl.k562.20191114.txt", select = c(7,1,2,4,5,6))
@@ -60,7 +63,7 @@ tfbs.raqtl.k562 <-  fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/
 tfbs.raqtl.hepg2 <- fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.raqtl.hepg2.20191118.txt", select = c(7,1,2,4,5,6))
 tfbs.all <-         fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.all.20191118.txt", select = c(7,1,2,4,5,6))
 
-
+tfbs.old <- fread(input = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/external/SNP2TFBS/motif.alteration.snp.raqtl.k562.old.only.20200110.txt", select = c(7,1,2,4,5,6))
 
 
 # 5. Reformat the dataframe for a row per transcription factor for the above 3 files
@@ -113,6 +116,68 @@ for (tfbs.raqtl in c("tfbs.raqtl.k562","tfbs.raqtl.hepg2")){
   if (tfbs.raqtl == "tfbs.raqtl.k562"){enrichment.k562.pvalue <- fisher.test(mat)$p.value
   } else {enrichment.hepg2.pvalue <- fisher.test(mat)$p.value}
 }
+
+
+
+
+
+
+# 6b Annotate the amount of tfbs matches. 
+
+tfbs.match.idx <- match(all.variants$SNP_ID,tfbs.all$snp.id)
+all.variants[,"nr.tfbs.match"] <- tfbs.all[tfbs.match.idx,tfbs.match]
+
+all.variants.indel <- all.variants[all.variants$snp.type == "indel",]
+all.variants.snp <- all.variants[all.variants$snp.type == "snp",]
+all.variants.snp.sampled <- sample_n(all.variants.snp, size = nrow(all.variants.indel))
+
+matches.snp <- discard(all.variants.snp$nr.tfbs.match, is.na)
+matches.indel <- discard (all.variants.indel$nr.tfbs.match, is.na)
+matches.snp.sampled <- sample(matches.snp, size = length(matches.indel))
+
+indel.1 <- sum(matches.indel == 1)
+indel.more.than.1 <- sum(matches.indel > 1)
+indel.frac.more.than.1 <- indel.more.than.1/indel.1
+
+snp.1 <- sum(matches.snp == 1)
+snp.more.than.1 <- sum(matches.snp > 1)
+snp.frac.more.than.1 <- snp.more.than.1/snp.1
+
+match.mat <- matrix(data = c(indel.1, indel.more.than.1, snp.1, snp.more.than.1), nrow = 2, ncol = 2, dimnames = list(c("1", ">1"), c("indel", "snp")))
+fisher.test(match.mat)
+
+barplot(table(matches.snp.sampled))
+barplot(table(matches.indel),  add = T, col = alpha(2,0.5))
+
+# snps.k562
+
+tfbs.k562.match.idx <- match(raqtl.k562$SNP_ID,tfbs.raqtl.k562$snp.id)
+raqtl.k562[,"nr.tfbs.match"] <- tfbs.raqtl.k562[tfbs.k562.match.idx,tfbs.match]
+raqtl.k562.snp <- raqtl.k562[raqtl.k562$snp.type == "snp",]
+raqtl.k562.indel <- raqtl.k562[raqtl.k562$snp.type == "indel",]
+
+k562.matches.snp <- discard(raqtl.k562.snp$nr.tfbs.match, is.na)
+k562.matches.indel <- discard(raqtl.k562.indel$nr.tfbs.match, is.na)
+k562.matches.snp.sampled <- sample(k562.matches.snp, size = length(k562.matches.indel))
+
+k562.indel.1 <- sum(k562.matches.indel == 1)
+k562.indel.more.than.1 <- sum(k562.matches.indel > 1)
+k562.indel.frac.more.than.1 <- k562.indel.more.than.1/k562.indel.1
+
+k562.snp.1 <- sum(k562.matches.snp == 1)
+k562.snp.more.than.1 <- sum(k562.matches.snp > 1)
+k562.snp.frac.more.than.1 <- k562.snp.more.than.1/k562.snp.1
+
+k562.match.mat <- matrix(data = c(k562.indel.1, k562.indel.more.than.1, k562.snp.1, k562.snp.more.than.1), nrow = 2, ncol = 2, dimnames = list(c("1", ">1"), c("indel", "snp")))
+fisher.test(k562.match.mat)
+
+
+
+
+
+
+
+
 
 # 7. CONCORDANCE: Find the maximum scoredifferences and plug them into the raQTL / total INDEL dataframes
 
@@ -286,7 +351,7 @@ conc.k562.snp  <- sum(raqtl.k562.snp$motif.concordance == "concordance")  / sum(
 conc.hepg2.snp <- sum(raqtl.hepg2.snp$motif.concordance == "concordance") / sum(raqtl.hepg2.snp$motif.concordance %in% c("concordance", "non.concordance"))
 values.4a <- c(conc.hepg2.snp, conc.k562.snp, conc.all.snp)
 
-png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.4a.Motif.concordance.snps.0.ignored.png")
+#png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.4a.Motif.concordance.snps.0.ignored.png")
 par(mar=c(4,10,20,1)+.1)
 bp <- barplot(values.4a, names.arg = c("HepG2 SNP raQTLs ", "K562 SNP raQTLs ", "All SNPs tested"),
               horiz = TRUE, 
@@ -302,7 +367,7 @@ barplot(add = T,rep(0.5,3),
 text(x = 0.25, y = bp[,1]-0.02, "Expected by chance", col = 1, cex = 1)
 text(values.4a[1]+0.02, y = bp[1,], labels = "*",cex = 2)
 text(values.4a[2]+0.02, y = bp[2,], labels = "*",cex = 2)
-dev.off()
+#dev.off()
 
 # Figure 4b. Motif concordance Indels (0 = deletion of motif)
 
@@ -315,7 +380,7 @@ conc.k562.indel  <- sum(raqtl.k562.indel$motif.concordance == "concordance")  / 
 conc.hepg2.indel <- sum(raqtl.hepg2.indel$motif.concordance == "concordance") / sum(raqtl.hepg2.indel$motif.concordance %in% c("concordance", "non.concordance"))
 values.4b <- c(conc.hepg2.indel, conc.k562.indel, conc.all.indel)
 
-png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.4b.Motif.concordance.indels.0.ignored.png")
+#png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.4b.Motif.concordance.indels.0.ignored.png")
 par(mar=c(4,10,20,1)+.1)
 bp <- barplot(values.4b, names.arg = c("HepG2 Indel raQTLs ", "K562 Indel raQTLs ", "All Indels tested"),
               horiz = TRUE, 
@@ -331,7 +396,7 @@ barplot(add = T,rep(0.5,3), names.arg = NULL,
 text(x = 0.25, y = bp[,1]-0.02, "Expected by chance", col = 1, cex = 1)
 text(values.4b[1]+0.02, y = bp[1,], labels = "*",cex = 2)
 text(values.4b[2]+0.02, y = bp[2,], labels = "*",cex = 2)
-dev.off()
+#dev.off()
 
 
 # Figure 5 concordance per fraction of raqtls 
@@ -346,12 +411,26 @@ p.values <- 10^(-seq(2,10, length.out = 20))
 concordance.snp <- NULL
 
 for (i in 1:length(p.values)){
-  raqtl.k562.snp.idx <- raqtl.k562[raqtl.k562$snp.type == "snp" & raqtl.k562$K562.wilcoxon.pvalue < p.values[i],]
+  raqtl.k562.snp.idx <- raqtl.k562[raqtl.k562$snp.type == "indel" & raqtl.k562$K562.wilcoxon.pvalue < p.values[i],]
   concordance.snp[i]  <- sum(raqtl.k562.snp.idx$motif.concordance == "concordance")  / sum(raqtl.k562.snp.idx$motif.concordance %in% c("concordance", "non.concordance"))
 }
-png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.5b.concordance.cutoff.snps.png")
+#png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/SNP2TFBS/Fig.5b.concordance.cutoff.snps.png")
 plot(ylim = c(0.5, 1),-log10(p.values), concordance.snp, pch = 19, ylab = "Fraction concordance SuRE and motif disruption", xlab = "-log10(p-value cutoff)", main = "K562 raQTLs (SNPs)")
+#dev.off()
+
+png("data/processed/Figures/SNP2TFBS/Fig.5c.concordance.cutoff.all.png")
+plot(ylim = c(0.5, 1), x = c(SNP.p.values, INDEL.p.values), y = c(SNP.concordance.snp, INDEL.concordance), pch = c(19, 5)[c(rep(1,length(SNP.p.values)), rep(2, length(INDEL.p.values)))], ylab = "Fraction concordance SuRE and motif disruption", xlab = "-log10(p-value cutoff)", main = "K562 raQTLs (SNPs & Indels)")
+legend("topright", legend = c("SNPs (n=28511)" , "Indels (n=2351)"), pch = c(19,5))
 dev.off()
+
+
+
+
+
+
+
+
+
 
 
 
@@ -390,3 +469,63 @@ fisher.test(indel.hepg2)
 
 
 
+
+
+
+### After doing the above analysis for K562 SNPs only I want to split them in two groups:
+# (A) new raQTLs and (B) overlapping raQTLs. For this I need the overlapping data
+
+pub.raqtl.k562 <- readRDS("data/interim/R_Objects/published.raqtl.k562.RDS")
+overlap <- raqtl.k562$SNP_ID %in% pub.raqtl.k562$SNP_ID
+sum(overlap) #corresponds with venn diagram
+
+overlap.raqtl <- raqtl.k562[overlap,]
+new.raqtl <- raqtl.k562[!overlap,]
+
+old.raqtl.idx <- !pub.raqtl.k562$SNP_ID %in% raqtl.k562$SNP_ID
+sum(old.raqtl.idx) #klopt met venn
+
+old.raqtl <- pub.raqtl.k562[old.raqtl.idx,]
+# now i want this selection, but then in all.variants
+old.raqtl.idx2 <- all.variants$SNP_ID %in% old.raqtl$SNP_ID
+
+old.idx <- All.20191113$SNP_ID %in% old.raqtl$SNP_ID
+sum(old.idx)
+old.raqtl.in.new.pipeline <- All.20191113[old.idx,]
+
+old.raqtl.definitive <- all.variants[old.raqtl.idx2,]
+
+## Now it is time to anotatte the concordance
+
+# For every variant there might be multiple
+k562.old.max.scorediff <- tapply(tfbs.old$score.differences, tfbs.old$snp.id, function(x){x[which.max(abs(x))]})
+
+# this vector contains row# for which the scoredifference is.
+match.idx <- match(names(k562.old.max.scorediff), old.raqtl.in.new.pipeline$SNP_ID)
+old.raqtl.in.new.pipeline <- as.data.table(old.raqtl.in.new.pipeline)
+old.raqtl.in.new.pipeline[match.idx,"k562.old.max.scorediff"] <- k562.old.max.scorediff
+
+concordance.idx.1 <- which(old.raqtl.in.new.pipeline$k562.max == "ref" & sign(old.raqtl.in.new.pipeline$k562.old.max.scorediff)==-1)
+concordance.idx.2 <- which(old.raqtl.in.new.pipeline$k562.max == "alt" & sign(old.raqtl.in.new.pipeline$k562.old.max.scorediff)==1)
+non.concordance.idx.1 <- which(old.raqtl.in.new.pipeline$k562.max == "ref" & sign(old.raqtl.in.new.pipeline$k562.old.max.scorediff)==1)
+non.concordance.idx.2 <- which(old.raqtl.in.new.pipeline$k562.max == "alt" & sign(old.raqtl.in.new.pipeline$k562.old.max.scorediff)==-1)
+undetermined.idx <- which(sign(old.raqtl.in.new.pipeline$k562.old.max.scorediff) == 0) # maybe I should, alternatively classify this as concordant or non.concordant
+
+old.raqtl.in.new.pipeline[c(concordance.idx.1, concordance.idx.2),"motif.concordance"] <- "concordance"
+old.raqtl.in.new.pipeline[c(non.concordance.idx.1, non.concordance.idx.2),"motif.concordance"] <- "non.concordance"
+old.raqtl.in.new.pipeline[c(undetermined.idx), "motif.concordance"] <- "undetermined"
+old.raqtl.in.new.pipeline[is.na(old.raqtl.in.new.pipeline$motif.concordance), "motif.concordance"] <- "no motifs"
+
+
+table(old.raqtl.in.new.pipeline$motif.concordance)
+
+
+
+## I have redone the analysis on the 7040 that are presen
+
+
+
+#numbers correspond with venn diagram
+table(all.variants$motif.concordance.k562)
+table(overlap.raqtl$motif.concordance)
+table(new.raqtl$motif.concordance)

@@ -173,3 +173,9 @@ Generated a nice figure for an example indel with a loss of motif in SNP2TFBS. F
 
 #### 04-12-2019 (We)
 Short day, little bit of writing CHP2. 
+
+#### 09-12-2019 (Mo)
+Combined the plot for SNP and INDEL concordance change with p-value cutoff of raqtls. Wrote very few on CHP2. Almost done I think. Made figures with a little bit bigger labels
+
+#### 13-12-2019 (Fr)
+Handed in first version of CHP2 results. Wrote a little bit of methods. Calculated the percentage of variants that alter >1 tf motif. 

@@ -341,8 +341,14 @@ barplot(newho/allho*100, las= 2, ylab = "New mutations (%)", main = "Homozygote 
 }
 
 ########################################################
-#####   FILTERING VCF   ################################
+#####   make a figure   ################################
 ########################################################
 
+sure.snps <- readRDS("data/interim/R_Objects/results_sure_new.rds")
 
+pp <- getDefaultPlotParams(plot.type = 1)
 
+kp <- plotKaryotype(plot.type = 1, plot.params = pp, chromosomes = paste0("chr", c(5:22)))
+#kpAddCytobands(kp, color.schema = "only.centromeres")
+kpPlotDensity(kp, data = GRanges(seqnames = sure.snps$chr, ranges = IRanges(start = sure.snps$snp.abs.pos, width = 1)), window.size = 1e6, col = "gray", border = 1)
+kpPlotDensity(kp, data = GRanges(seqnames = published.raqtl.k562$chr, ranges = IRanges(start = published.raqtl.k562$SNPabspos, width = 1)), window.size = 0.1e5, col = 1, border = 1)

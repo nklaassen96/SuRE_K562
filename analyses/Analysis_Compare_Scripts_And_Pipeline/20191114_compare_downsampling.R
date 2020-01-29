@@ -50,6 +50,15 @@ draw.pairwise.venn(area1 = nrow(new.downsample.raqtl.k562),
                    cat.pos = c(-20,20),cex = rep(2,3),cat.cex = rep(1.3,2))
 dev.off()
 
+## Venn overlap new downsample and new with different downsampling
+# K562 raQTLs, SNP only, old downsample vs new downsampling vector
+png("data/processed/Figures/Comparison_analysis/Venn.K562.raQTL.olddowns.vs.newdowns.png")
+draw.pairwise.venn(area1 = n_distinct(new.raqtl.k562$SNP_ID), 
+                   area2 = n_distinct(new.downsample.raqtl.k562$SNP_ID), 
+                   cross.area = sum(new.raqtl.k562$SNP_ID %in% new.downsample.raqtl.k562$SNP_ID),
+                   category = c("OLD", "NEW"),
+                   fill = c(2,3), cex = c(rep(1.5,3)))
+dev.off()
 
 new.raqtl.old.noraqtl.idx <- which(!new.raqtl.k562$SNP_ID %in% old.raqtl.k562$SNP_ID)
 old.raqtl.new.noraqtl.idx <- which(!old.raqtl.k562$SNP_ID %in% new.raqtl.k562$SNP_ID)
@@ -120,26 +129,37 @@ combined.all <- rbind(combined.old,
 #plot ref.element.count per subset
 {
 
-png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.ref.element.count.png")
-plot(x = combined.all$ref.element.count,
+        # TEST LM
+        
+        linear.mod <- lm(formula = new.ref.element.count ~ ref.element.count, data = combined.overlap)
+        
+        # TEST LM
+        
+        
+#png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.ref.element.count.png")
+png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.ref.element.count.cex.1.5.png")
+par(mar=c(5,4.5,4,2)+0.1) 
+plot(cex.lab = 1.5, cex.axis = 1.5, x = combined.all$ref.element.count,
      y = combined.all$new.ref.element.count,
-     col = c(alpha(2, 0.3),
-             alpha(3, 0.3),
+     col = c(alpha(3, 0.3),
+             alpha(2, 0.3),
              alpha(4, 0.3))[combined.all$subset], 
      ylim = c(0,500),
      xlim = c(0,500),
-     cex = 0.2,
-     main = paste0("K562 raQTLs"), 
-     xlab = "Old ref.element.count",
-     ylab = "New ref.element.count")
+     cex = 0.4,
+     pch = 19,
+     main = paste0("Reference element count"), 
+     xlab = "Published counts",
+     ylab = "New counts")
 abline(a = 0, b = 1)
-legend("topright", 
-       fill = c(alpha(2, 1),
+legend("topleft", bty = "n", , cex = 1.5,
+       fill = c(alpha(4, 1),
                 alpha(3, 1),
-                alpha(4, 1)),
-       legend = c(paste0("Only old raQTL (n=",sum(combined.all$subset == "old"), ")"),
-                  paste0("Only new raQTL (sampled to n=",sum(combined.all$subset == "new"), ")"),
-                  paste0("Both old and new raQTL (sampled to n=",sum(combined.all$subset == "overlap"), ")")))
+                alpha(2, 1)),
+       legend = c(paste0("Both published and new K562 raQTL"),
+                  paste0("Only published K562 raQTL "),
+                  paste0("Only new K562 raQTL")
+                  ))
 dev.off()
 
 # I notice that increased ref. reads are enriched for new snps
@@ -147,26 +167,30 @@ dev.off()
 
 #plot alt.element.count per subset
 {
-png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.alt.element.count.png")
-plot(x = combined.all$alt.element.count,
+#png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.alt.element.count.png")
+png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.alt.element.count.cex.1.5.png")
+par(mar=c(5,4.5,4,2)+0.1) 
+plot(cex.lab = 1.5, cex.axis = 1.5,x = combined.all$alt.element.count,
      y = combined.all$new.alt.element.count,
-     col = c(alpha(2, 0.3),
-             alpha(3, 0.3),
+     col = c(alpha(3, 0.3),
+             alpha(2, 0.3),
              alpha(4, 0.3))[combined.all$subset], 
      ylim = c(0,500),
      xlim = c(0,500),
-     cex = 0.2,
-     main = paste0("K562 raQTLs"), 
-     xlab = "Old alt.element.count",
-     ylab = "New alt.element.count")
+     cex = 0.4,
+     pch = 19,
+     main = paste0("Alternative element count"), 
+     xlab = "Published counts",
+     ylab = "New counts")
 abline(a = 0, b = 1)
-legend("topright", 
-       fill = c(alpha(2, 1),
+legend("topleft", cex = 1.5, bty = "n",
+       fill = c(alpha(4, 1),
                 alpha(3, 1),
-                alpha(4, 1)),
-       legend = c(paste0("Only old raQTL (n=",sum(combined.all$subset == "old"), ")"),
-                  paste0("Only new raQTL (sampled to n=",sum(combined.all$subset == "new"), ")"),
-                  paste0("Both old and new raQTL (sampled to n=",sum(combined.all$subset == "overlap"), ")")))
+                alpha(2, 1)),
+       legend = c(paste0("Both published and new K562 raQTL"),
+                  paste0("Only published K562 raQTL "),
+                  paste0("Only new K562 raQTL")
+       ))
 dev.off()
 
 # I notice that increased alt. reads are enrichted for new snps
@@ -175,7 +199,8 @@ dev.off()
 #plot alt + ref.element.count per subset
 {
 png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/raQTL.K562.persubset.alt_and_ref.element.count.png")
-plot(x = combined.all$alt.element.count+combined.all$ref.element.count,
+par(mar=c(5,4.5,4,2)+0.1)
+plot(cex.lab = 1.5, cex.axis = 1.5, x = combined.all$alt.element.count+combined.all$ref.element.count,
      y = combined.all$new.alt.element.count+combined.all$new.ref.element.count,
      col = c(alpha(2, 0.3),
              alpha(3, 0.3),
@@ -184,8 +209,8 @@ plot(x = combined.all$alt.element.count+combined.all$ref.element.count,
      xlim = c(0,600),
      cex = 0.2,
      main = paste0("K562 raQTLs"), 
-     xlab = "Old alt+ref.element.count",
-     ylab = "New alt+ref.element.count")
+     xlab = "Old alt&ref element count",
+     ylab = "New alt&ref element count")
 abline(a = 0, b = 1)
 legend("topright", 
        fill = c(alpha(2, 1),
@@ -237,28 +262,31 @@ dev.off()
 {
 # (1) Overlapping raQTLs
 png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.overlap.png")
+par(mar=c(5,4.5,4,2)+0.1)        
 k562.fc.overlap <- log2(overlap.raqtl$K562.cDNA.ref.mean / overlap.raqtl$K562.cDNA.alt.mean)
 k562.fc.mean.overlap <-  mean(2^abs(k562.fc.overlap[is.finite(k562.fc.overlap)]), na.rm = TRUE)
-plot(xlim = c(-6,6), bty = "n", k562.fc.overlap, -log10(overlap.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs (overlap), ",n_distinct(overlap.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
-text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.overlap, digits = 1)))
+plot(las = 1,cex.axis = 1.5, cex.lab = 1.5, xlim = c(-6,6), bty = "n", k562.fc.overlap, -log10(overlap.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs (overlap), ",n_distinct(overlap.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.overlap, digits = 1)), cex = 1.5)
 abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
 dev.off()
 
 # (2) Only new raQTLs
 png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.new.png")
+par(mar=c(5,4.5,4,2)+0.1)
 k562.fc.new <- log2(new.raqtl.old.noraqtl$K562.cDNA.ref.mean / new.raqtl.old.noraqtl$K562.cDNA.alt.mean)
 k562.fc.mean.new <-  mean(2^abs(k562.fc.new[is.finite(k562.fc.new)]), na.rm = TRUE)
-plot(xlim = c(-6,6),bty = "n", k562.fc.new, -log10(new.raqtl.old.noraqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('extra'), ",n_distinct(new.raqtl.old.noraqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
-text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.new, digits = 1)))
+plot(las = 1,cex.axis = 1.5, cex.lab = 1.5, xlim = c(-6,6),bty = "n", k562.fc.new, -log10(new.raqtl.old.noraqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('extra'), ",n_distinct(new.raqtl.old.noraqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.new, digits = 1)), cex = 1.5)
 abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
 dev.off()
 
 # (3) Only old raQTLs
 png("/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/volcano.fc.old.png")
+par(mar=c(5,4.5,4,2)+0.1)
 k562.fc.old <- log2(new.noraqtl.old.raqtl$K562.cDNA.ref.mean / new.noraqtl.old.raqtl$K562.cDNA.alt.mean)
 k562.fc.mean.old <-  mean(2^abs(k562.fc.old[is.finite(k562.fc.old)]), na.rm = TRUE)
-plot(xlim = c(-6,6),bty = "n", k562.fc.old, -log10(new.noraqtl.old.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('unidentified'), ",n_distinct(new.noraqtl.old.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
-text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.old, digits = 1)))
+plot(las = 1,cex.axis = 1.5, cex.lab = 1.5, xlim = c(-6,6),bty = "n", k562.fc.old, -log10(new.noraqtl.old.raqtl$K562.wilcoxon.pvalue), col = alpha(1, 0.05), pch = 19, cex = 0.5,ylab = "-log10(p-value)", xlab = "log2(Ref/Alt SuRE Expression)", main = paste0("K562 raQTLs ('unidentified'), ",n_distinct(new.noraqtl.old.raqtl$SNP_ID), " raQTLs"), ylim = c(0,20))
+text(x = 0, y = 20, labels = paste0("mean absolute fold change: ", round(k562.fc.mean.old, digits = 1)), cex = 1.5)
 abline(h = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), col = "gray", lwd = 2, lty = 3)
 dev.off()
 }
@@ -304,16 +332,18 @@ dev.off()
 
 all.sampled <- sample_n(all.new, size = nrow(new.noraqtl.old.raqtl))
 
-png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/All.Hist.p.value.distribution.png")
-hist(-log10(all.sampled$K562.wilcoxon.pvalue), breaks = 100, col = "gray", xlim = c(0,6), main = "P-value distribution new pipeline", xlab = "-log10(p-value)")
-hist(-log10(new.noraqtl.old.raqtl$K562.wilcoxon.pvalue), breaks = 200, add = T, col = alpha(2,0.5))
+#png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/All.Hist.p.value.distribution.png")
+png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/Comparison_analysis/All.Hist.p.value.distribution.cex.1.5.png")
+par(mar=c(5,4.5,4,2)+0.1) 
+hist(cex.axis = 1.5, cex.lab = 1.5, las = 1, -log10(all.sampled$K562.wilcoxon.pvalue), breaks = 100, col = "gray", xlim = c(0,4), main = "P-value distribution new pipeline", xlab = "-log10(p-value)")
+hist(-log10(new.noraqtl.old.raqtl$K562.wilcoxon.pvalue), breaks = 200, add = T, col = alpha(3,0.5))
 
 # I want to add a vertical line that indicates the p-value threshold that was used in the NEW pipeline to define
 # the raqtls. This p-value is the highest p-value within the completet K562 raQTL new set.
 
 abline(v = -log10(max(new.raqtl.k562$K562.wilcoxon.pvalue)), lty = 2, cex = 3, lwd = 2)
-legend("topright", c(paste0("All tested SNPs (sampled to n=", nrow(all.sampled), ")"), 
-                     paste0("Old raQTL, new no raQTL (n=", nrow(new.noraqtl.old.raqtl), ")")), fill = c("gray", alpha(2,0.5)))
+legend("topright", cex = 1.5, c(paste0("All tested SNPs (sampled to n=", nrow(all.sampled), ")"), 
+                     paste0("Old raQTL, new no raQTL (n=", nrow(new.noraqtl.old.raqtl), ")")), fill = c("gray", alpha(3,0.5)))
 dev.off()
 
 ## Effect size Old data

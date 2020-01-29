@@ -111,19 +111,25 @@ library(VennDiagram)
   
   # -log10(p)
   png(filename = paste0(fig.dir, "All.pvalue.png"))
-  plot(x = -log10(all.comb.dt[[8]])[sample.vector], y = -log10(all.comb.dt[[31]])[sample.vector], cex = 0.1, xlab = "Published -log10(p-value)", ylab = "Novel -log10(p-value)", main = paste0("All tested SNPs (sampled n=", length(sample.vector),")"), sub = "hi") 
+  par(mar=c(5,4.5,4,2)+0.1)
+  plot(cex.lab = 1.5, cex.axis= 1.5, ylim = c(0,5),xlim = c(0,5),x = -log10(all.comb.dt[[8]])[sample.vector], y = -log10(all.comb.dt[[31]])[sample.vector], col = alpha(1, 0.05),cex = 0.1, xlab = "Published -log10(p-value)", ylab = "Novel -log10(p-value)", main = paste0("All tested SNPs (sampled n=", length(sample.vector),")")) 
   abline(a = 0, b = 1)
+  text(x=0.5, y=4.8, labels = paste0("r = ", round(cor(x = -log10(all.comb.dt[[8]]), y = -log10(all.comb.dt[[31]]), method = "pearson"), digits = 3)), cex = 1.5)
   dev.off()
   
   # ref.element.count
   png(filename = paste0(fig.dir, "All.ref_element_count.png"))
-  plot(x = all.comb.dt[[4]][sample.vector], y = all.comb.dt[[21]][sample.vector], cex = 0.1, xlab = "Published ref_element_count", ylab = "Novel ref_element_count", main = paste0("All tested SNPs (sampled n=", length(sample.vector),")"))
+  par(mar=c(5,4.5,4,2)+0.1)
+  plot(cex.lab = 1.5, cex.axis= 1.5,x = all.comb.dt[[4]][sample.vector], y = all.comb.dt[[21]][sample.vector], cex = 0.1, xlab = "Published ref element count", ylab = "Novel ref element count", main = paste0("All tested SNPs (sampled n=", length(sample.vector),")"))
+  text(x=50, y=960, labels = paste0("r = ", round(cor(x = -log10(all.comb.dt[[4]]), y = -log10(all.comb.dt[[21]]), method = "pearson"), digits = 3)), cex = 1.5)
   abline(a = 0, b = 1)
   dev.off()
   
   # alt.element.count
   png(filename = paste0(fig.dir, "All.alt_element_count.png"))
-  plot(x = all.comb.dt[[5]][sample.vector], y = all.comb.dt[[22]][sample.vector], cex = 0.1, xlab = "Published alt_element_count", ylab = "Novel alt_element_count", main = "Alt Element count")
+  par(mar=c(5,4.5,4,2)+0.1)
+  plot(cex.lab = 1.5, cex.axis= 1.5,x = all.comb.dt[[5]][sample.vector], y = all.comb.dt[[22]][sample.vector], cex = 0.1, xlab = "Published alt element count", ylab = "Novel alt element count", main = "Alt Element count")
+  text(x=50, y=960, labels = paste0("r = ", round(cor(x = -log10(all.comb.dt[[5]]), y = -log10(all.comb.dt[[22]]), method = "pearson"), digits = 3)), cex = 1.5)
   abline(a = 0, b = 1)
   dev.off()
   

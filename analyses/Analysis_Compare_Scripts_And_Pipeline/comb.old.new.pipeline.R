@@ -39,8 +39,8 @@ published.raqtl.hepg2 <- df[df$HepG2.wilcoxon.pvalue <= 0.00173121,]
 saveRDS(published.raqtl.hepg2, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.hepg2.RDS")
 
 
-
-
+published.raqtl.k562 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/R_Objects/published.raqtl.k562.RDS")
+novel.raqtl.k562 <- readRDS("/DATA/usr/n.klaassen/projects/SuRE_K562/data/interim/SuRE_Indel_raQTLs/K562.raqtl.10-1000.elements.4.min.SuREexpr.20191113.RDS")
 
 novel.raqtl.k562 <- raqtl.k562
 
@@ -48,6 +48,12 @@ published.raqtl.novel.noraqtl.idx <-which(!published.raqtl.k562$SNP_ID %in% nove
 published.raqtl.novel.norqtl <- published.raqtl.k562[published.raqtl.novel.noraqtl.idx,]
 novel.noraqtl.published.raqtl.idx <- which(novel$SNP_ID %in% published.raqtl.novel.norqtl$SNP_ID)
 novel.noraqtl.published.raqtl <- novel[novel.noraqtl.published.raqtl.idx,]
+
+sampled.p.values <- sample_n(published.raqtl.k562, size = nrow(published.raqtl.novel.norqtl))
+
+hist(-log10(published.raqtl.novel.norqtl$K562.wilcoxon.pvalue), col = 2, breaks = 200, xlim = c(0,10))
+hist(-log10(sampled.p.values$K562.wilcoxon.pvalue), col = alpha("gray", 0.5), add = T, breaks = 400)
+
 
 saveRDS(object = pub.raqtl.k, file = "/DATA/usr/n.klaassen/projects/SuRE_K562/tmp/pub.raqtl.k.RDS")
 
@@ -101,12 +107,18 @@ sample.vector <- sample(seq(1:nrow(all.comb.dt)), size = 200000)
 
 # -log10(p)
 png(filename = paste0(fig.dir, "All.pvalue.png"))
-plot(x = -log10(all.comb.dt[[8]][sample.vector]), y = -log10(all.comb.dt[[32]][sample.vector]), col = alpha(1, 0.01), cex = 0.1, xlab = "Published SNPs", ylab = "Novel SNPs", 
+plot(x = -log10(all.comb.dt[[8]][sample.vector]), y = -log10(all.comb.dt[[32]][sample.vector]), col = alpha(1, 0.4), cex = 0.1, xlab = "Published SNPs", ylab = "Novel SNPs", 
      main = paste0("All SNPs (n=", nrow(all.comb.dt), "): -log10(p.value)"),
      ylim = c(0,10), xlim = c(0,10)) 
 text(x = 5, y = 10 , labels = paste0("sampled to n=",length(sample.vector)))
 abline(a = 0, b = 1)
 dev.off()
+
+#correlation coefficient of the p-values
+keep.idx <- which(is.finite(-log10(all.comb.dt[[32]]))) # 2 values need to be removed because p = 0
+length(keep.idx)
+all.comb.dt <- all.comb.dt[keep.idx,]
+cor(x = -log10(all.comb.dt[[8]]), y = -log10(all.comb.dt[[32]]))
 
 # ref.element.count
 png(filename = paste0(fig.dir, "All.ref_element_count.png"))

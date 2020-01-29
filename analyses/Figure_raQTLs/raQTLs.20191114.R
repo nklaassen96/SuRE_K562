@@ -70,6 +70,26 @@ draw.pairwise.venn(area1 = nrow(raqtl.k562.indel),
                    cat.pos = c(0,0),cex = 2,cat.cex = 2.5, fill = c(col.k562, col.hepg2), alpha = c(0.8,0.8), cat.fontfamily = c("sans","sans"), fontfamily = c("sans", "sans", "sans"))
 dev.off()
 
+
+## Figure 2B. Venn overlapping SNPs.
+
+
+all.snp <- all.variants[all.variants$snp.type == "snp",]
+raqtl.hepg2.snp <- raqtl.hepg2[raqtl.hepg2$snp.type == "snp",]
+raqtl.k562.snp <- raqtl.k562[raqtl.k562$snp.type == "snp",]
+
+png(filename = "/DATA/usr/n.klaassen/projects/SuRE_K562/data/processed/Figures/raQTLs/Fig.2B.Venn.raQTL.snp.overlap.png")
+draw.pairwise.venn(area1 = nrow(raqtl.k562.snp), 
+                   area2 = nrow(raqtl.hepg2.snp), 
+                   cross.area = sum(raqtl.k562.snp$SNP_ID %in% raqtl.hepg2.snp$SNP_ID),
+                   category = c("K562", "HepG2"), 
+                   cat.pos = c(0,0),cex = 2,cat.cex = 2.5, fill = c(col.k562, col.hepg2), alpha = c(0.8,0.8), cat.fontfamily = c("sans","sans"), fontfamily = c("sans", "sans", "sans"))
+dev.off()
+
+
+
+
+
 ## Figure 3. SuRE activity for all fragments of one specific indel
 
 # I choose a indel for which the wilcox.value in K562 is very high and the alternative is lower than the 
