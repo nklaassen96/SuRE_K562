@@ -1,0 +1,18 @@
+---
+title: "20200507_LeukemiaCellLines"
+output: html_document
+---
+
+```{r setup}
+
+ll100lines <- read.table(file = "/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/PhD_Analyses/20200507_LL100CellLines.txt"  ,  stringsAsFactors = FALSE)
+ll100lines$V1 <- sort(ll100lines$V1)
+ll100lines
+Nucleofectlines <- read.table(file ="/DATA/usr/n.klaassen/projects/SuRE_K562/analyses/PhD_Analyses/20200507_NucleofectorOptimizedCellLines.txt", fill = TRUE, stringsAsFactors = FALSE)
+Nucleofectlines <- Nucleofectlines[order(Nucleofectlines$V1),]
+Nucleofectlines$V1 <- toupper(Nucleofectlines$V1)
+
+matches <- ll100lines[ll100lines$V1 %in% Nucleofectlines$V1,]
+matches
+```
+
